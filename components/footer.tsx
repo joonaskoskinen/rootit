@@ -68,7 +68,7 @@ export function Footer() {
               {t("nav.howItWorks")}
             </Link>
             <Link href="#faq" className="text-sm text-muted-foreground transition-colors hover:text-foreground">
-              Usein kysyttyä
+              {t("nav.faq")}
             </Link>
           </nav>
         </div>
