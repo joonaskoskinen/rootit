@@ -29,9 +29,9 @@ export function Footer() {
   const { t } = useLanguage()
 
   return (
-    <footer className="border-t border-border py-12">
+    <footer className="border-t border-border py-8 sm:py-12" role="contentinfo">
       <div className="mx-auto max-w-6xl px-4 lg:px-6">
-        <div className="grid gap-8 sm:grid-cols-2 lg:grid-cols-3">
+        <div className="grid gap-6 sm:grid-cols-2 sm:gap-8 lg:grid-cols-3">
           {/* Brand column */}
           <div className="flex flex-col items-center gap-3 sm:items-start">
             <Link href="/" className="flex items-center gap-2 font-bold tracking-wide">
@@ -57,7 +57,7 @@ export function Footer() {
           </div>
           
           {/* Nav column */}
-          <nav className="flex flex-col items-center gap-2 sm:items-start lg:items-end">
+          <nav className="flex flex-col items-center gap-2 sm:items-start lg:items-end" aria-label="Alanavigaatio">
             <Link href="#services" className="text-sm text-muted-foreground transition-colors hover:text-foreground">
               {t("footer.services")}
             </Link>
@@ -67,11 +67,14 @@ export function Footer() {
             <Link href="#how-it-works" className="text-sm text-muted-foreground transition-colors hover:text-foreground">
               {t("nav.howItWorks")}
             </Link>
+            <Link href="#faq" className="text-sm text-muted-foreground transition-colors hover:text-foreground">
+              Usein kysyttyä
+            </Link>
           </nav>
         </div>
         
-        <div className="mt-8 border-t border-border pt-8 text-center">
-          <p className="text-sm text-muted-foreground">
+        <div className="mt-6 border-t border-border pt-6 text-center sm:mt-8 sm:pt-8">
+          <p className="text-xs text-muted-foreground sm:text-sm">
             &copy; {new Date().getFullYear()} rootIT. {t("footer.slogan")}
           </p>
         </div>
