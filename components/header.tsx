@@ -65,7 +65,7 @@ export function Header() {
           <RootITLogo />
         </Link>
 
-        <nav className="hidden items-center gap-6 text-muted-foreground md:flex" aria-label="Päänavigaatio">
+        <nav className="hidden items-center gap-6 text-muted-foreground md:flex">
           <Link href="#services" className="text-sm transition-colors hover:text-foreground">
             {t("nav.services")}
           </Link>
@@ -74,9 +74,6 @@ export function Header() {
           </Link>
           <Link href="#how-it-works" className="text-sm transition-colors hover:text-foreground">
             {t("nav.howItWorks")}
-          </Link>
-          <Link href="#faq" className="text-sm transition-colors hover:text-foreground">
-            UKK
           </Link>
           <Link 
             href="https://www.teamviewer.com/en/download/portal/windows/"
@@ -118,47 +115,40 @@ export function Header() {
       {/* Mobile Menu */}
       {isMobileMenuOpen && (
         <div className="border-t border-border bg-background/95 backdrop-blur-xl md:hidden">
-          <nav className="mx-auto flex max-w-6xl flex-col gap-1 px-4 py-4" aria-label="Mobiilinavigaatio">
+          <nav className="mx-auto flex max-w-6xl flex-col gap-2 px-4 py-4">
             <Link 
               href="#services" 
-              className="rounded-lg px-4 py-3 text-base transition-colors hover:bg-muted active:bg-muted"
+              className="rounded-lg px-4 py-2 text-sm transition-colors hover:bg-muted"
               onClick={() => setIsMobileMenuOpen(false)}
             >
               {t("nav.services")}
             </Link>
             <Link 
               href="#pricing" 
-              className="rounded-lg px-4 py-3 text-base transition-colors hover:bg-muted active:bg-muted"
+              className="rounded-lg px-4 py-2 text-sm transition-colors hover:bg-muted"
               onClick={() => setIsMobileMenuOpen(false)}
             >
               {t("nav.pricing")}
             </Link>
             <Link 
               href="#how-it-works" 
-              className="rounded-lg px-4 py-3 text-base transition-colors hover:bg-muted active:bg-muted"
+              className="rounded-lg px-4 py-2 text-sm transition-colors hover:bg-muted"
               onClick={() => setIsMobileMenuOpen(false)}
             >
               {t("nav.howItWorks")}
             </Link>
             <Link 
-              href="#faq" 
-              className="rounded-lg px-4 py-3 text-base transition-colors hover:bg-muted active:bg-muted"
-              onClick={() => setIsMobileMenuOpen(false)}
-            >
-              Usein kysyttyä
-            </Link>
-            <Link 
               href="https://www.teamviewer.com/en/download/portal/windows/"
               target="_blank"
               rel="noopener noreferrer"
-              className="flex items-center gap-2 rounded-lg px-4 py-3 text-base transition-colors hover:bg-muted active:bg-muted"
+              className="flex items-center gap-2 rounded-lg px-4 py-2 text-sm transition-colors hover:bg-muted"
               onClick={() => setIsMobileMenuOpen(false)}
             >
               <Download className="h-4 w-4" />
               {t("nav.remoteSupport")}
             </Link>
             <Button 
-              className="mt-3 h-12 rounded-full bg-gradient-to-r from-primary to-accent text-primary-foreground cursor-pointer"
+              className="mt-2 rounded-full bg-gradient-to-r from-primary to-accent text-primary-foreground cursor-pointer"
               onClick={handleConsultationClick}
             >
               {t("nav.contact")}
