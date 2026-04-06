@@ -33,7 +33,7 @@ function PricingCard({ plan, index }: { plan: PricingPlan; index: number }) {
     <article
       ref={ref}
       className={cn(
-        "relative flex flex-col rounded-3xl border p-6 transition-all duration-500",
+        "relative flex flex-col rounded-2xl border p-5 transition-all duration-500 sm:rounded-3xl sm:p-6",
         plan.featured
           ? "border-primary/30 bg-gradient-to-br from-primary/10 via-accent/5 to-card shadow-xl shadow-primary/10 lg:-translate-y-2"
           : "border-border bg-gradient-to-b from-card/90 to-card/60 shadow-lg",
@@ -42,28 +42,28 @@ function PricingCard({ plan, index }: { plan: PricingPlan; index: number }) {
       style={{ transitionDelay: `${index * 100}ms` }}
     >
       {plan.featured && (
-        <div className="absolute -top-3 left-1/2 -translate-x-1/2 rounded-full bg-gradient-to-r from-primary to-accent px-4 py-1 text-xs font-medium text-primary-foreground">
+        <div className="absolute -top-3 left-1/2 -translate-x-1/2 whitespace-nowrap rounded-full bg-gradient-to-r from-primary to-accent px-3 py-1 text-xs font-medium text-primary-foreground sm:px-4">
           {t("pricing.recommended")}
         </div>
       )}
       
-      <div className="mb-4 inline-flex items-center self-start rounded-full border border-primary/20 bg-primary/5 px-3 py-1 text-xs font-medium uppercase tracking-wider text-primary">
+      <div className="mb-3 inline-flex items-center self-start rounded-full border border-primary/20 bg-primary/5 px-3 py-1 text-xs font-medium uppercase tracking-wider text-primary sm:mb-4">
         {plan.name}
       </div>
       
       <div className="mb-2">
         <span className="text-sm font-normal text-muted-foreground">{t("pricing.from")} </span>
-        <span className="font-display text-4xl font-bold tracking-tight">{plan.price}</span>
+        <span className="font-display text-3xl font-bold tracking-tight sm:text-4xl">{plan.price}</span>
         {plan.name === t("pricing.monthly") && (
-          <span className="text-lg font-normal text-muted-foreground">/kk</span>
+          <span className="text-base font-normal text-muted-foreground sm:text-lg">/kk</span>
         )}
       </div>
       
-      <p className="mb-6 text-sm text-muted-foreground">{plan.description}</p>
+      <p className="mb-4 text-sm text-muted-foreground sm:mb-6">{plan.description}</p>
       
-      <ul className="mb-6 flex-1 space-y-3">
+      <ul className="mb-4 flex-1 space-y-2.5 sm:mb-6 sm:space-y-3">
         {plan.features.map((feature) => (
-          <li key={feature} className="flex items-start gap-3 text-sm">
+          <li key={feature} className="flex items-start gap-2.5 text-sm sm:gap-3">
             <div className="mt-0.5 flex h-5 w-5 shrink-0 items-center justify-center rounded-full bg-primary/10">
               <Check className="h-3 w-3 text-primary" />
             </div>
@@ -72,11 +72,11 @@ function PricingCard({ plan, index }: { plan: PricingPlan; index: number }) {
         ))}
       </ul>
       
-      <p className="mb-4 text-xs text-muted-foreground/80 italic">{plan.note}</p>
+      <p className="mb-3 text-xs text-muted-foreground/80 italic sm:mb-4">{plan.note}</p>
       
       <Button
         className={cn(
-          "w-full rounded-full cursor-pointer",
+          "h-11 w-full rounded-full cursor-pointer sm:h-auto",
           plan.featured
             ? "bg-gradient-to-r from-primary to-accent text-primary-foreground shadow-lg shadow-primary/25"
             : "bg-secondary text-secondary-foreground hover:bg-secondary/80"
@@ -141,24 +141,24 @@ export function Pricing() {
   ]
 
   return (
-    <section id="pricing" className="py-20 lg:py-28">
+    <section id="pricing" className="py-16 sm:py-20 lg:py-28" aria-labelledby="pricing-heading">
       <div className="mx-auto max-w-6xl px-4 lg:px-6">
         <div
           ref={headerRef}
           className={cn(
-            "mb-12 text-center transition-all duration-700",
+            "mb-8 text-center transition-all duration-700 sm:mb-12",
             headerInView ? "translate-y-0 opacity-100" : "translate-y-6 opacity-0"
           )}
         >
-          <h2 className="mb-4 font-display text-3xl font-bold leading-tight tracking-tight sm:text-4xl lg:text-5xl">
+          <h2 id="pricing-heading" className="mb-3 font-display text-2xl font-bold leading-tight tracking-tight sm:mb-4 sm:text-3xl md:text-4xl lg:text-5xl">
             {t("pricing.title")}
           </h2>
-          <p className="mx-auto max-w-2xl text-muted-foreground">
+          <p className="mx-auto max-w-2xl text-sm text-muted-foreground sm:text-base">
             {t("pricing.subtitle")}
           </p>
         </div>
 
-        <div className="grid gap-6 md:grid-cols-3">
+        <div className="grid gap-4 sm:gap-6 md:grid-cols-3">
           {plans.map((plan, i) => (
             <PricingCard key={plan.name} plan={plan} index={i} />
           ))}
