@@ -3,89 +3,124 @@
 import { useInView } from "@/hooks/use-in-view"
 import { cn } from "@/lib/utils"
 import { useLanguage } from "@/lib/language-context"
-import { Button } from "@/components/ui/button"
-import { CheckCircle, ArrowRight, Shield } from "lucide-react"
+import { MessageCircle, MapPin, Wrench, CreditCard, Layout, Zap } from "lucide-react"
 
-export function FreeDemoSection() {
-  const { ref, isInView } = useInView({ threshold: 0.1 })
+export function WhyRune() {
+  const { ref: headerRef, isInView: headerInView } = useInView({ threshold: 0.1 })
+  const { ref: cardsRef, isInView: cardsInView } = useInView({ threshold: 0.1 })
+  const { ref: audienceRef, isInView: audienceInView } = useInView({ threshold: 0.1 })
   const { t } = useLanguage()
 
-  const handleConsultationClick = () => {
-    const mockup = document.getElementById("consultation-mockup")
-    if (mockup) {
-      mockup.scrollIntoView({ behavior: "smooth", block: "center" })
-      setTimeout(() => {
-        window.dispatchEvent(new CustomEvent("openConsultationForm"))
-      }, 500)
-    }
-  }
+  const benefits = [
+    {
+      icon: MessageCircle,
+      title: t("why1.title"),
+      description: t("why1.desc"),
+    },
+    {
+      icon: MapPin,
+      title: t("why2.title"),
+      description: t("why2.desc"),
+    },
+    {
+      icon: Wrench,
+      title: t("why3.title"),
+      description: t("why3.desc"),
+    },
+    {
+      icon: CreditCard,
+      title: t("why4.title"),
+      description: t("why4.desc"),
+    },
+    {
+      icon: Layout,
+      title: t("why5.title"),
+      description: t("why5.desc"),
+    },
+    {
+      icon: Zap,
+      title: t("why6.title"),
+      description: t("why6.desc"),
+    },
+  ]
 
-  const points = [
-    t("demo.point1"),
-    t("demo.point2"),
-    t("demo.point3"),
-    t("demo.point4"),
-    t("demo.point5"),
+  const audience = [
+    t("audience.item1"),
+    t("audience.item2"),
+    t("audience.item3"),
+    t("audience.item4"),
+    t("audience.item5"),
+    t("audience.item6"),
+    t("audience.item7"),
   ]
 
   return (
-    <section id="free-demo" className="py-16 sm:py-20 lg:py-28" aria-labelledby="demo-heading">
+    <section id="why" className="py-16 sm:py-20 lg:py-28" aria-labelledby="why-heading">
       <div className="mx-auto max-w-6xl px-4 lg:px-6">
         <div
-          ref={ref}
+          ref={headerRef}
           className={cn(
-            "relative overflow-hidden rounded-2xl border border-primary/20 bg-gradient-to-br from-primary/10 via-accent/5 to-card p-5 shadow-xl transition-all duration-700 sm:rounded-3xl sm:p-8 lg:p-12",
-            isInView ? "translate-y-0 opacity-100" : "translate-y-6 opacity-0"
+            "mb-8 text-center transition-all duration-700 sm:mb-12",
+            headerInView ? "translate-y-0 opacity-100" : "translate-y-6 opacity-0"
           )}
         >
-          {/* Background decoration - hidden on mobile for performance */}
-          <div className="pointer-events-none absolute -right-20 -top-20 hidden h-64 w-64 rounded-full bg-primary/10 blur-3xl sm:block" />
-          <div className="pointer-events-none absolute -bottom-20 -left-20 hidden h-64 w-64 rounded-full bg-accent/10 blur-3xl sm:block" />
-          
-          <div className="relative grid gap-6 items-center sm:gap-8 lg:grid-cols-2 lg:gap-12">
-            {/* Left side - Content */}
-            <div className="text-center lg:text-left">
-              <div className="mb-3 inline-flex items-center gap-2 rounded-full border border-primary/20 bg-primary/10 px-3 py-1 text-sm font-medium text-primary sm:mb-4 sm:px-4 sm:py-1.5">
-                <Shield className="h-3.5 w-3.5 sm:h-4 sm:w-4" />
-                {t("badge.demo")}
-              </div>
-              
-              <h2 id="demo-heading" className="mb-3 font-display text-xl font-bold tracking-tight sm:mb-4 sm:text-2xl md:text-3xl lg:text-4xl text-balance">
-                {t("demo.title")}
-              </h2>
-              
-              <p className="mb-5 text-sm text-muted-foreground leading-relaxed sm:mb-6 sm:text-base">
-                {t("demo.subtitle")}
-              </p>
-              
-              <Button
-                size="lg"
-                onClick={handleConsultationClick}
-                className="h-11 w-full rounded-full bg-gradient-to-r from-primary to-accent px-6 text-primary-foreground shadow-lg shadow-primary/25 hover:shadow-primary/40 cursor-pointer sm:h-auto sm:w-auto sm:px-8"
+          <h2 id="why-heading" className="mb-3 font-display text-2xl font-bold tracking-tight sm:mb-4 sm:text-3xl md:text-4xl lg:text-5xl">
+            {t("why.title")}
+          </h2>
+          <p className="text-sm text-muted-foreground sm:text-base">
+            {t("why.subtitle")}
+          </p>
+        </div>
+
+        <div
+          ref={cardsRef}
+          className="grid gap-3 sm:grid-cols-2 sm:gap-6 lg:grid-cols-3"
+        >
+          {benefits.map((benefit, index) => {
+            const Icon = benefit.icon
+            return (
+              <div
+                key={benefit.title}
+                className={cn(
+                  "group rounded-xl border border-border bg-gradient-to-b from-card/90 to-card/60 p-4 shadow-lg transition-all duration-500 hover:border-primary/20 hover:shadow-primary/5 sm:rounded-2xl sm:p-6",
+                  cardsInView ? "translate-y-0 opacity-100" : "translate-y-6 opacity-0"
+                )}
+                style={{ transitionDelay: `${index * 75}ms` }}
               >
-                {t("demo.cta")}
-                <ArrowRight className="ml-2 h-4 w-4" />
-              </Button>
-            </div>
-            
-            {/* Right side - Points */}
-            <div className="space-y-2.5 sm:space-y-4">
-              {points.map((point, index) => (
-                <div
-                  key={index}
-                  className={cn(
-                    "flex items-start gap-2.5 rounded-lg bg-background/50 border border-border/50 p-3 transition-all duration-500 sm:gap-3 sm:rounded-xl sm:p-4",
-                    isInView ? "translate-x-0 opacity-100" : "translate-x-4 opacity-0"
-                  )}
-                  style={{ transitionDelay: `${200 + index * 100}ms` }}
-                >
-                  <div className="flex h-5 w-5 shrink-0 items-center justify-center rounded-full bg-primary/10 sm:h-6 sm:w-6">
-                    <CheckCircle className="h-3 w-3 text-primary sm:h-4 sm:w-4" />
-                  </div>
-                  <p className="text-xs leading-relaxed sm:text-sm">{point}</p>
+                <div className="mb-3 flex h-10 w-10 items-center justify-center rounded-lg bg-gradient-to-br from-primary/10 to-accent/10 transition-all group-hover:from-primary/20 group-hover:to-accent/20 sm:mb-4 sm:h-12 sm:w-12 sm:rounded-xl">
+                  <Icon className="h-5 w-5 text-primary sm:h-6 sm:w-6" />
                 </div>
-              ))}
-            </div>
+                <h3 className="mb-1.5 font-display text-base font-semibold tracking-tight sm:mb-2 sm:text-lg">
+                  {benefit.title}
+                </h3>
+                <p className="text-xs leading-relaxed text-muted-foreground sm:text-sm">
+                  {benefit.description}
+                </p>
+              </div>
+            )
+          })}
+        </div>
+
+        {/* Target audience section */}
+        <div
+          ref={audienceRef}
+          className={cn(
+            "mt-10 rounded-2xl border border-border bg-gradient-to-b from-card/90 to-card/60 p-5 shadow-lg transition-all duration-700 sm:mt-16 sm:rounded-3xl sm:p-8",
+            audienceInView ? "translate-y-0 opacity-100" : "translate-y-6 opacity-0"
+          )}
+        >
+          <h3 className="mb-4 text-center font-display text-lg font-semibold tracking-tight sm:mb-6 sm:text-xl">
+            {t("audience.title")}
+          </h3>
+          <div className="flex flex-wrap items-center justify-center gap-2 sm:gap-3">
+            {audience.map((item) => (
+              <span
+                key={item}
+                className="rounded-full border border-border bg-background/50 px-3 py-1.5 text-xs text-muted-foreground transition-colors hover:border-primary/30 hover:text-foreground sm:px-4 sm:py-2 sm:text-sm"
+              >
+                {item}
+              </span>
+            ))}
           </div>
         </div>
       </div>
