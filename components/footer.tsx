@@ -46,7 +46,7 @@ export function Footer() {
           <div className="flex flex-col items-center gap-2 sm:items-start">
             <p className="text-sm font-medium text-foreground mb-1">{t("footer.contact")}</p>
             <a 
-              href="mailto:info@rootit.fi" 
+              href="mailto:rootit.info@gmail.com" 
               className="text-sm text-muted-foreground transition-colors hover:text-foreground"
             >
               {t("footer.email")}
