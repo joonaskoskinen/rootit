@@ -66,19 +66,19 @@ export const PhoneMockup = forwardRef<PhoneMockupRef>(function PhoneMockup(_, re
   }
 
   return (
-    <div className="relative">
-      {/* Glow effect */}
-      <div className="absolute -inset-4 rounded-[3rem] bg-gradient-to-br from-primary/20 via-accent/10 to-transparent blur-2xl" />
+    <div className="relative w-full max-w-[280px] sm:max-w-[340px]">
+      {/* Glow effect - reduced on mobile */}
+      <div className="absolute -inset-2 rounded-[2.5rem] bg-gradient-to-br from-primary/15 via-accent/10 to-transparent blur-xl sm:-inset-4 sm:rounded-[3rem] sm:blur-2xl" />
       
       {/* Phone frame */}
-      <div className="relative w-[300px] rounded-[2.5rem] border border-white/10 bg-[#0b0d12] p-3 shadow-2xl sm:w-[340px] sm:p-4">
+      <div className="relative w-full rounded-[2rem] border border-white/10 bg-[#0b0d12] p-2.5 shadow-2xl sm:rounded-[2.5rem] sm:p-4">
         {/* Dynamic Island */}
-        <div className="absolute left-1/2 top-5 z-10 h-6 w-24 -translate-x-1/2 rounded-full bg-black" />
+        <div className="absolute left-1/2 top-4 z-10 h-5 w-20 -translate-x-1/2 rounded-full bg-black sm:top-5 sm:h-6 sm:w-24" />
         
         {/* Screen */}
-        <div className="relative flex h-[520px] flex-col overflow-hidden rounded-[2rem] bg-gradient-to-b from-[#151927] to-[#0f1320] text-white sm:h-[560px]">
+        <div className="relative flex h-[440px] flex-col overflow-hidden rounded-[1.5rem] bg-gradient-to-b from-[#151927] to-[#0f1320] text-white sm:h-[560px] sm:rounded-[2rem]">
           {/* Status bar */}
-          <div className="flex justify-between px-8 pt-3 text-xs opacity-70">
+          <div className="flex justify-between px-6 pt-2 text-[10px] opacity-70 sm:px-8 sm:pt-3 sm:text-xs">
             <span>09:41</span>
             <span>5G</span>
           </div>
@@ -87,16 +87,16 @@ export const PhoneMockup = forwardRef<PhoneMockupRef>(function PhoneMockup(_, re
           <div className="relative flex-1 overflow-hidden">
             {/* Main content - slides left */}
             <div className={cn(
-              "absolute inset-0 flex flex-col px-5 pb-5 pt-8 transition-all duration-500 ease-out",
+              "absolute inset-0 flex flex-col px-4 pb-4 pt-6 transition-all duration-500 ease-out sm:px-5 sm:pb-5 sm:pt-8",
               showForm ? "-translate-x-full opacity-0" : "translate-x-0 opacity-100"
             )}>
               {/* Header */}
-              <div className="mb-6 text-center">
-                <h3 className="text-lg font-semibold">{t("phone.title")}</h3>
+              <div className="mb-4 text-center sm:mb-6">
+                <h3 className="text-base font-semibold sm:text-lg">{t("phone.title")}</h3>
               </div>
               
               {/* Task cards - compact layout */}
-              <div className="space-y-2.5">
+              <div className="space-y-2 sm:space-y-2.5">
                 {/* Task 1 - In Progress */}
                 <div className="rounded-xl border border-primary/30 bg-primary/10 p-3">
                   <div className="flex items-center justify-between gap-3">
@@ -168,7 +168,7 @@ export const PhoneMockup = forwardRef<PhoneMockupRef>(function PhoneMockup(_, re
               {/* CTA Button */}
               <button 
                 onClick={() => setShowForm(true)}
-                className="w-full rounded-2xl bg-gradient-to-r from-primary to-accent py-3.5 font-medium text-white shadow-lg transition-transform active:scale-[0.98]"
+                className="w-full rounded-xl bg-gradient-to-r from-primary to-accent py-3 text-sm font-medium text-white shadow-lg transition-transform active:scale-[0.98] sm:rounded-2xl sm:py-3.5 sm:text-base"
               >
                 {t("phone.cta")}
               </button>
