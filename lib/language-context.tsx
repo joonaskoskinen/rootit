@@ -16,6 +16,7 @@ const translations = {
     "nav.services": "Palvelut",
     "nav.pricing": "Hinnat",
     "nav.howItWorks": "Näin homma toimii",
+    "nav.faq": "UKK",
     "nav.contact": "Ota yhteyttä",
     "nav.remoteSupport": "Etätuki",
     
@@ -285,6 +286,7 @@ const translations = {
     "nav.services": "Services",
     "nav.pricing": "Pricing",
     "nav.howItWorks": "How It Works",
+    "nav.faq": "FAQ",
     "nav.contact": "Contact",
     "nav.remoteSupport": "Remote Support",
     
