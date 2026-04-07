@@ -67,44 +67,56 @@ export const PhoneMockup = forwardRef<PhoneMockupRef>(function PhoneMockup(_, re
 
   return (
     <div className="relative w-full max-w-[280px] sm:max-w-[340px]">
-      {/* Glow effect - reduced on mobile */}
-      <div className="absolute -inset-2 rounded-[2.5rem] bg-gradient-to-br from-primary/15 via-accent/10 to-transparent blur-xl sm:-inset-4 sm:rounded-[3rem] sm:blur-2xl" />
+      {/* Subtle glow effect */}
+      <div className="absolute -inset-3 rounded-[2.5rem] bg-gradient-to-br from-primary/10 via-accent/5 to-transparent blur-2xl sm:-inset-5 sm:rounded-[3rem] sm:blur-3xl" />
       
-      {/* Phone frame */}
-      <div className="relative w-full rounded-[2rem] border border-white/10 bg-[#0b0d12] p-2.5 shadow-2xl sm:rounded-[2.5rem] sm:p-4">
+      {/* Phone frame with realistic shadow */}
+      <div className="relative w-full rounded-[2rem] border border-white/[0.08] bg-[#0a0c10] p-2 shadow-[0_25px_50px_-12px_rgba(0,0,0,0.5),0_0_0_1px_rgba(255,255,255,0.05)] sm:rounded-[2.5rem] sm:p-3">
         {/* Dynamic Island */}
-        <div className="absolute left-1/2 top-4 z-10 h-5 w-20 -translate-x-1/2 rounded-full bg-black sm:top-5 sm:h-6 sm:w-24" />
+        <div className="absolute left-1/2 top-3.5 z-10 h-[22px] w-[90px] -translate-x-1/2 rounded-full bg-black sm:top-4 sm:h-[26px] sm:w-[100px]" />
         
         {/* Screen */}
-        <div className="relative flex h-[440px] flex-col overflow-hidden rounded-[1.5rem] bg-gradient-to-b from-[#151927] to-[#0f1320] text-white sm:h-[560px] sm:rounded-[2rem]">
+        <div className="relative flex h-[460px] flex-col overflow-hidden rounded-[1.5rem] bg-gradient-to-b from-[#13161f] to-[#0d0f16] text-white sm:h-[580px] sm:rounded-[2rem]">
           {/* Status bar */}
-          <div className="flex justify-between px-6 pt-2 text-[10px] opacity-70 sm:px-8 sm:pt-3 sm:text-xs">
+          <div className="flex justify-between px-7 pt-2.5 text-[10px] font-medium opacity-60 sm:px-8 sm:pt-3 sm:text-xs">
             <span>09:41</span>
-            <span>5G</span>
+            <div className="flex items-center gap-1">
+              <span>5G</span>
+              <div className="flex items-end gap-0.5">
+                <div className="h-1 w-0.5 rounded-full bg-white/60" />
+                <div className="h-1.5 w-0.5 rounded-full bg-white/60" />
+                <div className="h-2 w-0.5 rounded-full bg-white/60" />
+                <div className="h-2.5 w-0.5 rounded-full bg-white/60" />
+              </div>
+            </div>
           </div>
 
           {/* Sliding container */}
           <div className="relative flex-1 overflow-hidden">
             {/* Main content - slides left */}
             <div className={cn(
-              "absolute inset-0 flex flex-col px-4 pb-4 pt-6 transition-all duration-500 ease-out sm:px-5 sm:pb-5 sm:pt-8",
+              "absolute inset-0 flex flex-col px-3.5 pb-4 pt-4 transition-all duration-500 ease-out sm:px-4 sm:pb-5 sm:pt-5",
               showForm ? "-translate-x-full opacity-0" : "translate-x-0 opacity-100"
             )}>
               {/* Header */}
-              <div className="mb-4 text-center sm:mb-6">
-                <h3 className="text-base font-semibold sm:text-lg">{t("phone.title")}</h3>
+              <div className="mb-3 sm:mb-4">
+                <h3 className="text-base font-semibold tracking-tight sm:text-lg">{t("phone.title")}</h3>
+                <p className="mt-0.5 text-[11px] text-white/40">Hallitse IT-tukipyyntöjäsi</p>
               </div>
               
-              {/* Task cards - compact layout */}
+              {/* Task cards with better hierarchy */}
               <div className="space-y-2 sm:space-y-2.5">
-                {/* Task 1 - In Progress */}
-                <div className="rounded-xl border border-primary/30 bg-primary/10 p-3">
-                  <div className="flex items-center justify-between gap-3">
+                {/* Task 1 - In Progress - Highlighted */}
+                <div className="rounded-xl border border-primary/25 bg-gradient-to-br from-primary/[0.12] to-primary/[0.04] px-3 py-2.5 shadow-[0_2px_8px_-2px_rgba(59,130,246,0.15)]">
+                  <div className="flex items-center justify-between gap-2">
                     <div className="flex-1 min-w-0">
-                      <div className="text-sm font-medium truncate">{t("phone.task1")}</div>
-                      <div className="flex items-center gap-1.5 text-xs text-primary">
-                        <Clock className="h-3 w-3 shrink-0" />
-                        <span>{t("phone.task1.status")}</span>
+                      <div className="text-[13px] font-semibold leading-tight">{t("phone.task1")}</div>
+                      <div className="mt-1 flex items-center gap-1.5">
+                        <span className="relative flex h-1.5 w-1.5">
+                          <span className="absolute inline-flex h-full w-full animate-ping rounded-full bg-primary opacity-50" />
+                          <span className="relative inline-flex h-1.5 w-1.5 rounded-full bg-primary" />
+                        </span>
+                        <span className="text-[11px] font-medium text-primary">{t("phone.task1.status")}</span>
                       </div>
                     </div>
                     <div className="flex h-7 w-7 shrink-0 items-center justify-center rounded-full bg-primary/20">
@@ -113,51 +125,49 @@ export const PhoneMockup = forwardRef<PhoneMockupRef>(function PhoneMockup(_, re
                   </div>
                 </div>
                 
-                {/* Task 2 - Done */}
-                <div className="rounded-xl border border-white/10 bg-white/5 p-3">
-                  <div className="flex items-center justify-between gap-3">
+                {/* Task 2 - Done - Calmer */}
+                <div className="rounded-xl border border-white/[0.06] bg-white/[0.03] px-3 py-2.5">
+                  <div className="flex items-center justify-between gap-2">
                     <div className="flex-1 min-w-0">
-                      <div className="text-sm font-medium truncate">{t("phone.task2")}</div>
-                      <div className="flex items-center gap-1.5 text-xs text-emerald-400">
-                        <Check className="h-3 w-3 shrink-0" />
-                        <span>{t("phone.task2.status")}</span>
+                      <div className="text-[13px] font-medium leading-tight text-white/80">{t("phone.task2")}</div>
+                      <div className="mt-1 flex items-center gap-1.5">
+                        <Check className="h-2.5 w-2.5 text-emerald-400/70" />
+                        <span className="text-[11px] text-emerald-400/70">{t("phone.task2.status")}</span>
                       </div>
                     </div>
-                    <div className="flex h-7 w-7 shrink-0 items-center justify-center rounded-full bg-emerald-500/20">
-                      <Check className="h-3.5 w-3.5 text-emerald-400" />
+                    <div className="flex h-7 w-7 shrink-0 items-center justify-center rounded-full bg-emerald-500/10">
+                      <Check className="h-3.5 w-3.5 text-emerald-400/60" />
                     </div>
                   </div>
                 </div>
                 
-                {/* Task 3 - Email routing */}
-                <div className="rounded-xl border border-white/10 bg-white/5 p-3">
-                  <div className="flex items-center justify-between gap-3">
+                {/* Task 3 - Email - Subdued with two-line title for realism */}
+                <div className="rounded-xl border border-white/[0.06] bg-white/[0.02] px-3 py-2.5">
+                  <div className="flex items-center justify-between gap-2">
                     <div className="flex-1 min-w-0">
-                      <div className="text-sm font-medium truncate">{t("phone.task4")}</div>
-                      <div className="flex items-center gap-1.5 text-xs text-white/50">
-                        <Mail className="h-3 w-3 shrink-0" />
-                        <span>{t("phone.task4.status")}</span>
+                      <div className="text-[13px] font-medium leading-tight text-white/60">Sähköpostijärjestelmän konfigurointi</div>
+                      <div className="mt-1 flex items-center gap-1.5">
+                        <Mail className="h-2.5 w-2.5 text-white/30" />
+                        <span className="text-[11px] text-white/40">{t("phone.task4.status")}</span>
                       </div>
                     </div>
-                    <div className="flex h-7 w-7 shrink-0 items-center justify-center rounded-full bg-white/10">
-                      <Mail className="h-3.5 w-3.5 text-white/50" />
-                    </div>
+                    <ChevronRight className="h-3.5 w-3.5 shrink-0 text-white/20" />
                   </div>
                 </div>
                 
-                {/* Recommendation card */}
-                <div className="rounded-xl border border-accent/30 bg-gradient-to-br from-accent/10 to-primary/5 p-3">
-                  <div className="flex items-center justify-between gap-3">
+                {/* Recommendation card - Special but not overwhelming */}
+                <div className="rounded-xl border border-accent/20 bg-gradient-to-br from-accent/[0.08] to-transparent px-3 py-2.5">
+                  <div className="flex items-center justify-between gap-2">
                     <div className="flex-1 min-w-0">
-                      <div className="flex items-center gap-2">
-                        <Sparkles className="h-3.5 w-3.5 shrink-0 text-accent" />
-                        <span className="text-sm font-medium truncate">{t("phone.task3")}</span>
+                      <div className="flex items-center gap-1.5">
+                        <Sparkles className="h-3 w-3 shrink-0 text-accent/80" />
+                        <span className="text-[13px] font-medium text-white/70">{t("phone.task3")}</span>
                       </div>
-                      <div className="text-xs text-white/60 truncate">
+                      <div className="mt-0.5 text-[11px] text-white/40 pl-[18px]">
                         {t("phone.task3.desc")}
                       </div>
                     </div>
-                    <ChevronRight className="h-4 w-4 shrink-0 text-white/30" />
+                    <ChevronRight className="h-3.5 w-3.5 shrink-0 text-white/20" />
                   </div>
                 </div>
               </div>
@@ -165,10 +175,10 @@ export const PhoneMockup = forwardRef<PhoneMockupRef>(function PhoneMockup(_, re
               {/* Spacer */}
               <div className="flex-1" />
               
-              {/* CTA Button */}
+              {/* CTA Button - More native app feeling, less hero-style */}
               <button 
                 onClick={() => setShowForm(true)}
-                className="w-full rounded-xl bg-gradient-to-r from-primary to-accent py-3 text-sm font-medium text-white shadow-lg transition-transform active:scale-[0.98] sm:rounded-2xl sm:py-3.5 sm:text-base"
+                className="w-full rounded-xl bg-gradient-to-r from-primary via-primary to-accent py-2.5 text-[13px] font-semibold text-white transition-all active:scale-[0.98] active:opacity-90 sm:py-3"
               >
                 {t("phone.cta")}
               </button>
@@ -189,7 +199,7 @@ export const PhoneMockup = forwardRef<PhoneMockupRef>(function PhoneMockup(_, re
                   <p className="mb-6 text-sm text-white/60">{t("form.success.desc")}</p>
                   <button 
                     onClick={handleBack}
-                    className="rounded-2xl bg-white/10 px-6 py-2.5 text-sm font-medium transition-colors hover:bg-white/20"
+                    className="rounded-xl bg-white/10 px-6 py-2.5 text-sm font-medium transition-colors hover:bg-white/20"
                   >
                     {t("form.success.close")}
                   </button>
@@ -198,7 +208,7 @@ export const PhoneMockup = forwardRef<PhoneMockupRef>(function PhoneMockup(_, re
                 /* Form state */
                 <>
                   {/* Header with back button */}
-                  <div className="flex items-center gap-3 px-4 pt-6">
+                  <div className="flex items-center gap-3 px-4 pt-5">
                     <button 
                       onClick={handleBack}
                       className="flex h-8 w-8 items-center justify-center rounded-full bg-white/10 transition-colors hover:bg-white/20"
@@ -209,55 +219,55 @@ export const PhoneMockup = forwardRef<PhoneMockupRef>(function PhoneMockup(_, re
                   </div>
                   
                   {/* Scrollable form */}
-                  <form onSubmit={handleSubmit} className="flex flex-1 flex-col overflow-y-auto px-4 pb-4 pt-4">
-                    <div className="space-y-3">
+                  <form onSubmit={handleSubmit} className="flex flex-1 flex-col overflow-y-auto px-4 pb-5 pt-4">
+                    <div className="space-y-3.5">
                       {/* Email */}
                       <div className="space-y-1.5">
-                        <label htmlFor="phone-email" className="text-xs font-medium text-white/70">{t("form.email")} *</label>
+                        <label htmlFor="phone-email" className="text-xs font-medium text-white/60">{t("form.email")} *</label>
                         <input
                           id="phone-email"
                           name="email"
                           type="email"
                           required
                           placeholder={t("form.email.placeholder")}
-                          className="w-full rounded-xl border border-white/10 bg-white/5 px-3 py-2.5 text-sm placeholder:text-white/30 focus:border-primary/50 focus:outline-none focus:ring-1 focus:ring-primary/50"
+                          className="w-full rounded-xl border border-white/[0.08] bg-white/[0.04] px-3.5 py-2.5 text-sm placeholder:text-white/25 focus:border-primary/40 focus:outline-none focus:ring-1 focus:ring-primary/40"
                         />
                       </div>
                       
                       {/* Phone */}
                       <div className="space-y-1.5">
-                        <label htmlFor="phone-tel" className="text-xs font-medium text-white/70">{t("form.phone")}</label>
+                        <label htmlFor="phone-tel" className="text-xs font-medium text-white/60">{t("form.phone")}</label>
                         <input
                           id="phone-tel"
                           name="phone"
                           type="tel"
                           placeholder={t("form.phone.placeholder")}
-                          className="w-full rounded-xl border border-white/10 bg-white/5 px-3 py-2.5 text-sm placeholder:text-white/30 focus:border-primary/50 focus:outline-none focus:ring-1 focus:ring-primary/50"
+                          className="w-full rounded-xl border border-white/[0.08] bg-white/[0.04] px-3.5 py-2.5 text-sm placeholder:text-white/25 focus:border-primary/40 focus:outline-none focus:ring-1 focus:ring-primary/40"
                         />
                       </div>
                       
                       {/* Description */}
                       <div className="space-y-1.5">
-                        <label htmlFor="phone-desc" className="text-xs font-medium text-white/70">{t("form.description")} *</label>
+                        <label htmlFor="phone-desc" className="text-xs font-medium text-white/60">{t("form.description")} *</label>
                         <textarea
                           id="phone-desc"
                           name="description"
                           required
                           rows={3}
                           placeholder={t("form.description.placeholder")}
-                          className="w-full resize-none rounded-xl border border-white/10 bg-white/5 px-3 py-2.5 text-sm placeholder:text-white/30 focus:border-primary/50 focus:outline-none focus:ring-1 focus:ring-primary/50"
+                          className="w-full resize-none rounded-xl border border-white/[0.08] bg-white/[0.04] px-3.5 py-2.5 text-sm placeholder:text-white/25 focus:border-primary/40 focus:outline-none focus:ring-1 focus:ring-primary/40"
                         />
                       </div>
                       
                       {/* Preferred time */}
                       <div className="space-y-1.5">
-                        <label htmlFor="phone-time" className="text-xs font-medium text-white/70">{t("form.time")}</label>
+                        <label htmlFor="phone-time" className="text-xs font-medium text-white/60">{t("form.time")}</label>
                         <input
                           id="phone-time"
                           name="preferredTime"
                           type="text"
                           placeholder={t("form.time.placeholder")}
-                          className="w-full rounded-xl border border-white/10 bg-white/5 px-3 py-2.5 text-sm placeholder:text-white/30 focus:border-primary/50 focus:outline-none focus:ring-1 focus:ring-primary/50"
+                          className="w-full rounded-xl border border-white/[0.08] bg-white/[0.04] px-3.5 py-2.5 text-sm placeholder:text-white/25 focus:border-primary/40 focus:outline-none focus:ring-1 focus:ring-primary/40"
                         />
                       </div>
                     </div>
@@ -273,7 +283,7 @@ export const PhoneMockup = forwardRef<PhoneMockupRef>(function PhoneMockup(_, re
                     <button
                       type="submit"
                       disabled={isSubmitting}
-                      className="mt-3 flex w-full items-center justify-center gap-2 rounded-2xl bg-gradient-to-r from-primary to-accent py-3 font-medium text-white shadow-lg transition-transform disabled:opacity-70 active:scale-[0.98]"
+                      className="mt-3 flex w-full items-center justify-center gap-2 rounded-xl bg-gradient-to-r from-primary to-accent py-3 font-semibold text-white transition-all disabled:opacity-70 active:scale-[0.98]"
                     >
                       {isSubmitting ? (
                         <>
@@ -294,8 +304,8 @@ export const PhoneMockup = forwardRef<PhoneMockupRef>(function PhoneMockup(_, re
           </div>
 
           {/* Home indicator */}
-          <div className="flex justify-center pb-2">
-            <div className="h-1 w-32 rounded-full bg-white/20" />
+          <div className="flex justify-center pb-2.5">
+            <div className="h-1 w-28 rounded-full bg-white/15" />
           </div>
         </div>
       </div>
