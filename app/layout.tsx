@@ -3,6 +3,7 @@ import { Space_Grotesk, Inter } from 'next/font/google'
 import { Analytics } from '@vercel/analytics/next'
 import { LanguageProvider } from '@/lib/language-context'
 import { CrispChat } from '@/components/crisp-chat'
+import { WhatsAppButton } from '@/components/whatsapp-button'
 import './globals.css'
 
 const spaceGrotesk = Space_Grotesk({ 
@@ -162,6 +163,7 @@ export default function RootLayout({
           {children}
         </LanguageProvider>
         <CrispChat />
+        <WhatsAppButton />
         <Analytics />
       </body>
     </html>
