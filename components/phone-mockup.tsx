@@ -26,7 +26,19 @@ export const PhoneMockup = forwardRef<PhoneMockupRef>(function PhoneMockup(_, re
   const [isSubmitting, setIsSubmitting] = useState(false)
   const [isSubmitted, setIsSubmitted] = useState(false)
   const [error, setError] = useState<string | null>(null)
+  const [currentTime, setCurrentTime] = useState<string>("")
 
+  // Live clock
+  useEffect(() => {
+    const updateTime = () => {
+      const now = new Date()
+      setCurrentTime(now.toLocaleTimeString('fi-FI', { hour: '2-digit', minute: '2-digit' }))
+    }
+    updateTime()
+    const interval = setInterval(updateTime, 1000)
+    return () => clearInterval(interval)
+  }, [])
+  
   const handleSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault()
     setIsSubmitting(true)
@@ -79,7 +91,7 @@ export const PhoneMockup = forwardRef<PhoneMockupRef>(function PhoneMockup(_, re
         <div className="relative flex h-[460px] flex-col overflow-hidden rounded-[1.5rem] bg-gradient-to-b from-[#13161f] to-[#0d0f16] text-white sm:h-[580px] sm:rounded-[2rem]">
           {/* Status bar */}
           <div className="flex justify-between px-7 pt-2.5 text-[10px] font-medium opacity-60 sm:px-8 sm:pt-3 sm:text-xs">
-            <span>09:41</span>
+             <span>{currentTime || "09:41"}</span>
             <div className="flex items-center gap-1">
               <span>5G</span>
               <div className="flex items-end gap-0.5">
