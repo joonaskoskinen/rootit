@@ -160,7 +160,7 @@ export function ConsultationForm({ children, className }: ConsultationFormProps)
                 type="submit"
                 disabled={isSubmitting}
                 className={cn(
-                  "w-full rounded-full bg-gradient-to-r from-primary to-accent text-primary-foreground shadow-lg"
+                  "w-full rounded-full bg-primary text-primary-foreground shadow-md hover:bg-primary/90"
                 )}
               >
                 {isSubmitting ? (
