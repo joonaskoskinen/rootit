@@ -116,7 +116,7 @@ function ServiceCard({ service, index, onCta }: ServiceCardProps) {
       style={{ transitionDelay: `${index * 100}ms` }}
     >
       {service.featured && (
-        <div className="absolute -top-3 left-5 rounded-full bg-gradient-to-r from-primary to-accent px-3 py-1 text-xs font-medium text-primary-foreground sm:left-6 sm:px-4">
+        <div className="absolute -top-3 left-5 rounded-full bg-primary px-3 py-1 text-xs font-medium text-primary-foreground sm:left-6 sm:px-4">
           {t("badge.demo")}
         </div>
       )}
@@ -151,7 +151,7 @@ function ServiceCard({ service, index, onCta }: ServiceCardProps) {
           className={cn(
             "h-11 w-full rounded-full cursor-pointer sm:h-auto",
             service.featured
-              ? "bg-gradient-to-r from-primary to-accent text-primary-foreground shadow-lg shadow-primary/25"
+              ? "bg-primary text-primary-foreground shadow-md hover:bg-primary/90"
               : "bg-secondary text-secondary-foreground hover:bg-secondary/80"
           )}
         >
