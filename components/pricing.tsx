@@ -42,7 +42,7 @@ function PricingCard({ plan, index }: { plan: PricingPlan; index: number }) {
       style={{ transitionDelay: `${index * 100}ms` }}
     >
       {plan.featured && (
-        <div className="absolute -top-3 left-1/2 -translate-x-1/2 whitespace-nowrap rounded-full bg-gradient-to-r from-primary to-accent px-3 py-1 text-xs font-medium text-primary-foreground sm:px-4">
+        <div className="absolute -top-3 left-1/2 -translate-x-1/2 whitespace-nowrap rounded-full bg-primary px-3 py-1 text-xs font-medium text-primary-foreground sm:px-4">
           {t("pricing.recommended")}
         </div>
       )}
@@ -78,7 +78,7 @@ function PricingCard({ plan, index }: { plan: PricingPlan; index: number }) {
         className={cn(
           "h-11 w-full rounded-full cursor-pointer sm:h-auto",
           plan.featured
-            ? "bg-gradient-to-r from-primary to-accent text-primary-foreground shadow-lg shadow-primary/25"
+            ? "bg-primary text-primary-foreground shadow-md hover:bg-primary/90"
             : "bg-secondary text-secondary-foreground hover:bg-secondary/80"
         )}
         onClick={handleConsultationClick}
