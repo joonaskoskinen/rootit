@@ -72,7 +72,7 @@ export function HowItWorks() {
                 style={{ transitionDelay: isInView ? `${index * 100}ms` : "0ms" }}
               >
                 {isHighlighted && (
-                  <div className="absolute -top-2.5 left-5 rounded-full bg-gradient-to-r from-primary to-accent px-3 py-0.5 text-xs font-medium text-primary-foreground sm:left-6">
+                  <div className="absolute -top-2.5 left-5 rounded-full bg-primary px-3 py-0.5 text-xs font-medium text-primary-foreground sm:left-6">
                     {t("badge.demo")}
                   </div>
                 )}
