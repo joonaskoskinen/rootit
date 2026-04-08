@@ -49,7 +49,7 @@ export function LiveChatPreview() {
         {/* Header */}
         <div className="flex items-center gap-3 border-b border-border/50 bg-muted/30 px-4 py-3">
           <div className="relative">
-            <div className="flex h-10 w-10 items-center justify-center rounded-full bg-gradient-to-br from-primary to-accent text-sm font-bold text-primary-foreground">
+            <div className="flex h-10 w-10 items-center justify-center rounded-full bg-primary text-sm font-bold text-primary-foreground">
               R
             </div>
             <div className="absolute -bottom-0.5 -right-0.5 h-3 w-3 rounded-full border-2 border-card bg-green-500" />
