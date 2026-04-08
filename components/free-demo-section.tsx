@@ -61,7 +61,7 @@ export function FreeDemoSection() {
               <Button
                 size="lg"
                 onClick={handleConsultationClick}
-                className="h-11 w-full rounded-full bg-gradient-to-r from-primary to-accent px-6 text-primary-foreground shadow-lg shadow-primary/25 hover:shadow-primary/40 cursor-pointer sm:h-auto sm:w-auto sm:px-8"
+                className="h-11 w-full rounded-full bg-primary px-6 text-primary-foreground shadow-md hover:bg-primary/90 cursor-pointer sm:h-auto sm:w-auto sm:px-8"
               >
                 {t("demo.cta")}
                 <ArrowRight className="ml-2 h-4 w-4" />
