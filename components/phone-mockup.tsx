@@ -190,7 +190,7 @@ export const PhoneMockup = forwardRef<PhoneMockupRef>(function PhoneMockup(_, re
               {/* CTA Button - More native app feeling, less hero-style */}
               <button 
                 onClick={() => setShowForm(true)}
-                className="w-full rounded-xl bg-gradient-to-r from-primary via-primary to-accent py-2.5 text-[13px] font-semibold text-white transition-all active:scale-[0.98] active:opacity-90 sm:py-3"
+                className="w-full rounded-xl bg-primary py-2.5 text-[13px] font-semibold text-white transition-all hover:bg-primary/90 active:scale-[0.98] active:opacity-90 sm:py-3"
               >
                 {t("phone.cta")}
               </button>
@@ -295,7 +295,7 @@ export const PhoneMockup = forwardRef<PhoneMockupRef>(function PhoneMockup(_, re
                     <button
                       type="submit"
                       disabled={isSubmitting}
-                      className="mt-3 flex w-full items-center justify-center gap-2 rounded-xl bg-gradient-to-r from-primary to-accent py-3 font-semibold text-white transition-all disabled:opacity-70 active:scale-[0.98]"
+                      className="mt-3 flex w-full items-center justify-center gap-2 rounded-xl bg-primary py-3 font-semibold text-white transition-all hover:bg-primary/90 disabled:opacity-70 active:scale-[0.98]"
                     >
                       {isSubmitting ? (
                         <>
