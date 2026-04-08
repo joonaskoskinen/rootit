@@ -47,7 +47,7 @@ export function Hero() {
             <div className="mt-6 flex flex-col items-center gap-3 sm:mt-8 sm:flex-row sm:gap-4 lg:justify-start">
               <Button 
                 size="lg" 
-                className="h-12 w-full rounded-full bg-gradient-to-r from-primary to-accent px-8 text-primary-foreground shadow-lg shadow-primary/25 hover:shadow-primary/40 cursor-pointer sm:h-14 sm:w-auto sm:px-10"
+                className="h-12 w-full rounded-full bg-primary px-8 text-primary-foreground shadow-md hover:bg-primary/90 cursor-pointer sm:h-14 sm:w-auto sm:px-10"
                 onClick={handleConsultationClick}
               >
                 {t("hero.cta1")}
