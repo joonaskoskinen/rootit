@@ -204,7 +204,7 @@ export function AccessibilityDemo() {
 
         <div className="rounded-3xl border border-border bg-card p-6 shadow-lg">
           <div className="mb-6">
-            <div className="mb-3 flex h-12 w-12 items-center justify-center rounded-2xl bg-gradient-to-br from-primary to-accent">
+            <div className="mb-3 flex h-12 w-12 items-center justify-center rounded-2xl bg-primary">
               <Scan className="h-6 w-6 text-primary-foreground" />
             </div>
             <h1 className="font-display text-xl font-bold">Rune Access</h1>
@@ -294,7 +294,7 @@ export function AccessibilityDemo() {
                   <Button
                     onClick={handleScan}
                     disabled={!urlInput.trim() || isScanning}
-                    className="shrink-0 rounded-xl bg-gradient-to-r from-primary to-accent px-6 text-primary-foreground"
+                    className="shrink-0 rounded-xl bg-primary px-6 text-primary-foreground hover:bg-primary/90"
                   >
                     {isScanning ? "Scanning..." : "Scan"}
                   </Button>
@@ -308,7 +308,7 @@ export function AccessibilityDemo() {
                     </div>
                     <div className="h-2 overflow-hidden rounded-full bg-muted">
                       <div 
-                        className="h-full rounded-full bg-gradient-to-r from-primary to-accent transition-all duration-300"
+                        className="h-full rounded-full bg-primary transition-all duration-300"
                         style={{ width: `${scanProgress}%` }}
                       />
                     </div>
@@ -389,7 +389,7 @@ export function AccessibilityDemo() {
               <div className="flex gap-3">
                 <Button
                   onClick={() => setView("issues")}
-                  className="flex-1 gap-2 rounded-full bg-gradient-to-r from-primary to-accent text-primary-foreground"
+className="flex-1 gap-2 rounded-full bg-primary text-primary-foreground hover:bg-primary/90"
                 >
                   <Eye className="h-4 w-4" />
                   View All Issues
@@ -541,7 +541,7 @@ export function AccessibilityDemo() {
                 </pre>
               </div>
 
-              <Button className="w-full gap-2 rounded-full bg-gradient-to-r from-primary to-accent text-primary-foreground">
+              <Button className="w-full gap-2 rounded-full bg-primary text-primary-foreground hover:bg-primary/90">
                 <Check className="h-4 w-4" />
                 Mark as Fixed
               </Button>
@@ -566,7 +566,7 @@ export function AccessibilityDemo() {
                 </div>
                 <div className="h-2 overflow-hidden rounded-full bg-muted">
                   <div 
-                    className="h-full rounded-full bg-gradient-to-r from-primary to-accent transition-all duration-300"
+                    className="h-full rounded-full bg-primary transition-all duration-300"
                     style={{ width: `${statementProgress}%` }}
                   />
                 </div>
@@ -577,7 +577,7 @@ export function AccessibilityDemo() {
           {/* Statement Done View */}
           {view === "statement-done" && (
             <div className="flex min-h-[500px] flex-col items-center justify-center text-center">
-              <div className="mb-6 flex h-20 w-20 items-center justify-center rounded-full bg-gradient-to-br from-primary to-accent">
+              <div className="mb-6 flex h-20 w-20 items-center justify-center rounded-full bg-primary">
                 <Check className="h-10 w-10 text-primary-foreground" />
               </div>
               <h2 className="mb-2 font-display text-2xl font-bold">Statement Ready!</h2>
@@ -594,7 +594,7 @@ export function AccessibilityDemo() {
                   </div>
                 </div>
                 <div className="flex gap-2">
-                  <Button className="flex-1 gap-2 rounded-full bg-gradient-to-r from-primary to-accent text-primary-foreground">
+                  <Button className="flex-1 gap-2 rounded-full bg-primary text-primary-foreground hover:bg-primary/90">
                     <Download className="h-4 w-4" />
                     Download PDF
                   </Button>
