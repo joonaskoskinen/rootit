@@ -98,7 +98,7 @@ export function Header() {
             {lang === "fi" ? "EN" : "FI"}
           </button>
           <Button 
-            className="hidden rounded-full bg-gradient-to-r from-primary to-accent text-primary-foreground shadow-lg shadow-primary/25 hover:shadow-primary/40 sm:inline-flex cursor-pointer"
+            className="hidden rounded-full bg-primary text-primary-foreground shadow-md hover:bg-primary/90 sm:inline-flex cursor-pointer"
             onClick={handleConsultationClick}
           >
             {t("nav.contact")}
@@ -158,7 +158,7 @@ export function Header() {
               {t("nav.remoteSupport")}
             </Link>
             <Button 
-              className="mt-3 h-12 rounded-full bg-gradient-to-r from-primary to-accent text-primary-foreground cursor-pointer"
+              className="mt-3 h-12 rounded-full bg-primary text-primary-foreground hover:bg-primary/90 cursor-pointer"
               onClick={handleConsultationClick}
             >
               {t("nav.contact")}
