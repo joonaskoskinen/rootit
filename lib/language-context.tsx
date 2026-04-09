@@ -117,7 +117,7 @@ const translations = {
     "pricing.from": "alk.",
 
     "pricing.oneoff": "Kertatyöt",
-    "pricing.oneoff.price": "50 €",
+    "pricing.oneoff.price": "49 €",
     "pricing.oneoff.priceNote": "alkaen",
     "pricing.oneoff.desc": "Yksittäiset korjaukset ja pienet tehtävät",
     "pricing.oneoff.f1": "Lomakkeiden korjaukset",
@@ -128,7 +128,7 @@ const translations = {
     "pricing.oneoff.note": "Hinta riippuu työn laajuudesta. Kerron arvion etukäteen.",
 
     "pricing.project": "Sivustoprojektit",
-    "pricing.project.price": "500 €",
+    "pricing.project.price": "499 €",
     "pricing.project.priceNote": "alkaen",
     "pricing.project.desc": "Verkkosivujen uudistus tai uudet sivut",
     "pricing.project.f1": "Ilmainen demoversio",
