@@ -1,6 +1,19 @@
+import type { Metadata } from "next"
 import { redirect } from "next/navigation"
 import { createClient } from "@/lib/supabase/server"
 import { DashboardNav } from "@/components/dashboard/dashboard-nav"
+import { Breadcrumbs } from "@/components/dashboard/breadcrumbs"
+
+export const metadata: Metadata = {
+  title: {
+    template: '%s | rootIT Dashboard',
+    default: 'Dashboard | rootIT',
+  },
+  robots: {
+    index: false,
+    follow: false,
+  },
+}
 
 export default async function DashboardLayout({
   children,
@@ -24,6 +37,7 @@ export default async function DashboardLayout({
     <div className="min-h-screen bg-muted/30">
       <DashboardNav user={user} profile={profile} />
       <main className="container mx-auto px-4 py-8">
+        <Breadcrumbs />
         {children}
       </main>
     </div>
