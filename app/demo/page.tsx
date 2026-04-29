@@ -3,8 +3,16 @@ import { Suspense } from "react"
 import { AccessibilityDemo } from "@/components/accessibility-demo"
 
 export const metadata: Metadata = {
-  title: "Try Rune Access - Accessibility Scanner Demo",
-  description: "Scan your website for accessibility issues. Get prioritized fixes and generate an accessibility statement in minutes.",
+  title: "Ilmainen saavutettavuustarkistus | rootIT",
+  description: "Skannaa verkkosivusi saavutettavuusongelmien varalta. Saat priorisoidut korjausehdotukset ja voit luoda saavutettavuusselosteen minuuteissa.",
+  alternates: {
+    canonical: '/demo',
+  },
+  openGraph: {
+    title: "Ilmainen saavutettavuustarkistus | rootIT",
+    description: "Skannaa verkkosivusi saavutettavuusongelmien varalta ilmaiseksi.",
+    url: 'https://rootit.fi/demo',
+  },
 }
 
 export default function DemoPage() {
