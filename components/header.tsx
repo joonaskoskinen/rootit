@@ -117,7 +117,7 @@ export function Header() {
       
       {/* Mobile Menu */}
       {isMobileMenuOpen && (
-        <div className="border-t border-border bg-background/95 backdrop-blur-xl md:hidden">
+        <div className="fixed inset-x-0 top-[73px] bottom-0 z-40 overflow-y-auto border-t border-border bg-background/98 backdrop-blur-xl md:hidden safe-area-inset safe-area-bottom">
           <nav className="mx-auto flex max-w-6xl flex-col gap-1 px-4 py-4" aria-label="Mobiilinavigaatio">
             <Link 
               href="#services" 
@@ -163,6 +163,19 @@ export function Header() {
             >
               {t("nav.contact")}
             </Button>
+            
+            {/* Language toggle for mobile */}
+            <div className="mt-4 flex justify-center border-t border-border pt-4">
+              <button
+                onClick={() => {
+                  setLang(lang === "fi" ? "en" : "fi")
+                  setIsMobileMenuOpen(false)
+                }}
+                className="flex items-center gap-2 rounded-full border border-border/50 px-4 py-2 text-sm font-medium text-muted-foreground transition-colors hover:bg-muted"
+              >
+                {lang === "fi" ? "Switch to English" : "Vaihda suomeksi"}
+              </button>
+            </div>
           </nav>
         </div>
       )}
