@@ -104,6 +104,9 @@ export const viewport: Viewport = {
   ],
   width: 'device-width',
   initialScale: 1,
+  maximumScale: 5,
+  userScalable: true,
+  viewportFit: 'cover',
 }
 
 // Structured data for SEO
@@ -238,7 +241,7 @@ export default function RootLayout({
   children: React.ReactNode
 }>) {
   return (
-    <html lang="fi" className="dark" suppressHydrationWarning>
+    <html lang="fi" className="dark scroll-smooth" suppressHydrationWarning>
       <head>
         {/* Preconnect to third-party origins for performance */}
         <link rel="preconnect" href="https://client.crisp.chat" />
