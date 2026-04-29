@@ -129,8 +129,13 @@
     -webkit-overflow-scrolling: touch;
   }
   
-  /* Improve touch targets for mobile - minimum 44px */
-  button, a, input, select, textarea {
+  /* Improve touch targets for mobile - minimum 44px for form inputs only */
+  input, select, textarea {
+    min-height: 44px;
+  }
+  
+  /* Touch target helper class for buttons/links that need it */
+  .touch-44 {
     min-height: 44px;
   }
   
