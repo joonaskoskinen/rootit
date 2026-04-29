@@ -6,6 +6,8 @@ import { CrispChat } from '@/components/crisp-chat'
 import { WhatsAppButton } from '@/components/whatsapp-button'
 import './globals.css'
 
+const BASE_URL = 'https://rootit.fi'
+
 const spaceGrotesk = Space_Grotesk({ 
   subsets: ["latin"],
   variable: '--font-display',
@@ -46,13 +48,13 @@ export const metadata: Metadata = {
   openGraph: {
     type: 'website',
     locale: 'fi_FI',
-    url: 'https://rootit.fi',
+    url: BASE_URL,
     siteName: 'rootIT',
     title: 'rootIT | IT-tuki etänä koko Suomeen',
     description: 'Verkkosivujen korjaukset ja uudistukset, WordPress-apu, domain- ja sähköpostiongelmat. Autan pienyrityksiä, yrittäjiä ja yksityishenkilöitä koko Suomessa.',
     images: [
       {
-        url: '/og-image.png',
+        url: `${BASE_URL}/og-image.jpg`,
         width: 1200,
         height: 630,
         alt: 'rootIT - IT-tuki etänä koko Suomeen',
@@ -63,7 +65,7 @@ export const metadata: Metadata = {
     card: 'summary_large_image',
     title: 'rootIT | IT-tuki etänä koko Suomeen',
     description: 'Verkkosivujen korjaukset, WordPress-apu, domain- ja sähköpostiongelmat. IT-apua pienyrityksille ja yksityishenkilöille.',
-    images: ['/og-image.png'],
+    images: [`${BASE_URL}/og-image.jpg`],
   },
   robots: {
     index: true,
@@ -109,15 +111,18 @@ const structuredData = {
   '@context': 'https://schema.org',
   '@graph': [
     {
-      '@type': 'ProfessionalService',
-      '@id': 'https://rootit.fi/#organization',
+      '@type': 'LocalBusiness',
+      '@id': `${BASE_URL}/#organization`,
       name: 'rootIT',
       description: 'IT-tuki etänä koko Suomeen. Verkkosivujen korjaukset ja uudistukset, WordPress-apu, domain- ja sähköpostiongelmat.',
-      url: 'https://rootit.fi',
+      url: BASE_URL,
       email: 'rootit.info@gmail.com',
+      image: `${BASE_URL}/og-image.jpg`,
+      logo: `${BASE_URL}/icon.svg`,
       areaServed: {
         '@type': 'Country',
         name: 'Finland',
+        '@id': 'https://www.wikidata.org/wiki/Q33',
       },
       serviceType: [
         'IT-tuki',
@@ -130,17 +135,99 @@ const structuredData = {
       ],
       priceRange: '€€',
       knowsLanguage: ['fi', 'en'],
+      openingHoursSpecification: {
+        '@type': 'OpeningHoursSpecification',
+        dayOfWeek: ['Monday', 'Tuesday', 'Wednesday', 'Thursday', 'Friday'],
+        opens: '09:00',
+        closes: '17:00',
+      },
+      sameAs: [
+        'https://wa.me/358452599069',
+      ],
     },
     {
       '@type': 'WebSite',
-      '@id': 'https://rootit.fi/#website',
-      url: 'https://rootit.fi',
+      '@id': `${BASE_URL}/#website`,
+      url: BASE_URL,
       name: 'rootIT',
       description: 'IT-tuki etänä koko Suomeen',
       publisher: {
-        '@id': 'https://rootit.fi/#organization',
+        '@id': `${BASE_URL}/#organization`,
       },
       inLanguage: 'fi',
+      potentialAction: {
+        '@type': 'SearchAction',
+        target: {
+          '@type': 'EntryPoint',
+          urlTemplate: `${BASE_URL}/?s={search_term_string}`,
+        },
+        'query-input': 'required name=search_term_string',
+      },
+    },
+    // Service offerings
+    {
+      '@type': 'Service',
+      '@id': `${BASE_URL}/#service-it-tuki`,
+      name: 'IT-tuki etänä',
+      description: 'Etätuki tietokone- ja IT-ongelmiin. Nopea apu TeamViewerin kautta.',
+      provider: { '@id': `${BASE_URL}/#organization` },
+      areaServed: { '@type': 'Country', name: 'Finland' },
+      hasOfferCatalog: {
+        '@type': 'OfferCatalog',
+        name: 'IT-tukipalvelut',
+        itemListElement: [
+          {
+            '@type': 'Offer',
+            name: 'Kertakorjaus',
+            description: 'Yksittäisen ongelman ratkaisu',
+            priceSpecification: {
+              '@type': 'PriceSpecification',
+              price: '49',
+              priceCurrency: 'EUR',
+              minPrice: '49',
+            },
+          },
+          {
+            '@type': 'Offer',
+            name: 'Projekti',
+            description: 'Laajempi projekti sovittuun hintaan',
+            priceSpecification: {
+              '@type': 'PriceSpecification',
+              price: '199',
+              priceCurrency: 'EUR',
+              minPrice: '199',
+            },
+          },
+          {
+            '@type': 'Offer',
+            name: 'Kuukausituki',
+            description: 'Jatkuva IT-tuki kuukausimaksulla',
+            priceSpecification: {
+              '@type': 'PriceSpecification',
+              price: '99',
+              priceCurrency: 'EUR',
+              minPrice: '99',
+              billingDuration: 'P1M',
+            },
+          },
+        ],
+      },
+    },
+    {
+      '@type': 'Service',
+      '@id': `${BASE_URL}/#service-web`,
+      name: 'Verkkosivujen korjaus ja uudistus',
+      description: 'WordPress-sivujen korjaukset, päivitykset ja modernisointi.',
+      provider: { '@id': `${BASE_URL}/#organization` },
+      areaServed: { '@type': 'Country', name: 'Finland' },
+    },
+    {
+      '@type': 'Service',
+      '@id': `${BASE_URL}/#service-email`,
+      name: 'Sähköposti- ja domain-apu',
+      description: 'DNS-ongelmat, sähköpostin konfigurointi, domain-siirrot.',
+      provider: { '@id': `${BASE_URL}/#organization` },
+      areaServed: { '@type': 'Country', name: 'Finland' },
     },
   ],
 }
@@ -153,6 +240,12 @@ export default function RootLayout({
   return (
     <html lang="fi" className="dark" suppressHydrationWarning>
       <head>
+        {/* Preconnect to third-party origins for performance */}
+        <link rel="preconnect" href="https://client.crisp.chat" />
+        <link rel="dns-prefetch" href="https://client.crisp.chat" />
+        <link rel="preconnect" href="https://get.teamviewer.com" />
+        <link rel="dns-prefetch" href="https://get.teamviewer.com" />
+        
         <script
           type="application/ld+json"
           dangerouslySetInnerHTML={{ __html: JSON.stringify(structuredData) }}
