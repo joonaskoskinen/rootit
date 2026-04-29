@@ -241,8 +241,10 @@ export const PhoneMockup = forwardRef<PhoneMockupRef>(function PhoneMockup(_, re
                           name="email"
                           type="email"
                           required
+                          autoComplete="email"
+                          inputMode="email"
                           placeholder={t("form.email.placeholder")}
-                          className="w-full rounded-xl border border-white/[0.08] bg-white/[0.04] px-3.5 py-2.5 text-sm placeholder:text-white/25 focus:border-primary/40 focus:outline-none focus:ring-1 focus:ring-primary/40"
+                          className="w-full rounded-xl border border-white/[0.08] bg-white/[0.04] px-3.5 py-3 text-base placeholder:text-white/25 focus:border-primary/40 focus:outline-none focus:ring-1 focus:ring-primary/40"
                         />
                       </div>
                       
@@ -253,8 +255,10 @@ export const PhoneMockup = forwardRef<PhoneMockupRef>(function PhoneMockup(_, re
                           id="phone-tel"
                           name="phone"
                           type="tel"
+                          autoComplete="tel"
+                          inputMode="tel"
                           placeholder={t("form.phone.placeholder")}
-                          className="w-full rounded-xl border border-white/[0.08] bg-white/[0.04] px-3.5 py-2.5 text-sm placeholder:text-white/25 focus:border-primary/40 focus:outline-none focus:ring-1 focus:ring-primary/40"
+                          className="w-full rounded-xl border border-white/[0.08] bg-white/[0.04] px-3.5 py-3 text-base placeholder:text-white/25 focus:border-primary/40 focus:outline-none focus:ring-1 focus:ring-primary/40"
                         />
                       </div>
                       
@@ -267,7 +271,7 @@ export const PhoneMockup = forwardRef<PhoneMockupRef>(function PhoneMockup(_, re
                           required
                           rows={3}
                           placeholder={t("form.description.placeholder")}
-                          className="w-full resize-none rounded-xl border border-white/[0.08] bg-white/[0.04] px-3.5 py-2.5 text-sm placeholder:text-white/25 focus:border-primary/40 focus:outline-none focus:ring-1 focus:ring-primary/40"
+                          className="w-full resize-none rounded-xl border border-white/[0.08] bg-white/[0.04] px-3.5 py-3 text-base placeholder:text-white/25 focus:border-primary/40 focus:outline-none focus:ring-1 focus:ring-primary/40"
                         />
                       </div>
                       
@@ -278,8 +282,9 @@ export const PhoneMockup = forwardRef<PhoneMockupRef>(function PhoneMockup(_, re
                           id="phone-time"
                           name="preferredTime"
                           type="text"
+                          autoComplete="off"
                           placeholder={t("form.time.placeholder")}
-                          className="w-full rounded-xl border border-white/[0.08] bg-white/[0.04] px-3.5 py-2.5 text-sm placeholder:text-white/25 focus:border-primary/40 focus:outline-none focus:ring-1 focus:ring-primary/40"
+                          className="w-full rounded-xl border border-white/[0.08] bg-white/[0.04] px-3.5 py-3 text-base placeholder:text-white/25 focus:border-primary/40 focus:outline-none focus:ring-1 focus:ring-primary/40"
                         />
                       </div>
                     </div>
