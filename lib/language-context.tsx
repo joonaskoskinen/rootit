@@ -19,6 +19,7 @@ const translations = {
     "nav.faq": "UKK",
     "nav.contact": "Ota yhteyttä",
     "nav.remoteSupport": "Etätuki",
+    "nav.articles": "Artikkelit",
 
     // Hero - refined with clearer headline and CTA hierarchy
     "hero.headline1": "IT-asiat kuntoon ilman turhaa säätöä.",
@@ -289,6 +290,7 @@ const translations = {
     "nav.faq": "FAQ",
     "nav.contact": "Contact",
     "nav.remoteSupport": "Remote Support",
+    "nav.articles": "Articles",
 
     // Hero
     "hero.headline1": "IT sorted out without the hassle.",
