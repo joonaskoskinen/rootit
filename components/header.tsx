@@ -1,6 +1,7 @@
 "use client"
 
 import Link from "next/link"
+import { useRouter, usePathname } from "next/navigation"
 import { Button } from "@/components/ui/button"
 import { Menu, X, Download } from "lucide-react"
 import { useEffect, useState } from "react"
@@ -34,6 +35,8 @@ export function Header() {
   const [isScrolled, setIsScrolled] = useState(false)
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false)
   const { lang, setLang, t } = useLanguage()
+  const router = useRouter()
+  const pathname = usePathname()
 
   useEffect(() => {
     const handleScroll = () => {
@@ -45,6 +48,18 @@ export function Header() {
 
   const handleConsultationClick = () => {
     setIsMobileMenuOpen(false)
+    
+    // If not on home page, navigate there first
+    if (pathname !== "/") {
+      router.push("/#consultation-mockup")
+      // The scroll and form opening will be handled after navigation
+      setTimeout(() => {
+        window.dispatchEvent(new CustomEvent("openConsultationForm"))
+      }, 800)
+      return
+    }
+    
+    // If on home page, scroll directly
     const mockup = document.getElementById("consultation-mockup")
     if (mockup) {
       mockup.scrollIntoView({ behavior: "smooth", block: "center" })
