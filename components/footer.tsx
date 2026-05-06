@@ -58,17 +58,20 @@ export function Footer() {
 
           {/* Nav column */}
           <nav className="flex flex-col items-center gap-1 sm:items-start lg:items-end" aria-label="Alanavigaatio">
-            <Link href="#services" className="min-h-[44px] flex items-center text-sm text-muted-foreground transition-colors hover:text-foreground px-2 -mx-2">
+            <Link href="/#services" className="min-h-[44px] flex items-center text-sm text-muted-foreground transition-colors hover:text-foreground px-2 -mx-2">
               {t("footer.services")}
             </Link>
-            <Link href="#pricing" className="min-h-[44px] flex items-center text-sm text-muted-foreground transition-colors hover:text-foreground px-2 -mx-2">
+            <Link href="/#pricing" className="min-h-[44px] flex items-center text-sm text-muted-foreground transition-colors hover:text-foreground px-2 -mx-2">
               {t("footer.pricing")}
             </Link>
-            <Link href="#how-it-works" className="min-h-[44px] flex items-center text-sm text-muted-foreground transition-colors hover:text-foreground px-2 -mx-2">
+            <Link href="/#how-it-works" className="min-h-[44px] flex items-center text-sm text-muted-foreground transition-colors hover:text-foreground px-2 -mx-2">
               {t("nav.howItWorks")}
             </Link>
-            <Link href="#faq" className="min-h-[44px] flex items-center text-sm text-muted-foreground transition-colors hover:text-foreground px-2 -mx-2">
+            <Link href="/#faq" className="min-h-[44px] flex items-center text-sm text-muted-foreground transition-colors hover:text-foreground px-2 -mx-2">
               {t("nav.faq")}
+            </Link>
+            <Link href="/artikkelit" className="min-h-[44px] flex items-center text-sm text-muted-foreground transition-colors hover:text-foreground px-2 -mx-2">
+              {t("nav.articles")}
             </Link>
           </nav>
         </div>
