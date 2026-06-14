@@ -1,6 +1,6 @@
 "use client"
 
-import { useState, useEffect, forwardRef, useImperativeHandle } from "react"
+import { useState, useEffect, useRef, forwardRef, useImperativeHandle, type PointerEvent } from "react"
 import { Check, Clock, ChevronRight, Sparkles, ArrowLeft, Loader2, CheckCircle2, ArrowRight, Mail } from "lucide-react"
 import { useLanguage } from "@/lib/language-context"
 import { cn } from "@/lib/utils"
@@ -12,33 +12,59 @@ export interface PhoneMockupRef {
 export const PhoneMockup = forwardRef<PhoneMockupRef>(function PhoneMockup(_, ref) {
   const { t } = useLanguage()
   const [showForm, setShowForm] = useState(false)
-  
+
   useImperativeHandle(ref, () => ({
-    openForm: () => setShowForm(true)
+    openForm: () => setShowForm(true),
   }))
-  
+
   useEffect(() => {
     const handleOpenForm = () => setShowForm(true)
     window.addEventListener("openConsultationForm", handleOpenForm)
     return () => window.removeEventListener("openConsultationForm", handleOpenForm)
   }, [])
-  
+
   const [isSubmitting, setIsSubmitting] = useState(false)
   const [isSubmitted, setIsSubmitted] = useState(false)
   const [error, setError] = useState<string | null>(null)
   const [currentTime, setCurrentTime] = useState<string>("")
 
+  // Interactive 3D tilt
+  const tiltRef = useRef<HTMLDivElement>(null)
+  const [tilt, setTilt] = useState({ x: 0, y: 0 })
+  const [isHovering, setIsHovering] = useState(false)
+
+  const handlePointerMove = (e: PointerEvent<HTMLDivElement>) => {
+    if (e.pointerType === "touch") return
+    const el = tiltRef.current
+    if (!el) return
+    const rect = el.getBoundingClientRect()
+    const px = (e.clientX - rect.left) / rect.width // 0..1
+    const py = (e.clientY - rect.top) / rect.height // 0..1
+    // Lean toward the cursor for a tactile feel
+    setTilt({ x: (0.5 - py) * 14, y: (px - 0.5) * 16 })
+  }
+
+  const handlePointerEnter = (e: PointerEvent<HTMLDivElement>) => {
+    if (e.pointerType === "touch") return
+    setIsHovering(true)
+  }
+
+  const handlePointerLeave = () => {
+    setIsHovering(false)
+    setTilt({ x: 0, y: 0 })
+  }
+
   // Live clock
   useEffect(() => {
     const updateTime = () => {
       const now = new Date()
-      setCurrentTime(now.toLocaleTimeString('fi-FI', { hour: '2-digit', minute: '2-digit' }))
+      setCurrentTime(now.toLocaleTimeString("fi-FI", { hour: "2-digit", minute: "2-digit" }))
     }
     updateTime()
     const interval = setInterval(updateTime, 1000)
     return () => clearInterval(interval)
   }, [])
-  
+
   const handleSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault()
     setIsSubmitting(true)
@@ -78,251 +104,298 @@ export const PhoneMockup = forwardRef<PhoneMockupRef>(function PhoneMockup(_, re
   }
 
   return (
-    <div className="relative w-full max-w-[280px] sm:max-w-[340px]">
-      {/* Subtle glow effect */}
-      <div className="absolute -inset-3 rounded-[2.5rem] bg-gradient-to-br from-primary/10 via-accent/5 to-transparent blur-2xl sm:-inset-5 sm:rounded-[3rem] sm:blur-3xl" />
-      
-      {/* Phone frame with realistic shadow */}
-      <div className="relative w-full rounded-[2rem] border border-white/[0.08] bg-[#0a0c10] p-2 shadow-[0_25px_50px_-12px_rgba(0,0,0,0.5),0_0_0_1px_rgba(255,255,255,0.05)] sm:rounded-[2.5rem] sm:p-3">
-        {/* Dynamic Island */}
-        <div className="absolute left-1/2 top-3.5 z-10 h-[22px] w-[90px] -translate-x-1/2 rounded-full bg-black sm:top-4 sm:h-[26px] sm:w-[100px]" />
-        
-        {/* Screen */}
-        <div className="relative flex h-[460px] flex-col overflow-hidden rounded-[1.5rem] bg-gradient-to-b from-[#13161f] to-[#0d0f16] text-white sm:h-[580px] sm:rounded-[2rem]">
-          {/* Status bar */}
-          <div className="flex justify-between px-7 pt-2.5 text-[10px] font-medium opacity-60 sm:px-8 sm:pt-3 sm:text-xs">
-             <span>{currentTime || "09:41"}</span>
-            <div className="flex items-center gap-1">
-              <span>5G</span>
-              <div className="flex items-end gap-0.5">
-                <div className="h-1 w-0.5 rounded-full bg-white/60" />
-                <div className="h-1.5 w-0.5 rounded-full bg-white/60" />
-                <div className="h-2 w-0.5 rounded-full bg-white/60" />
-                <div className="h-2.5 w-0.5 rounded-full bg-white/60" />
-              </div>
-            </div>
-          </div>
+    <div className="relative w-full max-w-[280px] [perspective:1400px] sm:max-w-[340px]">
+      {/* Tilt layer - reacts to pointer */}
+      <div
+        ref={tiltRef}
+        onPointerMove={handlePointerMove}
+        onPointerEnter={handlePointerEnter}
+        onPointerLeave={handlePointerLeave}
+        className="relative transition-transform duration-200 ease-out [transform-style:preserve-3d] will-change-transform"
+        style={{
+          transform: `rotateX(${tilt.x}deg) rotateY(${tilt.y}deg) scale(${isHovering ? 1.025 : 1})`,
+        }}
+      >
+        {/* Floating layer - gentle idle motion */}
+        <div className="animate-phone-float">
+          {/* Animated glow effect */}
+          <div className="animate-glow-pulse absolute -inset-3 rounded-[2.5rem] bg-gradient-to-br from-primary/25 via-accent/10 to-transparent blur-2xl sm:-inset-5 sm:rounded-[3rem] sm:blur-3xl" />
 
-          {/* Sliding container */}
-          <div className="relative flex-1 overflow-hidden">
-            {/* Main content - slides left */}
-            <div className={cn(
-              "absolute inset-0 flex flex-col px-3.5 pb-4 pt-4 transition-all duration-500 ease-out sm:px-4 sm:pb-5 sm:pt-5",
-              showForm ? "-translate-x-full opacity-0" : "translate-x-0 opacity-100"
-            )}>
-              {/* Header */}
-              <div className="mb-3 sm:mb-4">
-                <h3 className="text-base font-semibold tracking-tight sm:text-lg">{t("phone.title")}</h3>
-                <p className="mt-0.5 text-[11px] text-white/40">Hallitse IT-tukipyyntöjäsi</p>
-              </div>
-              
-              {/* Task cards with better hierarchy */}
-              <div className="space-y-2 sm:space-y-2.5">
-                {/* Task 1 - In Progress - Highlighted */}
-                <div className="rounded-xl border border-primary/25 bg-gradient-to-br from-primary/[0.12] to-primary/[0.04] px-3 py-2.5 shadow-[0_2px_8px_-2px_rgba(59,130,246,0.15)]">
-                  <div className="flex items-center justify-between gap-2">
-                    <div className="flex-1 min-w-0">
-                      <div className="text-[13px] font-semibold leading-tight">{t("phone.task1")}</div>
-                      <div className="mt-1 flex items-center gap-1.5">
-                        <span className="relative flex h-1.5 w-1.5">
-                          <span className="absolute inline-flex h-full w-full animate-ping rounded-full bg-primary opacity-50" />
-                          <span className="relative inline-flex h-1.5 w-1.5 rounded-full bg-primary" />
-                        </span>
-                        <span className="text-[11px] font-medium text-primary">{t("phone.task1.status")}</span>
-                      </div>
-                    </div>
-                    <div className="flex h-7 w-7 shrink-0 items-center justify-center rounded-full bg-primary/20">
-                      <Clock className="h-3.5 w-3.5 text-primary" />
-                    </div>
-                  </div>
-                </div>
-                
-                {/* Task 2 - Done - Calmer */}
-                <div className="rounded-xl border border-white/[0.06] bg-white/[0.03] px-3 py-2.5">
-                  <div className="flex items-center justify-between gap-2">
-                    <div className="flex-1 min-w-0">
-                      <div className="text-[13px] font-medium leading-tight text-white/80">{t("phone.task2")}</div>
-                      <div className="mt-1 flex items-center gap-1.5">
-                        <Check className="h-2.5 w-2.5 text-emerald-400/70" />
-                        <span className="text-[11px] text-emerald-400/70">{t("phone.task2.status")}</span>
-                      </div>
-                    </div>
-                    <div className="flex h-7 w-7 shrink-0 items-center justify-center rounded-full bg-emerald-500/10">
-                      <Check className="h-3.5 w-3.5 text-emerald-400/60" />
-                    </div>
-                  </div>
-                </div>
-                
-                {/* Task 3 - Email - Subdued with two-line title for realism */}
-                <div className="rounded-xl border border-white/[0.06] bg-white/[0.02] px-3 py-2.5">
-                  <div className="flex items-center justify-between gap-2">
-                    <div className="flex-1 min-w-0">
-                      <div className="text-[13px] font-medium leading-tight text-white/60">Sähköpostijärjestelmän konfigurointi</div>
-                      <div className="mt-1 flex items-center gap-1.5">
-                        <Mail className="h-2.5 w-2.5 text-white/30" />
-                        <span className="text-[11px] text-white/40">{t("phone.task4.status")}</span>
-                      </div>
-                    </div>
-                    <ChevronRight className="h-3.5 w-3.5 shrink-0 text-white/20" />
-                  </div>
-                </div>
-                
-                {/* Recommendation card - Special but not overwhelming */}
-                <div className="rounded-xl border border-accent/20 bg-gradient-to-br from-accent/[0.08] to-transparent px-3 py-2.5">
-                  <div className="flex items-center justify-between gap-2">
-                    <div className="flex-1 min-w-0">
-                      <div className="flex items-center gap-1.5">
-                        <Sparkles className="h-3 w-3 shrink-0 text-accent/80" />
-                        <span className="text-[13px] font-medium text-white/70">{t("phone.task3")}</span>
-                      </div>
-                      <div className="mt-0.5 text-[11px] text-white/40 pl-[18px]">
-                        {t("phone.task3.desc")}
-                      </div>
-                    </div>
-                    <ChevronRight className="h-3.5 w-3.5 shrink-0 text-white/20" />
-                  </div>
-                </div>
-              </div>
-              
-              {/* Spacer */}
-              <div className="flex-1" />
-              
-              {/* CTA Button - More native app feeling, less hero-style */}
-              <button 
-                onClick={() => setShowForm(true)}
-                className="w-full rounded-xl bg-primary py-2.5 text-[13px] font-semibold text-white transition-all hover:bg-primary/90 active:scale-[0.98] active:opacity-90 sm:py-3"
-              >
-                {t("phone.cta")}
-              </button>
-            </div>
+          {/* Phone frame with realistic shadow */}
+          <div
+            className="relative w-full rounded-[2rem] border border-white/[0.08] bg-[#0a0c10] p-2 shadow-[0_25px_50px_-12px_rgba(0,0,0,0.5),0_0_0_1px_rgba(255,255,255,0.05)] sm:rounded-[2.5rem] sm:p-3"
+            style={{ transform: "translateZ(40px)" }}
+          >
+            {/* Dynamic Island */}
+            <div className="absolute left-1/2 top-3.5 z-10 h-[22px] w-[90px] -translate-x-1/2 rounded-full bg-black sm:top-4 sm:h-[26px] sm:w-[100px]" />
 
-            {/* Form content - slides in from right */}
-            <div className={cn(
-              "absolute inset-0 flex flex-col transition-all duration-500 ease-out",
-              showForm ? "translate-x-0 opacity-100" : "translate-x-full opacity-0"
-            )}>
-              {isSubmitted ? (
-                /* Success state */
-                <div className="flex flex-1 flex-col items-center justify-center px-5 text-center">
-                  <div className="mb-4 flex h-16 w-16 items-center justify-center rounded-full bg-primary/20">
-                    <CheckCircle2 className="h-8 w-8 text-primary" />
+            {/* Screen */}
+            <div className="relative flex h-[460px] flex-col overflow-hidden rounded-[1.5rem] bg-gradient-to-b from-[#13161f] to-[#0d0f16] text-white sm:h-[580px] sm:rounded-[2rem]">
+              {/* Status bar */}
+              <div className="flex justify-between px-7 pt-2.5 text-[10px] font-medium opacity-60 sm:px-8 sm:pt-3 sm:text-xs">
+                <span>{currentTime || "09:41"}</span>
+                <div className="flex items-center gap-1">
+                  <span>5G</span>
+                  <div className="flex items-end gap-0.5">
+                    <div className="signal-bar h-1 w-0.5 rounded-full bg-white/60" style={{ animationDelay: "0ms" }} />
+                    <div className="signal-bar h-1.5 w-0.5 rounded-full bg-white/60" style={{ animationDelay: "150ms" }} />
+                    <div className="signal-bar h-2 w-0.5 rounded-full bg-white/60" style={{ animationDelay: "300ms" }} />
+                    <div className="signal-bar h-2.5 w-0.5 rounded-full bg-white/60" style={{ animationDelay: "450ms" }} />
                   </div>
-                  <h3 className="mb-2 text-lg font-bold">{t("form.success.title")}</h3>
-                  <p className="mb-6 text-sm text-white/60">{t("form.success.desc")}</p>
-                  <button 
-                    onClick={handleBack}
-                    className="rounded-xl bg-white/10 px-6 py-2.5 text-sm font-medium transition-colors hover:bg-white/20"
+                </div>
+              </div>
+
+              {/* Sliding container */}
+              <div className="relative flex-1 overflow-hidden">
+                {/* Main content - slides left */}
+                <div
+                  className={cn(
+                    "absolute inset-0 flex flex-col px-3.5 pb-4 pt-4 transition-all duration-500 ease-out sm:px-4 sm:pb-5 sm:pt-5",
+                    showForm ? "-translate-x-full opacity-0" : "translate-x-0 opacity-100",
+                  )}
+                >
+                  {/* Header */}
+                  <div className="phone-card-enter mb-3 sm:mb-4" style={{ animationDelay: "80ms" }}>
+                    <h3 className="text-base font-semibold tracking-tight sm:text-lg">{t("phone.title")}</h3>
+                    <p className="mt-0.5 text-[11px] text-white/40">Hallitse IT-tukipyyntöjäsi</p>
+                  </div>
+
+                  {/* Task cards with better hierarchy */}
+                  <div className="space-y-2 sm:space-y-2.5">
+                    {/* Task 1 - In Progress - Highlighted with animated progress */}
+                    <div
+                      className="phone-card-enter rounded-xl border border-primary/25 bg-gradient-to-br from-primary/[0.12] to-primary/[0.04] px-3 py-2.5 shadow-[0_2px_8px_-2px_rgba(59,130,246,0.15)] transition-transform duration-300 hover:scale-[1.02]"
+                      style={{ animationDelay: "180ms" }}
+                    >
+                      <div className="flex items-center justify-between gap-2">
+                        <div className="min-w-0 flex-1">
+                          <div className="text-[13px] font-semibold leading-tight">{t("phone.task1")}</div>
+                          <div className="mt-1 flex items-center gap-1.5">
+                            <span className="relative flex h-1.5 w-1.5">
+                              <span className="absolute inline-flex h-full w-full animate-ping rounded-full bg-primary opacity-50" />
+                              <span className="relative inline-flex h-1.5 w-1.5 rounded-full bg-primary" />
+                            </span>
+                            <span className="text-[11px] font-medium text-primary">{t("phone.task1.status")}</span>
+                          </div>
+                        </div>
+                        <div className="flex h-7 w-7 shrink-0 items-center justify-center rounded-full bg-primary/20">
+                          <Clock className="h-3.5 w-3.5 text-primary" />
+                        </div>
+                      </div>
+                      {/* Animated progress bar */}
+                      <div className="mt-2.5 h-1 w-full overflow-hidden rounded-full bg-white/[0.06]">
+                        <div className="animate-progress-fill relative h-full rounded-full bg-gradient-to-r from-primary/70 to-primary">
+                          <div className="animate-shimmer absolute inset-y-0 w-1/3 bg-gradient-to-r from-transparent via-white/40 to-transparent" />
+                        </div>
+                      </div>
+                    </div>
+
+                    {/* Task 2 - Done - Calmer */}
+                    <div
+                      className="phone-card-enter rounded-xl border border-white/[0.06] bg-white/[0.03] px-3 py-2.5 transition-transform duration-300 hover:scale-[1.02]"
+                      style={{ animationDelay: "280ms" }}
+                    >
+                      <div className="flex items-center justify-between gap-2">
+                        <div className="min-w-0 flex-1">
+                          <div className="text-[13px] font-medium leading-tight text-white/80">{t("phone.task2")}</div>
+                          <div className="mt-1 flex items-center gap-1.5">
+                            <Check className="h-2.5 w-2.5 text-emerald-400/70" />
+                            <span className="text-[11px] text-emerald-400/70">{t("phone.task2.status")}</span>
+                          </div>
+                        </div>
+                        <div className="flex h-7 w-7 shrink-0 items-center justify-center rounded-full bg-emerald-500/10">
+                          <Check className="h-3.5 w-3.5 text-emerald-400/60" />
+                        </div>
+                      </div>
+                    </div>
+
+                    {/* Task 3 - Email - Subdued with two-line title for realism */}
+                    <div
+                      className="phone-card-enter rounded-xl border border-white/[0.06] bg-white/[0.02] px-3 py-2.5 transition-transform duration-300 hover:scale-[1.02]"
+                      style={{ animationDelay: "380ms" }}
+                    >
+                      <div className="flex items-center justify-between gap-2">
+                        <div className="min-w-0 flex-1">
+                          <div className="text-[13px] font-medium leading-tight text-white/60">
+                            Sähköpostijärjestelmän konfigurointi
+                          </div>
+                          <div className="mt-1 flex items-center gap-1.5">
+                            <Mail className="h-2.5 w-2.5 text-white/30" />
+                            <span className="text-[11px] text-white/40">{t("phone.task4.status")}</span>
+                          </div>
+                        </div>
+                        <ChevronRight className="h-3.5 w-3.5 shrink-0 text-white/20" />
+                      </div>
+                    </div>
+
+                    {/* Recommendation card - Special but not overwhelming */}
+                    <div
+                      className="phone-card-enter rounded-xl border border-accent/20 bg-gradient-to-br from-accent/[0.08] to-transparent px-3 py-2.5 transition-transform duration-300 hover:scale-[1.02]"
+                      style={{ animationDelay: "480ms" }}
+                    >
+                      <div className="flex items-center justify-between gap-2">
+                        <div className="min-w-0 flex-1">
+                          <div className="flex items-center gap-1.5">
+                            <Sparkles className="h-3 w-3 shrink-0 text-accent/80" />
+                            <span className="text-[13px] font-medium text-white/70">{t("phone.task3")}</span>
+                          </div>
+                          <div className="mt-0.5 pl-[18px] text-[11px] text-white/40">{t("phone.task3.desc")}</div>
+                        </div>
+                        <ChevronRight className="h-3.5 w-3.5 shrink-0 text-white/20" />
+                      </div>
+                    </div>
+                  </div>
+
+                  {/* Spacer */}
+                  <div className="flex-1" />
+
+                  {/* CTA Button - More native app feeling, less hero-style */}
+                  <button
+                    onClick={() => setShowForm(true)}
+                    className="phone-card-enter w-full rounded-xl bg-primary py-2.5 text-[13px] font-semibold text-white shadow-[0_8px_20px_-8px_rgba(59,130,246,0.6)] transition-all hover:bg-primary/90 hover:shadow-[0_10px_28px_-8px_rgba(59,130,246,0.75)] active:scale-[0.98] active:opacity-90 sm:py-3"
+                    style={{ animationDelay: "580ms" }}
                   >
-                    {t("form.success.close")}
+                    {t("phone.cta")}
                   </button>
                 </div>
-              ) : (
-                /* Form state */
-                <>
-                  {/* Header with back button */}
-                  <div className="flex items-center gap-3 px-4 pt-5">
-                    <button 
-                      onClick={handleBack}
-                      className="flex h-8 w-8 items-center justify-center rounded-full bg-white/10 transition-colors hover:bg-white/20"
-                    >
-                      <ArrowLeft className="h-4 w-4" />
-                    </button>
-                    <h3 className="text-base font-semibold">{t("form.title")}</h3>
-                  </div>
-                  
-                  {/* Scrollable form */}
-                  <form onSubmit={handleSubmit} className="flex flex-1 flex-col overflow-y-auto px-4 pb-5 pt-4">
-                    <div className="space-y-3.5">
-                      {/* Email */}
-                      <div className="space-y-1.5">
-                        <label htmlFor="phone-email" className="text-xs font-medium text-white/60">{t("form.email")} *</label>
-                        <input
-                          id="phone-email"
-                          name="email"
-                          type="email"
-                          required
-                          autoComplete="email"
-                          inputMode="email"
-                          placeholder={t("form.email.placeholder")}
-                          className="w-full rounded-xl border border-white/[0.08] bg-white/[0.04] px-3.5 py-3 text-base placeholder:text-white/25 focus:border-primary/40 focus:outline-none focus:ring-1 focus:ring-primary/40"
-                        />
+
+                {/* Form content - slides in from right */}
+                <div
+                  className={cn(
+                    "absolute inset-0 flex flex-col transition-all duration-500 ease-out",
+                    showForm ? "translate-x-0 opacity-100" : "translate-x-full opacity-0",
+                  )}
+                >
+                  {isSubmitted ? (
+                    /* Success state */
+                    <div className="flex flex-1 flex-col items-center justify-center px-5 text-center">
+                      <div className="mb-4 flex h-16 w-16 animate-[card-rise_0.5s_ease-out] items-center justify-center rounded-full bg-primary/20">
+                        <CheckCircle2 className="h-8 w-8 text-primary" />
                       </div>
-                      
-                      {/* Phone */}
-                      <div className="space-y-1.5">
-                        <label htmlFor="phone-tel" className="text-xs font-medium text-white/60">{t("form.phone")}</label>
-                        <input
-                          id="phone-tel"
-                          name="phone"
-                          type="tel"
-                          autoComplete="tel"
-                          inputMode="tel"
-                          placeholder={t("form.phone.placeholder")}
-                          className="w-full rounded-xl border border-white/[0.08] bg-white/[0.04] px-3.5 py-3 text-base placeholder:text-white/25 focus:border-primary/40 focus:outline-none focus:ring-1 focus:ring-primary/40"
-                        />
-                      </div>
-                      
-                      {/* Description */}
-                      <div className="space-y-1.5">
-                        <label htmlFor="phone-desc" className="text-xs font-medium text-white/60">{t("form.description")} *</label>
-                        <textarea
-                          id="phone-desc"
-                          name="description"
-                          required
-                          rows={3}
-                          placeholder={t("form.description.placeholder")}
-                          className="w-full resize-none rounded-xl border border-white/[0.08] bg-white/[0.04] px-3.5 py-3 text-base placeholder:text-white/25 focus:border-primary/40 focus:outline-none focus:ring-1 focus:ring-primary/40"
-                        />
-                      </div>
-                      
-                      {/* Preferred time */}
-                      <div className="space-y-1.5">
-                        <label htmlFor="phone-time" className="text-xs font-medium text-white/60">{t("form.time")}</label>
-                        <input
-                          id="phone-time"
-                          name="preferredTime"
-                          type="text"
-                          autoComplete="off"
-                          placeholder={t("form.time.placeholder")}
-                          className="w-full rounded-xl border border-white/[0.08] bg-white/[0.04] px-3.5 py-3 text-base placeholder:text-white/25 focus:border-primary/40 focus:outline-none focus:ring-1 focus:ring-primary/40"
-                        />
-                      </div>
+                      <h3 className="mb-2 text-lg font-bold">{t("form.success.title")}</h3>
+                      <p className="mb-6 text-sm text-white/60">{t("form.success.desc")}</p>
+                      <button
+                        onClick={handleBack}
+                        className="rounded-xl bg-white/10 px-6 py-2.5 text-sm font-medium transition-colors hover:bg-white/20"
+                      >
+                        {t("form.success.close")}
+                      </button>
                     </div>
+                  ) : (
+                    /* Form state */
+                    <>
+                      {/* Header with back button */}
+                      <div className="flex items-center gap-3 px-4 pt-5">
+                        <button
+                          onClick={handleBack}
+                          className="flex h-8 w-8 items-center justify-center rounded-full bg-white/10 transition-all hover:bg-white/20 active:scale-90"
+                        >
+                          <ArrowLeft className="h-4 w-4" />
+                        </button>
+                        <h3 className="text-base font-semibold">{t("form.title")}</h3>
+                      </div>
 
-                    {error && (
-                      <p className="mt-2 text-xs text-red-400">{error}</p>
-                    )}
-                    
-                    {/* Spacer */}
-                    <div className="flex-1 min-h-3" />
-                    
-                    {/* Submit button */}
-                    <button
-                      type="submit"
-                      disabled={isSubmitting}
-                      className="mt-3 flex w-full items-center justify-center gap-2 rounded-xl bg-primary py-3 font-semibold text-white transition-all hover:bg-primary/90 disabled:opacity-70 active:scale-[0.98]"
-                    >
-                      {isSubmitting ? (
-                        <>
-                          <Loader2 className="h-4 w-4 animate-spin" />
-                          {t("form.submitting")}
-                        </>
-                      ) : (
-                        <>
-                          {t("form.submit")}
-                          <ArrowRight className="h-4 w-4" />
-                        </>
-                      )}
-                    </button>
-                  </form>
-                </>
-              )}
+                      {/* Scrollable form */}
+                      <form onSubmit={handleSubmit} className="flex flex-1 flex-col overflow-y-auto px-4 pb-5 pt-4">
+                        <div className="space-y-3.5">
+                          {/* Email */}
+                          <div className="space-y-1.5">
+                            <label htmlFor="phone-email" className="text-xs font-medium text-white/60">
+                              {t("form.email")} *
+                            </label>
+                            <input
+                              id="phone-email"
+                              name="email"
+                              type="email"
+                              required
+                              autoComplete="email"
+                              inputMode="email"
+                              placeholder={t("form.email.placeholder")}
+                              className="w-full rounded-xl border border-white/[0.08] bg-white/[0.04] px-3.5 py-3 text-base placeholder:text-white/25 focus:border-primary/40 focus:outline-none focus:ring-1 focus:ring-primary/40"
+                            />
+                          </div>
+
+                          {/* Phone */}
+                          <div className="space-y-1.5">
+                            <label htmlFor="phone-tel" className="text-xs font-medium text-white/60">
+                              {t("form.phone")}
+                            </label>
+                            <input
+                              id="phone-tel"
+                              name="phone"
+                              type="tel"
+                              autoComplete="tel"
+                              inputMode="tel"
+                              placeholder={t("form.phone.placeholder")}
+                              className="w-full rounded-xl border border-white/[0.08] bg-white/[0.04] px-3.5 py-3 text-base placeholder:text-white/25 focus:border-primary/40 focus:outline-none focus:ring-1 focus:ring-primary/40"
+                            />
+                          </div>
+
+                          {/* Description */}
+                          <div className="space-y-1.5">
+                            <label htmlFor="phone-desc" className="text-xs font-medium text-white/60">
+                              {t("form.description")} *
+                            </label>
+                            <textarea
+                              id="phone-desc"
+                              name="description"
+                              required
+                              rows={3}
+                              placeholder={t("form.description.placeholder")}
+                              className="w-full resize-none rounded-xl border border-white/[0.08] bg-white/[0.04] px-3.5 py-3 text-base placeholder:text-white/25 focus:border-primary/40 focus:outline-none focus:ring-1 focus:ring-primary/40"
+                            />
+                          </div>
+
+                          {/* Preferred time */}
+                          <div className="space-y-1.5">
+                            <label htmlFor="phone-time" className="text-xs font-medium text-white/60">
+                              {t("form.time")}
+                            </label>
+                            <input
+                              id="phone-time"
+                              name="preferredTime"
+                              type="text"
+                              autoComplete="off"
+                              placeholder={t("form.time.placeholder")}
+                              className="w-full rounded-xl border border-white/[0.08] bg-white/[0.04] px-3.5 py-3 text-base placeholder:text-white/25 focus:border-primary/40 focus:outline-none focus:ring-1 focus:ring-primary/40"
+                            />
+                          </div>
+                        </div>
+
+                        {error && <p className="mt-2 text-xs text-red-400">{error}</p>}
+
+                        {/* Spacer */}
+                        <div className="min-h-3 flex-1" />
+
+                        {/* Submit button */}
+                        <button
+                          type="submit"
+                          disabled={isSubmitting}
+                          className="mt-3 flex w-full items-center justify-center gap-2 rounded-xl bg-primary py-3 font-semibold text-white shadow-[0_8px_20px_-8px_rgba(59,130,246,0.6)] transition-all hover:bg-primary/90 active:scale-[0.98] disabled:opacity-70"
+                        >
+                          {isSubmitting ? (
+                            <>
+                              <Loader2 className="h-4 w-4 animate-spin" />
+                              {t("form.submitting")}
+                            </>
+                          ) : (
+                            <>
+                              {t("form.submit")}
+                              <ArrowRight className="h-4 w-4" />
+                            </>
+                          )}
+                        </button>
+                      </form>
+                    </>
+                  )}
+                </div>
+              </div>
+
+              {/* Home indicator */}
+              <div className="flex justify-center pb-2.5">
+                <div className="h-1 w-28 rounded-full bg-white/15" />
+              </div>
             </div>
-          </div>
-
-          {/* Home indicator */}
-          <div className="flex justify-center pb-2.5">
-            <div className="h-1 w-28 rounded-full bg-white/15" />
           </div>
         </div>
       </div>
