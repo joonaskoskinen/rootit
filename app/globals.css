@@ -239,3 +239,94 @@
     }
   }
 }
+
+/* ---------- Phone mockup animations ---------- */
+
+@keyframes phone-float {
+  0%, 100% {
+    transform: translateY(0);
+  }
+  50% {
+    transform: translateY(-12px);
+  }
+}
+
+@keyframes glow-pulse {
+  0%, 100% {
+    opacity: 0.4;
+    transform: scale(1);
+  }
+  50% {
+    opacity: 0.85;
+    transform: scale(1.1);
+  }
+}
+
+@keyframes card-rise {
+  0% {
+    opacity: 0;
+    transform: translateY(16px) scale(0.97);
+  }
+  100% {
+    opacity: 1;
+    transform: translateY(0) scale(1);
+  }
+}
+
+@keyframes progress-fill {
+  0% {
+    width: 8%;
+  }
+  60% {
+    width: 70%;
+  }
+  100% {
+    width: 64%;
+  }
+}
+
+@keyframes shimmer {
+  0% {
+    transform: translateX(-130%);
+  }
+  100% {
+    transform: translateX(230%);
+  }
+}
+
+@keyframes bar-bounce {
+  0%, 100% {
+    transform: scaleY(0.45);
+    opacity: 0.5;
+  }
+  50% {
+    transform: scaleY(1);
+    opacity: 1;
+  }
+}
+
+.animate-phone-float {
+  animation: phone-float 6s ease-in-out infinite;
+}
+
+.animate-glow-pulse {
+  animation: glow-pulse 5s ease-in-out infinite;
+}
+
+.animate-progress-fill {
+  animation: progress-fill 2.4s cubic-bezier(0.22, 1, 0.36, 1) forwards;
+}
+
+.animate-shimmer {
+  animation: shimmer 2.6s ease-in-out infinite;
+}
+
+.phone-card-enter {
+  opacity: 0;
+  animation: card-rise 0.6s cubic-bezier(0.22, 1, 0.36, 1) forwards;
+}
+
+.signal-bar {
+  transform-origin: bottom;
+  animation: bar-bounce 1.6s ease-in-out infinite;
+}
