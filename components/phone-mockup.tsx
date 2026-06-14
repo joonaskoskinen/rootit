@@ -130,7 +130,7 @@ export const PhoneMockup = forwardRef<PhoneMockupRef>(function PhoneMockup(_, re
             <div className="absolute left-1/2 top-3.5 z-10 h-[22px] w-[90px] -translate-x-1/2 rounded-full bg-black sm:top-4 sm:h-[26px] sm:w-[100px]" />
 
             {/* Screen */}
-            <div className="relative flex h-[460px] flex-col overflow-hidden rounded-[1.5rem] bg-gradient-to-b from-[#13161f] to-[#0d0f16] text-white sm:h-[580px] sm:rounded-[2rem]">
+            <div className="relative flex min-h-[520px] flex-col overflow-hidden rounded-[1.5rem] bg-gradient-to-b from-[#13161f] to-[#0d0f16] text-white sm:min-h-[600px] sm:rounded-[2rem]">
               {/* Status bar */}
               <div className="flex justify-between px-7 pt-2.5 text-[10px] font-medium opacity-60 sm:px-8 sm:pt-3 sm:text-xs">
                 <span>{currentTime || "09:41"}</span>
@@ -146,11 +146,11 @@ export const PhoneMockup = forwardRef<PhoneMockupRef>(function PhoneMockup(_, re
               </div>
 
               {/* Sliding container */}
-              <div className="relative flex-1 overflow-hidden">
-                {/* Main content - slides left */}
+              <div className="relative flex flex-1 overflow-hidden">
+                {/* Main content - slides left (defines screen height) */}
                 <div
                   className={cn(
-                    "absolute inset-0 flex flex-col px-3.5 pb-4 pt-4 transition-all duration-500 ease-out sm:px-4 sm:pb-5 sm:pt-5",
+                    "flex w-full flex-col px-3.5 pb-4 pt-4 transition-all duration-500 ease-out sm:px-4 sm:pb-5 sm:pt-5",
                     showForm ? "-translate-x-full opacity-0" : "translate-x-0 opacity-100",
                   )}
                 >
