@@ -12,8 +12,7 @@ import {
 import Script from "next/script"
 
 export function FAQ() {
-  const { ref: headerRef, isInView: headerInView } = useInView({ threshold: 0.1 })
-  const { ref: contentRef, isInView: contentInView } = useInView({ threshold: 0.1 })
+  const { ref, isInView } = useInView({ threshold: 0.1 })
   const { t } = useLanguage()
 
   const faqs = [
@@ -33,14 +32,14 @@ export function FAQ() {
   const faqSchema = {
     "@context": "https://schema.org",
     "@type": "FAQPage",
-    "mainEntity": faqs.map(faq => ({
+    mainEntity: faqs.map((faq) => ({
       "@type": "Question",
-      "name": faq.q,
-      "acceptedAnswer": {
+      name: faq.q,
+      acceptedAnswer: {
         "@type": "Answer",
-        "text": faq.a
-      }
-    }))
+        text: faq.a,
+      },
+    })),
   }
 
   return (
@@ -50,41 +49,29 @@ export function FAQ() {
         type="application/ld+json"
         dangerouslySetInnerHTML={{ __html: JSON.stringify(faqSchema) }}
       />
-      <section id="faq" className="py-16 sm:py-20 lg:py-28" aria-labelledby="faq-heading">
-        <div className="mx-auto max-w-3xl px-4 lg:px-6">
+      <section id="faq" className="scroll-mt-16" aria-labelledby="faq-heading">
+        <div className="mx-auto max-w-6xl px-4 py-16 lg:px-6 lg:py-24">
           <div
-            ref={headerRef}
+            ref={ref}
             className={cn(
-              "mb-8 text-center transition-all duration-700 sm:mb-12",
-              headerInView ? "translate-y-0 opacity-100" : "translate-y-6 opacity-0"
+              "grid gap-10 transition-all duration-700 lg:grid-cols-[minmax(0,1fr)_minmax(0,1.6fr)] lg:gap-16",
+              isInView ? "translate-y-0 opacity-100" : "translate-y-6 opacity-0",
             )}
           >
-            <h2 id="faq-heading" className="mb-3 font-display text-2xl font-bold tracking-tight sm:mb-4 sm:text-3xl md:text-4xl lg:text-5xl">
-              {t("faq.title")}
-            </h2>
-            <p className="text-sm text-muted-foreground sm:text-base">
-              {t("faq.subtitle")}
-            </p>
-          </div>
+            <div className="lg:sticky lg:top-24 lg:self-start">
+              <h2 id="faq-heading" className="font-display text-3xl font-bold tracking-tight text-balance sm:text-4xl">
+                {t("faq.title")}
+              </h2>
+              <p className="mt-3 text-lg leading-relaxed text-muted-foreground">{t("faq.subtitle")}</p>
+            </div>
 
-          <div
-            ref={contentRef}
-            className={cn(
-              "transition-all duration-700 delay-200",
-              contentInView ? "translate-y-0 opacity-100" : "translate-y-6 opacity-0"
-            )}
-          >
-            <Accordion type="single" collapsible className="space-y-2 sm:space-y-3">
+            <Accordion type="single" collapsible className="divide-y divide-border border-y border-border">
               {faqs.map((faq, index) => (
-                <AccordionItem
-                  key={index}
-                  value={`item-${index}`}
-                  className="rounded-xl border border-border bg-gradient-to-b from-card/90 to-card/60 px-4 shadow-sm sm:rounded-2xl sm:px-6"
-                >
-                  <AccordionTrigger className="py-4 text-left text-sm font-medium hover:no-underline sm:py-5 sm:text-base [&[data-state=open]>svg]:rotate-180">
+                <AccordionItem key={index} value={`item-${index}`} className="border-b-0">
+                  <AccordionTrigger className="py-5 text-left text-base font-medium hover:no-underline [&[data-state=open]>svg]:rotate-180">
                     {faq.q}
                   </AccordionTrigger>
-                  <AccordionContent className="pb-4 text-sm leading-relaxed text-muted-foreground sm:pb-5 sm:text-base">
+                  <AccordionContent className="pb-5 text-base leading-relaxed text-muted-foreground">
                     {faq.a}
                   </AccordionContent>
                 </AccordionItem>

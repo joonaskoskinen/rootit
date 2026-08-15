@@ -216,6 +216,7 @@ const translations = {
     "footer.terms": "Ehdot",
     "footer.slogan": "IT-apua ilman turhaa säätöä.",
     "footer.contact": "Yhteystiedot",
+    "footer.nav": "Sivusto",
     "footer.email": "rootit.info@gmail.com",
     "footer.location": "Etäpalvelu koko Suomeen",
 
@@ -487,6 +488,7 @@ const translations = {
     "footer.terms": "Terms",
     "footer.slogan": "IT help without the hassle.",
     "footer.contact": "Contact",
+    "footer.nav": "Site",
     "footer.email": "rootit.info@gmail.com",
     "footer.location": "Remote service across Finland",
 
