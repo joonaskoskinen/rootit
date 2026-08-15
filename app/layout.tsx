@@ -1,5 +1,5 @@
 import type { Metadata, Viewport } from 'next'
-import { Space_Grotesk, Inter } from 'next/font/google'
+import { Bricolage_Grotesque, Inter } from 'next/font/google'
 import { Analytics } from '@vercel/analytics/next'
 import { LanguageProvider } from '@/lib/language-context'
 import { CrispChat } from '@/components/crisp-chat'
@@ -8,7 +8,7 @@ import './globals.css'
 
 const BASE_URL = 'https://rootit.fi'
 
-const spaceGrotesk = Space_Grotesk({ 
+const bricolage = Bricolage_Grotesque({ 
   subsets: ["latin"],
   variable: '--font-display',
   display: 'swap'
@@ -98,10 +98,7 @@ export const metadata: Metadata = {
 }
 
 export const viewport: Viewport = {
-  themeColor: [
-    { media: '(prefers-color-scheme: light)', color: '#f6f4ef' },
-    { media: '(prefers-color-scheme: dark)', color: '#090a11' },
-  ],
+  themeColor: '#faf9f6',
   width: 'device-width',
   initialScale: 1,
   maximumScale: 5,
@@ -241,7 +238,7 @@ export default function RootLayout({
   children: React.ReactNode
 }>) {
   return (
-    <html lang="fi" className="dark scroll-smooth" suppressHydrationWarning>
+    <html lang="fi" className="scroll-smooth bg-background" suppressHydrationWarning>
       <head>
         {/* Preconnect to third-party origins for performance */}
         <link rel="preconnect" href="https://client.crisp.chat" />
@@ -254,7 +251,7 @@ export default function RootLayout({
           dangerouslySetInnerHTML={{ __html: JSON.stringify(structuredData) }}
         />
       </head>
-      <body className={`${spaceGrotesk.variable} ${inter.variable} font-sans antialiased`}>
+      <body className={`${bricolage.variable} ${inter.variable} font-sans antialiased`}>
         <LanguageProvider>
           {children}
         </LanguageProvider>

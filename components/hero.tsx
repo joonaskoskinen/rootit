@@ -1,102 +1,63 @@
 "use client"
 
-import { useRef } from "react"
 import Link from "next/link"
-import { Button } from "@/components/ui/button"
-import { PhoneMockup, PhoneMockupRef } from "@/components/phone-mockup"
-import { ArrowRight, Download, CheckCircle } from "lucide-react"
+import { HeroContactCard } from "@/components/hero-contact-card"
+import { Check, Download } from "lucide-react"
 import { useLanguage } from "@/lib/language-context"
 
 export function Hero() {
   const { t } = useLanguage()
-  const phoneMockupRef = useRef<PhoneMockupRef>(null)
-  const mockupContainerRef = useRef<HTMLDivElement>(null)
 
-  const handleConsultationClick = () => {
-    mockupContainerRef.current?.scrollIntoView({ behavior: "smooth", block: "center" })
-    setTimeout(() => {
-      phoneMockupRef.current?.openForm()
-    }, 500)
-  }
-  
   return (
-    <section className="relative overflow-hidden pb-10 pt-6 sm:pb-12 sm:pt-8 lg:pb-20 lg:pt-16">
-      <div className="mx-auto max-w-6xl px-4 lg:px-6">
-        
-        {/* Intro paragraph for SEO - visible to search engines, styled subtly */}
+    <section className="relative overflow-hidden">
+      <div className="mx-auto max-w-6xl px-4 pb-16 pt-12 sm:pt-16 lg:px-6 lg:pb-24 lg:pt-24">
+        {/* Intro paragraph for SEO */}
         <p className="sr-only">
-          rootIT tarjoaa IT-tukea etänä koko Suomeen. Palvelemme pienyrityksiä, yrittäjiä, yhdistyksiä ja yksityishenkilöitä. 
+          rootIT tarjoaa IT-tukea etänä koko Suomeen. Palvelemme pienyrityksiä, yrittäjiä, yhdistyksiä ja yksityishenkilöitä.
           Autamme verkkosivujen korjauksissa ja uudistuksissa, WordPress-ongelmissa, domain- ja DNS-asioissa sekä sähköpostiongelmissa.
         </p>
-        
-        {/* Main content grid */}
-        <div className="grid items-center gap-8 sm:gap-12 lg:grid-cols-[1fr_380px] lg:gap-16">
-          
-          {/* Left side - Copy */}
-          <div className="order-2 text-center lg:order-1 lg:text-left">
-            {/* Headline */}
-            <h1 className="font-display text-3xl font-bold leading-[1.15] tracking-tight sm:text-4xl md:text-5xl lg:text-6xl text-balance">
-              <span className="text-gradient-cyan">{t("hero.headline1")}</span>
+
+        <div className="grid items-start gap-12 lg:grid-cols-[1.15fr_1fr] lg:gap-20">
+          {/* Left: copy */}
+          <div className="flex flex-col items-start">
+            <h1 className="rise-in rise-in-1 font-display text-4xl font-bold leading-[1.08] tracking-tight text-balance sm:text-5xl lg:text-[3.75rem]">
+              {t("hero.headline1")}
             </h1>
-            
-            <p className="mx-auto mt-4 max-w-xl text-base leading-relaxed text-muted-foreground sm:mt-6 sm:text-lg lg:mx-0 lg:text-xl">
+
+            <p className="rise-in rise-in-2 mt-6 max-w-xl text-lg leading-relaxed text-muted-foreground lg:text-xl">
               {t("hero.description")}
             </p>
-            
-            {/* Primary CTAs */}
-            <div className="mt-6 flex flex-col items-center gap-3 sm:mt-8 sm:flex-row sm:gap-4 lg:justify-start">
-              <Button 
-                size="lg" 
-                className="h-12 w-full rounded-full bg-primary px-8 text-primary-foreground shadow-md hover:bg-primary/90 cursor-pointer sm:h-14 sm:w-auto sm:px-10"
-                onClick={handleConsultationClick}
-              >
-                {t("hero.cta1")}
-                <ArrowRight className="ml-2 h-4 w-4" />
-              </Button>
-              <Button 
-                variant="outline" 
-                size="lg" 
-                className="h-12 w-full rounded-full px-6 cursor-pointer sm:h-14 sm:w-auto sm:px-8"
-                onClick={handleConsultationClick}
-              >
-                {t("hero.cta2")}
-              </Button>
-            </div>
-            
-            {/* Remote support link - subtle */}
-            <div className="mt-4 flex items-center justify-center gap-1.5 text-sm text-muted-foreground sm:mt-5 lg:justify-start">
+
+            {/* Trust list */}
+            <ul className="rise-in rise-in-3 mt-8 flex flex-col gap-3">
+              {[t("trust.direct"), t("trust.oneoff"), t("trust.demo")].map((item) => (
+                <li key={item} className="flex items-center gap-3 text-base text-foreground">
+                  <span className="flex h-6 w-6 shrink-0 items-center justify-center rounded-full bg-accent">
+                    <Check className="h-3.5 w-3.5 text-primary" strokeWidth={3} />
+                  </span>
+                  {item}
+                </li>
+              ))}
+            </ul>
+
+            {/* Remote support */}
+            <div className="rise-in rise-in-4 mt-10 flex items-center gap-2 rounded-full border border-border bg-card py-2 pl-4 pr-2 text-sm text-muted-foreground">
               <span>{t("hero.remoteLink")}</span>
-              <Link 
+              <Link
                 href="https://download.teamviewer.com/download/TeamViewerQS_x64.exe"
                 target="_blank"
                 rel="noopener noreferrer"
-                className="inline-flex items-center gap-1.5 text-primary hover:underline"
+                className="inline-flex items-center gap-1.5 rounded-full bg-secondary px-3 py-1.5 font-medium text-secondary-foreground transition-colors hover:bg-accent hover:text-accent-foreground"
               >
                 <Download className="h-3.5 w-3.5" />
                 {t("remote.button")}
               </Link>
             </div>
-            
-            {/* Trust row */}
-            <div className="mt-6 flex flex-col items-center gap-2 text-sm text-muted-foreground sm:mt-8 sm:flex-row sm:flex-wrap sm:gap-x-6 sm:gap-y-2 lg:justify-start">
-              <span className="flex items-center gap-1.5">
-                <CheckCircle className="h-4 w-4 shrink-0 text-primary" />
-                {t("trust.direct")}
-              </span>
-              <span className="flex items-center gap-1.5">
-                <CheckCircle className="h-4 w-4 shrink-0 text-primary" />
-                {t("trust.oneoff")}
-              </span>
-              <span className="flex items-center gap-1.5">
-                <CheckCircle className="h-4 w-4 shrink-0 text-primary" />
-                {t("trust.demo")}
-              </span>
-            </div>
           </div>
-          
-          {/* Right side - Phone mockup */}
-          <div ref={mockupContainerRef} id="consultation-mockup" className="order-1 flex items-center justify-center px-4 sm:px-0 lg:order-2 lg:justify-end">
-            <PhoneMockup ref={phoneMockupRef} />
+
+          {/* Right: inline contact card */}
+          <div className="rise-in rise-in-3 flex justify-center lg:justify-end">
+            <HeroContactCard />
           </div>
         </div>
       </div>

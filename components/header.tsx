@@ -9,25 +9,21 @@ import { useLanguage } from "@/lib/language-context"
 
 function RootITLogo() {
   return (
-    <svg viewBox="0 0 120 32" fill="none" className="h-7 w-auto">
-      {/* Root/tree icon - abstract connected nodes representing systems/roots */}
-      <circle cx="10" cy="16" r="4" fill="currentColor" opacity="0.9"/>
-      <circle cx="22" cy="8" r="3" fill="currentColor" opacity="0.7"/>
-      <circle cx="22" cy="24" r="3" fill="currentColor" opacity="0.7"/>
-      <path d="M13 14 L19 10" stroke="currentColor" strokeWidth="2" strokeLinecap="round"/>
-      <path d="M13 18 L19 22" stroke="currentColor" strokeWidth="2" strokeLinecap="round"/>
-      <path d="M22 11 L22 21" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" opacity="0.5"/>
-      {/* Text: rootIT */}
-      <text x="32" y="22" fontFamily="var(--font-display), system-ui" fontSize="18" fontWeight="600" fill="currentColor" letterSpacing="-0.02em">
-        root<tspan fontWeight="700" fill="url(#logoGradient)">IT</tspan>
-      </text>
-      <defs>
-        <linearGradient id="logoGradient" x1="0%" y1="0%" x2="100%" y2="0%">
-          <stop offset="0%" stopColor="oklch(0.75 0.14 175)"/>
-          <stop offset="100%" stopColor="oklch(0.72 0.18 300)"/>
-        </linearGradient>
-      </defs>
-    </svg>
+    <span className="flex items-center gap-2">
+      {/* Root mark: node with branching roots */}
+      <svg viewBox="0 0 28 28" fill="none" className="h-7 w-7" aria-hidden="true">
+        <circle cx="14" cy="9" r="4.5" fill="var(--primary)" />
+        <path
+          d="M14 13.5 V20 M14 17 L8.5 22.5 M14 17 L19.5 22.5"
+          stroke="var(--primary)"
+          strokeWidth="2.2"
+          strokeLinecap="round"
+        />
+      </svg>
+      <span className="font-display text-xl font-bold tracking-tight text-foreground">
+        root<span className="text-primary">IT</span>
+      </span>
+    </span>
   )
 }
 
@@ -39,84 +35,75 @@ export function Header() {
   const pathname = usePathname()
 
   useEffect(() => {
-    const handleScroll = () => {
-      setIsScrolled(window.scrollY > 10)
-    }
-    window.addEventListener('scroll', handleScroll)
-    return () => window.removeEventListener('scroll', handleScroll)
+    const handleScroll = () => setIsScrolled(window.scrollY > 10)
+    window.addEventListener("scroll", handleScroll)
+    return () => window.removeEventListener("scroll", handleScroll)
   }, [])
 
   const handleConsultationClick = () => {
     setIsMobileMenuOpen(false)
-    
-    // If not on home page, navigate there first
+
     if (pathname !== "/") {
       router.push("/#consultation-mockup")
-      // The scroll and form opening will be handled after navigation
       setTimeout(() => {
         window.dispatchEvent(new CustomEvent("openConsultationForm"))
       }, 800)
       return
     }
-    
-    // If on home page, scroll directly
-    const mockup = document.getElementById("consultation-mockup")
-    if (mockup) {
-      mockup.scrollIntoView({ behavior: "smooth", block: "center" })
-      setTimeout(() => {
-        window.dispatchEvent(new CustomEvent("openConsultationForm"))
-      }, 500)
-    }
+
+    window.dispatchEvent(new CustomEvent("openConsultationForm"))
   }
 
+  const navLinks = [
+    { href: "/#services", label: t("nav.services") },
+    { href: "/#pricing", label: t("nav.pricing") },
+    { href: "/#how-it-works", label: t("nav.howItWorks") },
+    { href: "/#faq", label: t("nav.faq") },
+    { href: "/artikkelit", label: t("nav.articles") },
+  ]
+
   return (
-    <header className={`sticky top-0 z-50 border-b transition-all duration-300 ${
-      isScrolled 
-        ? 'border-border/60 bg-background/80 backdrop-blur-xl' 
-        : 'border-transparent bg-transparent'
-    }`}>
-      <div className="mx-auto flex max-w-6xl items-center justify-between px-4 py-4 lg:px-6">
-        <Link href="/" className="flex items-center gap-2 font-bold tracking-wide">
+    <header
+      className={`sticky top-0 z-50 border-b transition-all duration-300 ${
+        isScrolled ? "border-border bg-background/90 backdrop-blur-xl" : "border-transparent bg-transparent"
+      }`}
+    >
+      <div className="mx-auto flex max-w-6xl items-center justify-between px-4 py-3.5 lg:px-6">
+        <Link href="/" aria-label="rootIT - etusivu">
           <RootITLogo />
         </Link>
 
-        <nav className="hidden items-center gap-6 text-muted-foreground md:flex" aria-label="Päänavigaatio">
-          <Link href="/#services" className="text-sm transition-colors hover:text-foreground">
-            {t("nav.services")}
-          </Link>
-          <Link href="/#pricing" className="text-sm transition-colors hover:text-foreground">
-            {t("nav.pricing")}
-          </Link>
-          <Link href="/#how-it-works" className="text-sm transition-colors hover:text-foreground">
-            {t("nav.howItWorks")}
-          </Link>
-          <Link href="/#faq" className="text-sm transition-colors hover:text-foreground">
-            {t("nav.faq")}
-          </Link>
-          <Link href="/artikkelit" className="text-sm transition-colors hover:text-foreground">
-            {t("nav.articles")}
-          </Link>
-          <Link 
+        <nav className="hidden items-center gap-1 md:flex" aria-label="Päänavigaatio">
+          {navLinks.map((link) => (
+            <Link
+              key={link.href}
+              href={link.href}
+              className="rounded-full px-3.5 py-2 text-sm font-medium text-muted-foreground transition-colors hover:bg-secondary hover:text-foreground"
+            >
+              {link.label}
+            </Link>
+          ))}
+          <Link
             href="https://www.teamviewer.com/en/download/portal/windows/"
             target="_blank"
             rel="noopener noreferrer"
-            className="flex items-center gap-1.5 text-sm transition-colors hover:text-foreground"
+            className="flex items-center gap-1.5 rounded-full px-3.5 py-2 text-sm font-medium text-muted-foreground transition-colors hover:bg-secondary hover:text-foreground"
           >
             <Download className="h-3.5 w-3.5" />
             {t("nav.remoteSupport")}
           </Link>
         </nav>
 
-        <div className="flex items-center gap-3">
+        <div className="flex items-center gap-2.5">
           <button
             onClick={() => setLang(lang === "fi" ? "en" : "fi")}
-            className="hidden rounded-full border border-border/50 px-2.5 py-1 text-[10px] font-medium text-muted-foreground/70 transition-colors hover:bg-muted hover:text-muted-foreground sm:inline-flex"
+            className="hidden rounded-full border border-border px-2.5 py-1.5 text-xs font-medium text-muted-foreground transition-colors hover:bg-secondary hover:text-foreground sm:inline-flex"
             title={lang === "fi" ? "Switch to English" : "Vaihda suomeksi"}
           >
             {lang === "fi" ? "EN" : "FI"}
           </button>
-          <Button 
-            className="hidden rounded-full bg-primary text-primary-foreground shadow-md hover:bg-primary/90 sm:inline-flex cursor-pointer"
+          <Button
+            className="hidden rounded-full bg-primary px-5 font-medium text-primary-foreground hover:bg-primary/90 sm:inline-flex cursor-pointer"
             onClick={handleConsultationClick}
           >
             {t("nav.contact")}
@@ -132,71 +119,45 @@ export function Header() {
           </Button>
         </div>
       </div>
-      
+
       {/* Mobile Menu */}
       {isMobileMenuOpen && (
-        <div className="fixed inset-x-0 top-[73px] bottom-0 z-40 overflow-y-auto border-t border-border bg-background/98 backdrop-blur-xl md:hidden safe-area-inset safe-area-bottom">
+        <div className="fixed inset-x-0 bottom-0 top-[65px] z-40 overflow-y-auto border-t border-border bg-background md:hidden safe-area-inset safe-area-bottom">
           <nav className="mx-auto flex max-w-6xl flex-col gap-1 px-4 py-4" aria-label="Mobiilinavigaatio">
-            <Link 
-              href="/#services" 
-              className="rounded-lg px-4 py-3 text-base transition-colors hover:bg-muted active:bg-muted"
-              onClick={() => setIsMobileMenuOpen(false)}
-            >
-              {t("nav.services")}
-            </Link>
-            <Link 
-              href="/#pricing" 
-              className="rounded-lg px-4 py-3 text-base transition-colors hover:bg-muted active:bg-muted"
-              onClick={() => setIsMobileMenuOpen(false)}
-            >
-              {t("nav.pricing")}
-            </Link>
-            <Link 
-              href="/#how-it-works" 
-              className="rounded-lg px-4 py-3 text-base transition-colors hover:bg-muted active:bg-muted"
-              onClick={() => setIsMobileMenuOpen(false)}
-            >
-              {t("nav.howItWorks")}
-            </Link>
-            <Link 
-              href="/#faq" 
-              className="rounded-lg px-4 py-3 text-base transition-colors hover:bg-muted active:bg-muted"
-              onClick={() => setIsMobileMenuOpen(false)}
-            >
-              {t("nav.faq")}
-            </Link>
-            <Link 
-              href="/artikkelit" 
-              className="rounded-lg px-4 py-3 text-base transition-colors hover:bg-muted active:bg-muted"
-              onClick={() => setIsMobileMenuOpen(false)}
-            >
-              {t("nav.articles")}
-            </Link>
-            <Link 
+            {navLinks.map((link) => (
+              <Link
+                key={link.href}
+                href={link.href}
+                className="rounded-lg px-4 py-3 text-base font-medium transition-colors hover:bg-secondary active:bg-secondary"
+                onClick={() => setIsMobileMenuOpen(false)}
+              >
+                {link.label}
+              </Link>
+            ))}
+            <Link
               href="https://www.teamviewer.com/en/download/portal/windows/"
               target="_blank"
               rel="noopener noreferrer"
-              className="flex items-center gap-2 rounded-lg px-4 py-3 text-base transition-colors hover:bg-muted active:bg-muted"
+              className="flex items-center gap-2 rounded-lg px-4 py-3 text-base font-medium transition-colors hover:bg-secondary active:bg-secondary"
               onClick={() => setIsMobileMenuOpen(false)}
             >
               <Download className="h-4 w-4" />
               {t("nav.remoteSupport")}
             </Link>
-            <Button 
-              className="mt-3 h-12 rounded-full bg-primary text-primary-foreground hover:bg-primary/90 cursor-pointer"
+            <Button
+              className="mt-3 h-12 rounded-full bg-primary font-medium text-primary-foreground hover:bg-primary/90 cursor-pointer"
               onClick={handleConsultationClick}
             >
               {t("nav.contact")}
             </Button>
-            
-            {/* Language toggle for mobile */}
+
             <div className="mt-4 flex justify-center border-t border-border pt-4">
               <button
                 onClick={() => {
                   setLang(lang === "fi" ? "en" : "fi")
                   setIsMobileMenuOpen(false)
                 }}
-                className="flex items-center gap-2 rounded-full border border-border/50 px-4 py-2 text-sm font-medium text-muted-foreground transition-colors hover:bg-muted"
+                className="flex items-center gap-2 rounded-full border border-border px-4 py-2 text-sm font-medium text-muted-foreground transition-colors hover:bg-secondary"
               >
                 {lang === "fi" ? "Switch to English" : "Vaihda suomeksi"}
               </button>
