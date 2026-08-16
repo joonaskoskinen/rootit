@@ -3,54 +3,54 @@
 
 /*
   Rootit design system
-  Calm, minimal, premium, grounded. Warm off-white + deep muted teal.
-  Restrained palette: background, surface, text, muted, accent, border.
+  Dark, premium, grounded. Deep charcoal-blue canvas + teal accent.
+  Restrained palette with a subtle teal→violet nod reserved for the logo.
 */
 :root {
-  --background: #f7f5f0;
-  --foreground: #1f1f1a;
+  --background: oklch(0.14 0.015 260);
+  --foreground: oklch(0.96 0.005 90);
 
-  --card: #fcfbf8;
-  --card-foreground: #1f1f1a;
+  --card: oklch(0.18 0.02 260);
+  --card-foreground: oklch(0.96 0.005 90);
 
-  --popover: #fcfbf8;
-  --popover-foreground: #1f1f1a;
+  --popover: oklch(0.18 0.02 260);
+  --popover-foreground: oklch(0.96 0.005 90);
 
-  --primary: #0e6a63;
-  --primary-foreground: #fcfbf8;
+  --primary: oklch(0.76 0.13 178);
+  --primary-foreground: oklch(0.14 0.015 260);
 
-  --secondary: #efece4;
-  --secondary-foreground: #1f1f1a;
+  --secondary: oklch(0.23 0.025 260);
+  --secondary-foreground: oklch(0.96 0.005 90);
 
-  --muted: #efece4;
-  --muted-foreground: #66655e;
+  --muted: oklch(0.23 0.025 260);
+  --muted-foreground: oklch(0.72 0.015 250);
 
-  --accent: #0e6a63;
-  --accent-foreground: #fcfbf8;
+  --accent: oklch(0.76 0.13 178);
+  --accent-foreground: oklch(0.14 0.015 260);
 
-  --destructive: #b4402f;
-  --destructive-foreground: #fcfbf8;
+  --destructive: oklch(0.65 0.22 15);
+  --destructive-foreground: oklch(0.98 0 0);
 
-  --border: #e4ded3;
-  --input: #e4ded3;
-  --ring: #0e6a63;
+  --border: oklch(0.29 0.025 260);
+  --input: oklch(0.24 0.025 260);
+  --ring: oklch(0.76 0.13 178);
 
-  --radius: 0.6rem;
+  --radius: 0.7rem;
 
-  --chart-1: #0e6a63;
-  --chart-2: #8a8577;
-  --chart-3: #b98a3e;
-  --chart-4: #3f6f6a;
-  --chart-5: #c2402f;
+  --chart-1: oklch(0.76 0.13 178);
+  --chart-2: oklch(0.72 0.16 300);
+  --chart-3: oklch(0.75 0.16 60);
+  --chart-4: oklch(0.7 0.13 250);
+  --chart-5: oklch(0.68 0.18 140);
 
-  --sidebar: #fcfbf8;
-  --sidebar-foreground: #1f1f1a;
-  --sidebar-primary: #0e6a63;
-  --sidebar-primary-foreground: #fcfbf8;
-  --sidebar-accent: #efece4;
-  --sidebar-accent-foreground: #1f1f1a;
-  --sidebar-border: #e4ded3;
-  --sidebar-ring: #0e6a63;
+  --sidebar: oklch(0.18 0.02 260);
+  --sidebar-foreground: oklch(0.96 0.005 90);
+  --sidebar-primary: oklch(0.76 0.13 178);
+  --sidebar-primary-foreground: oklch(0.14 0.015 260);
+  --sidebar-accent: oklch(0.23 0.025 260);
+  --sidebar-accent-foreground: oklch(0.96 0.005 90);
+  --sidebar-border: oklch(0.29 0.025 260);
+  --sidebar-ring: oklch(0.76 0.13 178);
 }
 
 @theme inline {
@@ -146,6 +146,13 @@
   /* Thin hairline used for editorial section separation */
   .hairline {
     border-top: 1px solid var(--border);
+  }
+
+  /* Ambient radial glow behind the hero (subtle, teal with a violet hint) */
+  .bg-ambient {
+    background-image:
+      radial-gradient(circle at 15% 8%, oklch(0.76 0.13 178 / 0.1), transparent 26%),
+      radial-gradient(circle at 88% 12%, oklch(0.72 0.16 300 / 0.07), transparent 24%);
   }
 }
 

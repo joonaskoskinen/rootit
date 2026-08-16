@@ -13,9 +13,9 @@ import {
   ArrowRight,
   Loader2,
   CheckCircle2,
-  Star,
+  CalendarCheck,
   Phone,
-  Clock,
+  Mail,
 } from "lucide-react"
 import { cn } from "@/lib/utils"
 
@@ -146,110 +146,105 @@ export const PhoneMockup = forwardRef<PhoneMockupRef>(function PhoneMockup(_, re
             <div className="absolute left-1/2 top-3 z-10 h-[22px] w-[92px] -translate-x-1/2 rounded-full bg-black sm:top-3.5" />
 
             {/* Screen */}
-            <div className="relative flex min-h-[540px] flex-col overflow-hidden rounded-[1.7rem] bg-card sm:min-h-[580px] sm:rounded-[2rem]">
+            <div className="relative flex min-h-[540px] flex-col overflow-hidden rounded-[1.7rem] bg-gradient-to-b from-[#12151e] to-[#0b0d13] text-white sm:min-h-[580px] sm:rounded-[2rem]">
               {/* Status bar */}
-              <div className="flex items-center justify-between px-6 pt-2.5 text-[10px] font-medium text-muted-foreground sm:pt-3">
+              <div className="flex items-center justify-between px-6 pt-2.5 text-[10px] font-medium text-white/60 sm:pt-3">
                 <span>{currentTime || "9.41"}</span>
                 <div className="flex items-center gap-1">
                   <span>5G</span>
                   <div className="flex items-end gap-[2px]">
-                    <div className="h-1 w-[3px] rounded-sm bg-muted-foreground/50" />
-                    <div className="h-1.5 w-[3px] rounded-sm bg-muted-foreground/60" />
-                    <div className="h-2 w-[3px] rounded-sm bg-muted-foreground/70" />
-                    <div className="h-2.5 w-[3px] rounded-sm bg-foreground/80" />
+                    <div className="h-1 w-[3px] rounded-sm bg-white/40" />
+                    <div className="h-1.5 w-[3px] rounded-sm bg-white/50" />
+                    <div className="h-2 w-[3px] rounded-sm bg-white/60" />
+                    <div className="h-2.5 w-[3px] rounded-sm bg-white/80" />
                   </div>
                 </div>
               </div>
 
               {/* Sliding container */}
               <div className="relative flex flex-1 overflow-hidden">
-                {/* The clean mobile website (default face) */}
+                {/* Inbound feed (default face) — the result of a clearer site */}
                 <div
                   className={cn(
-                    "flex w-full flex-col transition-all duration-500 ease-out",
+                    "flex w-full flex-col px-4 pt-4 transition-all duration-500 ease-out sm:px-4",
                     showForm ? "-translate-x-full opacity-0" : "translate-x-0 opacity-100",
                   )}
                 >
-                  {/* Site top bar */}
-                  <div className="phone-card-enter flex items-center justify-between px-5 pb-3 pt-4" style={{ animationDelay: "60ms" }}>
-                    <span className="text-[13px] font-semibold tracking-tight text-foreground">
-                      Kampaamo Vire
+                  {/* Header */}
+                  <div className="phone-card-enter mb-4 flex items-start justify-between" style={{ animationDelay: "60ms" }}>
+                    <div>
+                      <h4 className="text-[17px] font-semibold tracking-tight text-white">Yhteydenotot</h4>
+                      <p className="mt-0.5 text-[11px] text-white/45">Suoraan sivultasi</p>
+                    </div>
+                    <span className="rounded-full border border-primary/30 bg-primary/15 px-2.5 py-1 text-[11px] font-medium text-primary">
+                      12 tänään
                     </span>
-                    <div className="flex flex-col gap-[3px]">
-                      <span className="h-[2px] w-4 rounded-full bg-foreground/70" />
-                      <span className="h-[2px] w-4 rounded-full bg-foreground/70" />
-                    </div>
                   </div>
 
-                  {/* Hero of the demo site */}
-                  <div className="phone-card-enter px-5 pt-3" style={{ animationDelay: "150ms" }}>
-                    <p className="text-[11px] font-medium uppercase tracking-wider text-primary">
-                      Kampaamo Tampereella
-                    </p>
-                    <h4 className="mt-2 text-[22px] font-semibold leading-[1.15] tracking-tight text-foreground text-balance">
-                      Raikas leikkaus, rento fiilis.
-                    </h4>
-                    <p className="mt-2 text-[12px] leading-relaxed text-muted-foreground">
-                      Varaa aika verkossa. Vastaamme yleensä samana päivänä.
-                    </p>
-                  </div>
-
-                  {/* Primary CTA of the demo site */}
-                  <div className="phone-card-enter px-5 pt-4" style={{ animationDelay: "240ms" }}>
-                    <button
-                      onClick={() => setShowForm(true)}
-                      className="flex w-full items-center justify-center gap-2 rounded-lg bg-primary py-3 text-[13px] font-semibold text-primary-foreground transition-transform active:scale-[0.98]"
-                    >
-                      Varaa aika
-                      <ArrowRight className="h-4 w-4" />
-                    </button>
-                    <div className="mt-2 flex items-center justify-center gap-1.5 text-[11px] text-muted-foreground">
-                      <Phone className="h-3 w-3" />
-                      <span>tai soita 040 123 4567</span>
-                    </div>
-                  </div>
-
-                  {/* Trust row */}
-                  <div className="phone-card-enter mx-5 mt-4 flex items-center gap-2 rounded-lg border border-border bg-secondary/60 px-3 py-2.5" style={{ animationDelay: "330ms" }}>
-                    <div className="flex text-primary">
-                      {[0, 1, 2, 3, 4].map((i) => (
-                        <Star key={i} className="h-3 w-3 fill-current" />
-                      ))}
-                    </div>
-                    <span className="text-[11px] font-medium text-foreground">4,9</span>
-                    <span className="text-[11px] text-muted-foreground">· 120+ arvostelua</span>
-                  </div>
-
-                  {/* Services */}
-                  <div className="phone-card-enter mt-4 space-y-2 px-5" style={{ animationDelay: "420ms" }}>
-                    {[
-                      ["Leikkaus & muotoilu", "45 min"],
-                      ["Värjäys", "90 min"],
-                      ["Raidat", "120 min"],
-                    ].map(([name, time]) => (
-                      <div
-                        key={name}
-                        className="flex items-center justify-between border-b border-border pb-2 last:border-0"
-                      >
-                        <span className="text-[12px] font-medium text-foreground">{name}</span>
-                        <span className="flex items-center gap-1 text-[11px] text-muted-foreground">
-                          <Clock className="h-3 w-3" />
-                          {time}
+                  {/* Highlighted new booking — live */}
+                  <div
+                    className="phone-card-enter rounded-xl border border-primary/25 bg-gradient-to-br from-primary/[0.14] to-primary/[0.03] px-3.5 py-3"
+                    style={{ animationDelay: "170ms" }}
+                  >
+                    <div className="flex items-center justify-between">
+                      <div className="flex items-center gap-1.5">
+                        <span className="relative flex h-1.5 w-1.5">
+                          <span className="absolute inline-flex h-full w-full animate-ping rounded-full bg-primary opacity-60" />
+                          <span className="relative inline-flex h-1.5 w-1.5 rounded-full bg-primary" />
                         </span>
+                        <span className="text-[11px] font-medium text-primary">Uusi ajanvaraus · juuri nyt</span>
                       </div>
-                    ))}
+                      <div className="flex h-7 w-7 items-center justify-center rounded-full bg-primary/20">
+                        <CalendarCheck className="h-3.5 w-3.5 text-primary" />
+                      </div>
+                    </div>
+                    <p className="mt-2 text-[13px] font-semibold text-white">Maria K.</p>
+                    <p className="text-[11px] text-white/50">Leikkaus &amp; muotoilu · pe klo 14.00</p>
+                  </div>
+
+                  {/* Secondary inbound items */}
+                  <div className="mt-2.5 space-y-2.5">
+                    <div
+                      className="phone-card-enter flex items-center gap-3 rounded-xl border border-white/[0.07] bg-white/[0.03] px-3.5 py-2.5"
+                      style={{ animationDelay: "260ms" }}
+                    >
+                      <div className="flex h-8 w-8 shrink-0 items-center justify-center rounded-full bg-white/[0.06]">
+                        <Phone className="h-3.5 w-3.5 text-white/70" />
+                      </div>
+                      <div className="min-w-0 flex-1">
+                        <p className="text-[12px] font-medium text-white">Soittopyyntö</p>
+                        <p className="truncate text-[11px] text-white/45">Tarjous remontista · 8 min sitten</p>
+                      </div>
+                    </div>
+
+                    <div
+                      className="phone-card-enter flex items-center gap-3 rounded-xl border border-white/[0.07] bg-white/[0.03] px-3.5 py-2.5"
+                      style={{ animationDelay: "350ms" }}
+                    >
+                      <div className="flex h-8 w-8 shrink-0 items-center justify-center rounded-full bg-white/[0.06]">
+                        <Mail className="h-3.5 w-3.5 text-white/70" />
+                      </div>
+                      <div className="min-w-0 flex-1">
+                        <p className="text-[12px] font-medium text-white">Yhteydenotto lomakkeella</p>
+                        <p className="truncate text-[11px] text-white/45">Kysely hinnoista · 24 min sitten</p>
+                      </div>
+                    </div>
                   </div>
 
                   <div className="flex-1" />
 
-                  {/* Sticky-feeling bottom bar */}
-                  <div className="phone-card-enter border-t border-border px-5 py-3" style={{ animationDelay: "500ms" }}>
+                  {/* Bottom CTA into the review form */}
+                  <div className="phone-card-enter py-3" style={{ animationDelay: "440ms" }}>
                     <button
                       onClick={() => setShowForm(true)}
-                      className="w-full rounded-lg border border-primary/30 bg-primary/5 py-2.5 text-[12px] font-semibold text-primary transition-colors hover:bg-primary/10"
+                      className="flex w-full items-center justify-center gap-2 rounded-lg bg-primary py-3 text-[13px] font-semibold text-primary-foreground transition-transform active:scale-[0.98]"
                     >
-                      Varaa aika verkossa
+                      Pyydä ilmainen sivustoarvio
+                      <ArrowRight className="h-4 w-4" />
                     </button>
+                    <p className="mt-2 text-center text-[10px] text-white/40">
+                      Näin selkeämpi sivu näyttää tuloksissa.
+                    </p>
                   </div>
                 </div>
 
