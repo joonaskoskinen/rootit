@@ -26,11 +26,11 @@ export async function POST(request: NextRequest) {
 
     // Send email notification
     await resend.emails.send({
-      from: "Rune <onboarding@resend.dev>",
+      from: "Rootit <onboarding@resend.dev>",
       to: "koskinenjoonas@yahoo.com",
-      subject: `Uusi konsultaatiopyyntö: ${email}`,
+      subject: `Uusi sivustoarviopyyntö: ${email}`,
       html: `
-        <h2>Uusi konsultaatiopyyntö</h2>
+        <h2>Uusi sivustoarviopyyntö</h2>
         <p><strong>Sähköposti:</strong> ${email}</p>
         <p><strong>Puhelinnumero:</strong> ${phone || "Ei annettu"}</p>
         <p><strong>Sopiva ajankohta:</strong> ${preferredTime || "Ei annettu"}</p>

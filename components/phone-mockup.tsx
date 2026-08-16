@@ -1,17 +1,39 @@
 "use client"
 
-import { useState, useEffect, useRef, forwardRef, useImperativeHandle, type PointerEvent } from "react"
-import { Check, Clock, ChevronRight, Sparkles, ArrowLeft, Loader2, CheckCircle2, ArrowRight, Mail } from "lucide-react"
-import { useLanguage } from "@/lib/language-context"
+import {
+  useState,
+  useEffect,
+  useRef,
+  forwardRef,
+  useImperativeHandle,
+  type PointerEvent,
+} from "react"
+import {
+  ArrowLeft,
+  ArrowRight,
+  Loader2,
+  CheckCircle2,
+  Star,
+  Phone,
+  Clock,
+} from "lucide-react"
 import { cn } from "@/lib/utils"
 
 export interface PhoneMockupRef {
   openForm: () => void
 }
 
+/**
+ * The phone is the site's visual signature.
+ * Default face = a clean, polished mobile website (the "after" we deliver).
+ * Tapping the CTA reveals the free-review request form (the one conversion action).
+ */
 export const PhoneMockup = forwardRef<PhoneMockupRef>(function PhoneMockup(_, ref) {
-  const { t } = useLanguage()
   const [showForm, setShowForm] = useState(false)
+  const [isSubmitting, setIsSubmitting] = useState(false)
+  const [isSubmitted, setIsSubmitted] = useState(false)
+  const [error, setError] = useState<string | null>(null)
+  const [currentTime, setCurrentTime] = useState<string>("")
 
   useImperativeHandle(ref, () => ({
     openForm: () => setShowForm(true),
@@ -23,12 +45,7 @@ export const PhoneMockup = forwardRef<PhoneMockupRef>(function PhoneMockup(_, re
     return () => window.removeEventListener("openConsultationForm", handleOpenForm)
   }, [])
 
-  const [isSubmitting, setIsSubmitting] = useState(false)
-  const [isSubmitted, setIsSubmitted] = useState(false)
-  const [error, setError] = useState<string | null>(null)
-  const [currentTime, setCurrentTime] = useState<string>("")
-
-  // Interactive 3D tilt
+  // Subtle pointer tilt
   const tiltRef = useRef<HTMLDivElement>(null)
   const [tilt, setTilt] = useState({ x: 0, y: 0 })
   const [isHovering, setIsHovering] = useState(false)
@@ -38,30 +55,26 @@ export const PhoneMockup = forwardRef<PhoneMockupRef>(function PhoneMockup(_, re
     const el = tiltRef.current
     if (!el) return
     const rect = el.getBoundingClientRect()
-    const px = (e.clientX - rect.left) / rect.width // 0..1
-    const py = (e.clientY - rect.top) / rect.height // 0..1
-    // Lean toward the cursor for a tactile feel
-    setTilt({ x: (0.5 - py) * 14, y: (px - 0.5) * 16 })
+    const px = (e.clientX - rect.left) / rect.width
+    const py = (e.clientY - rect.top) / rect.height
+    setTilt({ x: (0.5 - py) * 8, y: (px - 0.5) * 9 })
   }
-
   const handlePointerEnter = (e: PointerEvent<HTMLDivElement>) => {
     if (e.pointerType === "touch") return
     setIsHovering(true)
   }
-
   const handlePointerLeave = () => {
     setIsHovering(false)
     setTilt({ x: 0, y: 0 })
   }
 
-  // Live clock
   useEffect(() => {
-    const updateTime = () => {
-      const now = new Date()
-      setCurrentTime(now.toLocaleTimeString("fi-FI", { hour: "2-digit", minute: "2-digit" }))
-    }
-    updateTime()
-    const interval = setInterval(updateTime, 1000)
+    const update = () =>
+      setCurrentTime(
+        new Date().toLocaleTimeString("fi-FI", { hour: "2-digit", minute: "2-digit" }),
+      )
+    update()
+    const interval = setInterval(update, 15000)
     return () => clearInterval(interval)
   }, [])
 
@@ -71,11 +84,13 @@ export const PhoneMockup = forwardRef<PhoneMockupRef>(function PhoneMockup(_, re
     setError(null)
 
     const formData = new FormData(e.currentTarget)
+    const site = (formData.get("site") as string) || ""
+    const message = (formData.get("description") as string) || ""
     const data = {
       email: formData.get("email") as string,
       phone: formData.get("phone") as string,
-      description: formData.get("description") as string,
-      preferredTime: formData.get("preferredTime") as string,
+      description: site ? `Sivusto: ${site}\n\n${message}` : message,
+      preferredTime: "Ilmainen sivustoarvio",
     }
 
     try {
@@ -84,14 +99,10 @@ export const PhoneMockup = forwardRef<PhoneMockupRef>(function PhoneMockup(_, re
         headers: { "Content-Type": "application/json" },
         body: JSON.stringify(data),
       })
-
-      if (!response.ok) {
-        throw new Error("Failed to submit")
-      }
-
+      if (!response.ok) throw new Error("Failed to submit")
       setIsSubmitted(true)
     } catch {
-      setError(t("form.error"))
+      setError("Jokin meni pieleen. Yritä uudelleen tai lähetä sähköpostia suoraan.")
     } finally {
       setIsSubmitting(false)
     }
@@ -104,8 +115,17 @@ export const PhoneMockup = forwardRef<PhoneMockupRef>(function PhoneMockup(_, re
   }
 
   return (
-    <div className="relative w-full max-w-[280px] [perspective:1400px] sm:max-w-[340px]">
-      {/* Tilt layer - reacts to pointer */}
+    <div className="relative w-full max-w-[280px] [perspective:1400px] sm:max-w-[320px]">
+      {/* Floating annotation chips — framing signals, kept clear of screen content */}
+      <div className="pointer-events-none absolute -left-24 top-28 z-20 hidden rounded-md border border-border bg-card px-3 py-2 shadow-sm xl:block">
+        <p className="text-[11px] font-medium text-foreground">Selkeä viesti</p>
+        <p className="text-[10px] text-muted-foreground">heti ruudun yläosassa</p>
+      </div>
+      <div className="pointer-events-none absolute -right-20 bottom-32 z-20 hidden rounded-md border border-border bg-card px-3 py-2 shadow-sm xl:block">
+        <p className="text-[11px] font-medium text-foreground">Näkyvä CTA</p>
+        <p className="text-[10px] text-muted-foreground">yksi selkeä seuraava askel</p>
+      </div>
+
       <div
         ref={tiltRef}
         onPointerMove={handlePointerMove}
@@ -113,195 +133,187 @@ export const PhoneMockup = forwardRef<PhoneMockupRef>(function PhoneMockup(_, re
         onPointerLeave={handlePointerLeave}
         className="relative transition-transform duration-200 ease-out [transform-style:preserve-3d] will-change-transform"
         style={{
-          transform: `rotateX(${tilt.x}deg) rotateY(${tilt.y}deg) scale(${isHovering ? 1.025 : 1})`,
+          transform: `rotateX(${tilt.x}deg) rotateY(${tilt.y}deg) scale(${isHovering ? 1.015 : 1})`,
         }}
       >
-        {/* Floating layer - gentle idle motion */}
         <div className="animate-phone-float">
-          {/* Animated glow effect */}
-          <div className="animate-glow-pulse absolute -inset-3 rounded-[2.5rem] bg-gradient-to-br from-primary/25 via-accent/10 to-transparent blur-2xl sm:-inset-5 sm:rounded-[3rem] sm:blur-3xl" />
-
-          {/* Phone frame with realistic shadow */}
+          {/* Phone frame */}
           <div
-            className="relative w-full rounded-[2rem] border border-white/[0.08] bg-[#0a0c10] p-2 shadow-[0_25px_50px_-12px_rgba(0,0,0,0.5),0_0_0_1px_rgba(255,255,255,0.05)] sm:rounded-[2.5rem] sm:p-3"
-            style={{ transform: "translateZ(40px)" }}
+            className="relative w-full rounded-[2.2rem] border border-black/10 bg-[#1c1c1a] p-2.5 shadow-[0_30px_60px_-20px_rgba(31,31,26,0.35)] sm:rounded-[2.5rem] sm:p-3"
+            style={{ transform: "translateZ(30px)" }}
           >
-            {/* Dynamic Island */}
-            <div className="absolute left-1/2 top-3.5 z-10 h-[22px] w-[90px] -translate-x-1/2 rounded-full bg-black sm:top-4 sm:h-[26px] sm:w-[100px]" />
+            {/* Notch */}
+            <div className="absolute left-1/2 top-3 z-10 h-[22px] w-[92px] -translate-x-1/2 rounded-full bg-black sm:top-3.5" />
 
             {/* Screen */}
-            <div className="relative flex min-h-[520px] flex-col overflow-hidden rounded-[1.5rem] bg-gradient-to-b from-[#13161f] to-[#0d0f16] text-white sm:min-h-[600px] sm:rounded-[2rem]">
+            <div className="relative flex min-h-[540px] flex-col overflow-hidden rounded-[1.7rem] bg-card sm:min-h-[580px] sm:rounded-[2rem]">
               {/* Status bar */}
-              <div className="flex justify-between px-7 pt-2.5 text-[10px] font-medium opacity-60 sm:px-8 sm:pt-3 sm:text-xs">
-                <span>{currentTime || "09:41"}</span>
+              <div className="flex items-center justify-between px-6 pt-2.5 text-[10px] font-medium text-muted-foreground sm:pt-3">
+                <span>{currentTime || "9.41"}</span>
                 <div className="flex items-center gap-1">
                   <span>5G</span>
-                  <div className="flex items-end gap-0.5">
-                    <div className="signal-bar h-1 w-0.5 rounded-full bg-white/60" style={{ animationDelay: "0ms" }} />
-                    <div className="signal-bar h-1.5 w-0.5 rounded-full bg-white/60" style={{ animationDelay: "150ms" }} />
-                    <div className="signal-bar h-2 w-0.5 rounded-full bg-white/60" style={{ animationDelay: "300ms" }} />
-                    <div className="signal-bar h-2.5 w-0.5 rounded-full bg-white/60" style={{ animationDelay: "450ms" }} />
+                  <div className="flex items-end gap-[2px]">
+                    <div className="h-1 w-[3px] rounded-sm bg-muted-foreground/50" />
+                    <div className="h-1.5 w-[3px] rounded-sm bg-muted-foreground/60" />
+                    <div className="h-2 w-[3px] rounded-sm bg-muted-foreground/70" />
+                    <div className="h-2.5 w-[3px] rounded-sm bg-foreground/80" />
                   </div>
                 </div>
               </div>
 
               {/* Sliding container */}
               <div className="relative flex flex-1 overflow-hidden">
-                {/* Main content - slides left (defines screen height) */}
+                {/* The clean mobile website (default face) */}
                 <div
                   className={cn(
-                    "flex w-full flex-col px-3.5 pb-4 pt-4 transition-all duration-500 ease-out sm:px-4 sm:pb-5 sm:pt-5",
+                    "flex w-full flex-col transition-all duration-500 ease-out",
                     showForm ? "-translate-x-full opacity-0" : "translate-x-0 opacity-100",
                   )}
                 >
-                  {/* Header */}
-                  <div className="phone-card-enter mb-3 sm:mb-4" style={{ animationDelay: "80ms" }}>
-                    <h3 className="text-base font-semibold tracking-tight sm:text-lg">{t("phone.title")}</h3>
-                    <p className="mt-0.5 text-[11px] text-white/40">Hallitse IT-tukipyyntöjäsi</p>
-                  </div>
-
-                  {/* Task cards with better hierarchy */}
-                  <div className="space-y-2 sm:space-y-2.5">
-                    {/* Task 1 - In Progress - Highlighted with animated progress */}
-                    <div
-                      className="phone-card-enter rounded-xl border border-primary/25 bg-gradient-to-br from-primary/[0.12] to-primary/[0.04] px-3 py-2.5 shadow-[0_2px_8px_-2px_rgba(59,130,246,0.15)] transition-transform duration-300 hover:scale-[1.02]"
-                      style={{ animationDelay: "180ms" }}
-                    >
-                      <div className="flex items-center justify-between gap-2">
-                        <div className="min-w-0 flex-1">
-                          <div className="text-[13px] font-semibold leading-tight">{t("phone.task1")}</div>
-                          <div className="mt-1 flex items-center gap-1.5">
-                            <span className="relative flex h-1.5 w-1.5">
-                              <span className="absolute inline-flex h-full w-full animate-ping rounded-full bg-primary opacity-50" />
-                              <span className="relative inline-flex h-1.5 w-1.5 rounded-full bg-primary" />
-                            </span>
-                            <span className="text-[11px] font-medium text-primary">{t("phone.task1.status")}</span>
-                          </div>
-                        </div>
-                        <div className="flex h-7 w-7 shrink-0 items-center justify-center rounded-full bg-primary/20">
-                          <Clock className="h-3.5 w-3.5 text-primary" />
-                        </div>
-                      </div>
-                      {/* Animated progress bar */}
-                      <div className="mt-2.5 h-1 w-full overflow-hidden rounded-full bg-white/[0.06]">
-                        <div className="animate-progress-fill relative h-full rounded-full bg-gradient-to-r from-primary/70 to-primary">
-                          <div className="animate-shimmer absolute inset-y-0 w-1/3 bg-gradient-to-r from-transparent via-white/40 to-transparent" />
-                        </div>
-                      </div>
-                    </div>
-
-                    {/* Task 2 - Done - Calmer */}
-                    <div
-                      className="phone-card-enter rounded-xl border border-white/[0.06] bg-white/[0.03] px-3 py-2.5 transition-transform duration-300 hover:scale-[1.02]"
-                      style={{ animationDelay: "280ms" }}
-                    >
-                      <div className="flex items-center justify-between gap-2">
-                        <div className="min-w-0 flex-1">
-                          <div className="text-[13px] font-medium leading-tight text-white/80">{t("phone.task2")}</div>
-                          <div className="mt-1 flex items-center gap-1.5">
-                            <Check className="h-2.5 w-2.5 text-emerald-400/70" />
-                            <span className="text-[11px] text-emerald-400/70">{t("phone.task2.status")}</span>
-                          </div>
-                        </div>
-                        <div className="flex h-7 w-7 shrink-0 items-center justify-center rounded-full bg-emerald-500/10">
-                          <Check className="h-3.5 w-3.5 text-emerald-400/60" />
-                        </div>
-                      </div>
-                    </div>
-
-                    {/* Task 3 - Email - Subdued with two-line title for realism */}
-                    <div
-                      className="phone-card-enter rounded-xl border border-white/[0.06] bg-white/[0.02] px-3 py-2.5 transition-transform duration-300 hover:scale-[1.02]"
-                      style={{ animationDelay: "380ms" }}
-                    >
-                      <div className="flex items-center justify-between gap-2">
-                        <div className="min-w-0 flex-1">
-                          <div className="text-[13px] font-medium leading-tight text-white/60">
-                            Sähköpostijärjestelmän konfigurointi
-                          </div>
-                          <div className="mt-1 flex items-center gap-1.5">
-                            <Mail className="h-2.5 w-2.5 text-white/30" />
-                            <span className="text-[11px] text-white/40">{t("phone.task4.status")}</span>
-                          </div>
-                        </div>
-                        <ChevronRight className="h-3.5 w-3.5 shrink-0 text-white/20" />
-                      </div>
-                    </div>
-
-                    {/* Recommendation card - Special but not overwhelming */}
-                    <div
-                      className="phone-card-enter rounded-xl border border-accent/20 bg-gradient-to-br from-accent/[0.08] to-transparent px-3 py-2.5 transition-transform duration-300 hover:scale-[1.02]"
-                      style={{ animationDelay: "480ms" }}
-                    >
-                      <div className="flex items-center justify-between gap-2">
-                        <div className="min-w-0 flex-1">
-                          <div className="flex items-center gap-1.5">
-                            <Sparkles className="h-3 w-3 shrink-0 text-accent/80" />
-                            <span className="text-[13px] font-medium text-white/70">{t("phone.task3")}</span>
-                          </div>
-                          <div className="mt-0.5 pl-[18px] text-[11px] text-white/40">{t("phone.task3.desc")}</div>
-                        </div>
-                        <ChevronRight className="h-3.5 w-3.5 shrink-0 text-white/20" />
-                      </div>
+                  {/* Site top bar */}
+                  <div className="phone-card-enter flex items-center justify-between px-5 pb-3 pt-4" style={{ animationDelay: "60ms" }}>
+                    <span className="text-[13px] font-semibold tracking-tight text-foreground">
+                      Kampaamo Vire
+                    </span>
+                    <div className="flex flex-col gap-[3px]">
+                      <span className="h-[2px] w-4 rounded-full bg-foreground/70" />
+                      <span className="h-[2px] w-4 rounded-full bg-foreground/70" />
                     </div>
                   </div>
 
-                  {/* Spacer */}
+                  {/* Hero of the demo site */}
+                  <div className="phone-card-enter px-5 pt-3" style={{ animationDelay: "150ms" }}>
+                    <p className="text-[11px] font-medium uppercase tracking-wider text-primary">
+                      Kampaamo Tampereella
+                    </p>
+                    <h4 className="mt-2 text-[22px] font-semibold leading-[1.15] tracking-tight text-foreground text-balance">
+                      Raikas leikkaus, rento fiilis.
+                    </h4>
+                    <p className="mt-2 text-[12px] leading-relaxed text-muted-foreground">
+                      Varaa aika verkossa. Vastaamme yleensä samana päivänä.
+                    </p>
+                  </div>
+
+                  {/* Primary CTA of the demo site */}
+                  <div className="phone-card-enter px-5 pt-4" style={{ animationDelay: "240ms" }}>
+                    <button
+                      onClick={() => setShowForm(true)}
+                      className="flex w-full items-center justify-center gap-2 rounded-lg bg-primary py-3 text-[13px] font-semibold text-primary-foreground transition-transform active:scale-[0.98]"
+                    >
+                      Varaa aika
+                      <ArrowRight className="h-4 w-4" />
+                    </button>
+                    <div className="mt-2 flex items-center justify-center gap-1.5 text-[11px] text-muted-foreground">
+                      <Phone className="h-3 w-3" />
+                      <span>tai soita 040 123 4567</span>
+                    </div>
+                  </div>
+
+                  {/* Trust row */}
+                  <div className="phone-card-enter mx-5 mt-4 flex items-center gap-2 rounded-lg border border-border bg-secondary/60 px-3 py-2.5" style={{ animationDelay: "330ms" }}>
+                    <div className="flex text-primary">
+                      {[0, 1, 2, 3, 4].map((i) => (
+                        <Star key={i} className="h-3 w-3 fill-current" />
+                      ))}
+                    </div>
+                    <span className="text-[11px] font-medium text-foreground">4,9</span>
+                    <span className="text-[11px] text-muted-foreground">· 120+ arvostelua</span>
+                  </div>
+
+                  {/* Services */}
+                  <div className="phone-card-enter mt-4 space-y-2 px-5" style={{ animationDelay: "420ms" }}>
+                    {[
+                      ["Leikkaus & muotoilu", "45 min"],
+                      ["Värjäys", "90 min"],
+                      ["Raidat", "120 min"],
+                    ].map(([name, time]) => (
+                      <div
+                        key={name}
+                        className="flex items-center justify-between border-b border-border pb-2 last:border-0"
+                      >
+                        <span className="text-[12px] font-medium text-foreground">{name}</span>
+                        <span className="flex items-center gap-1 text-[11px] text-muted-foreground">
+                          <Clock className="h-3 w-3" />
+                          {time}
+                        </span>
+                      </div>
+                    ))}
+                  </div>
+
                   <div className="flex-1" />
 
-                  {/* CTA Button - More native app feeling, less hero-style */}
-                  <button
-                    onClick={() => setShowForm(true)}
-                    className="phone-card-enter w-full rounded-xl bg-primary py-2.5 text-[13px] font-semibold text-white shadow-[0_8px_20px_-8px_rgba(59,130,246,0.6)] transition-all hover:bg-primary/90 hover:shadow-[0_10px_28px_-8px_rgba(59,130,246,0.75)] active:scale-[0.98] active:opacity-90 sm:py-3"
-                    style={{ animationDelay: "580ms" }}
-                  >
-                    {t("phone.cta")}
-                  </button>
+                  {/* Sticky-feeling bottom bar */}
+                  <div className="phone-card-enter border-t border-border px-5 py-3" style={{ animationDelay: "500ms" }}>
+                    <button
+                      onClick={() => setShowForm(true)}
+                      className="w-full rounded-lg border border-primary/30 bg-primary/5 py-2.5 text-[12px] font-semibold text-primary transition-colors hover:bg-primary/10"
+                    >
+                      Varaa aika verkossa
+                    </button>
+                  </div>
                 </div>
 
-                {/* Form content - slides in from right */}
+                {/* Free-review request form */}
                 <div
                   className={cn(
-                    "absolute inset-0 flex flex-col transition-all duration-500 ease-out",
+                    "absolute inset-0 flex flex-col bg-card transition-all duration-500 ease-out",
                     showForm ? "translate-x-0 opacity-100" : "translate-x-full opacity-0",
                   )}
                 >
                   {isSubmitted ? (
-                    /* Success state */
-                    <div className="flex flex-1 flex-col items-center justify-center px-5 text-center">
-                      <div className="mb-4 flex h-16 w-16 animate-[card-rise_0.5s_ease-out] items-center justify-center rounded-full bg-primary/20">
-                        <CheckCircle2 className="h-8 w-8 text-primary" />
+                    <div className="flex flex-1 flex-col items-center justify-center px-6 text-center">
+                      <div className="mb-4 flex h-14 w-14 items-center justify-center rounded-full bg-primary/10">
+                        <CheckCircle2 className="h-7 w-7 text-primary" />
                       </div>
-                      <h3 className="mb-2 text-lg font-bold">{t("form.success.title")}</h3>
-                      <p className="mb-6 text-sm text-white/60">{t("form.success.desc")}</p>
+                      <h3 className="mb-2 text-base font-semibold text-foreground">
+                        Kiitos! Arviopyyntö vastaanotettu.
+                      </h3>
+                      <p className="mb-6 text-[13px] leading-relaxed text-muted-foreground">
+                        Käyn sivusi läpi ja palaan asiaan sähköpostitse muutaman päivän sisällä.
+                      </p>
                       <button
                         onClick={handleBack}
-                        className="rounded-xl bg-white/10 px-6 py-2.5 text-sm font-medium transition-colors hover:bg-white/20"
+                        className="rounded-lg border border-border bg-secondary px-5 py-2.5 text-[13px] font-medium text-foreground transition-colors hover:bg-muted"
                       >
-                        {t("form.success.close")}
+                        Takaisin
                       </button>
                     </div>
                   ) : (
-                    /* Form state */
                     <>
-                      {/* Header with back button */}
-                      <div className="flex items-center gap-3 px-4 pt-5">
+                      <div className="flex items-center gap-3 border-b border-border px-4 pb-3 pt-4">
                         <button
                           onClick={handleBack}
-                          className="flex h-8 w-8 items-center justify-center rounded-full bg-white/10 transition-all hover:bg-white/20 active:scale-90"
+                          aria-label="Takaisin"
+                          className="flex h-8 w-8 items-center justify-center rounded-full border border-border bg-secondary transition-colors hover:bg-muted"
                         >
-                          <ArrowLeft className="h-4 w-4" />
+                          <ArrowLeft className="h-4 w-4 text-foreground" />
                         </button>
-                        <h3 className="text-base font-semibold">{t("form.title")}</h3>
+                        <h3 className="text-sm font-semibold text-foreground">
+                          Pyydä ilmainen sivustoarvio
+                        </h3>
                       </div>
 
-                      {/* Scrollable form */}
-                      <form onSubmit={handleSubmit} className="flex flex-1 flex-col overflow-y-auto px-4 pb-5 pt-4">
-                        <div className="space-y-3.5">
-                          {/* Email */}
+                      <form
+                        onSubmit={handleSubmit}
+                        className="flex flex-1 flex-col overflow-y-auto px-4 pb-4 pt-3"
+                      >
+                        <div className="space-y-3">
                           <div className="space-y-1.5">
-                            <label htmlFor="phone-email" className="text-xs font-medium text-white/60">
-                              {t("form.email")} *
+                            <label htmlFor="phone-site" className="text-[11px] font-medium text-muted-foreground">
+                              Sivustosi osoite
+                            </label>
+                            <input
+                              id="phone-site"
+                              name="site"
+                              type="text"
+                              inputMode="url"
+                              placeholder="esim. yritys.fi"
+                              className="w-full rounded-lg border border-border bg-background px-3 py-2.5 text-[15px] text-foreground placeholder:text-muted-foreground/60 focus:border-primary focus:outline-none focus:ring-1 focus:ring-primary"
+                            />
+                          </div>
+                          <div className="space-y-1.5">
+                            <label htmlFor="phone-email" className="text-[11px] font-medium text-muted-foreground">
+                              Sähköposti *
                             </label>
                             <input
                               id="phone-email"
@@ -310,15 +322,13 @@ export const PhoneMockup = forwardRef<PhoneMockupRef>(function PhoneMockup(_, re
                               required
                               autoComplete="email"
                               inputMode="email"
-                              placeholder={t("form.email.placeholder")}
-                              className="w-full rounded-xl border border-white/[0.08] bg-white/[0.04] px-3.5 py-3 text-base placeholder:text-white/25 focus:border-primary/40 focus:outline-none focus:ring-1 focus:ring-primary/40"
+                              placeholder="sinun@sahkoposti.fi"
+                              className="w-full rounded-lg border border-border bg-background px-3 py-2.5 text-[15px] text-foreground placeholder:text-muted-foreground/60 focus:border-primary focus:outline-none focus:ring-1 focus:ring-primary"
                             />
                           </div>
-
-                          {/* Phone */}
                           <div className="space-y-1.5">
-                            <label htmlFor="phone-tel" className="text-xs font-medium text-white/60">
-                              {t("form.phone")}
+                            <label htmlFor="phone-tel" className="text-[11px] font-medium text-muted-foreground">
+                              Puhelin (valinnainen)
                             </label>
                             <input
                               id="phone-tel"
@@ -326,65 +336,48 @@ export const PhoneMockup = forwardRef<PhoneMockupRef>(function PhoneMockup(_, re
                               type="tel"
                               autoComplete="tel"
                               inputMode="tel"
-                              placeholder={t("form.phone.placeholder")}
-                              className="w-full rounded-xl border border-white/[0.08] bg-white/[0.04] px-3.5 py-3 text-base placeholder:text-white/25 focus:border-primary/40 focus:outline-none focus:ring-1 focus:ring-primary/40"
+                              placeholder="040 123 4567"
+                              className="w-full rounded-lg border border-border bg-background px-3 py-2.5 text-[15px] text-foreground placeholder:text-muted-foreground/60 focus:border-primary focus:outline-none focus:ring-1 focus:ring-primary"
                             />
                           </div>
-
-                          {/* Description */}
                           <div className="space-y-1.5">
-                            <label htmlFor="phone-desc" className="text-xs font-medium text-white/60">
-                              {t("form.description")} *
+                            <label htmlFor="phone-desc" className="text-[11px] font-medium text-muted-foreground">
+                              Mitä haluat parantaa? (valinnainen)
                             </label>
                             <textarea
                               id="phone-desc"
                               name="description"
-                              required
                               rows={3}
-                              placeholder={t("form.description.placeholder")}
-                              className="w-full resize-none rounded-xl border border-white/[0.08] bg-white/[0.04] px-3.5 py-3 text-base placeholder:text-white/25 focus:border-primary/40 focus:outline-none focus:ring-1 focus:ring-primary/40"
-                            />
-                          </div>
-
-                          {/* Preferred time */}
-                          <div className="space-y-1.5">
-                            <label htmlFor="phone-time" className="text-xs font-medium text-white/60">
-                              {t("form.time")}
-                            </label>
-                            <input
-                              id="phone-time"
-                              name="preferredTime"
-                              type="text"
-                              autoComplete="off"
-                              placeholder={t("form.time.placeholder")}
-                              className="w-full rounded-xl border border-white/[0.08] bg-white/[0.04] px-3.5 py-3 text-base placeholder:text-white/25 focus:border-primary/40 focus:outline-none focus:ring-1 focus:ring-primary/40"
+                              placeholder="Kerro lyhyesti, mikä nykyisessä sivussa mietityttää."
+                              className="w-full resize-none rounded-lg border border-border bg-background px-3 py-2.5 text-[15px] text-foreground placeholder:text-muted-foreground/60 focus:border-primary focus:outline-none focus:ring-1 focus:ring-primary"
                             />
                           </div>
                         </div>
 
-                        {error && <p className="mt-2 text-xs text-red-400">{error}</p>}
+                        {error && <p className="mt-2 text-[12px] text-destructive">{error}</p>}
 
-                        {/* Spacer */}
                         <div className="min-h-3 flex-1" />
 
-                        {/* Submit button */}
                         <button
                           type="submit"
                           disabled={isSubmitting}
-                          className="mt-3 flex w-full items-center justify-center gap-2 rounded-xl bg-primary py-3 font-semibold text-white shadow-[0_8px_20px_-8px_rgba(59,130,246,0.6)] transition-all hover:bg-primary/90 active:scale-[0.98] disabled:opacity-70"
+                          className="mt-3 flex w-full items-center justify-center gap-2 rounded-lg bg-primary py-3 text-[13px] font-semibold text-primary-foreground transition-transform active:scale-[0.98] disabled:opacity-70"
                         >
                           {isSubmitting ? (
                             <>
                               <Loader2 className="h-4 w-4 animate-spin" />
-                              {t("form.submitting")}
+                              Lähetetään…
                             </>
                           ) : (
                             <>
-                              {t("form.submit")}
+                              Lähetä arviopyyntö
                               <ArrowRight className="h-4 w-4" />
                             </>
                           )}
                         </button>
+                        <p className="mt-2 text-center text-[10px] text-muted-foreground">
+                          Ilmainen eikä sido mihinkään.
+                        </p>
                       </form>
                     </>
                   )}
@@ -392,8 +385,8 @@ export const PhoneMockup = forwardRef<PhoneMockupRef>(function PhoneMockup(_, re
               </div>
 
               {/* Home indicator */}
-              <div className="flex justify-center pb-2.5">
-                <div className="h-1 w-28 rounded-full bg-white/15" />
+              <div className="flex justify-center pb-2.5 pt-1">
+                <div className="h-1 w-24 rounded-full bg-foreground/15" />
               </div>
             </div>
           </div>

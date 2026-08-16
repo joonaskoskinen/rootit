@@ -1,84 +1,63 @@
 @import 'tailwindcss';
 @import 'tw-animate-css';
 
-@custom-variant dark (&:is(.dark *));
-
-/* Rune Brand Colors */
+/*
+  Rootit design system
+  Calm, minimal, premium, grounded. Warm off-white + deep muted teal.
+  Restrained palette: background, surface, text, muted, accent, border.
+*/
 :root {
-  --background: oklch(0.97 0.005 90);
-  --foreground: oklch(0.145 0 0);
-  --card: oklch(0.99 0.002 90);
-  --card-foreground: oklch(0.145 0 0);
-  --popover: oklch(0.99 0.002 90);
-  --popover-foreground: oklch(0.145 0 0);
-  --primary: oklch(0.55 0.15 175);
-  --primary-foreground: oklch(1 0 0);
-  --secondary: oklch(0.95 0.005 90);
-  --secondary-foreground: oklch(0.205 0 0);
-  --muted: oklch(0.95 0.005 90);
-  --muted-foreground: oklch(0.45 0.02 90);
-  --accent: oklch(0.65 0.2 330);
-  --accent-foreground: oklch(1 0 0);
-  --destructive: oklch(0.577 0.245 27.325);
-  --destructive-foreground: oklch(1 0 0);
-  --border: oklch(0.88 0.01 90);
-  --input: oklch(0.92 0.005 90);
-  --ring: oklch(0.55 0.15 175);
-  --chart-1: oklch(0.55 0.15 175);
-  --chart-2: oklch(0.65 0.2 330);
-  --chart-3: oklch(0.7 0.15 30);
-  --chart-4: oklch(0.75 0.12 250);
-  --chart-5: oklch(0.6 0.18 140);
-  --radius: 1rem;
-  --sidebar: oklch(0.985 0 0);
-  --sidebar-foreground: oklch(0.145 0 0);
-  --sidebar-primary: oklch(0.55 0.15 175);
-  --sidebar-primary-foreground: oklch(1 0 0);
-  --sidebar-accent: oklch(0.95 0.005 90);
-  --sidebar-accent-foreground: oklch(0.205 0 0);
-  --sidebar-border: oklch(0.88 0.01 90);
-  --sidebar-ring: oklch(0.55 0.15 175);
-}
+  --background: #f7f5f0;
+  --foreground: #1f1f1a;
 
-.dark {
-  --background: oklch(0.12 0.015 260);
-  --foreground: oklch(0.96 0.005 90);
-  --card: oklch(0.16 0.02 260);
-  --card-foreground: oklch(0.96 0.005 90);
-  --popover: oklch(0.16 0.02 260);
-  --popover-foreground: oklch(0.96 0.005 90);
-  --primary: oklch(0.75 0.14 175);
-  --primary-foreground: oklch(0.12 0.015 260);
-  --secondary: oklch(0.22 0.025 260);
-  --secondary-foreground: oklch(0.96 0.005 90);
-  --muted: oklch(0.22 0.025 260);
-  --muted-foreground: oklch(0.7 0.02 90);
-  --accent: oklch(0.72 0.18 300);
-  --accent-foreground: oklch(0.12 0.015 260);
-  --destructive: oklch(0.65 0.22 15);
-  --destructive-foreground: oklch(1 0 0);
-  --border: oklch(0.28 0.03 260);
-  --input: oklch(0.22 0.025 260);
-  --ring: oklch(0.75 0.14 175);
-  --chart-1: oklch(0.75 0.14 175);
-  --chart-2: oklch(0.72 0.18 300);
-  --chart-3: oklch(0.75 0.18 30);
-  --chart-4: oklch(0.7 0.15 250);
-  --chart-5: oklch(0.65 0.2 140);
-  --sidebar: oklch(0.16 0.02 260);
-  --sidebar-foreground: oklch(0.96 0.005 90);
-  --sidebar-primary: oklch(0.75 0.14 175);
-  --sidebar-primary-foreground: oklch(0.12 0.015 260);
-  --sidebar-accent: oklch(0.22 0.025 260);
-  --sidebar-accent-foreground: oklch(0.96 0.005 90);
-  --sidebar-border: oklch(0.28 0.03 260);
-  --sidebar-ring: oklch(0.75 0.14 175);
+  --card: #fcfbf8;
+  --card-foreground: #1f1f1a;
+
+  --popover: #fcfbf8;
+  --popover-foreground: #1f1f1a;
+
+  --primary: #0e6a63;
+  --primary-foreground: #fcfbf8;
+
+  --secondary: #efece4;
+  --secondary-foreground: #1f1f1a;
+
+  --muted: #efece4;
+  --muted-foreground: #66655e;
+
+  --accent: #0e6a63;
+  --accent-foreground: #fcfbf8;
+
+  --destructive: #b4402f;
+  --destructive-foreground: #fcfbf8;
+
+  --border: #e4ded3;
+  --input: #e4ded3;
+  --ring: #0e6a63;
+
+  --radius: 0.6rem;
+
+  --chart-1: #0e6a63;
+  --chart-2: #8a8577;
+  --chart-3: #b98a3e;
+  --chart-4: #3f6f6a;
+  --chart-5: #c2402f;
+
+  --sidebar: #fcfbf8;
+  --sidebar-foreground: #1f1f1a;
+  --sidebar-primary: #0e6a63;
+  --sidebar-primary-foreground: #fcfbf8;
+  --sidebar-accent: #efece4;
+  --sidebar-accent-foreground: #1f1f1a;
+  --sidebar-border: #e4ded3;
+  --sidebar-ring: #0e6a63;
 }
 
 @theme inline {
   --font-sans: var(--font-sans), 'Inter', system-ui, sans-serif;
-  --font-display: var(--font-display), 'Space Grotesk', system-ui, sans-serif;
-  --font-mono: 'Geist Mono', 'Geist Mono Fallback';
+  --font-display: var(--font-sans), 'Inter', system-ui, sans-serif;
+  --font-mono: var(--font-mono), 'Geist Mono', ui-monospace, monospace;
+
   --color-background: var(--background);
   --color-foreground: var(--foreground);
   --color-card: var(--card);
@@ -122,89 +101,25 @@
     @apply border-border outline-ring/50;
   }
   body {
-    @apply bg-background text-foreground;
-    /* Prevent horizontal scroll on mobile */
+    @apply bg-background text-foreground antialiased;
     overflow-x: hidden;
-    /* Smooth scrolling on iOS */
     -webkit-overflow-scrolling: touch;
+    font-feature-settings: "cv11", "ss01";
   }
-  
-  /* Improve touch targets for mobile - minimum 44px for form inputs only */
+
   input, select, textarea {
     min-height: 44px;
   }
-  
-  /* Touch target helper class for buttons/links that need it */
-  .touch-44 {
-    min-height: 44px;
-  }
-  
-  /* Better tap highlighting on mobile */
+
   a, button {
     -webkit-tap-highlight-color: transparent;
   }
-  
-  /* Prevent text size adjustment on orientation change */
+
   html {
     -webkit-text-size-adjust: 100%;
     text-size-adjust: 100%;
   }
-  
-  /* Safe area insets for notched devices */
-  .safe-area-inset {
-    padding-left: env(safe-area-inset-left);
-    padding-right: env(safe-area-inset-right);
-  }
-  
-  .safe-area-bottom {
-    padding-bottom: env(safe-area-inset-bottom);
-  }
-}
 
-/* Rune custom utilities */
-@layer utilities {
-  .text-gradient {
-    @apply bg-clip-text text-transparent;
-    background-image: linear-gradient(90deg, oklch(0.78 0.16 185) 0%, oklch(0.75 0.2 340) 100%);
-  }
-  
-  .text-gradient-cyan {
-    @apply bg-clip-text text-transparent;
-    background-image: linear-gradient(90deg, oklch(0.82 0.15 185) 0%, oklch(0.85 0.12 185) 100%);
-  }
-  
-  .text-gradient-pink {
-    @apply bg-clip-text text-transparent;
-    background-image: linear-gradient(90deg, oklch(0.75 0.18 340) 0%, oklch(0.78 0.16 350) 100%);
-  }
-  
-  .bg-gradient-radial {
-    background-image: 
-      radial-gradient(circle at 15% 10%, oklch(0.75 0.14 175 / 0.12), transparent 25%),
-      radial-gradient(circle at 85% 15%, oklch(0.72 0.18 300 / 0.1), transparent 22%);
-  }
-  
-  .dark .bg-gradient-radial {
-    background-image: 
-      radial-gradient(circle at 15% 10%, oklch(0.75 0.14 175 / 0.14), transparent 25%),
-      radial-gradient(circle at 85% 15%, oklch(0.72 0.18 300 / 0.12), transparent 22%);
-  }
-  
-  /* Touch-friendly targets */
-  .touch-target {
-    position: relative;
-  }
-  
-  .touch-target::after {
-    content: '';
-    position: absolute;
-    top: 50%;
-    left: 50%;
-    transform: translate(-50%, -50%);
-    width: max(100%, 44px);
-    height: max(100%, 44px);
-  }
-  
   /* Prevent zoom on input focus (iOS) */
   @media screen and (max-width: 767px) {
     input[type="text"],
@@ -217,108 +132,42 @@
       font-size: 16px !important;
     }
   }
-  
-  /* Reduce motion for accessibility */
-  @media (prefers-reduced-motion: reduce) {
-    *, *::before, *::after {
-      animation-duration: 0.01ms !important;
-      animation-iteration-count: 1 !important;
-      transition-duration: 0.01ms !important;
-      scroll-behavior: auto !important;
-    }
+}
+
+@layer utilities {
+  .safe-area-inset {
+    padding-left: env(safe-area-inset-left);
+    padding-right: env(safe-area-inset-right);
   }
-  
-  /* Better scrolling behavior */
-  .scroll-smooth {
-    scroll-behavior: smooth;
+  .safe-area-bottom {
+    padding-bottom: env(safe-area-inset-bottom);
   }
-  
-  @media (prefers-reduced-motion: reduce) {
-    .scroll-smooth {
-      scroll-behavior: auto;
-    }
+
+  /* Thin hairline used for editorial section separation */
+  .hairline {
+    border-top: 1px solid var(--border);
   }
 }
 
-/* ---------- Phone mockup animations ---------- */
+/* ---------- Motion (restrained) ---------- */
 
 @keyframes phone-float {
-  0%, 100% {
-    transform: translateY(0);
-  }
-  50% {
-    transform: translateY(-12px);
-  }
-}
-
-@keyframes glow-pulse {
-  0%, 100% {
-    opacity: 0.4;
-    transform: scale(1);
-  }
-  50% {
-    opacity: 0.85;
-    transform: scale(1.1);
-  }
+  0%, 100% { transform: translateY(0); }
+  50% { transform: translateY(-8px); }
 }
 
 @keyframes card-rise {
-  0% {
-    opacity: 0;
-    transform: translateY(16px) scale(0.97);
-  }
-  100% {
-    opacity: 1;
-    transform: translateY(0) scale(1);
-  }
+  0% { opacity: 0; transform: translateY(14px); }
+  100% { opacity: 1; transform: translateY(0); }
 }
 
-@keyframes progress-fill {
-  0% {
-    width: 8%;
-  }
-  60% {
-    width: 70%;
-  }
-  100% {
-    width: 64%;
-  }
-}
-
-@keyframes shimmer {
-  0% {
-    transform: translateX(-130%);
-  }
-  100% {
-    transform: translateX(230%);
-  }
-}
-
-@keyframes bar-bounce {
-  0%, 100% {
-    transform: scaleY(0.45);
-    opacity: 0.5;
-  }
-  50% {
-    transform: scaleY(1);
-    opacity: 1;
-  }
+@keyframes rootit-reveal {
+  0% { opacity: 0; transform: translateY(16px); }
+  100% { opacity: 1; transform: translateY(0); }
 }
 
 .animate-phone-float {
   animation: phone-float 6s ease-in-out infinite;
-}
-
-.animate-glow-pulse {
-  animation: glow-pulse 5s ease-in-out infinite;
-}
-
-.animate-progress-fill {
-  animation: progress-fill 2.4s cubic-bezier(0.22, 1, 0.36, 1) forwards;
-}
-
-.animate-shimmer {
-  animation: shimmer 2.6s ease-in-out infinite;
 }
 
 .phone-card-enter {
@@ -326,7 +175,20 @@
   animation: card-rise 0.6s cubic-bezier(0.22, 1, 0.36, 1) forwards;
 }
 
-.signal-bar {
-  transform-origin: bottom;
-  animation: bar-bounce 1.6s ease-in-out infinite;
+.reveal {
+  opacity: 0;
+  animation: rootit-reveal 0.7s cubic-bezier(0.22, 1, 0.36, 1) forwards;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  *, *::before, *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+    scroll-behavior: auto !important;
+  }
+  .reveal, .phone-card-enter {
+    opacity: 1 !important;
+    animation: none !important;
+  }
 }
