@@ -1,4 +1,4 @@
-import { Gauge, MessageSquareText, ShieldCheck, Sparkles } from "lucide-react"
+import { Gauge, MessageSquareText, ShieldCheck, Target } from "lucide-react"
 import { SectionHeading } from "@/components/section-heading"
 
 const REASONS = [
@@ -18,9 +18,9 @@ const REASONS = [
     desc: "Aloitamme ilmaisella arviolla. Näet konkreettisesti, mitä korjataan, ennen kuin päätät jatkaa.",
   },
   {
-    icon: Sparkles,
-    title: "Räätälöity juuri sinun sivustollesi",
-    desc: "Emme tarjoa valmispohjaa, jonka sovitamme väkisin. Ratkaisut lähtevät oman sivustosi ongelmista.",
+    icon: Target,
+    title: "Rajattu laajuus, selkeä lopputulos",
+    desc: "Emme yritä korjata kaikkea kerralla. Keskitymme siihen yhteen asiaan, joka vaikuttaa eniten, jotta lopputulos on nopea ja ennustettava.",
   },
 ]
 

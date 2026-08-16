@@ -34,6 +34,12 @@ export function Services() {
               <h3 className="mt-5 text-2xl font-semibold tracking-tight text-foreground sm:text-3xl">
                 Viikon sivukorjaus
               </h3>
+              <p className="mt-3 flex items-baseline gap-2">
+                <span className="text-2xl font-semibold tracking-tight text-primary">
+                  490–890 €
+                </span>
+                <span className="text-sm text-muted-foreground">laajuudesta riippuen</span>
+              </p>
               <p className="mt-3 max-w-md text-pretty text-base leading-relaxed text-muted-foreground">
                 Keskitetty korjaus, joka parantaa juuri ne sivun osat, jotka vaikuttavat
                 eniten yhteydenottoihin. Korjaamme tärkeimmät pullonkaulat ilman raskasta

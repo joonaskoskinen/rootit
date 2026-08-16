@@ -20,7 +20,7 @@ const FAQS = [
     a: "Pienille, usein paikallisille palveluyrityksille: kampaamoille, kauneushoitoloille, hierojille, hammaslääkäreille, asianajotoimistoille, putki-, sähkö- ja remonttifirmoille sekä muille vastaaville. Jos sivusi pitäisi tuoda enemmän yhteydenottoja, tämä on sinua varten.",
   },
   {
-    q: "Kauanko Viikon sivukorjaus kestää?",
+    q: "Kauan Viikon sivukorjaus kestää?",
     a: "Nimensä mukaisesti se on nopea ja rajattu. Kun sisältö ja suunta on sovittu, tärkeimmät korjaukset tehdään tyypillisesti viikon sisällä. Aikatauluun vaikuttaa lähinnä se, kuinka nopeasti saan tarvittavat tiedot ja materiaalit.",
   },
   {

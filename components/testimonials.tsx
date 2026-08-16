@@ -1,19 +1,28 @@
 import { SectionHeading } from "@/components/section-heading"
 
 const SLOTS = [
-  { field: "Kampaamot ja kauneushoitolat" },
-  { field: "Hierojat ja hyvinvointi" },
-  { field: "Putki-, sähkö- ja remonttiala" },
+  {
+    field: "Kampaamot ja kauneushoitolat",
+    desc: "Ajanvarauksen selkeys ja mobiilikäyttö.",
+  },
+  {
+    field: "Hierojat ja hyvinvointipalvelut",
+    desc: "Luottamuksen rakentaminen ensivaikutelmassa.",
+  },
+  {
+    field: "Putki-, sähkö- ja remonttiala",
+    desc: "Nopea yhteydenotto kiireellisissä tilanteissa.",
+  },
 ]
 
 export function Testimonials() {
   return (
-    <section className="border-t border-border">
+    <section id="esimerkit" className="border-t border-border scroll-mt-20">
       <div className="mx-auto max-w-6xl px-5 py-20 sm:py-24 lg:px-8">
         <SectionHeading
           eyebrow="Referenssit"
           title="Asiakastyöt ja esimerkit"
-          description="Kokoamme tähän asiakaskommentteja ja ennen/jälkeen-esimerkkejä sitä mukaa kun yhteistyöt valmistuvat. Alla toimialoja, joiden sivuja parannamme."
+          description="Rakennan tätä osiota sitä mukaa kun yhteistyöt valmistuvat. Tässä esimerkkejä toimialoista, joissa korjaukset tyypillisesti tuottavat selkeimmän hyödyn."
         />
 
         <div className="mt-14 grid gap-6 md:grid-cols-3">
@@ -22,12 +31,12 @@ export function Testimonials() {
               key={i}
               className="flex flex-col rounded-xl border border-dashed border-border bg-card/60 p-7"
             >
-              <p className="text-sm leading-relaxed text-muted-foreground">
-                &bdquo;Asiakaskommentti tähän.&rdquo;
-              </p>
+              <span className="inline-flex w-fit items-center rounded-full border border-border bg-secondary px-2.5 py-1 text-[11px] font-semibold uppercase tracking-[0.08em] text-muted-foreground">
+                Esimerkkitoimiala
+              </span>
+              <p className="mt-5 text-sm leading-relaxed text-muted-foreground">{slot.desc}</p>
               <div className="mt-6 border-t border-border pt-4">
-                <p className="text-sm font-medium text-foreground">Yrityksen nimi</p>
-                <p className="mt-0.5 text-xs text-muted-foreground">{slot.field}</p>
+                <p className="text-sm font-medium text-foreground">{slot.field}</p>
               </div>
             </div>
           ))}

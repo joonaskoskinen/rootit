@@ -10,7 +10,7 @@ const STEPS = [
     desc: "Käyn sivusi läpi ja kerron tärkeimmät pullonkaulat: mikä hämmentää ja mikä estää yhteydenottoa.",
   },
   {
-    title: "Sovitaan Viikon sivukorjauksesta",
+    title: "Sovitaan korjauksen laajuudesta",
     desc: "Jos haluat edetä, sovitaan selkeä sisältö ja aikataulu korjaukselle. Tiedät etukäteen mitä tehdään.",
   },
   {
