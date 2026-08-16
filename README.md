@@ -1,2 +1,0 @@
-# rootit
-rootit page
