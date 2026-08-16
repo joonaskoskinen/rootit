@@ -20,12 +20,14 @@ function FocusWord({ word, index }: { word: string; index: number }) {
   return (
     <span
       className="focus-word inline-block"
-      style={{ animationDelay: `${120 + index * 90}ms` }}
+      style={{ animationDelay: `${100 + index * 70}ms` }}
     >
       {word}
     </span>
   )
 }
+// 4 sanaa, viimeinen alkaa 100+3*70=310ms, kestää 700ms -> valmis ~1010ms.
+// Loppusisältö ajastetaan tästä eteenpäin, ei sen yli.
 
 export function Hero() {
   const phoneMockupRef = useRef<PhoneMockupRef>(null)
@@ -55,7 +57,7 @@ export function Hero() {
 
             <p
               className="reveal mt-5 max-w-xl text-pretty text-base leading-relaxed text-muted-foreground sm:text-lg"
-              style={{ animationDelay: "620ms" }}
+              style={{ animationDelay: "1000ms" }}
             >
               Korjaamme pienyritysten verkkosivut sellaisiksi, että asiakas ymmärtää
               nopeasti mitä tarjoat ja tietää, mitä tehdä seuraavaksi. Selkeys, luottamus,
@@ -64,7 +66,7 @@ export function Hero() {
 
             <ul
               className="reveal mt-7 space-y-2.5"
-              style={{ animationDelay: "700ms" }}
+              style={{ animationDelay: "1080ms" }}
             >
               {BULLETS.map((b) => (
                 <li key={b} className="flex items-start gap-3 text-sm text-foreground sm:text-base">
@@ -76,7 +78,7 @@ export function Hero() {
 
             <div
               className="reveal mt-8 flex flex-col items-start gap-3 sm:flex-row sm:items-center"
-              style={{ animationDelay: "780ms" }}
+              style={{ animationDelay: "1160ms" }}
             >
               <RequestReviewButton className="w-full sm:w-auto" />
               <p className="text-sm text-muted-foreground">
