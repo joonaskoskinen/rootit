@@ -4,9 +4,10 @@ import { ArrowLeft, ArrowRight } from "lucide-react"
 import { Button } from "@/components/ui/button"
 import { Header } from "@/components/header"
 import { Footer } from "@/components/footer"
+import { ArticleSchema } from "@/components/article-schema"
 
 export const metadata: Metadata = {
-  title: "WordPress ei toimi? Yleisimmät ongelmat ja niiden korjaus | Rootit.fi",
+  title: "WordPress ei toimi? Yleisimmät ongelmat ja niiden korjaus | Rootit",
   description: "WordPress jumissa, hidas tai rikki? Katso yleisimmät syyt, miten vika rajataan ja milloin apu kannattaa pyytää nopeasti.",
   keywords: ["WordPress ongelmat", "WordPress ei toimi", "WordPress korjaus", "WordPress virheilmoitus", "WordPress hidas", "WordPress 500 virhe", "WordPress valkoinen ruutu"],
   alternates: {
@@ -16,7 +17,7 @@ export const metadata: Metadata = {
     title: "WordPress ei toimi? Yleisimmät ongelmat ja niiden korjaus",
     description: "WordPress jumissa, hidas tai rikki? Katso yleisimmät syyt, miten vika rajataan ja milloin apu kannattaa pyytää nopeasti.",
     url: "https://rootit.fi/artikkelit/wordpress-ei-toimi",
-    siteName: "Rootit.fi",
+    siteName: "Rootit",
     locale: "fi_FI",
     type: "article",
   },
@@ -25,6 +26,11 @@ export const metadata: Metadata = {
 export default function WordPressEiToimiPage() {
   return (
     <div className="flex min-h-screen flex-col bg-background">
+      <ArticleSchema
+        title="WordPress ei toimi? Yleisimmät ongelmat ja niiden korjaus"
+        description="WordPress jumissa, hidas tai rikki? Katso yleisimmät syyt, miten vika rajataan ja milloin apu kannattaa pyytää nopeasti."
+        url="https://rootit.fi/artikkelit/wordpress-ei-toimi"
+      />
       <Header />
       <main className="flex-1">
         <article className="container mx-auto max-w-3xl px-4 py-16 sm:px-6 lg:px-8">

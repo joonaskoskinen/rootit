@@ -4,9 +4,10 @@ import { ArrowLeft } from "lucide-react"
 import { Button } from "@/components/ui/button"
 import { Header } from "@/components/header"
 import { Footer } from "@/components/footer"
+import { ArticleSchema } from "@/components/article-schema"
 
 export const metadata: Metadata = {
-  title: "Pienyrityksen IT-arki: mitä kannattaa ulkoistaa? | Rootit.fi",
+  title: "Pienyrityksen IT-arki: mitä kannattaa ulkoistaa? | Rootit",
   description: "Mitkä IT-tehtävät kannattaa ulkoistaa pienyrityksessä? Katso käytännön vinkit, hyödyt ja mitä kannattaa pitää omissa käsissä.",
   keywords: ["IT-ulkoistus", "pienyritys IT", "IT-tuki yritykselle", "ulkoistettu IT", "yrityksen IT-hallinta", "IT-palvelut pienyritykselle"],
   alternates: {
@@ -16,7 +17,7 @@ export const metadata: Metadata = {
     title: "Pienyrityksen IT-arki: mitä kannattaa ulkoistaa?",
     description: "Mitkä IT-tehtävät kannattaa ulkoistaa pienyrityksessä? Katso käytännön vinkit, hyödyt ja mitä kannattaa pitää omissa käsissä.",
     url: "https://rootit.fi/artikkelit/pienyrityksen-it-ulkoistus",
-    siteName: "Rootit.fi",
+    siteName: "Rootit",
     locale: "fi_FI",
     type: "article",
   },
@@ -25,6 +26,11 @@ export const metadata: Metadata = {
 export default function PienyrityksenItUlkoistusPage() {
   return (
     <div className="flex min-h-screen flex-col bg-background">
+      <ArticleSchema
+        title="Pienyrityksen IT-arki: mitä kannattaa ulkoistaa?"
+        description="Mitkä IT-tehtävät kannattaa ulkoistaa pienyrityksessä? Katso käytännön vinkit, hyödyt ja mitä kannattaa pitää omissa käsissä."
+        url="https://rootit.fi/artikkelit/pienyrityksen-it-ulkoistus"
+      />
       <Header />
       <main className="flex-1">
         <article className="container mx-auto max-w-3xl px-4 py-16 sm:px-6 lg:px-8">

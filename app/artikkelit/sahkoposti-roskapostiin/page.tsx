@@ -4,9 +4,10 @@ import { ArrowLeft, ArrowRight } from "lucide-react"
 import { Button } from "@/components/ui/button"
 import { Header } from "@/components/header"
 import { Footer } from "@/components/footer"
+import { ArticleSchema } from "@/components/article-schema"
 
 export const metadata: Metadata = {
-  title: "Sähköposti roskapostiin? Tarkista SPF, DKIM ja DMARC | Rootit.fi",
+  title: "Sähköposti roskapostiin? Tarkista SPF, DKIM ja DMARC | Rootit",
   description: "Menevätkö viestit roskapostiin? Lue selkeä opas SPF-, DKIM- ja DMARC-asetuksista sekä käytännön korjausvinkeistä.",
   keywords: ["sähköposti roskaposti", "SPF", "DKIM", "DMARC", "sähköpostin toimitusvarmuus", "email deliverability", "sähköpostiasetukset"],
   alternates: {
@@ -16,7 +17,7 @@ export const metadata: Metadata = {
     title: "Sähköposti roskapostiin? Tarkista SPF, DKIM ja DMARC",
     description: "Menevätkö viestit roskapostiin? Lue selkeä opas SPF-, DKIM- ja DMARC-asetuksista sekä käytännön korjausvinkeistä.",
     url: "https://rootit.fi/artikkelit/sahkoposti-roskapostiin",
-    siteName: "Rootit.fi",
+    siteName: "Rootit",
     locale: "fi_FI",
     type: "article",
   },
@@ -25,6 +26,11 @@ export const metadata: Metadata = {
 export default function SahkopostiRoskapostiinPage() {
   return (
     <div className="flex min-h-screen flex-col bg-background">
+      <ArticleSchema
+        title="Sähköposti roskapostiin? Tarkista SPF, DKIM ja DMARC"
+        description="Menevätkö viestit roskapostiin? Lue selkeä opas SPF-, DKIM- ja DMARC-asetuksista sekä käytännön korjausvinkeistä."
+        url="https://rootit.fi/artikkelit/sahkoposti-roskapostiin"
+      />
       <Header />
       <main className="flex-1">
         <article className="container mx-auto max-w-3xl px-4 py-16 sm:px-6 lg:px-8">

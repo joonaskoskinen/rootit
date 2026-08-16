@@ -303,12 +303,12 @@ export function ArticlesContent() {
           __html: JSON.stringify({
             "@context": "https://schema.org",
             "@type": "CollectionPage",
-            name: "IT-vinkit ja oppaat | rootIT",
+            name: "IT-vinkit ja oppaat | Rootit",
             description: "Käytännön neuvoja IT-ongelmiin pienyrittäjille ja yksinyrittäjille.",
             url: "https://rootit.fi/artikkelit",
             publisher: {
               "@type": "Organization",
-              name: "rootIT",
+              name: "Rootit",
               url: "https://rootit.fi"
             },
             mainEntity: {

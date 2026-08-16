@@ -4,7 +4,7 @@ import { Footer } from "@/components/footer"
 import { ArticlesContent } from "@/components/articles-content"
 
 export const metadata: Metadata = {
-  title: "IT-vinkit ja oppaat | rootIT - Käytännön neuvoja IT-ongelmiin",
+  title: "IT-vinkit ja oppaat | Rootit - Käytännön neuvoja IT-ongelmiin",
   description: "Ajankohtaisia vinkkejä, oppaita ja käytännön neuvoja IT-ongelmiin. WordPress, sähköposti, domain, DNS, tietoturva ja etätuki. Selkeää IT-apua pienyrittäjille ja yksinyrittäjille.",
   keywords: [
     "IT-vinkit",
@@ -19,7 +19,7 @@ export const metadata: Metadata = {
     "digiapua",
   ],
   openGraph: {
-    title: "IT-vinkit ja oppaat | rootIT",
+    title: "IT-vinkit ja oppaat | Rootit",
     description: "Käytännön neuvoja IT-ongelmiin pienyrittäjille ja yksinyrittäjille. WordPress, sähköposti, domain ja paljon muuta.",
     type: "website",
     locale: "fi_FI",

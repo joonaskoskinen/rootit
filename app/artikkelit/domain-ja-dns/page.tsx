@@ -4,9 +4,10 @@ import { ArrowLeft, ArrowRight } from "lucide-react"
 import { Button } from "@/components/ui/button"
 import { Header } from "@/components/header"
 import { Footer } from "@/components/footer"
+import { ArticleSchema } from "@/components/article-schema"
 
 export const metadata: Metadata = {
-  title: "Domain ja DNS: mitä ne tarkoittavat ja miksi ne ratkaisevat | Rootit.fi",
+  title: "Domain ja DNS: mitä ne tarkoittavat ja miksi ne ratkaisevat | Rootit",
   description: "Mikä on domain ja mitä DNS tekee? Selkeä opas verkkosivun osoitteeseen, asetuksiin ja yleisiin ongelmiin.",
   keywords: ["domain", "DNS", "verkkotunnus", "DNS-asetukset", "MX-tietue", "A-tietue", "CNAME", "verkkosivun osoite"],
   alternates: {
@@ -16,7 +17,7 @@ export const metadata: Metadata = {
     title: "Domain ja DNS: mitä ne tarkoittavat ja miksi ne ratkaisevat",
     description: "Mikä on domain ja mitä DNS tekee? Selkeä opas verkkosivun osoitteeseen, asetuksiin ja yleisiin ongelmiin.",
     url: "https://rootit.fi/artikkelit/domain-ja-dns",
-    siteName: "Rootit.fi",
+    siteName: "Rootit",
     locale: "fi_FI",
     type: "article",
   },
@@ -25,6 +26,11 @@ export const metadata: Metadata = {
 export default function DomainJaDnsPage() {
   return (
     <div className="flex min-h-screen flex-col bg-background">
+      <ArticleSchema
+        title="Domain ja DNS: mitä ne tarkoittavat ja miksi ne ratkaisevat"
+        description="Mikä on domain ja mitä DNS tekee? Selkeä opas verkkosivun osoitteeseen, asetuksiin ja yleisiin ongelmiin."
+        url="https://rootit.fi/artikkelit/domain-ja-dns"
+      />
       <Header />
       <main className="flex-1">
         <article className="container mx-auto max-w-3xl px-4 py-16 sm:px-6 lg:px-8">

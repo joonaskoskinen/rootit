@@ -4,9 +4,10 @@ import { ArrowLeft, ArrowRight } from "lucide-react"
 import { Button } from "@/components/ui/button"
 import { Header } from "@/components/header"
 import { Footer } from "@/components/footer"
+import { ArticleSchema } from "@/components/article-schema"
 
 export const metadata: Metadata = {
-  title: "Verkkosivujen tietoturva: 5 tärkeintä perusasiaa | Rootit.fi",
+  title: "Verkkosivujen tietoturva: 5 tärkeintä perusasiaa | Rootit",
   description: "Tietoturvan perusasiat helposti: HTTPS, päivitykset, salasanat, varmuuskopiot ja muut keinot pitää sivusto turvassa.",
   keywords: ["verkkosivujen tietoturva", "HTTPS", "SSL", "WordPress tietoturva", "varmuuskopiot", "2FA", "kaksivaiheinen tunnistautuminen", "sivuston suojaus"],
   alternates: {
@@ -16,7 +17,7 @@ export const metadata: Metadata = {
     title: "Verkkosivujen tietoturva: 5 tärkeintä perusasiaa",
     description: "Tietoturvan perusasiat helposti: HTTPS, päivitykset, salasanat, varmuuskopiot ja muut keinot pitää sivusto turvassa.",
     url: "https://rootit.fi/artikkelit/verkkosivujen-tietoturva",
-    siteName: "Rootit.fi",
+    siteName: "Rootit",
     locale: "fi_FI",
     type: "article",
   },
@@ -25,6 +26,11 @@ export const metadata: Metadata = {
 export default function VerkkosivujenTietoturvaPage() {
   return (
     <div className="flex min-h-screen flex-col bg-background">
+      <ArticleSchema
+        title="Verkkosivujen tietoturva: 5 tärkeintä perusasiaa"
+        description="Tietoturvan perusasiat helposti: HTTPS, päivitykset, salasanat, varmuuskopiot ja muut keinot pitää sivusto turvassa."
+        url="https://rootit.fi/artikkelit/verkkosivujen-tietoturva"
+      />
       <Header />
       <main className="flex-1">
         <article className="container mx-auto max-w-3xl px-4 py-16 sm:px-6 lg:px-8">
