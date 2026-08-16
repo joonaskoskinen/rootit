@@ -187,6 +187,86 @@
   animation: rootit-reveal 0.7s cubic-bezier(0.22, 1, 0.36, 1) forwards;
 }
 
+  /* ============================================================
+   LISÄTTÄVÄ app/globals.css:n "Motion (restrained)" -osioon,
+   esim. heti .reveal-luokan jälkeen.
+   ============================================================ */
+
+/* Otsikon sanat terävöityvät paikalleen — "epäselvä sivu -> selkeä sivu"
+   on kirjaimellisesti tämä liike. Yksi harkittu signature-efekti,
+   ei koristelua. */
+@keyframes focus-in {
+  0% {
+    filter: blur(9px);
+    opacity: 0;
+    transform: translateY(10px);
+    letter-spacing: 0.06em;
+  }
+  55% {
+    filter: blur(2px);
+    opacity: 0.85;
+  }
+  100% {
+    filter: blur(0);
+    opacity: 1;
+    transform: translateY(0);
+    letter-spacing: normal;
+  }
+}
+
+.focus-word {
+  animation: focus-in 0.85s cubic-bezier(0.22, 1, 0.36, 1) both;
+  will-change: filter, opacity, transform;
+}
+.focus-word + .focus-word {
+  margin-left: 0.28ch;
+}
+
+/* Väriaaltoviiva, joka pyyhkäisee otsikon alta kertaalleen kun sanat
+   terävöityvät — sama teal->violet-gradientti kuin logossa. */
+@keyframes headline-sweep {
+  0% {
+    transform: scaleX(0);
+    opacity: 0;
+    transform-origin: left;
+  }
+  10% {
+    opacity: 1;
+  }
+  55% {
+    transform: scaleX(1);
+    opacity: 1;
+    transform-origin: left;
+  }
+  56% {
+    transform-origin: right;
+  }
+  100% {
+    transform: scaleX(0);
+    opacity: 0;
+    transform-origin: right;
+  }
+}
+
+.headline-sweep {
+  position: absolute;
+  left: 0;
+  right: 0;
+  bottom: -6px;
+  height: 2px;
+  border-radius: 999px;
+  background: linear-gradient(
+    90deg,
+    oklch(0.76 0.13 178),
+    oklch(0.72 0.16 300)
+  );
+  animation: headline-sweep 1.3s cubic-bezier(0.65, 0, 0.35, 1) 0.15s both;
+}
+
+/* prefers-reduced-motion -tuki: sivustolla on jo yleinen sääntö joka
+   pudottaa kaikkien animaatioiden keston 0.01ms:iin, joten tämä
+   toimii automaattisesti myös uusille .focus-word / .headline-sweep
+   -luokille ilman lisätyötä. */
 /* Phone default face — root/node motif */
 @keyframes root-ring {
   0% { transform: scale(0.5); opacity: 0.6; }
