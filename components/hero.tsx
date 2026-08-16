@@ -4,6 +4,7 @@ import { useRef } from "react"
 import { Check } from "lucide-react"
 import { PhoneMockup, type PhoneMockupRef } from "@/components/phone-mockup"
 import { RequestReviewButton } from "@/components/request-review-button"
+import { HeroAmbientBackground } from "@/components/hero-ambient-background"
 
 const BULLETS = [
   "Selkeä viesti heti etusivulla",
@@ -16,7 +17,10 @@ export function Hero() {
 
   return (
     <section className="relative overflow-hidden">
-      <div className="mx-auto max-w-6xl px-5 pb-16 pt-10 sm:pb-20 sm:pt-14 lg:px-8 lg:pb-28 lg:pt-20">
+      {/* Ambient root/node -verkosto — jatkaa logon ja mockupin visuaalista kieltä */}
+      <HeroAmbientBackground />
+
+      <div className="relative z-10 mx-auto max-w-6xl px-5 pb-16 pt-10 sm:pb-20 sm:pt-14 lg:px-8 lg:pb-28 lg:pt-20">
         <div className="grid items-center gap-12 lg:grid-cols-[1fr_340px] lg:gap-16">
           {/* Copy */}
           <div className="order-2 lg:order-1">
