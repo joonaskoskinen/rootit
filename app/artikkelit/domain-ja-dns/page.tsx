@@ -132,7 +132,7 @@ export default function DomainJaDnsPage() {
           {/* Navigation */}
           <div className="mt-12 flex justify-between border-t pt-8">
             <Link 
-              href="/artikkelit/sahkoposti-roskapostiin" 
+              href="/artikkelit/sivun-nopeus" 
               className="group flex items-center gap-2 text-sm font-medium text-muted-foreground transition-colors hover:text-foreground"
             >
               <ArrowLeft className="h-4 w-4 transition-transform group-hover:-translate-x-1" />

@@ -139,7 +139,7 @@ export default function VerkkosivujenTietoturvaPage() {
               Edellinen artikkeli
             </Link>
             <Link 
-              href="/artikkelit/etatuki-turvallisesti" 
+              href="/artikkelit/sivu-ei-tuo-yhteydenottoja" 
               className="group flex items-center gap-2 text-sm font-medium text-muted-foreground transition-colors hover:text-foreground"
             >
               Seuraava artikkeli

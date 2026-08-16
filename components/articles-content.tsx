@@ -9,11 +9,10 @@ import { cn } from "@/lib/utils"
 import { 
   ArrowRight, 
   FileText, 
-  Mail, 
   Globe, 
   Shield, 
-  Monitor, 
-  Wrench,
+  Gauge,
+  MousePointerClick,
   Clock,
   BookOpen
 } from "lucide-react"
@@ -31,13 +30,13 @@ const articles = [
   },
   {
     id: 2,
-    title: "Sähköposti menee roskapostiin? Tarkista nämä asetukset",
-    description: "Jos asiakkaiden viestit eivät tule perille tai omat viestisi päätyvät roskapostiin, syy löytyy usein DNS-asetuksista. Selitän selkokielellä mitä SPF, DKIM ja DMARC tarkoittavat ja miten ne korjataan.",
-    category: "Sähköposti",
-    icon: Mail,
+    title: "Miksi sivusto on hidas ja miksi se maksaa asiakkaita?",
+    description: "Kävijä ei odota. Jos sivu ei ehdi näyttää mitään muutamassa sekunnissa, suurin osa lähtee pois. Käyn läpi yleisimmät syyt hitauteen ja mistä korjaus kannattaa aloittaa.",
+    category: "Nopeus",
+    icon: Gauge,
     readTime: "6 min",
-    keywords: ["sähköposti roskapostissa", "SPF asetus", "DKIM", "sähköposti ei toimi"],
-    href: "/artikkelit/sahkoposti-roskapostiin",
+    keywords: ["sivusto hidas", "latausnopeus", "verkkosivun nopeus", "sivu latautuu hitaasti"],
+    href: "/artikkelit/sivun-nopeus",
   },
   {
     id: 3,
@@ -61,23 +60,13 @@ const articles = [
   },
   {
     id: 5,
-    title: "Etätuki: Näin se toimii turvallisesti",
-    description: "Etätuki on nopea ja kätevä tapa ratkaista IT-ongelmia. Selitän miten etäyhteys otetaan, mitä työkaluja käytetään ja miten varmistat että yhteys on turvallinen. Sinä hallitset koko ajan mitä tapahtuu.",
-    category: "Etätuki",
-    icon: Monitor,
-    readTime: "4 min",
-    keywords: ["etätuki", "TeamViewer", "etäyhteys turvallisesti", "IT-tuki etänä"],
-    href: "/artikkelit/etatuki-turvallisesti",
-  },
-  {
-    id: 6,
-    title: "Pienyrityksen IT-arki: Mitä kannattaa ulkoistaa?",
-    description: "Kaikkea ei tarvitse osata itse. Käyn läpi mitä IT-tehtäviä kannattaa ulkoistaa, milloin se on järkevää ja miten löydät luotettavan kumppanin. Säästät aikaa ja vältät turhaa stressiä.",
-    category: "IT-arki",
-    icon: Wrench,
-    readTime: "6 min",
-    keywords: ["IT ulkoistaminen", "pienyritys IT", "IT-tuki yritykselle", "yksinyrittäjä IT"],
-    href: "/artikkelit/pienyrityksen-it-ulkoistus",
+    title: "Miksi kotisivu ei tuo yhteydenottoja? 6 yleistä syytä",
+    description: "Sivulla on kävijöitä, mutta yhteydenottoja ei tule? Käyn läpi kuusi yleisintä syytä, jotka estävät kävijää ottamasta yhteyttä - ja mistä korjaus kannattaa aloittaa.",
+    category: "Konversio",
+    icon: MousePointerClick,
+    readTime: "7 min",
+    keywords: ["kotisivu ei tuo asiakkaita", "sivun konversio", "call to action", "yhteydenottolomake"],
+    href: "/artikkelit/sivu-ei-tuo-yhteydenottoja",
   },
 ]
 
@@ -112,18 +101,18 @@ export function ArticlesContent() {
           >
             <Badge variant="secondary" className="mb-4 gap-1.5">
               <BookOpen className="h-3.5 w-3.5" />
-              IT-vinkit ja oppaat
+              Artikkelit
             </Badge>
             
             <h1 className="font-display text-3xl font-bold leading-tight tracking-tight sm:text-4xl md:text-5xl lg:text-6xl text-balance">
               Käytännön neuvoja{" "}
-              <span className="text-gradient">IT-ongelmiin</span>
+              <span className="text-gradient">verkkosivuihin</span>
             </h1>
             
             <p className="mx-auto mt-4 max-w-2xl text-base text-muted-foreground sm:mt-6 sm:text-lg">
-              Täältä löydät ajankohtaisia vinkkejä, oppaita ja käytännön neuvoja yleisimpiin IT-ongelmiin. 
-              Kirjoitan selkeällä kielellä ilman turhaa teknistä jargonia - tavoitteena on auttaa sinua 
-              ratkaisemaan ongelmat tai ymmärtämään milloin kannattaa pyytää apua.
+              Täältä löydät ajankohtaisia vinkkejä ja oppaita, jotka liittyvät suoraan siihen, että 
+              verkkosivu toimii, latautuu nopeasti ja tuo yhteydenottoja. Kirjoitan selkeällä kielellä 
+              ilman turhaa teknistä jargonia.
             </p>
 
             <div className="mt-6 flex flex-wrap items-center justify-center gap-3 text-sm text-muted-foreground sm:mt-8">
@@ -272,14 +261,14 @@ export function ArticlesContent() {
             <div className="relative flex flex-col items-center justify-between gap-6 sm:gap-8 lg:flex-row">
               <div className="max-w-xl text-center lg:text-left">
                 <h2 className="font-display text-xl font-bold leading-tight tracking-tight sm:text-2xl md:text-3xl lg:text-4xl text-balance">
-                  Tarvitsetko apua IT-ongelmaan?
+                  Tarvitsetko apua verkkosivun kanssa?
                 </h2>
                 <p className="mt-3 text-sm text-muted-foreground sm:mt-4 sm:text-base">
                   Artikkelit auttavat ymmärtämään ongelmia, mutta joskus on helpompaa pyytää apua. 
                   Kerro tarpeestasi ja palaan asiaan vuorokauden sisällä.
                 </p>
                 <p className="mt-2 text-xs text-muted-foreground/80 sm:mt-3 sm:text-sm">
-                  Kertatyöt, sivustoprojektit tai etätuki - kaikki käy.
+                  Ilmainen sivustoarvio auttaa löytämään suurimmat pullonkaulat.
                 </p>
               </div>
 
@@ -303,8 +292,8 @@ export function ArticlesContent() {
           __html: JSON.stringify({
             "@context": "https://schema.org",
             "@type": "CollectionPage",
-            name: "IT-vinkit ja oppaat | Rootit",
-            description: "Käytännön neuvoja IT-ongelmiin pienyrittäjille ja yksinyrittäjille.",
+            name: "Artikkelit | Rootit",
+            description: "Käytännön neuvoja verkkosivun toimivuuteen, nopeuteen ja siihen, että sivu tuo yhteydenottoja.",
             url: "https://rootit.fi/artikkelit",
             publisher: {
               "@type": "Organization",

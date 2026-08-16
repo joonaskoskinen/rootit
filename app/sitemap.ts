@@ -5,11 +5,10 @@ export default function sitemap(): MetadataRoute.Sitemap {
 
   const articles = [
     'wordpress-ei-toimi',
-    'sahkoposti-roskapostiin',
+    'sivun-nopeus',
     'domain-ja-dns',
     'verkkosivujen-tietoturva',
-    'etatuki-turvallisesti',
-    'pienyrityksen-it-ulkoistus',
+    'sivu-ei-tuo-yhteydenottoja',
   ]
 
   return [

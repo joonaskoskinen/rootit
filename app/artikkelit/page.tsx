@@ -4,23 +4,22 @@ import { Footer } from "@/components/footer"
 import { ArticlesContent } from "@/components/articles-content"
 
 export const metadata: Metadata = {
-  title: "IT-vinkit ja oppaat | Rootit - Käytännön neuvoja IT-ongelmiin",
-  description: "Ajankohtaisia vinkkejä, oppaita ja käytännön neuvoja IT-ongelmiin. WordPress, sähköposti, domain, DNS, tietoturva ja etätuki. Selkeää IT-apua pienyrittäjille ja yksinyrittäjille.",
+  title: "Artikkelit | Rootit - Käytännön neuvoja verkkosivuihin",
+  description: "Ajankohtaisia vinkkejä ja oppaita verkkosivun toimivuuteen: WordPress-ongelmat, latausnopeus, domain, DNS, tietoturva ja se, miksi sivu ei tuo yhteydenottoja.",
   keywords: [
-    "IT-vinkit",
+    "verkkosivujen vinkit",
     "WordPress ongelmat",
-    "sähköposti ei toimi",
+    "sivusto hidas",
     "domain ongelmat",
     "DNS asetukset",
     "verkkosivujen korjaus",
-    "tietoturva",
-    "etätuki",
-    "IT-tuki pienyrityksille",
-    "digiapua",
+    "verkkosivujen tietoturva",
+    "kotisivu ei tuo asiakkaita",
+    "verkkosivun konversio",
   ],
   openGraph: {
-    title: "IT-vinkit ja oppaat | Rootit",
-    description: "Käytännön neuvoja IT-ongelmiin pienyrittäjille ja yksinyrittäjille. WordPress, sähköposti, domain ja paljon muuta.",
+    title: "Artikkelit | Rootit",
+    description: "Käytännön neuvoja verkkosivun toimivuuteen. WordPress, latausnopeus, domain, tietoturva ja konversio.",
     type: "website",
     locale: "fi_FI",
   },

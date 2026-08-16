@@ -128,7 +128,7 @@ export default function WordPressEiToimiPage() {
           <div className="mt-12 flex justify-between border-t pt-8">
             <div />
             <Link 
-              href="/artikkelit/sahkoposti-roskapostiin" 
+              href="/artikkelit/sivun-nopeus" 
               className="group flex items-center gap-2 text-sm font-medium text-muted-foreground transition-colors hover:text-foreground"
             >
               Seuraava artikkeli
