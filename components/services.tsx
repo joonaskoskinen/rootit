@@ -36,14 +36,15 @@ export function Services() {
               </h3>
               <p className="mt-3 flex items-baseline gap-2">
                 <span className="text-2xl font-semibold tracking-tight text-primary">
-                  490–890 €
+                  Alkaen 290 €
                 </span>
-                <span className="text-sm text-muted-foreground">laajuudesta riippuen</span>
+                <span className="text-sm text-muted-foreground">lopullinen hinta arvion jälkeen</span>
               </p>
               <p className="mt-3 max-w-md text-pretty text-base leading-relaxed text-muted-foreground">
                 Keskitetty korjaus, joka parantaa juuri ne sivun osat, jotka vaikuttavat
-                eniten yhteydenottoihin. Korjaamme tärkeimmät pullonkaulat ilman raskasta
-                uudistusprojektia.
+                eniten yhteydenottoihin. Hinta riippuu laajuudesta — pelkkä auditointi tai yksi
+                pieni korjaus on halvempi, laajempi kokonaisuus enemmän. Tarkan hinnan saat
+                vasta ilmaisen arvion jälkeen, ei valmiiksi lyötyä listahintaa.
               </p>
               <div className="mt-7">
                 <RequestReviewButton label="Pyydä ilmainen sivustoarvio" />

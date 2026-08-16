@@ -41,12 +41,14 @@ export const metadata: Metadata = {
     title: 'Rootit – Selkeämmät verkkosivut pienyrityksille',
     description:
       'Korjaamme pienyritysten sivut sellaisiksi, että asiakas ymmärtää ja ottaa yhteyttä. Pyydä ilmainen sivustoarvio.',
+    images: [{ url: '/og-image.jpg', width: 1200, height: 630, alt: 'Rootit' }],
   },
   twitter: {
     card: 'summary_large_image',
     title: 'Rootit – Selkeämmät verkkosivut pienyrityksille',
     description:
       'Korjaamme pienyritysten sivut sellaisiksi, että asiakas ymmärtää ja ottaa yhteyttä. Pyydä ilmainen sivustoarvio.',
+    images: ['/og-image.jpg'],
   },
   robots: {
     index: true,

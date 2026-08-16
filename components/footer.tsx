@@ -58,9 +58,14 @@ export function Footer() {
 
         <div className="mt-12 flex flex-col gap-3 border-t border-border pt-6 text-xs text-muted-foreground sm:flex-row sm:items-center sm:justify-between">
           <p>© {year} Rootit</p>
-          <Link href="/tietosuoja" className="transition-colors hover:text-foreground">
-            Tietosuojaseloste
-          </Link>
+          <div className="flex gap-5">
+            <Link href="/artikkelit" className="transition-colors hover:text-foreground">
+              Artikkelit
+            </Link>
+            <Link href="/tietosuoja" className="transition-colors hover:text-foreground">
+              Tietosuojaseloste
+            </Link>
+          </div>
         </div>
       </div>
     </footer>

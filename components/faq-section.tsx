@@ -28,6 +28,10 @@ const FAQS = [
     a: "Kyllä. Autan selkeyttämään otsikot ja tärkeimmät tekstit niin, että asiakas ymmärtää nopeasti mitä tarjoat. Sinä tunnet alasi — minä autan sanomaan sen selkeästi ja toimintaan ohjaavasti.",
   },
   {
+    q: "Paljonko Viikon sivukorjaus maksaa?",
+    a: "Hinta alkaa 290 eurosta ja riippuu aina laajuudesta. Pelkkä auditointi tai yksi rajattu korjaus on halvempi, laajempi kokonaisuus enemmän. Et saa listahintaa etukäteen — saat tarkan hinnan vasta ilmaisen sivustoarvion jälkeen, kun tiedän mitä sivullasi pitää tehdä.",
+  },
+  {
     q: "Voinko pyytää ensin vain arvion?",
     a: "Ehdottomasti, ja se on suositeltu tapa aloittaa. Ilmainen sivustoarvio ei sido mihinkään. Saat konkreettiset huomiot, ja päätät sen jälkeen itse, haluatko edetä korjaukseen.",
   },
@@ -41,9 +45,26 @@ const FAQS = [
   },
 ]
 
+const faqStructuredData = {
+  "@context": "https://schema.org",
+  "@type": "FAQPage",
+  mainEntity: FAQS.map((item) => ({
+    "@type": "Question",
+    name: item.q,
+    acceptedAnswer: {
+      "@type": "Answer",
+      text: item.a,
+    },
+  })),
+}
+
 export function FaqSection() {
   return (
     <section id="ukk" className="bg-secondary/50 scroll-mt-20">
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{ __html: JSON.stringify(faqStructuredData) }}
+      />
       <div className="mx-auto max-w-6xl px-5 py-20 sm:py-24 lg:px-8">
         <div className="grid gap-12 lg:grid-cols-[0.8fr_1.2fr] lg:gap-16">
           <SectionHeading
