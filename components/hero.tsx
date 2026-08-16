@@ -20,13 +20,8 @@ export function Hero() {
         <div className="grid items-center gap-12 lg:grid-cols-[1fr_340px] lg:gap-16">
           {/* Copy */}
           <div className="order-2 lg:order-1">
-            <div className="reveal inline-flex items-center gap-2 rounded-full border border-border bg-card px-3 py-1 text-xs font-medium text-muted-foreground">
-              <span className="h-1.5 w-1.5 rounded-full bg-primary" />
-              Verkkosivujen parannus pienyrityksille
-            </div>
-
             <h1
-              className="reveal mt-5 text-balance text-4xl font-semibold leading-[1.08] tracking-tight text-foreground sm:text-5xl lg:text-6xl"
+              className="reveal text-balance text-4xl font-semibold leading-[1.08] tracking-tight text-foreground sm:text-5xl lg:text-6xl"
               style={{ animationDelay: "60ms" }}
             >
               Selkeämpi sivu.

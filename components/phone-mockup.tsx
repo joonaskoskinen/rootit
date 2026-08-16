@@ -8,15 +8,7 @@ import {
   useImperativeHandle,
   type PointerEvent,
 } from "react"
-import {
-  ArrowLeft,
-  ArrowRight,
-  Loader2,
-  CheckCircle2,
-  CalendarCheck,
-  Phone,
-  Mail,
-} from "lucide-react"
+import { ArrowLeft, ArrowRight, Loader2, CheckCircle2 } from "lucide-react"
 import { cn } from "@/lib/utils"
 
 export interface PhoneMockupRef {
@@ -116,16 +108,6 @@ export const PhoneMockup = forwardRef<PhoneMockupRef>(function PhoneMockup(_, re
 
   return (
     <div className="relative w-full max-w-[280px] [perspective:1400px] sm:max-w-[320px]">
-      {/* Floating annotation chips — framing signals, kept clear of screen content */}
-      <div className="pointer-events-none absolute -left-24 top-28 z-20 hidden rounded-md border border-border bg-card px-3 py-2 shadow-sm xl:block">
-        <p className="text-[11px] font-medium text-foreground">Selkeä viesti</p>
-        <p className="text-[10px] text-muted-foreground">heti ruudun yläosassa</p>
-      </div>
-      <div className="pointer-events-none absolute -right-20 bottom-32 z-20 hidden rounded-md border border-border bg-card px-3 py-2 shadow-sm xl:block">
-        <p className="text-[11px] font-medium text-foreground">Näkyvä CTA</p>
-        <p className="text-[10px] text-muted-foreground">yksi selkeä seuraava askel</p>
-      </div>
-
       <div
         ref={tiltRef}
         onPointerMove={handlePointerMove}
@@ -163,78 +145,108 @@ export const PhoneMockup = forwardRef<PhoneMockupRef>(function PhoneMockup(_, re
 
               {/* Sliding container */}
               <div className="relative flex flex-1 overflow-hidden">
-                {/* Inbound feed (default face) — the result of a clearer site */}
+                {/* Default face — an on-brand animation (root/node motif) + the one CTA */}
                 <div
                   className={cn(
-                    "flex w-full flex-col px-4 pt-4 transition-all duration-500 ease-out sm:px-4",
+                    "flex w-full flex-col px-5 pt-4 transition-all duration-500 ease-out",
                     showForm ? "-translate-x-full opacity-0" : "translate-x-0 opacity-100",
                   )}
                 >
-                  {/* Header */}
-                  <div className="phone-card-enter mb-4 flex items-start justify-between" style={{ animationDelay: "60ms" }}>
-                    <div>
-                      <h4 className="text-[17px] font-semibold tracking-tight text-white">Yhteydenotot</h4>
-                      <p className="mt-0.5 text-[11px] text-white/45">Suoraan sivultasi</p>
+                  {/* Animation stage */}
+                  <div className="relative flex flex-1 items-center justify-center">
+                    {/* Expanding rings */}
+                    <div className="pointer-events-none absolute inset-0 flex items-center justify-center">
+                      {[0, 1, 2].map((i) => (
+                        <span
+                          key={i}
+                          className="absolute rounded-full border border-primary/25 animate-root-ring"
+                          style={{
+                            width: "160px",
+                            height: "160px",
+                            animationDelay: `${i * 1.3}s`,
+                          }}
+                        />
+                      ))}
                     </div>
-                    <span className="rounded-full border border-primary/30 bg-primary/15 px-2.5 py-1 text-[11px] font-medium text-primary">
-                      12 tänään
-                    </span>
-                  </div>
 
-                  {/* Highlighted new booking — live */}
-                  <div
-                    className="phone-card-enter rounded-xl border border-primary/25 bg-gradient-to-br from-primary/[0.14] to-primary/[0.03] px-3.5 py-3"
-                    style={{ animationDelay: "170ms" }}
-                  >
-                    <div className="flex items-center justify-between">
-                      <div className="flex items-center gap-1.5">
-                        <span className="relative flex h-1.5 w-1.5">
-                          <span className="absolute inline-flex h-full w-full animate-ping rounded-full bg-primary opacity-60" />
-                          <span className="relative inline-flex h-1.5 w-1.5 rounded-full bg-primary" />
-                        </span>
-                        <span className="text-[11px] font-medium text-primary">Uusi ajanvaraus · juuri nyt</span>
-                      </div>
-                      <div className="flex h-7 w-7 items-center justify-center rounded-full bg-primary/20">
-                        <CalendarCheck className="h-3.5 w-3.5 text-primary" />
-                      </div>
-                    </div>
-                    <p className="mt-2 text-[13px] font-semibold text-white">Maria K.</p>
-                    <p className="text-[11px] text-white/50">Leikkaus &amp; muotoilu · pe klo 14.00</p>
-                  </div>
-
-                  {/* Secondary inbound items */}
-                  <div className="mt-2.5 space-y-2.5">
-                    <div
-                      className="phone-card-enter flex items-center gap-3 rounded-xl border border-white/[0.07] bg-white/[0.03] px-3.5 py-2.5"
-                      style={{ animationDelay: "260ms" }}
+                    {/* Node graph */}
+                    <svg
+                      viewBox="0 0 200 200"
+                      className="relative h-[200px] w-[200px]"
+                      aria-hidden="true"
                     >
-                      <div className="flex h-8 w-8 shrink-0 items-center justify-center rounded-full bg-white/[0.06]">
-                        <Phone className="h-3.5 w-3.5 text-white/70" />
-                      </div>
-                      <div className="min-w-0 flex-1">
-                        <p className="text-[12px] font-medium text-white">Soittopyyntö</p>
-                        <p className="truncate text-[11px] text-white/45">Tarjous remontista · 8 min sitten</p>
-                      </div>
-                    </div>
+                      <defs>
+                        <radialGradient id="coreGlow" cx="50%" cy="50%" r="50%">
+                          <stop offset="0%" stopColor="oklch(0.76 0.13 178)" stopOpacity="0.9" />
+                          <stop offset="100%" stopColor="oklch(0.76 0.13 178)" stopOpacity="0" />
+                        </radialGradient>
+                      </defs>
 
-                    <div
-                      className="phone-card-enter flex items-center gap-3 rounded-xl border border-white/[0.07] bg-white/[0.03] px-3.5 py-2.5"
-                      style={{ animationDelay: "350ms" }}
-                    >
-                      <div className="flex h-8 w-8 shrink-0 items-center justify-center rounded-full bg-white/[0.06]">
-                        <Mail className="h-3.5 w-3.5 text-white/70" />
-                      </div>
-                      <div className="min-w-0 flex-1">
-                        <p className="text-[12px] font-medium text-white">Yhteydenotto lomakkeella</p>
-                        <p className="truncate text-[11px] text-white/45">Kysely hinnoista · 24 min sitten</p>
-                      </div>
-                    </div>
+                      {/* connecting lines */}
+                      {[
+                        [100, 100, 52, 44],
+                        [100, 100, 150, 52],
+                        [100, 100, 40, 118],
+                        [100, 100, 156, 132],
+                        [100, 100, 100, 168],
+                      ].map(([x1, y1, x2, y2], i) => (
+                        <line
+                          key={i}
+                          x1={x1}
+                          y1={y1}
+                          x2={x2}
+                          y2={y2}
+                          stroke="oklch(0.76 0.13 178)"
+                          strokeWidth="1"
+                          strokeOpacity="0.35"
+                          className="animate-root-line"
+                          style={{ animationDelay: `${i * 0.35}s` }}
+                        />
+                      ))}
+
+                      {/* satellite nodes */}
+                      {[
+                        [52, 44],
+                        [150, 52],
+                        [40, 118],
+                        [156, 132],
+                        [100, 168],
+                      ].map(([cx, cy], i) => (
+                        <circle
+                          key={i}
+                          cx={cx}
+                          cy={cy}
+                          r="4"
+                          fill="oklch(0.76 0.13 178)"
+                          className="animate-root-node"
+                          style={{ animationDelay: `${i * 0.35}s` }}
+                        />
+                      ))}
+
+                      {/* core */}
+                      <circle cx="100" cy="100" r="34" fill="url(#coreGlow)" />
+                      <circle
+                        cx="100"
+                        cy="100"
+                        r="9"
+                        fill="oklch(0.76 0.13 178)"
+                        className="animate-root-core"
+                      />
+                    </svg>
                   </div>
 
-                  <div className="flex-1" />
+                  {/* Caption */}
+                  <div className="phone-card-enter px-1 text-center" style={{ animationDelay: "120ms" }}>
+                    <p className="text-[15px] font-semibold leading-snug text-white text-balance">
+                      Selkeä sivu, joka ohjaa yhteydenottoon.
+                    </p>
+                    <p className="mt-1.5 text-[12px] leading-relaxed text-white/45">
+                      Korjaamme perustan kuntoon — viesti, rakenne ja CTA.
+                    </p>
+                  </div>
 
-                  {/* Bottom CTA into the review form */}
-                  <div className="phone-card-enter py-3" style={{ animationDelay: "440ms" }}>
+                  {/* CTA */}
+                  <div className="phone-card-enter py-4" style={{ animationDelay: "220ms" }}>
                     <button
                       onClick={() => setShowForm(true)}
                       className="flex w-full items-center justify-center gap-2 rounded-lg bg-primary py-3 text-[13px] font-semibold text-primary-foreground transition-transform active:scale-[0.98]"
@@ -242,9 +254,6 @@ export const PhoneMockup = forwardRef<PhoneMockupRef>(function PhoneMockup(_, re
                       Pyydä ilmainen sivustoarvio
                       <ArrowRight className="h-4 w-4" />
                     </button>
-                    <p className="mt-2 text-center text-[10px] text-white/40">
-                      Näin selkeämpi sivu näyttää tuloksissa.
-                    </p>
                   </div>
                 </div>
 
