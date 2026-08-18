@@ -177,8 +177,8 @@ export const PhoneMockup = forwardRef<PhoneMockupRef>(function PhoneMockup(_, re
                     >
                       <defs>
                         <radialGradient id="coreGlow" cx="50%" cy="50%" r="50%">
-                          <stop offset="0%" stopColor="oklch(0.76 0.13 178)" stopOpacity="0.9" />
-                          <stop offset="100%" stopColor="oklch(0.76 0.13 178)" stopOpacity="0" />
+                          <stop offset="0%" stopColor="oklch(0.84 0.1 40)" stopOpacity="0.9" />
+                          <stop offset="100%" stopColor="oklch(0.84 0.1 40)" stopOpacity="0" />
                         </radialGradient>
                       </defs>
 
@@ -196,7 +196,7 @@ export const PhoneMockup = forwardRef<PhoneMockupRef>(function PhoneMockup(_, re
                           y1={y1}
                           x2={x2}
                           y2={y2}
-                          stroke="oklch(0.76 0.13 178)"
+                          stroke="oklch(0.84 0.1 40)"
                           strokeWidth="1"
                           strokeOpacity="0.35"
                           className="animate-root-line"
@@ -217,7 +217,7 @@ export const PhoneMockup = forwardRef<PhoneMockupRef>(function PhoneMockup(_, re
                           cx={cx}
                           cy={cy}
                           r="4"
-                          fill="oklch(0.76 0.13 178)"
+                          fill="oklch(0.84 0.1 40)"
                           className="animate-root-node"
                           style={{ animationDelay: `${i * 0.35}s` }}
                         />
@@ -229,7 +229,7 @@ export const PhoneMockup = forwardRef<PhoneMockupRef>(function PhoneMockup(_, re
                         cx="100"
                         cy="100"
                         r="9"
-                        fill="oklch(0.76 0.13 178)"
+                        fill="oklch(0.84 0.1 40)"
                         className="animate-root-core"
                       />
                     </svg>

@@ -28,8 +28,8 @@ export function Footer() {
               </text>
               <defs>
                 <linearGradient id="footerLogoGradient" x1="0%" y1="0%" x2="100%" y2="0%">
-                  <stop offset="0%" stopColor="oklch(0.76 0.13 178)" />
-                  <stop offset="100%" stopColor="oklch(0.72 0.16 300)" />
+                  <stop offset="0%" stopColor="oklch(0.82 0.09 35)" />
+                  <stop offset="100%" stopColor="oklch(0.83 0.08 10)" />
                 </linearGradient>
               </defs>
             </svg>

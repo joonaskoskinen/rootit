@@ -21,8 +21,8 @@ type Node = {
 
 const NODE_COUNT = 26
 const LINK_DISTANCE = 150
-const TEAL = "118, 190, 178" // approx oklch(0.76 0.13 178) in rgb-ish for canvas
-const VIOLET = "168, 150, 214" // approx oklch(0.72 0.16 300) in rgb-ish for canvas
+const TEAL = "232, 168, 138" // soft peach — approx oklch(0.82 0.09 35) for canvas
+const VIOLET = "232, 158, 168" // soft rose — approx oklch(0.83 0.08 10) for canvas
 
 export function HeroAmbientBackground() {
   const canvasRef = useRef<HTMLCanvasElement>(null)
@@ -100,7 +100,7 @@ export function HeroAmbientBackground() {
           const b = nodes[j]
           const dist = Math.hypot(a.x - b.x, a.y - b.y)
           if (dist < LINK_DISTANCE) {
-            const opacity = (1 - dist / LINK_DISTANCE) * 0.16
+            const opacity = (1 - dist / LINK_DISTANCE) * 0.26
             ctx!.strokeStyle = `rgba(${TEAL}, ${opacity})`
             ctx!.lineWidth = 1
             ctx!.beginPath()
@@ -114,7 +114,7 @@ export function HeroAmbientBackground() {
       // Draw nodes
       nodes.forEach((n, i) => {
         const color = i % 5 === 0 ? VIOLET : TEAL
-        ctx!.fillStyle = `rgba(${color}, 0.55)`
+        ctx!.fillStyle = `rgba(${color}, 0.7)`
         ctx!.beginPath()
         ctx!.arc(n.x, n.y, n.r, 0, Math.PI * 2)
         ctx!.fill()
