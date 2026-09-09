@@ -38,9 +38,9 @@ function Wordmark() {
 }
 
 const NAV = [
-  { href: "/#palvelut", label: "Palvelut" },
-  { href: "/#prosessi", label: "Prosessi" },
-  { href: "/#esimerkit", label: "Esimerkit" },
+  { href: "/#paketit", label: "Paketit" },
+  { href: "/#miksi-rootit", label: "Miksi Rootit" },
+  { href: "/#prosessi", label: "Näin se toimii" },
   { href: "/#ukk", label: "UKK" },
 ]
 

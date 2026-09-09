@@ -253,14 +253,14 @@ const translations = {
     "demoSection.code.desc": "Ongelma paikannetaan ja korjataan tehokkaasti.",
 
     // Form
-    "form.title": "Ota yhteyttä",
-    "form.desc": "Kerro tarpeestasi ja palaan asiaan vuorokauden sisällä.",
+    "form.title": "Pyydä tarjous nettisivuista",
+    "form.desc": "Kerro lyhyesti yrityksestäsi ja sivustotarpeestasi. Palaamme asiaan tarjousvaihtoehdon kanssa.",
     "form.email": "Sähköposti",
     "form.email.placeholder": "sinun@email.fi",
     "form.phone": "Puhelinnumero (valinnainen)",
     "form.phone.placeholder": "+358 40 123 4567",
-    "form.description": "Miten voin auttaa?",
-    "form.description.placeholder": "Kuvaile ongelma tai tarve lyhyesti...",
+    "form.description": "Kerro yrityksestäsi ja tarpeestasi",
+    "form.description.placeholder": "Millaiset nettisivut tarvitset? Kerro esimerkiksi toimialasta, sivumäärästä tai nykyisestä domainista.",
     "form.time": "Milloin on hyvä aika ottaa yhteyttä?",
     "form.time.placeholder": "esim. arkiaamuisin, tiistai-iltapäivä...",
     "form.submit": "Lähetä",

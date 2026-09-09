@@ -13,9 +13,9 @@ const inter = Inter({
 })
 
 export const metadata: Metadata = {
-  title: 'Rootit – Selkeämmät verkkosivut pienyrityksille',
+  title: 'Rootit – Nettisivut yrityksille alk. 29 € / kk',
   description:
-    'Rootit korjaa pienyritysten verkkosivut niin, että asiakas ymmärtää nopeasti ja ottaa yhteyttä. Selkeämpi viesti, parempi mobiilikokemus ja toimiva yhteydenottopolku – ilman raskasta uudistusprojektia.',
+    'Modernit, nopeat ja mobiiliystävälliset nettisivut yrityksellesi alk. 29 € + alv / kk. Toteutus, hosting ja tekninen ylläpito selkeällä kuukausihinnalla.',
   generator: 'v0.app',
   applicationName: 'Rootit',
   keywords: [
@@ -38,16 +38,16 @@ export const metadata: Metadata = {
     locale: 'fi_FI',
     url: BASE_URL,
     siteName: 'Rootit',
-    title: 'Rootit – Selkeämmät verkkosivut pienyrityksille',
+    title: 'Rootit – Nettisivut yrityksille alk. 29 € / kk',
     description:
-      'Korjaamme pienyritysten sivut sellaisiksi, että asiakas ymmärtää ja ottaa yhteyttä. Pyydä ilmainen sivustoarvio.',
+      'Modernit nettisivut yrityksellesi alk. 29 € + alv / kk. Toteutus, hosting ja tekninen ylläpito mukana.',
     images: [{ url: '/og-image.jpg', width: 1200, height: 630, alt: 'Rootit' }],
   },
   twitter: {
     card: 'summary_large_image',
-    title: 'Rootit – Selkeämmät verkkosivut pienyrityksille',
+    title: 'Rootit – Nettisivut yrityksille alk. 29 € / kk',
     description:
-      'Korjaamme pienyritysten sivut sellaisiksi, että asiakas ymmärtää ja ottaa yhteyttä. Pyydä ilmainen sivustoarvio.',
+      'Modernit nettisivut yrityksellesi alk. 29 € + alv / kk. Toteutus, hosting ja tekninen ylläpito mukana.',
     images: ['/og-image.jpg'],
   },
   robots: {
@@ -84,14 +84,14 @@ const structuredData = {
       '@id': `${BASE_URL}/#organization`,
       name: 'Rootit',
       description:
-        'Rootit parantaa pienyritysten verkkosivuja: selkeämpi viesti, parempi mobiilikokemus ja toimiva yhteydenottopolku, jotta sivu tuottaa enemmän yhteydenottoja.',
+        'Rootit tarjoaa yrityksille modernit nettisivut selkeällä kuukausihinnalla. Toteutus, hosting ja tekninen ylläpito samasta paikasta.',
       url: BASE_URL,
       areaServed: { '@type': 'Country', name: 'Finland' },
       serviceType: [
-        'Verkkosivujen parannus',
-        'Konversio-optimointi',
-        'Sivustoarvio',
-        'Verkkosivujen ylläpito',
+        'Nettisivut yrityksille',
+        'Verkkosivut kuukausihinnalla',
+        'Hosting ja tekninen ylläpito',
+        'SEO-palvelut',
       ],
       knowsLanguage: ['fi'],
     },

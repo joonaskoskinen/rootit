@@ -34,8 +34,7 @@ export function Footer() {
               </defs>
             </svg>
             <p className="mt-3 text-sm leading-relaxed text-muted-foreground">
-              Selkeämmät verkkosivut pienyrityksille. Korjaamme sivut sellaisiksi, että
-              asiakas ymmärtää ja ottaa yhteyttä.
+              Modernit nettisivut yrityksille kuukausihinnalla. Rootit hoitaa toteutuksen, hostingin ja teknisen ylläpidon.
             </p>
           </div>
 

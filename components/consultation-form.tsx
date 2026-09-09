@@ -1,6 +1,6 @@
 "use client"
 
-import { useState } from "react"
+import { useEffect, useState } from "react"
 import { Button } from "@/components/ui/button"
 import { Input } from "@/components/ui/input"
 import { Textarea } from "@/components/ui/textarea"
@@ -60,6 +60,12 @@ export function ConsultationForm({ children, className }: ConsultationFormProps)
       setIsSubmitting(false)
     }
   }
+
+  useEffect(() => {
+    const handleExternalOpen = () => setOpen(true)
+    window.addEventListener("openConsultationForm", handleExternalOpen)
+    return () => window.removeEventListener("openConsultationForm", handleExternalOpen)
+  }, [])
 
   const handleOpenChange = (newOpen: boolean) => {
     setOpen(newOpen)
