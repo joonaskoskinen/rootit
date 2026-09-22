@@ -114,8 +114,8 @@ const translations = {
 
     // Pricing - FIXED formatting
     "pricing.title": "Hinnoittelu",
-    "pricing.subtitle": "Kolme tapaa ostaa apua - valitse tarpeesi mukaan.",
-    "pricing.from": "alk.",
+    "pricing.subtitle": "Valitse jatkuva palvelu tai yksittäinen korjaus tarpeesi mukaan.",
+    "pricing.from": "kuukaudessa",
 
     "pricing.oneoff": "Kertatyöt",
     "pricing.oneoff.price": "49 €",

@@ -14,12 +14,12 @@ const STEPS = [
     desc: "Jos haluat edetä, sovitaan työn laajuus, hinta ja aikataulu etukäteen.",
   },
   {
-    title: "Korjaan tärkeimmät asiat",
-    desc: "Selkeytän viestin, rakennetta, mobiilikäyttöä ja yhteydenottopolkua sovitun laajuuden mukaan.",
+    title: "Rakennan tai korjaan sivuston",
+    desc: "Toteutan sovitut muutokset ja huolehdin, että sivusto toimii hyvin myös puhelimella.",
   },
   {
-    title: "Julkaistaan päivitetty sivu",
-    desc: "Kun muutokset ovat valmiit, sivu julkaistaan. Halutessasi voimme jatkaa myöhemmin pienillä parannuksilla.",
+    title: "Ylläpito jatkuu sovitusti",
+    desc: "Kuukausipalvelussa huolehdin pienistä muutoksista ja teknisestä ylläpidosta. Yksittäinen korjaus päättyy, kun sovittu työ on valmis.",
   },
 ]
 
@@ -30,7 +30,7 @@ export function Process() {
         <SectionHeading
           eyebrow="Prosessi"
           title="Näin homma etenee"
-          description="Kevyt prosessi ilman turhaa byrokratiaa. Tiedät etukäteen, mitä tehdään ja mitä seuraavaksi tapahtuu."
+          description="Kevyt prosessi ilman turhaa byrokratiaa. Valitset itse jatkuvan palvelun tai yksittäisen korjauksen."
         />
 
         <ol className="mt-14 space-y-0">

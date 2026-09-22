@@ -3,12 +3,12 @@ import { SectionHeading } from "@/components/section-heading"
 import { RequestReviewButton } from "@/components/request-review-button"
 
 const FIX_ITEMS = [
-  "Etusivun viestin selkeytys",
-  "CTA-rakenteen parannus",
-  "Mobiilikäytön tärkeimmät korjaukset",
-  "Luottamusta tukevat osiot",
-  "Selkeämpi yhteydenottopolku",
-  "Kevyt ja käytännöllinen toteutus",
+  "Moderni ja selkeä toteutus",
+  "Tekninen ylläpito",
+  "Pienet sisältömuutokset",
+  "Mobiiliystävällinen rakenne",
+  "Turvallisuudesta ja toimivuudesta huolehtiminen",
+  "Selkeä yhteydenottopolku",
 ]
 
 export function Services() {
@@ -17,8 +17,8 @@ export function Services() {
       <div className="mx-auto max-w-6xl px-5 py-20 sm:py-24 lg:px-8">
         <SectionHeading
           eyebrow="Palvelut"
-          title="Kolme tapaa parantaa verkkosivuasi"
-          description="Kaikki sivut eivät tarvitse täydellistä uudistusta. Aloitetaan siitä, mikä kannattaa oikeasti korjata."
+          title="Valitse tarpeeseesi sopiva palvelu"
+          description="Voit tilata verkkosivut ylläpidolla tai yksittäisen korjauksen ilman kuukausimaksua."
         />
 
         {/* Featured offer: Verkkosivujen parannus */}
@@ -32,7 +32,7 @@ export function Services() {
                 <span className="text-sm text-muted-foreground">Pääpalvelu</span>
               </div>
               <h3 className="mt-5 text-2xl font-semibold tracking-tight text-foreground sm:text-3xl">
-                Verkkosivujen parannus
+Verkkosivut + ylläpito
               </h3>
               <p className="mt-3 flex items-baseline gap-2">
                 <span className="text-2xl font-semibold tracking-tight text-primary">
@@ -41,11 +41,10 @@ export function Services() {
                 <span className="text-sm text-muted-foreground">kuukausihinta</span>
               </p>
               <p className="mt-3 max-w-md text-pretty text-base leading-relaxed text-muted-foreground">
-                Korjaan nykyiseltä sivultasi tärkeimmät ongelmakohdat. Työ voi tarkoittaa esimerkiksi
-                etusivun selkeyttämistä, mobiilin parantamista, tekstien uudistamista tai
-                yhteydenottopolun korjaamista. Lopullinen hinta riippuu työn laajuudesta.
+                Saat modernit ja selkeät verkkosivut sekä teknisen ylläpidon ja pienet jatkuvat muutokset.
+                Sivusto pysyy ajan tasalla ilman suurta kertamaksua.
               </p>
-              <p className="mt-4 text-sm text-muted-foreground">Ei turhaa uudelleenrakentamista. Korjataan se, mikä oikeasti tarvitsee korjaamista.</p>
+              <p className="mt-4 text-sm text-muted-foreground">29 € + alv / kk. Ei suurta aloitusmaksua.</p>
               <div className="mt-7">
                 <RequestReviewButton label="Pyydä ilmainen sivustoarvio" />
               </div>
@@ -69,29 +68,27 @@ export function Services() {
         <div className="mt-6 grid gap-6 md:grid-cols-2">
           <div className="rounded-xl border border-border bg-card p-8">
             <p className="text-xs font-semibold uppercase tracking-[0.14em] text-muted-foreground">
-              Aloita tästä
+              Kertaluontoinen työ
             </p>
-            <h3 className="mt-3 text-xl font-semibold text-foreground">
-              Ilmainen sivustoarvio
-            </h3>
+            <h3 className="mt-3 text-xl font-semibold text-foreground">Yksittäiset korjaukset</h3>
             <p className="mt-2 text-sm leading-relaxed text-muted-foreground">
-              Käyn sivusi läpi käytännön näkökulmasta ja nostan esiin tärkeimmät asiat, joita parantaisin
-              ensin. Konkreettisia huomioita ilman ympäripyöreää konsulttipuhetta.
+              Tarvitsetko vain yhden muutoksen? Korjaan esimerkiksi etusivun, mobiilinäkymän,
+              yhteydenottolomakkeen tai muun yksittäisen ongelman ilman kuukausimaksua.
             </p>
             <span className="mt-5 inline-flex items-center gap-1.5 text-sm font-medium text-primary">
-              Lähtökohta yhteistyölle
+              Ei sitoutumista
               <ArrowRight className="h-3.5 w-3.5" />
             </span>
           </div>
 
           <div className="rounded-xl border border-border bg-card p-8">
             <p className="text-xs font-semibold uppercase tracking-[0.14em] text-muted-foreground">
-              Korjauksen jälkeen
+              Kuukausipalvelun lisänä
             </p>
             <h3 className="mt-3 text-xl font-semibold text-foreground">Jatkuva kehitys</h3>
             <p className="mt-2 text-sm leading-relaxed text-muted-foreground">
-              Jos haluat jatkaa myöhemmin, voimme tehdä pieniä parannuksia tarpeen mukaan: kampanjasivuja,
-              tekstipäivityksiä, CTA-muutoksia ja rakenteen hienosäätöä.
+              Ylläpidän sivustoa ja teen pieniä muutoksia tarpeen mukaan: tekstipäivityksiä, kampanjasivuja
+              ja muita sovittuja parannuksia.
             </p>
             <span className="mt-5 inline-flex items-center gap-1.5 text-sm font-medium text-muted-foreground">
               Vapaaehtoinen ja joustava

@@ -20,7 +20,7 @@ const FAQS = [
     a: "Pienille yrityksille, joiden nykyinen verkkosivu on vanha, sekava tai toimii mobiilissa huonosti. Palvelu sopii erityisesti paikallisille palveluyrityksille.",
   },
   {
-    q: "Kauan verkkosivujen parannus kestää?",
+    q: "Kauan verkkosivujen tekeminen tai korjaus kestää?",
     a: "Aikataulu riippuu työn laajuudesta. Sovimme siitä etukäteen, kun tiedämme mitä sivulla pitää tehdä.",
   },
   {
@@ -28,8 +28,12 @@ const FAQS = [
     a: "Kyllä. Autan selkeyttämään otsikot ja tärkeimmät tekstit niin, että asiakas ymmärtää nopeasti mitä tarjoat. Sinä tunnet alasi — minä autan sanomaan sen selkeästi ja toimintaan ohjaavasti.",
   },
   {
-    q: "Paljonko verkkosivujen parannus maksaa?",
-    a: "Verkkosivujen parannus maksaa 29 € + alv / kk. Saat hinnan ja palvelun sisällön selkeästi tiedoksi ennen aloittamista.",
+    q: "Mitä verkkosivut + ylläpito maksaa?",
+    a: "Verkkosivut ja ylläpito maksavat 29 € + alv / kk. Hintaan kuuluu sovittu sivusto, tekninen ylläpito ja pienet jatkuvat muutokset.",
+  },
+  {
+    q: "Voinko tilata vain yksittäisen korjauksen?",
+    a: "Kyllä. Voit tilata yksittäisen muutoksen tai korjauksen ilman kuukausimaksua. Sovitaan työstä ja hinnasta etukäteen.",
   },
   {
     q: "Voinko pyytää ensin vain arvion?",
@@ -40,8 +44,8 @@ const FAQS = [
     a: "Kyllä. Käyn läpi erityisesti tekstien koon, painikkeet, rakenteen ja tärkeimmät toiminnot puhelimen näkökulmasta.",
   },
   {
-    q: "Voiko yhteistyötä jatkaa myöhemmin?",
-    a: "Kyllä, mutta se on täysin vapaaehtoista. Korjauksen jälkeen voit jatkaa pienillä, jatkuvilla parannuksilla, tai jättää sivun sellaisekseen. Et sitoudu mihinkään jatkuvaan.",
+    q: "Voiko kuukausipalvelun lopettaa?",
+    a: "Kyllä. Kuukausipalvelu on joustava, eikä yksittäisiä korjauksia tarvitse tilata kuukausipalveluna.",
   },
 ]
 

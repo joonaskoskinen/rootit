@@ -9,7 +9,7 @@ export function FinalCta() {
             Katsotaan, mitä sivullasi kannattaa parantaa
           </h2>
           <p className="mx-auto mt-5 max-w-xl text-pretty text-base leading-relaxed text-muted-foreground sm:text-lg">
-            Saat konkreettiset huomiot sivustasi ja tiedät, mitä kannattaa tehdä seuraavaksi. Arvio on ilmainen eikä sido mihinkään.
+            Saat konkreettiset huomiot sivustasi ja voit valita jatkuvan palvelun tai yksittäisen korjauksen. Arvio on ilmainen eikä sido mihinkään.
           </p>
           <div className="mt-9 flex justify-center">
             <RequestReviewButton className="px-8 py-3.5 text-base" />
