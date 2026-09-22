@@ -36,9 +36,9 @@ export function Services() {
               </h3>
               <p className="mt-3 flex items-baseline gap-2">
                 <span className="text-2xl font-semibold tracking-tight text-primary">
-                  Alkaen 290 €
+                  29 € + alv / kk
                 </span>
-                <span className="text-sm text-muted-foreground">lopullinen hinta arvion jälkeen</span>
+                <span className="text-sm text-muted-foreground">kuukausihinta</span>
               </p>
               <p className="mt-3 max-w-md text-pretty text-base leading-relaxed text-muted-foreground">
                 Korjaan nykyiseltä sivultasi tärkeimmät ongelmakohdat. Työ voi tarkoittaa esimerkiksi

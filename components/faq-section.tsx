@@ -29,7 +29,7 @@ const FAQS = [
   },
   {
     q: "Paljonko verkkosivujen parannus maksaa?",
-    a: "Verkkosivujen parannus alkaa 290 eurosta. Lopullinen hinta riippuu siitä, kuinka paljon sivulla pitää tehdä. Saat hinnan tiedoksi ennen työn aloittamista.",
+    a: "Verkkosivujen parannus maksaa 29 € + alv / kk. Saat hinnan ja palvelun sisällön selkeästi tiedoksi ennen aloittamista.",
   },
   {
     q: "Voinko pyytää ensin vain arvion?",

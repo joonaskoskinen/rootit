@@ -140,8 +140,8 @@ const translations = {
     "pricing.project.note": "Kysy tarjous - katsotaan yhdessä mitä tarvitset.",
 
     "pricing.monthly": "Jatkuva ylläpito",
-    "pricing.monthly.price": "49 €",
-    "pricing.monthly.priceNote": "alkaen",
+    "pricing.monthly.price": "29 € + alv",
+    "pricing.monthly.priceNote": "/kk",
     "pricing.monthly.desc": "Kuukausittainen tuki ja ylläpito",
     "pricing.monthly.f1": "Pienet muutokset kuukausittain",
     "pricing.monthly.f2": "Tietoturvapäivitykset",
