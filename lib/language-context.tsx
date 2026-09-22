@@ -114,8 +114,8 @@ const translations = {
 
     // Pricing - FIXED formatting
     "pricing.title": "Hinnoittelu",
-    "pricing.subtitle": "Kolme tapaa ostaa apua - valitse tarpeesi mukaan.",
-    "pricing.from": "alk.",
+    "pricing.subtitle": "Valitse jatkuva palvelu tai yksittäinen korjaus tarpeesi mukaan.",
+    "pricing.from": "kuukaudessa",
 
     "pricing.oneoff": "Kertatyöt",
     "pricing.oneoff.price": "49 €",
@@ -140,8 +140,8 @@ const translations = {
     "pricing.project.note": "Kysy tarjous - katsotaan yhdessä mitä tarvitset.",
 
     "pricing.monthly": "Jatkuva ylläpito",
-    "pricing.monthly.price": "49 €",
-    "pricing.monthly.priceNote": "alkaen",
+    "pricing.monthly.price": "29 € + alv",
+    "pricing.monthly.priceNote": "/kk",
     "pricing.monthly.desc": "Kuukausittainen tuki ja ylläpito",
     "pricing.monthly.f1": "Pienet muutokset kuukausittain",
     "pricing.monthly.f2": "Tietoturvapäivitykset",
@@ -259,11 +259,11 @@ const translations = {
     "form.email.placeholder": "sinun@email.fi",
     "form.phone": "Puhelinnumero (valinnainen)",
     "form.phone.placeholder": "+358 40 123 4567",
-    "form.description": "Miten voin auttaa?",
-    "form.description.placeholder": "Kuvaile ongelma tai tarve lyhyesti...",
+    "form.description": "Mikä sivustossasi tuntuu tällä hetkellä suurimmalta ongelmalta? (valinnainen)",
+    "form.description.placeholder": "Kerro lyhyesti, mikä sivustossa kaipaa mielestäsi parannusta...",
     "form.time": "Milloin on hyvä aika ottaa yhteyttä?",
     "form.time.placeholder": "esim. arkiaamuisin, tiistai-iltapäivä...",
-    "form.submit": "Lähetä",
+    "form.submit": "Lähetä sivustoarvio",
     "form.submitting": "Lähetetään...",
     "form.error": "Jokin meni pieleen. Yritä uudelleen tai lähetä sähköpostia suoraan.",
     "form.success.title": "Viesti lähetetty!",

@@ -17,19 +17,23 @@ const FAQS = [
   },
   {
     q: "Kenelle tämä palvelu sopii?",
-    a: "Pienille, usein paikallisille palveluyrityksille: kampaamoille, kauneushoitoloille, hierojille, hammaslääkäreille, asianajotoimistoille, putki-, sähkö- ja remonttifirmoille sekä muille vastaaville. Jos sivusi pitäisi tuoda enemmän yhteydenottoja, tämä on sinua varten.",
+    a: "Pienille yrityksille, joiden nykyinen verkkosivu on vanha, sekava tai toimii mobiilissa huonosti. Palvelu sopii erityisesti paikallisille palveluyrityksille.",
   },
   {
-    q: "Kauan Viikon sivukorjaus kestää?",
-    a: "Nimensä mukaisesti se on nopea ja rajattu. Kun sisältö ja suunta on sovittu, tärkeimmät korjaukset tehdään tyypillisesti viikon sisällä. Aikatauluun vaikuttaa lähinnä se, kuinka nopeasti saan tarvittavat tiedot ja materiaalit.",
+    q: "Kauan verkkosivujen tekeminen tai korjaus kestää?",
+    a: "Aikataulu riippuu työn laajuudesta. Sovimme siitä etukäteen, kun tiedämme mitä sivulla pitää tehdä.",
   },
   {
     q: "Kirjoitatteko myös tekstit?",
     a: "Kyllä. Autan selkeyttämään otsikot ja tärkeimmät tekstit niin, että asiakas ymmärtää nopeasti mitä tarjoat. Sinä tunnet alasi — minä autan sanomaan sen selkeästi ja toimintaan ohjaavasti.",
   },
   {
-    q: "Paljonko Viikon sivukorjaus maksaa?",
-    a: "Hinta alkaa 290 eurosta ja riippuu aina laajuudesta. Pelkkä auditointi tai yksi rajattu korjaus on halvempi, laajempi kokonaisuus enemmän. Et saa listahintaa etukäteen — saat tarkan hinnan vasta ilmaisen sivustoarvion jälkeen, kun tiedän mitä sivullasi pitää tehdä.",
+    q: "Mitä verkkosivut + ylläpito maksaa?",
+    a: "Verkkosivut ja ylläpito maksavat 29 € + alv / kk. Hintaan kuuluu sovittu sivusto, tekninen ylläpito ja pienet jatkuvat muutokset.",
+  },
+  {
+    q: "Voinko tilata vain yksittäisen korjauksen?",
+    a: "Kyllä. Voit tilata yksittäisen muutoksen tai korjauksen ilman kuukausimaksua. Sovitaan työstä ja hinnasta etukäteen.",
   },
   {
     q: "Voinko pyytää ensin vain arvion?",
@@ -37,11 +41,11 @@ const FAQS = [
   },
   {
     q: "Toimiiko tämä, jos suurin osa liikenteestä tulee mobiilista?",
-    a: "Silloin tästä on erityisen paljon hyötyä. Mobiilikäyttö ja selkeä CTA ovat parannusten ytimessä, koska juuri puhelimella pienetkin esteet karsivat yhteydenottoja.",
+    a: "Kyllä. Käyn läpi erityisesti tekstien koon, painikkeet, rakenteen ja tärkeimmät toiminnot puhelimen näkökulmasta.",
   },
   {
-    q: "Voiko yhteistyötä jatkaa myöhemmin?",
-    a: "Kyllä, mutta se on täysin vapaaehtoista. Korjauksen jälkeen voit jatkaa pienillä, jatkuvilla parannuksilla, tai jättää sivun sellaisekseen. Et sitoudu mihinkään jatkuvaan.",
+    q: "Voiko kuukausipalvelun lopettaa?",
+    a: "Kyllä. Kuukausipalvelu on joustava, eikä yksittäisiä korjauksia tarvitse tilata kuukausipalveluna.",
   },
 ]
 

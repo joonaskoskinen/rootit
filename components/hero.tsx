@@ -6,15 +6,15 @@ import { PhoneMockup, type PhoneMockupRef } from "@/components/phone-mockup"
 import { RequestReviewButton } from "@/components/request-review-button"
 
 const BULLETS = [
-  "Selkeä viesti heti etusivulla",
-  "Parempi mobiilikokemus ja CTA-rakenne",
-  "Helpompi tie yhteydenottoon tai varaukseen",
+  "Modernit ja selkeät verkkosivut",
+  "Ylläpito ja pienet muutokset samassa palvelussa",
+  "Ei suurta kertamaksua",
 ]
 
 // Otsikko pilkottuna sanoiksi, jotta jokainen sana voi terävöityä
 // omalla viiveellään ("epäselvä -> selkeä" on kirjaimellisesti brändin lupaus).
-const HEADLINE_LINE_1 = ["Selkeämpi", "sivu."]
-const HEADLINE_LINE_2 = ["Enemmän", "yhteydenottoja."]
+const HEADLINE_LINE_1 = ["Selkeät", "verkkosivut"]
+const HEADLINE_LINE_2 = ["pienyrityksille.", "alk. 29 € + alv / kk."]
 
 function FocusWord({ word, index }: { word: string; index: number }) {
   return (
@@ -46,9 +46,10 @@ export function Hero() {
                   ))}
                 </span>
                 <span className="block">
-                  {HEADLINE_LINE_2.map((w, i) => (
-                    <FocusWord key={w} word={w} index={HEADLINE_LINE_1.length + i} />
-                  ))}
+                  <FocusWord word={HEADLINE_LINE_2[0]} index={HEADLINE_LINE_1.length} />{" "}
+                  <span className="text-[0.68em] sm:text-[0.72em]">
+                    <FocusWord word={HEADLINE_LINE_2[1]} index={HEADLINE_LINE_1.length + 1} />
+                  </span>
                 </span>
               </h1>
               {/* Väriaaltoviiva joka pyyhkäisee otsikon alta kun teksti terävöityy */}
@@ -59,9 +60,9 @@ export function Hero() {
               className="reveal mt-5 max-w-xl text-pretty text-base leading-relaxed text-muted-foreground sm:text-lg"
               style={{ animationDelay: "1000ms" }}
             >
-              Korjaamme pienyritysten verkkosivut sellaisiksi, että asiakas ymmärtää
-              nopeasti mitä tarjoat ja tietää, mitä tehdä seuraavaksi. Selkeys, luottamus,
-              mobiilikäyttö ja yhteydenottopolku kuntoon — ilman raskasta uudistusprojektia.
+              Modernit verkkosivut, tekninen ylläpito ja pienet jatkuvat parannukset ilman suurta
+              kertamaksua. Jos tarvitset vain yksittäisen korjauksen, sen voi tilata myös ilman
+              kuukausimaksua.
             </p>
 
             <ul
@@ -81,9 +82,10 @@ export function Hero() {
               style={{ animationDelay: "1160ms" }}
             >
               <RequestReviewButton className="w-full sm:w-auto" />
-              <p className="text-sm text-muted-foreground">
-                Ilmainen eikä sido mihinkään.
-              </p>
+              <div className="space-y-1">
+                <p className="text-sm text-muted-foreground">Ilmainen eikä sido mihinkään.</p>
+                <a href="#palvelut" className="text-sm font-medium text-primary hover:underline">Katso palvelut</a>
+              </div>
             </div>
           </div>
 

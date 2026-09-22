@@ -15,7 +15,7 @@ const inter = Inter({
 export const metadata: Metadata = {
   title: 'Rootit – Selkeämmät verkkosivut pienyrityksille',
   description:
-    'Rootit korjaa pienyritysten verkkosivut niin, että asiakas ymmärtää nopeasti ja ottaa yhteyttä. Selkeämpi viesti, parempi mobiilikokemus ja toimiva yhteydenottopolku – ilman raskasta uudistusprojektia.',
+    'Rootit parantaa pienyritysten verkkosivuja: selkeämpi viesti, parempi mobiilikäyttö ja helpompi yhteydenottopolku – ilman turhaa uudelleenrakentamista.',
   generator: 'v0.app',
   applicationName: 'Rootit',
   keywords: [
@@ -84,7 +84,7 @@ const structuredData = {
       '@id': `${BASE_URL}/#organization`,
       name: 'Rootit',
       description:
-        'Rootit parantaa pienyritysten verkkosivuja: selkeämpi viesti, parempi mobiilikokemus ja toimiva yhteydenottopolku, jotta sivu tuottaa enemmän yhteydenottoja.',
+        'Rootit parantaa pienyritysten verkkosivuja: selkeämpi viesti, parempi mobiilikäyttö ja helpompi yhteydenottopolku.',
       url: BASE_URL,
       areaServed: { '@type': 'Country', name: 'Finland' },
       serviceType: [

@@ -3,27 +3,27 @@ import { SectionHeading } from "@/components/section-heading"
 const PROBLEMS = [
   {
     title: "Ei ole heti selvää, mitä yritys tekee",
-    desc: "Kävijä joutuu arvailemaan. Muutamassa sekunnissa ratkeaa, jääkö hän vai poistuuko.",
+    desc: "Kävijän pitäisi ymmärtää muutamassa sekunnissa, mitä tarjoat ja kenelle.",
   },
   {
-    title: "Tärkein toimintakehotus jää piiloon",
-    desc: "Yhteydenotto tai ajanvaraus hukkuu muun sisällön sekaan tai puuttuu kokonaan.",
+    title: "Sivusto näyttää vanhentuneelta",
+    desc: "Ensivaikutelma vaikuttaa siihen, syntyykö luottamus yritykseen.",
   },
   {
-    title: "Mobiilissa sivu toimii heikommin kuin pitäisi",
-    desc: "Suurin osa kävijöistä tulee puhelimella, mutta sivu on suunniteltu tietokoneelle.",
+    title: "Mobiilikäyttö ei toimi kunnolla",
+    desc: "Sivuston pitää toimia yhtä hyvin puhelimella kuin tietokoneella.",
   },
   {
-    title: "Teksti on liian ympäripyöreää",
-    desc: "Yleisluontoiset lauseet eivät kerro asiakkaalle, miksi valita juuri sinut.",
+    title: "Tärkeät tiedot ovat vaikeasti löydettävissä",
+    desc: "Yhteystiedot, palvelut, hinnat tai ajanvaraus eivät saa olla piilossa.",
   },
   {
-    title: "Luottamusta rakentavat elementit puuttuvat",
-    desc: "Arvostelut, kuvat ja konkreettiset tiedot puuttuvat, joten sivu ei vakuuta.",
+    title: "Sivuston sisältö kaipaa päivitystä",
+    desc: "Vanha sisältö antaa helposti kuvan, ettei sivustoa enää ylläpidetä.",
   },
   {
-    title: "Yhteydenotto vaatii liikaa vaivaa",
-    desc: "Pitkä lomake, piilotettu numero tai epäselvä polku karsii yhteydenottoja turhaan.",
+    title: "Et halua käyttää aikaa sivuston tekniseen ylläpitoon",
+    desc: "Voit keskittyä omaan liiketoimintaasi ja jättää sivuston ylläpidon rootITille.",
   },
 ]
 
@@ -33,8 +33,8 @@ export function Problems() {
       <div className="mx-auto max-w-6xl px-5 py-20 sm:py-24 lg:px-8">
         <SectionHeading
           eyebrow="Ongelmat"
-          title="Mikä pienyritysten sivuilla yleensä on pielessä"
-          description="Sivu voi näyttää ihan hyvältä ja silti jättää yhteydenottoja saamatta. Yleensä syy on jokin näistä."
+          title="Onko verkkosivusi näissä kunnossa?"
+          description="Hyvä verkkosivu ei tarvitse olla monimutkainen. Sen pitää olla selkeä, toimiva ja ajan tasalla."
         />
 
         <div className="mt-14 grid gap-x-12 gap-y-10 sm:grid-cols-2 lg:grid-cols-3">

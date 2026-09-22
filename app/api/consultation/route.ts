@@ -15,7 +15,7 @@ export async function POST(request: NextRequest) {
     const resend = new Resend(apiKey)
 
     const body = await request.json()
-    const { email, phone, description, preferredTime } = body
+    const { website, email, phone, description } = body
 
     if (!email || !description) {
       return NextResponse.json(
@@ -31,18 +31,18 @@ export async function POST(request: NextRequest) {
       subject: `Uusi sivustoarviopyyntö: ${email}`,
       html: `
         <h2>Uusi sivustoarviopyyntö</h2>
+        <p><strong>Sivusto:</strong> ${website || "Ei annettu"}</p>
         <p><strong>Sähköposti:</strong> ${email}</p>
         <p><strong>Puhelinnumero:</strong> ${phone || "Ei annettu"}</p>
-        <p><strong>Sopiva ajankohta:</strong> ${preferredTime || "Ei annettu"}</p>
         <h3>Kuvaus:</h3>
         <p>${description.replace(/\n/g, "<br>")}</p>
       `,
       text: `
 Uusi konsultaatiopyyntö
 
+Sivusto: ${website || "Ei annettu"}
 Sähköposti: ${email}
 Puhelinnumero: ${phone || "Ei annettu"}
-Sopiva ajankohta: ${preferredTime || "Ei annettu"}
 
 Kuvaus:
 ${description}

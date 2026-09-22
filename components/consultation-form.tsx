@@ -36,10 +36,10 @@ export function ConsultationForm({ children, className }: ConsultationFormProps)
 
     const formData = new FormData(e.currentTarget)
     const data = {
+      website: formData.get("website") as string,
       email: formData.get("email") as string,
       phone: formData.get("phone") as string,
       description: formData.get("description") as string,
-      preferredTime: formData.get("preferredTime") as string,
     }
 
     try {
@@ -100,13 +100,18 @@ export function ConsultationForm({ children, className }: ConsultationFormProps)
           <>
             <DialogHeader>
               <DialogTitle className="text-xl font-bold">
-                {t("form.title")}
+                Katsotaan yhdessä, mitä sivullasi kannattaa parantaa
               </DialogTitle>
               <DialogDescription>
-                {t("form.desc")}
+                Lähetä sivustosi osoite. Käyn sen läpi ja nostan esiin 2–3 konkreettista asiaa, joita parantaisin ensin.
               </DialogDescription>
             </DialogHeader>
             <form onSubmit={handleSubmit} className="mt-4 space-y-4">
+              <div className="space-y-2">
+                <Label htmlFor="website">Sivustosi osoite</Label>
+                <Input id="website" name="website" type="url" placeholder="https://yrityksesi.fi" className="rounded-xl" />
+              </div>
+
               <div className="space-y-2">
                 <Label htmlFor="email">{t("form.email")} *</Label>
                 <Input
@@ -131,27 +136,15 @@ export function ConsultationForm({ children, className }: ConsultationFormProps)
               </div>
               
               <div className="space-y-2">
-                <Label htmlFor="description">{t("form.description")} *</Label>
+                <Label htmlFor="description">{t("form.description")}</Label>
                 <Textarea
                   id="description"
                   name="description"
-                  required
                   placeholder={t("form.description.placeholder")}
                   className="min-h-24 rounded-xl resize-none"
                 />
               </div>
               
-              <div className="space-y-2">
-                <Label htmlFor="preferredTime">{t("form.time")}</Label>
-                <Input
-                  id="preferredTime"
-                  name="preferredTime"
-                  type="text"
-                  placeholder={t("form.time.placeholder")}
-                  className="rounded-xl"
-                />
-              </div>
-
               {error && (
                 <p className="text-sm text-destructive">{error}</p>
               )}

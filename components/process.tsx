@@ -3,23 +3,23 @@ import { SectionHeading } from "@/components/section-heading"
 const STEPS = [
   {
     title: "Pyydä ilmainen sivustoarvio",
-    desc: "Kerro sivustosi osoite ja lähetä arviopyyntö. Se on ilmainen eikä sido mihinkään.",
+    desc: "Anna sivustosi osoite ja kerro lyhyesti, mikä siinä kaipaa mielestäsi parannusta.",
   },
   {
-    title: "Saat selkeät huomiot",
-    desc: "Käyn sivusi läpi ja kerron tärkeimmät pullonkaulat: mikä hämmentää ja mikä estää yhteydenottoa.",
+    title: "Saat konkreettiset huomiot",
+    desc: "Käyn sivusi läpi ja nostan esiin tärkeimmät ongelmakohdat.",
   },
   {
-    title: "Sovitaan korjauksen laajuudesta",
-    desc: "Jos haluat edetä, sovitaan selkeä sisältö ja aikataulu korjaukselle. Tiedät etukäteen mitä tehdään.",
+    title: "Sovitaan mitä tehdään",
+    desc: "Jos haluat edetä, sovitaan työn laajuus, hinta ja aikataulu etukäteen.",
   },
   {
-    title: "Korjaamme tärkeimmät sivut",
-    desc: "Selkeytämme viestin, parannamme CTA:n ja mobiilikäytön sekä sujuvoitamme yhteydenottopolun.",
+    title: "Rakennan tai korjaan sivuston",
+    desc: "Toteutan sovitut muutokset ja huolehdin, että sivusto toimii hyvin myös puhelimella.",
   },
   {
-    title: "Julkaistaan selkeämpi sivu",
-    desc: "Sivu menee tuotantoon. Halutessasi jatkamme pienillä parannuksilla eteenpäin.",
+    title: "Ylläpito jatkuu sovitusti",
+    desc: "Kuukausipalvelussa huolehdin pienistä muutoksista ja teknisestä ylläpidosta. Yksittäinen korjaus päättyy, kun sovittu työ on valmis.",
   },
 ]
 
@@ -30,7 +30,7 @@ export function Process() {
         <SectionHeading
           eyebrow="Prosessi"
           title="Näin homma etenee"
-          description="Selkeä ja kevyt prosessi. Tiedät koko ajan, missä mennään ja mitä seuraavaksi tapahtuu."
+          description="Kevyt prosessi ilman turhaa byrokratiaa. Valitset itse jatkuvan palvelun tai yksittäisen korjauksen."
         />
 
         <ol className="mt-14 space-y-0">

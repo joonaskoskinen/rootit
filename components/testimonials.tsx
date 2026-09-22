@@ -10,12 +10,12 @@ import { RequestReviewButton } from "@/components/request-review-button"
 
 export function Testimonials() {
   return (
-    <section id="esimerkit" className="border-t border-border scroll-mt-20">
+    <section id="muutokset" className="border-t border-border scroll-mt-20">
       <div className="mx-auto max-w-6xl px-5 py-20 sm:py-24 lg:px-8">
         <SectionHeading
-          eyebrow="Prosessi"
+          eyebrow="Työskentelytapa"
           title="Näin työskentelen"
-          description="En vielä julkaise asiakasreferenssejä — rakennan tätä osiota rehellisesti sitä mukaa kun yhteistyöt valmistuvat. Tässä on sen sijaan tarkka kuva siitä, miten työskentelen, jotta tiedät mitä odottaa."
+          description="RootIT on pieni ja henkilökohtainen palvelu. Siksi pidän yhteistyön tarkoituksella suoraviivaisena."
         />
 
         <div className="mt-14 grid gap-6 md:grid-cols-3">
@@ -23,17 +23,17 @@ export function Testimonials() {
             {
               step: "1",
               title: "Ilmainen arvio ensin",
-              desc: "Näet konkreettisesti mitä korjataan, ennen kuin maksat mitään tai sitoudut mihinkään.",
+              desc: "Näet ensin, mitä sivullasi kannattaa parantaa.",
             },
             {
               step: "2",
               title: "Selkeä hinta etukäteen",
-              desc: "Tiedät kokonaishinnan ennen työn aloitusta. Ei yllätyksiä laskussa.",
+              desc: "Sovitaan työn sisältö ja kokonaishinta ennen aloittamista.",
             },
             {
               step: "3",
               title: "Suora yhteys minuun",
-              desc: "Ei tikettijärjestelmiä tai välikäsiä — puhut koko ajan suoraan tekijän kanssa.",
+              desc: "Puhut suoraan tekijän kanssa koko projektin ajan.",
             },
           ].map((item) => (
             <div
@@ -49,8 +49,7 @@ export function Testimonials() {
 
         <div className="mt-10 flex flex-col items-start gap-4 rounded-xl border border-dashed border-border bg-card/40 p-6 sm:flex-row sm:items-center sm:justify-between">
           <p className="text-sm text-muted-foreground">
-            Haluatko olla yksi ensimmäisistä julkaistavista asiakastöistä?{" "}
-            <span className="font-medium text-foreground">Aloita ilmaisesta sivustoarviosta.</span>
+            Rakennan parhaillaan ensimmäisiä asiakasreferenssejä. En halua täyttää sivua keksityillä case-esimerkeillä, joten julkaisen oikeat työt sitä mukaa kun niitä valmistuu.
           </p>
           <RequestReviewButton variant="outline" withArrow={false} className="shrink-0" />
         </div>

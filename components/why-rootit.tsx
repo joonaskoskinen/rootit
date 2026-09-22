@@ -4,23 +4,23 @@ import { SectionHeading } from "@/components/section-heading"
 const REASONS = [
   {
     icon: Gauge,
-    title: "Nopeat, mitattavat parannukset",
-    desc: "Keskitymme muutoksiin, jotka näkyvät suoraan yhteydenottojen ja varausten määrässä – ei turhaan hienosäätöön.",
+    title: "Puhut suoraan tekijälle",
+    desc: "Ei myyntitiimiä eikä välikäsiä. Keskustelemme suoraan siitä, mitä sivullesi kannattaa tehdä.",
   },
   {
     icon: MessageSquareText,
-    title: "Selkeä viestintä koko matkan ajan",
-    desc: "Tiedät aina, missä kohtaa mennään ja mitä seuraavaksi tapahtuu. Ei ammattislangia, ei arvailua.",
+    title: "Selkeä hinta etukäteen",
+    desc: "Sovitaan työn sisältö ja hinta ennen aloittamista. Tiedät, mitä olet tilaamassa.",
   },
   {
     icon: ShieldCheck,
-    title: "Ei riskiä, ei sitoutumista etukäteen",
-    desc: "Aloitamme ilmaisella arviolla. Näet konkreettisesti, mitä korjataan, ennen kuin päätät jatkaa.",
+    title: "Ei turhaa uudelleenrakentamista",
+    desc: "Jos nykyinen sivusi voidaan korjata, sitä ei tarvitse rakentaa kokonaan uudestaan.",
   },
   {
     icon: Target,
-    title: "Rajattu laajuus, selkeä lopputulos",
-    desc: "Emme yritä korjata kaikkea kerralla. Keskitymme siihen yhteen asiaan, joka vaikuttaa eniten, jotta lopputulos on nopea ja ennustettava.",
+    title: "Aloita ilman sitoutumista",
+    desc: "Ilmainen sivustoarvio kertoo, onko sivullasi jotain konkreettista korjattavaa.",
   },
 ]
 
@@ -30,8 +30,8 @@ export function WhyRootit() {
       <div className="mx-auto max-w-6xl px-5 py-20 sm:py-24 lg:px-8">
         <SectionHeading
           eyebrow="Miksi Rootit"
-          title="Miksi valita meidät"
-          description="Emme myy irtonaisia tunteja tai kuukausipaketteja. Autamme sinua ratkaisemaan yhden konkreettisen ongelman: sivustosi ei muuta kävijöitä asiakkaiksi."
+          title="Miksi rootIT?"
+          description="RootIT on pieni ja henkilökohtainen palvelu. Keskityn siihen, mitä nykyisellä sivullasi kannattaa käytännössä parantaa."
         />
 
         <div className="mt-14 grid gap-8 sm:grid-cols-2 lg:grid-cols-4">
