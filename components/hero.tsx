@@ -14,7 +14,7 @@ const BULLETS = [
 // Otsikko pilkottuna sanoiksi, jotta jokainen sana voi terävöityä
 // omalla viiveellään ("epäselvä -> selkeä" on kirjaimellisesti brändin lupaus).
 const HEADLINE_LINE_1 = ["Selkeät", "verkkosivut"]
-const HEADLINE_LINE_2 = ["pienyrityksille.", "29 € + alv / kk."]
+const HEADLINE_LINE_2 = ["pienyrityksille.", "alk. 29 € + alv / kk."]
 
 function FocusWord({ word, index }: { word: string; index: number }) {
   return (
@@ -46,9 +46,10 @@ export function Hero() {
                   ))}
                 </span>
                 <span className="block">
-                  {HEADLINE_LINE_2.map((w, i) => (
-                    <FocusWord key={w} word={w} index={HEADLINE_LINE_1.length + i} />
-                  ))}
+                  <FocusWord word={HEADLINE_LINE_2[0]} index={HEADLINE_LINE_1.length} />{" "}
+                  <span className="text-[0.68em] sm:text-[0.72em]">
+                    <FocusWord word={HEADLINE_LINE_2[1]} index={HEADLINE_LINE_1.length + 1} />
+                  </span>
                 </span>
               </h1>
               {/* Väriaaltoviiva joka pyyhkäisee otsikon alta kun teksti terävöityy */}
