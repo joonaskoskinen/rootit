@@ -17,19 +17,19 @@ const FAQS = [
   },
   {
     q: "Kenelle tämä palvelu sopii?",
-    a: "Pienille, usein paikallisille palveluyrityksille: kampaamoille, kauneushoitoloille, hierojille, hammaslääkäreille, asianajotoimistoille, putki-, sähkö- ja remonttifirmoille sekä muille vastaaville. Jos sivusi pitäisi tuoda enemmän yhteydenottoja, tämä on sinua varten.",
+    a: "Pienille yrityksille, joiden nykyinen verkkosivu on vanha, sekava tai toimii mobiilissa huonosti. Palvelu sopii erityisesti paikallisille palveluyrityksille.",
   },
   {
-    q: "Kauan Viikon sivukorjaus kestää?",
-    a: "Nimensä mukaisesti se on nopea ja rajattu. Kun sisältö ja suunta on sovittu, tärkeimmät korjaukset tehdään tyypillisesti viikon sisällä. Aikatauluun vaikuttaa lähinnä se, kuinka nopeasti saan tarvittavat tiedot ja materiaalit.",
+    q: "Kauan verkkosivujen parannus kestää?",
+    a: "Aikataulu riippuu työn laajuudesta. Sovimme siitä etukäteen, kun tiedämme mitä sivulla pitää tehdä.",
   },
   {
     q: "Kirjoitatteko myös tekstit?",
     a: "Kyllä. Autan selkeyttämään otsikot ja tärkeimmät tekstit niin, että asiakas ymmärtää nopeasti mitä tarjoat. Sinä tunnet alasi — minä autan sanomaan sen selkeästi ja toimintaan ohjaavasti.",
   },
   {
-    q: "Paljonko Viikon sivukorjaus maksaa?",
-    a: "Hinta alkaa 290 eurosta ja riippuu aina laajuudesta. Pelkkä auditointi tai yksi rajattu korjaus on halvempi, laajempi kokonaisuus enemmän. Et saa listahintaa etukäteen — saat tarkan hinnan vasta ilmaisen sivustoarvion jälkeen, kun tiedän mitä sivullasi pitää tehdä.",
+    q: "Paljonko verkkosivujen parannus maksaa?",
+    a: "Verkkosivujen parannus alkaa 290 eurosta. Lopullinen hinta riippuu siitä, kuinka paljon sivulla pitää tehdä. Saat hinnan tiedoksi ennen työn aloittamista.",
   },
   {
     q: "Voinko pyytää ensin vain arvion?",
@@ -37,7 +37,7 @@ const FAQS = [
   },
   {
     q: "Toimiiko tämä, jos suurin osa liikenteestä tulee mobiilista?",
-    a: "Silloin tästä on erityisen paljon hyötyä. Mobiilikäyttö ja selkeä CTA ovat parannusten ytimessä, koska juuri puhelimella pienetkin esteet karsivat yhteydenottoja.",
+    a: "Kyllä. Käyn läpi erityisesti tekstien koon, painikkeet, rakenteen ja tärkeimmät toiminnot puhelimen näkökulmasta.",
   },
   {
     q: "Voiko yhteistyötä jatkaa myöhemmin?",

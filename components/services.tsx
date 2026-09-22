@@ -7,8 +7,8 @@ const FIX_ITEMS = [
   "CTA-rakenteen parannus",
   "Mobiilikäytön tärkeimmät korjaukset",
   "Luottamusta tukevat osiot",
-  "Sujuvampi tie yhteydenottoon tai varaukseen",
-  "Nopea toteutus ilman raskasta projektia",
+  "Selkeämpi yhteydenottopolku",
+  "Kevyt ja käytännöllinen toteutus",
 ]
 
 export function Services() {
@@ -17,11 +17,11 @@ export function Services() {
       <div className="mx-auto max-w-6xl px-5 py-20 sm:py-24 lg:px-8">
         <SectionHeading
           eyebrow="Palvelut"
-          title="Kolme tapaa parantaa sivusi"
-          description="Aloita ilmaisesta arviosta. Suurin osa hyödystä tulee yhdestä keskitetystä korjauksesta — ei täydellisestä uudistuksesta."
+          title="Kolme tapaa parantaa verkkosivuasi"
+          description="Kaikki sivut eivät tarvitse täydellistä uudistusta. Aloitetaan siitä, mikä kannattaa oikeasti korjata."
         />
 
-        {/* Featured offer: Viikon sivukorjaus */}
+        {/* Featured offer: Verkkosivujen parannus */}
         <div className="mt-14 overflow-hidden rounded-xl border border-primary/25 bg-card">
           <div className="grid lg:grid-cols-[1.1fr_0.9fr]">
             <div className="border-b border-border p-8 sm:p-10 lg:border-b-0 lg:border-r">
@@ -32,7 +32,7 @@ export function Services() {
                 <span className="text-sm text-muted-foreground">Pääpalvelu</span>
               </div>
               <h3 className="mt-5 text-2xl font-semibold tracking-tight text-foreground sm:text-3xl">
-                Viikon sivukorjaus
+                Verkkosivujen parannus
               </h3>
               <p className="mt-3 flex items-baseline gap-2">
                 <span className="text-2xl font-semibold tracking-tight text-primary">
@@ -41,11 +41,11 @@ export function Services() {
                 <span className="text-sm text-muted-foreground">lopullinen hinta arvion jälkeen</span>
               </p>
               <p className="mt-3 max-w-md text-pretty text-base leading-relaxed text-muted-foreground">
-                Keskitetty korjaus, joka parantaa juuri ne sivun osat, jotka vaikuttavat
-                eniten yhteydenottoihin. Hinta riippuu laajuudesta — pelkkä auditointi tai yksi
-                pieni korjaus on halvempi, laajempi kokonaisuus enemmän. Tarkan hinnan saat
-                vasta ilmaisen arvion jälkeen, ei valmiiksi lyötyä listahintaa.
+                Korjaan nykyiseltä sivultasi tärkeimmät ongelmakohdat. Työ voi tarkoittaa esimerkiksi
+                etusivun selkeyttämistä, mobiilin parantamista, tekstien uudistamista tai
+                yhteydenottopolun korjaamista. Lopullinen hinta riippuu työn laajuudesta.
               </p>
+              <p className="mt-4 text-sm text-muted-foreground">Ei turhaa uudelleenrakentamista. Korjataan se, mikä oikeasti tarvitsee korjaamista.</p>
               <div className="mt-7">
                 <RequestReviewButton label="Pyydä ilmainen sivustoarvio" />
               </div>
@@ -75,8 +75,8 @@ export function Services() {
               Ilmainen sivustoarvio
             </h3>
             <p className="mt-2 text-sm leading-relaxed text-muted-foreground">
-              Käymme sivusi läpi käytännön näkökulmasta. Näet, mikä hämmentää kävijää ja mikä
-              estää yhteydenottoa — selkeitä huomioita, ei ympäripyöreää konsulttipuhetta.
+              Käyn sivusi läpi käytännön näkökulmasta ja nostan esiin tärkeimmät asiat, joita parantaisin
+              ensin. Konkreettisia huomioita ilman ympäripyöreää konsulttipuhetta.
             </p>
             <span className="mt-5 inline-flex items-center gap-1.5 text-sm font-medium text-primary">
               Lähtökohta yhteistyölle
@@ -90,8 +90,8 @@ export function Services() {
             </p>
             <h3 className="mt-3 text-xl font-semibold text-foreground">Jatkuva kehitys</h3>
             <p className="mt-2 text-sm leading-relaxed text-muted-foreground">
-              Pienet, jatkuvat parannukset korjauksen jälkeen: kampanjasivut, CTA- ja
-              tekstipäivitykset, rakenteen hienosäätö ja tasainen optimointi.
+              Jos haluat jatkaa myöhemmin, voimme tehdä pieniä parannuksia tarpeen mukaan: kampanjasivuja,
+              tekstipäivityksiä, CTA-muutoksia ja rakenteen hienosäätöä.
             </p>
             <span className="mt-5 inline-flex items-center gap-1.5 text-sm font-medium text-muted-foreground">
               Vapaaehtoinen ja joustava

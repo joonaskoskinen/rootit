@@ -7,14 +7,14 @@ import { RequestReviewButton } from "@/components/request-review-button"
 
 const BULLETS = [
   "Selkeä viesti heti etusivulla",
-  "Parempi mobiilikokemus ja CTA-rakenne",
-  "Helpompi tie yhteydenottoon tai varaukseen",
+  "Parempi käyttökokemus myös puhelimella",
+  "Selkeämpi reitti yhteydenottoon tai varaukseen",
 ]
 
 // Otsikko pilkottuna sanoiksi, jotta jokainen sana voi terävöityä
 // omalla viiveellään ("epäselvä -> selkeä" on kirjaimellisesti brändin lupaus).
-const HEADLINE_LINE_1 = ["Selkeämpi", "sivu."]
-const HEADLINE_LINE_2 = ["Enemmän", "yhteydenottoja."]
+const HEADLINE_LINE_1 = ["Selkeämmät", "verkkosivut"]
+const HEADLINE_LINE_2 = ["pienyrityksille."]
 
 function FocusWord({ word, index }: { word: string; index: number }) {
   return (
@@ -59,9 +59,9 @@ export function Hero() {
               className="reveal mt-5 max-w-xl text-pretty text-base leading-relaxed text-muted-foreground sm:text-lg"
               style={{ animationDelay: "1000ms" }}
             >
-              Korjaamme pienyritysten verkkosivut sellaisiksi, että asiakas ymmärtää
-              nopeasti mitä tarjoat ja tietää, mitä tehdä seuraavaksi. Selkeys, luottamus,
-              mobiilikäyttö ja yhteydenottopolku kuntoon — ilman raskasta uudistusprojektia.
+              Korjaan vanhat, sekavat ja mobiilissa huonosti toimivat verkkosivut nykyaikaisiksi ja
+              helpoiksi käyttää. Kaikkea ei tarvitse rakentaa alusta asti — usein tärkeimmät asiat
+              voidaan korjata nopeasti.
             </p>
 
             <ul

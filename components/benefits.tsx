@@ -2,20 +2,20 @@ import { SectionHeading } from "@/components/section-heading"
 
 const BENEFITS = [
   {
-    title: "Enemmän yhteydenottoja samalla liikenteellä",
-    desc: "Et tarvitse lisää kävijöitä. Sama määrä ihmisiä tuottaa enemmän, kun sivu ohjaa toimintaan.",
-  },
-  {
     title: "Selkeämpi ensivaikutelma",
-    desc: "Kävijä ymmärtää heti, mitä tarjoat ja kenelle. Se rakentaa luottamusta ensi sekunneista.",
+    desc: "Kävijä ymmärtää heti, mitä yritys tekee ja kenelle palvelu on tarkoitettu.",
   },
   {
-    title: "Helpompi päätös asiakkaalle",
-    desc: "Kun seuraava askel on selvä ja kynnys matala, yhteydenotto tai varaus tuntuu vaivattomalta.",
+    title: "Helpompi käyttää",
+    desc: "Rakenne, mobiilinäkymä ja navigointi tekevät sivustosta nopeamman hahmottaa.",
   },
   {
-    title: "Vähemmän kitkaa yhteydenotossa",
-    desc: "Lyhyempi polku ja selkeä lomake tarkoittavat, että useampi vie yhteydenoton loppuun.",
+    title: "Selkeämpi seuraava askel",
+    desc: "Yhteydenotto, ajanvaraus tai muu tärkeä toiminto löytyy silloin kun sitä tarvitaan.",
+  },
+  {
+    title: "Vähemmän turhaa kitkaa",
+    desc: "Kun olennaiset asiat löytyvät helposti, kävijän ei tarvitse arvailla tai etsiä.",
   },
 ]
 
@@ -26,8 +26,8 @@ export function Benefits() {
         <div className="grid gap-12 lg:grid-cols-[0.9fr_1.1fr] lg:gap-16">
           <SectionHeading
             eyebrow="Hyöty"
-            title="Mitä korjauksista käytännössä seuraa"
-            description="Hyvä sivu ei vain näytä siistiltä. Sen pitää tukea myyntiä. Tähän parannukset tähtäävät."
+            title="Mitä parempi sivu käytännössä tarkoittaa"
+            description="Selkeämpi rakenne ja helpompi käyttökokemus auttavat kävijää löytämään olennaisen."
           />
 
           <div className="grid gap-x-10 gap-y-8 sm:grid-cols-2">

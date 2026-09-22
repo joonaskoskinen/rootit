@@ -76,13 +76,11 @@ export const PhoneMockup = forwardRef<PhoneMockupRef>(function PhoneMockup(_, re
     setError(null)
 
     const formData = new FormData(e.currentTarget)
-    const site = (formData.get("site") as string) || ""
-    const message = (formData.get("description") as string) || ""
     const data = {
+      website: (formData.get("site") as string) || "",
       email: formData.get("email") as string,
       phone: formData.get("phone") as string,
-      description: site ? `Sivusto: ${site}\n\n${message}` : message,
-      preferredTime: "Ilmainen sivustoarvio",
+      description: (formData.get("description") as string) || "",
     }
 
     try {
@@ -238,10 +236,10 @@ export const PhoneMockup = forwardRef<PhoneMockupRef>(function PhoneMockup(_, re
                   {/* Caption */}
                   <div className="phone-card-enter px-1 text-center" style={{ animationDelay: "120ms" }}>
                     <p className="text-[15px] font-semibold leading-snug text-white text-balance">
-                      Selkeä sivu, joka ohjaa yhteydenottoon.
+                      Selkeä sivu, joka tekee asioinnista helpompaa.
                     </p>
                     <p className="mt-1.5 text-[12px] leading-relaxed text-white/45">
-                      Korjaamme perustan kuntoon — viesti, rakenne ja CTA.
+                      Korjaan tärkeimmät ongelmat viestissä, rakenteessa, mobiilikäytössä ja yhteydenottopolussa.
                     </p>
                   </div>
 
@@ -346,13 +344,13 @@ export const PhoneMockup = forwardRef<PhoneMockupRef>(function PhoneMockup(_, re
                           </div>
                           <div className="space-y-1.5">
                             <label htmlFor="phone-desc" className="text-[11px] font-medium text-muted-foreground">
-                              Mitä haluat parantaa? (valinnainen)
+                              Mikä sivustossasi tuntuu tällä hetkellä suurimmalta ongelmalta? (valinnainen)
                             </label>
                             <textarea
                               id="phone-desc"
                               name="description"
                               rows={3}
-                              placeholder="Kerro lyhyesti, mikä nykyisessä sivussa mietityttää."
+                              placeholder="Kerro lyhyesti, mikä sivustossa kaipaa mielestäsi parannusta."
                               className="w-full resize-none rounded-lg border border-border bg-background px-3 py-2.5 text-[15px] text-foreground placeholder:text-muted-foreground/60 focus:border-primary focus:outline-none focus:ring-1 focus:ring-primary"
                             />
                           </div>
@@ -374,7 +372,7 @@ export const PhoneMockup = forwardRef<PhoneMockupRef>(function PhoneMockup(_, re
                             </>
                           ) : (
                             <>
-                              Lähetä arviopyyntö
+                              Lähetä sivustoarvio
                               <ArrowRight className="h-4 w-4" />
                             </>
                           )}

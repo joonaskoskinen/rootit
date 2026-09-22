@@ -3,27 +3,27 @@ import { SectionHeading } from "@/components/section-heading"
 const PROBLEMS = [
   {
     title: "Ei ole heti selvää, mitä yritys tekee",
-    desc: "Kävijä joutuu arvailemaan. Muutamassa sekunnissa ratkeaa, jääkö hän vai poistuuko.",
+    desc: "Kävijän pitäisi ymmärtää muutamassa sekunnissa, mitä tarjoat ja kenelle.",
   },
   {
     title: "Tärkein toimintakehotus jää piiloon",
-    desc: "Yhteydenotto tai ajanvaraus hukkuu muun sisällön sekaan tai puuttuu kokonaan.",
+    desc: "Puhelinnumero, yhteydenotto tai ajanvaraus pitäisi löytyä ilman etsimistä.",
   },
   {
-    title: "Mobiilissa sivu toimii heikommin kuin pitäisi",
-    desc: "Suurin osa kävijöistä tulee puhelimella, mutta sivu on suunniteltu tietokoneelle.",
+    title: "Mobiilikäyttö toimii huonommin kuin pitäisi",
+    desc: "Tekstit, painikkeet ja rakenne eivät aina toimi puhelimen pienellä näytöllä.",
   },
   {
-    title: "Teksti on liian ympäripyöreää",
-    desc: "Yleisluontoiset lauseet eivät kerro asiakkaalle, miksi valita juuri sinut.",
+    title: "Teksti jää liian yleiselle tasolle",
+    desc: "Selkeä ja konkreettinen teksti kertoo nopeasti, mitä asiakas saa ja miksi juuri tämä yritys.",
   },
   {
-    title: "Luottamusta rakentavat elementit puuttuvat",
-    desc: "Arvostelut, kuvat ja konkreettiset tiedot puuttuvat, joten sivu ei vakuuta.",
+    title: "Luottamusta rakentavia asioita puuttuu",
+    desc: "Kuvat, arvostelut, referenssit, hinnat tai muut konkreettiset tiedot voivat helpottaa päätöstä.",
   },
   {
     title: "Yhteydenotto vaatii liikaa vaivaa",
-    desc: "Pitkä lomake, piilotettu numero tai epäselvä polku karsii yhteydenottoja turhaan.",
+    desc: "Lyhyt lomake, selkeä numero tai näkyvä varauspainike tekee seuraavasta askeleesta helpomman.",
   },
 ]
 
@@ -33,7 +33,7 @@ export function Problems() {
       <div className="mx-auto max-w-6xl px-5 py-20 sm:py-24 lg:px-8">
         <SectionHeading
           eyebrow="Ongelmat"
-          title="Mikä pienyritysten sivuilla yleensä on pielessä"
+          title="Mitä verkkosivulla kannattaa yleensä korjata"
           description="Sivu voi näyttää ihan hyvältä ja silti jättää yhteydenottoja saamatta. Yleensä syy on jokin näistä."
         />
 

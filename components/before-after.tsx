@@ -11,10 +11,10 @@ const BEFORE = [
 
 const AFTER = [
   "Selkeä viesti heti ruudun yläosassa",
-  "Looginen, helposti seurattava rakenne",
-  "Enemmän luottamusta rakentavia elementtejä",
+  "Looginen ja helposti seurattava rakenne",
+  "Konkreettisemmat luottamuselementit",
   "Näkyvä ja selkeä seuraava askel",
-  "Sivu tukee myyntiä eikä vain ole olemassa",
+  "Helpompi yhteydenottopolku",
 ]
 
 function BrowserMockup({
@@ -63,8 +63,8 @@ export function BeforeAfter() {
       <div className="mx-auto max-w-6xl px-5 py-20 sm:py-24 lg:px-8">
         <SectionHeading
           eyebrow="Ennen / jälkeen"
-          title="Sama yritys, selkeämpi sivu"
-          description="Muutos ei tarkoita, että kaikki heitetään roskiin. Yleensä riittää, että tärkeimmät asiat nostetaan esiin ja turha karsitaan pois."
+          title="Mitä sivulla voidaan käytännössä muuttaa"
+          description="Nämä ovat tyypillisiä esimerkkejä muutoksista, joita nykyiselle sivulle voidaan tehdä. Kaikkea ei tarvitse rakentaa uudestaan."
         />
 
         <div className="mt-14 grid gap-6 md:grid-cols-2">
