@@ -6,24 +6,24 @@ const PROBLEMS = [
     desc: "Kävijän pitäisi ymmärtää muutamassa sekunnissa, mitä tarjoat ja kenelle.",
   },
   {
-    title: "Tärkein toimintakehotus jää piiloon",
-    desc: "Puhelinnumero, yhteydenotto tai ajanvaraus pitäisi löytyä ilman etsimistä.",
+    title: "Sivusto näyttää vanhentuneelta",
+    desc: "Ensivaikutelma vaikuttaa siihen, syntyykö luottamus yritykseen.",
   },
   {
-    title: "Mobiilikäyttö toimii huonommin kuin pitäisi",
-    desc: "Tekstit, painikkeet ja rakenne eivät aina toimi puhelimen pienellä näytöllä.",
+    title: "Mobiilikäyttö ei toimi kunnolla",
+    desc: "Sivuston pitää toimia yhtä hyvin puhelimella kuin tietokoneella.",
   },
   {
-    title: "Teksti jää liian yleiselle tasolle",
-    desc: "Selkeä ja konkreettinen teksti kertoo nopeasti, mitä asiakas saa ja miksi juuri tämä yritys.",
+    title: "Tärkeät tiedot ovat vaikeasti löydettävissä",
+    desc: "Yhteystiedot, palvelut, hinnat tai ajanvaraus eivät saa olla piilossa.",
   },
   {
-    title: "Luottamusta rakentavia asioita puuttuu",
-    desc: "Kuvat, arvostelut, referenssit, hinnat tai muut konkreettiset tiedot voivat helpottaa päätöstä.",
+    title: "Sivuston sisältö kaipaa päivitystä",
+    desc: "Vanha sisältö antaa helposti kuvan, ettei sivustoa enää ylläpidetä.",
   },
   {
-    title: "Yhteydenotto vaatii liikaa vaivaa",
-    desc: "Lyhyt lomake, selkeä numero tai näkyvä varauspainike tekee seuraavasta askeleesta helpomman.",
+    title: "Et halua käyttää aikaa sivuston tekniseen ylläpitoon",
+    desc: "Voit keskittyä omaan liiketoimintaasi ja jättää sivuston ylläpidon rootITille.",
   },
 ]
 
@@ -33,8 +33,8 @@ export function Problems() {
       <div className="mx-auto max-w-6xl px-5 py-20 sm:py-24 lg:px-8">
         <SectionHeading
           eyebrow="Ongelmat"
-          title="Mitä verkkosivulla kannattaa yleensä korjata"
-          description="Sivu voi näyttää ihan hyvältä ja silti jättää yhteydenottoja saamatta. Yleensä syy on jokin näistä."
+          title="Onko verkkosivusi näissä kunnossa?"
+          description="Hyvä verkkosivu ei tarvitse olla monimutkainen. Sen pitää olla selkeä, toimiva ja ajan tasalla."
         />
 
         <div className="mt-14 grid gap-x-12 gap-y-10 sm:grid-cols-2 lg:grid-cols-3">

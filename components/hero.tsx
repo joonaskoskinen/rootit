@@ -6,15 +6,15 @@ import { PhoneMockup, type PhoneMockupRef } from "@/components/phone-mockup"
 import { RequestReviewButton } from "@/components/request-review-button"
 
 const BULLETS = [
-  "Selkeä viesti heti etusivulla",
-  "Parempi käyttökokemus myös puhelimella",
-  "Selkeämpi reitti yhteydenottoon tai varaukseen",
+  "Modernit ja selkeät verkkosivut",
+  "Ylläpito ja pienet muutokset samassa palvelussa",
+  "Ei suurta kertamaksua",
 ]
 
 // Otsikko pilkottuna sanoiksi, jotta jokainen sana voi terävöityä
 // omalla viiveellään ("epäselvä -> selkeä" on kirjaimellisesti brändin lupaus).
-const HEADLINE_LINE_1 = ["Selkeämmät", "verkkosivut"]
-const HEADLINE_LINE_2 = ["pienyrityksille."]
+const HEADLINE_LINE_1 = ["Selkeät", "verkkosivut"]
+const HEADLINE_LINE_2 = ["pienyrityksille.", "29 € + alv / kk."]
 
 function FocusWord({ word, index }: { word: string; index: number }) {
   return (
@@ -59,9 +59,9 @@ export function Hero() {
               className="reveal mt-5 max-w-xl text-pretty text-base leading-relaxed text-muted-foreground sm:text-lg"
               style={{ animationDelay: "1000ms" }}
             >
-              Korjaan vanhat, sekavat ja mobiilissa huonosti toimivat verkkosivut nykyaikaisiksi ja
-              helpoiksi käyttää. Kaikkea ei tarvitse rakentaa alusta asti — usein tärkeimmät asiat
-              voidaan korjata nopeasti.
+              Modernit verkkosivut, tekninen ylläpito ja pienet jatkuvat parannukset ilman suurta
+              kertamaksua. Jos tarvitset vain yksittäisen korjauksen, sen voi tilata myös ilman
+              kuukausimaksua.
             </p>
 
             <ul
@@ -81,9 +81,10 @@ export function Hero() {
               style={{ animationDelay: "1160ms" }}
             >
               <RequestReviewButton className="w-full sm:w-auto" />
-              <p className="text-sm text-muted-foreground">
-                Ilmainen eikä sido mihinkään.
-              </p>
+              <div className="space-y-1">
+                <p className="text-sm text-muted-foreground">Ilmainen eikä sido mihinkään.</p>
+                <a href="#palvelut" className="text-sm font-medium text-primary hover:underline">Katso palvelut</a>
+              </div>
             </div>
           </div>
 
