@@ -18,6 +18,12 @@ export default function sitemap(): MetadataRoute.Sitemap {
       changeFrequency: 'weekly',
       priority: 1,
     },
+    ...['verkkosivut-pienyritykselle', 'verkkosivujen-yllapito', 'verkkosivujen-korjaus'].map((slug) => ({
+      url: `${baseUrl}/palvelut/${slug}`,
+      lastModified: new Date(),
+      changeFrequency: 'monthly' as const,
+      priority: 0.9,
+    })),
     {
       url: `${baseUrl}/artikkelit`,
       lastModified: new Date(),
