@@ -13,9 +13,9 @@ const inter = Inter({
 })
 
 export const metadata: Metadata = {
-  title: 'Rootit – Selkeämmät verkkosivut pienyrityksille',
+  title: 'Verkkosivut pienyrityksille ja ylläpito alk. 29 € | Rootit',
   description:
-    'Rootit parantaa pienyritysten verkkosivuja: selkeämpi viesti, parempi mobiilikäyttö ja helpompi yhteydenottopolku – ilman turhaa uudelleenrakentamista.',
+    'Rootit tekee pienyrityksille selkeät verkkosivut ja huolehtii ylläpidosta. Verkkosivut + ylläpito alk. 29 € + alv / kk. Myös yksittäiset korjaukset ilman kuukausimaksua.',
   generator: 'v0.app',
   applicationName: 'Rootit',
   keywords: [
@@ -40,14 +40,14 @@ export const metadata: Metadata = {
     siteName: 'Rootit',
     title: 'Rootit – Selkeämmät verkkosivut pienyrityksille',
     description:
-      'Korjaamme pienyritysten sivut sellaisiksi, että asiakas ymmärtää ja ottaa yhteyttä. Pyydä ilmainen sivustoarvio.',
+      'Selkeät verkkosivut, tekninen ylläpito ja pienet muutokset pienyrityksille. Myös yksittäiset korjaukset ilman kuukausimaksua.',
     images: [{ url: '/og-image.jpg', width: 1200, height: 630, alt: 'Rootit' }],
   },
   twitter: {
     card: 'summary_large_image',
     title: 'Rootit – Selkeämmät verkkosivut pienyrityksille',
     description:
-      'Korjaamme pienyritysten sivut sellaisiksi, että asiakas ymmärtää ja ottaa yhteyttä. Pyydä ilmainen sivustoarvio.',
+      'Selkeät verkkosivut, tekninen ylläpito ja pienet muutokset pienyrityksille. Myös yksittäiset korjaukset ilman kuukausimaksua.',
     images: ['/og-image.jpg'],
   },
   robots: {
@@ -84,14 +84,17 @@ const structuredData = {
       '@id': `${BASE_URL}/#organization`,
       name: 'Rootit',
       description:
-        'Rootit parantaa pienyritysten verkkosivuja: selkeämpi viesti, parempi mobiilikäyttö ja helpompi yhteydenottopolku.',
+        'Rootit tekee pienyrityksille selkeät verkkosivut ja huolehtii niiden ylläpidosta. Palveluun kuuluu myös yksittäisiä verkkosivujen korjauksia ilman kuukausimaksua.',
       url: BASE_URL,
+      email: 'mailto:rootit.info@gmail.com',
       areaServed: { '@type': 'Country', name: 'Finland' },
+      priceRange: '€€',
       serviceType: [
-        'Verkkosivujen parannus',
-        'Konversio-optimointi',
-        'Sivustoarvio',
+        'Verkkosivut pienyrityksille',
         'Verkkosivujen ylläpito',
+        'Verkkosivujen korjaus',
+        'Kotisivut yritykselle',
+        'Sivustoarvio',
       ],
       knowsLanguage: ['fi'],
     },
