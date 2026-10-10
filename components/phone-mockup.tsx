@@ -112,7 +112,7 @@ export const PhoneMockup = forwardRef<PhoneMockupRef>(function PhoneMockup(_, re
   }
 
   return (
-    <div className="relative w-full max-w-[280px] [perspective:1400px] sm:max-w-[320px]">
+    <div className="relative w-full max-w-[320px] [perspective:1400px] sm:max-w-[350px]">
       <div
         ref={tiltRef}
         onPointerMove={handlePointerMove}
@@ -133,7 +133,7 @@ export const PhoneMockup = forwardRef<PhoneMockupRef>(function PhoneMockup(_, re
             <div className="absolute left-1/2 top-3 z-10 h-[22px] w-[92px] -translate-x-1/2 rounded-full bg-black sm:top-3.5" />
 
             {/* Screen */}
-            <div className="relative flex min-h-[540px] flex-col overflow-hidden rounded-[1.7rem] bg-gradient-to-b from-[#12151e] to-[#0b0d13] text-white sm:min-h-[580px] sm:rounded-[2rem]">
+            <div className="relative flex min-h-[600px] flex-col overflow-hidden rounded-[1.7rem] bg-gradient-to-b from-[#12151e] to-[#0b0d13] text-white sm:min-h-[640px] sm:rounded-[2rem]">
               {/* Status bar */}
               <div className="flex items-center justify-between px-6 pt-2.5 text-[10px] font-medium text-white/60 sm:pt-3">
                 <span>{currentTime || "9.41"}</span>
@@ -149,14 +149,14 @@ export const PhoneMockup = forwardRef<PhoneMockupRef>(function PhoneMockup(_, re
               </div>
 
               {/* Sliding container */}
-              <div className="relative flex flex-1 overflow-hidden">
+              <div className="relative flex flex-1 flex-col overflow-hidden px-5">
                   {/* Mini before/after preview */}
                   <div className="flex flex-1 flex-col justify-center px-1 pt-4">
                     <div className="mb-3 flex items-center justify-between text-[10px] font-semibold uppercase tracking-[0.16em] text-primary">
                       <span>Esimerkki</span>
                       <span>{showBefore ? "Ennen" : "Jälkeen"}</span>
                     </div>
-                    <div className="relative overflow-hidden rounded-xl border border-white/10 bg-white/[0.06] p-3 shadow-lg">
+                    <div className="relative overflow-hidden rounded-2xl border border-white/10 bg-white/[0.06] p-4 shadow-lg">
                       {showBefore ? (
                         <div className="space-y-2 text-white/70">
                           <div className="flex items-center justify-between text-[8px] text-white/35"><span>YRITYS</span><span>☰</span></div>
