@@ -12,7 +12,7 @@ export function Hero() {
   return (
     <section className="relative isolate overflow-hidden">
       <video
-        className="pointer-events-none absolute inset-0 -z-20 size-full object-cover opacity-[0.12]"
+        className="pointer-events-none absolute inset-0 z-0 size-full object-cover opacity-[0.24]"
         autoPlay
         loop
         muted
@@ -20,10 +20,10 @@ export function Hero() {
         preload="metadata"
         aria-hidden="true"
       >
-        <source src="https://videos.pexels.com/video-files/3861969/3861969-hd_1920_1080_25fps.mp4" type="video/mp4" />
+        <source src="https://cdn.coverr.co/videos/coverr-a-man-typing-on-a-laptop-1571/1080p.mp4" type="video/mp4" />
       </video>
-      <div className="pointer-events-none absolute inset-0 -z-10 bg-background/80" aria-hidden="true" />
-      <div className="mx-auto grid max-w-6xl items-center gap-12 px-5 pb-16 pt-10 sm:pb-20 sm:pt-14 lg:grid-cols-[1fr_340px] lg:gap-16 lg:px-8 lg:pb-28 lg:pt-20">
+      <div className="pointer-events-none absolute inset-0 z-0 bg-background/65" aria-hidden="true" />
+      <div className="relative z-10 mx-auto grid max-w-6xl items-center gap-12 px-5 pb-16 pt-10 sm:pb-20 sm:pt-14 lg:grid-cols-[1fr_340px] lg:gap-16 lg:px-8 lg:pb-28 lg:pt-20">
         <div className="order-2 lg:order-1">
           <p className="text-sm font-medium tracking-wide text-primary">rootIT · verkkosivut ilman turhaa säätöä</p>
           <h1 className="mt-4 max-w-3xl text-balance text-4xl font-semibold leading-[1.08] tracking-tight text-foreground sm:text-5xl lg:text-6xl">
