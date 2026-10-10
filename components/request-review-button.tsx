@@ -32,7 +32,7 @@ export function RequestReviewButton({
   return (
     <button
       type="button"
-      onClick={openReviewForm}
+      onClick={() => openReviewForm()}
       className={cn(
         "group inline-flex items-center justify-center gap-2 rounded-lg px-6 py-3 text-sm font-semibold transition-colors focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2 focus-visible:ring-offset-background",
         variant === "primary"
