@@ -28,7 +28,7 @@ export const metadata: Metadata = {
   title: 'Verkkosivut pienyrityksille ja ylläpito alk. 29 € | Rootit',
   description:
     'Rootit tekee pienyrityksille selkeät verkkosivut ja huolehtii ylläpidosta. Verkkosivut + ylläpito alk. 29 € + alv / kk. Myös yksittäiset korjaukset ilman kuukausimaksua.',
-  generator: 'v0.app',
+  generator: 'JK',
   applicationName: 'Rootit',
   keywords: [
     'verkkosivujen parannus',
