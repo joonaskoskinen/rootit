@@ -20,7 +20,7 @@ export function Hero() {
         preload="metadata"
         aria-hidden="true"
       >
-        <source src="https://cdn.coverr.co/videos/coverr-a-man-typing-on-a-laptop-1571/1080p.mp4" type="video/mp4" />
+        <source src="/hero-it.mp4" type="video/mp4" />
       </video>
       <div className="pointer-events-none absolute inset-0 z-0 bg-background/65" aria-hidden="true" />
       <div className="relative z-10 mx-auto grid max-w-6xl items-center gap-12 px-5 pb-16 pt-10 sm:pb-20 sm:pt-14 lg:grid-cols-[1fr_340px] lg:gap-16 lg:px-8 lg:pb-28 lg:pt-20">
