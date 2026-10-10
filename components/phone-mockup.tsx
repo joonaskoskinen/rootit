@@ -196,7 +196,7 @@ export const PhoneMockup = forwardRef<PhoneMockupRef>(function PhoneMockup(_, re
                     </div>
                   ) : (
                     <>
-                      <div className="flex items-center gap-3 border-b border-border px-4 pb-3 pt-4">
+                      <div className="flex items-center gap-2 border-b border-border px-3 pb-2 pt-3">
                         <button
                           onClick={handleBack}
                           aria-label="Takaisin"
@@ -211,10 +211,10 @@ export const PhoneMockup = forwardRef<PhoneMockupRef>(function PhoneMockup(_, re
 
                       <form
                         onSubmit={handleSubmit}
-                        className="flex flex-1 flex-col overflow-y-auto px-4 pb-4 pt-3"
+                        className="flex flex-1 flex-col overflow-y-auto px-3 pb-3 pt-2"
                       >
-                        <div className="space-y-3">
-                          <div className="space-y-1.5">
+                        <div className="space-y-2">
+                          <div className="space-y-1">
                             <label htmlFor="phone-site" className="text-[11px] font-medium text-muted-foreground">
                               Sivustosi osoite
                             </label>
@@ -224,10 +224,10 @@ export const PhoneMockup = forwardRef<PhoneMockupRef>(function PhoneMockup(_, re
                               type="text"
                               inputMode="url"
                               placeholder="esim. yritys.fi"
-                              className="w-full rounded-lg border border-border bg-background px-3 py-2.5 text-[15px] text-foreground placeholder:text-muted-foreground/60 focus:border-primary focus:outline-none focus:ring-1 focus:ring-primary"
+                              className="w-full rounded-lg border border-border bg-background px-2.5 py-1.5 text-[12px] text-foreground placeholder:text-muted-foreground/60 focus:border-primary focus:outline-none focus:ring-1 focus:ring-primary"
                             />
                           </div>
-                          <div className="space-y-1.5">
+                          <div className="space-y-1">
                             <label htmlFor="phone-email" className="text-[11px] font-medium text-muted-foreground">
                               Sähköposti *
                             </label>
@@ -239,10 +239,10 @@ export const PhoneMockup = forwardRef<PhoneMockupRef>(function PhoneMockup(_, re
                               autoComplete="email"
                               inputMode="email"
                               placeholder="sinun@sahkoposti.fi"
-                              className="w-full rounded-lg border border-border bg-background px-3 py-2.5 text-[15px] text-foreground placeholder:text-muted-foreground/60 focus:border-primary focus:outline-none focus:ring-1 focus:ring-primary"
+                              className="w-full rounded-lg border border-border bg-background px-2.5 py-1.5 text-[12px] text-foreground placeholder:text-muted-foreground/60 focus:border-primary focus:outline-none focus:ring-1 focus:ring-primary"
                             />
                           </div>
-                          <div className="space-y-1.5">
+                          <div className="space-y-1">
                             <label htmlFor="phone-tel" className="text-[11px] font-medium text-muted-foreground">
                               Puhelin (valinnainen)
                             </label>
@@ -253,17 +253,17 @@ export const PhoneMockup = forwardRef<PhoneMockupRef>(function PhoneMockup(_, re
                               autoComplete="tel"
                               inputMode="tel"
                               placeholder="040 123 4567"
-                              className="w-full rounded-lg border border-border bg-background px-3 py-2.5 text-[15px] text-foreground placeholder:text-muted-foreground/60 focus:border-primary focus:outline-none focus:ring-1 focus:ring-primary"
+                              className="w-full rounded-lg border border-border bg-background px-2.5 py-1.5 text-[12px] text-foreground placeholder:text-muted-foreground/60 focus:border-primary focus:outline-none focus:ring-1 focus:ring-primary"
                             />
                           </div>
-                          <div className="space-y-1.5">
+                          <div className="space-y-1">
                             <label htmlFor="phone-desc" className="text-[11px] font-medium text-muted-foreground">
                               Mikä sivustossasi tuntuu tällä hetkellä suurimmalta ongelmalta? (valinnainen)
                             </label>
           <textarea
             id="phone-desc"
             name="description"
-            rows={3}
+            rows={2}
             value={description}
             onChange={(event) => setDescription(event.target.value)}
             placeholder="Kerro lyhyesti, mikä sivustossa kaipaa mielestäsi parannusta."
@@ -279,7 +279,7 @@ export const PhoneMockup = forwardRef<PhoneMockupRef>(function PhoneMockup(_, re
                         <button
                           type="submit"
                           disabled={isSubmitting}
-                          className="mt-3 flex w-full items-center justify-center gap-2 rounded-lg bg-primary py-3 text-[13px] font-semibold text-primary-foreground transition-transform active:scale-[0.98] disabled:opacity-70"
+                          className="mt-2 flex w-full items-center justify-center gap-2 rounded-lg bg-primary py-2 text-[12px] font-semibold text-primary-foreground transition-transform active:scale-[0.98] disabled:opacity-70"
                         >
                           {isSubmitting ? (
                             <>
