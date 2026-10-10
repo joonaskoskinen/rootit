@@ -5,7 +5,7 @@ import { RequestReviewButton } from "@/components/request-review-button"
 const FIX_ITEMS = [
   "Moderni ja selkeä toteutus",
   "Tekninen ylläpito",
-  "Pienet sisältömuutokset",
+  "Pienet sisältömuutokset (30 min / kk)",
   "Mobiiliystävällinen rakenne",
   "Turvallisuudesta ja toimivuudesta huolehtiminen",
   "Selkeä yhteydenottopolku",
@@ -24,7 +24,7 @@ export function Services() {
         {/* Featured offer: Verkkosivujen parannus */}
         <div className="mt-14 overflow-hidden rounded-xl border border-primary/25 bg-card">
           <div className="grid lg:grid-cols-[1.1fr_0.9fr]">
-            <div className="border-b border-border p-8 sm:p-10 lg:border-b-0 lg:border-r">
+            <div className="flex flex-col border-b border-border p-8 sm:p-10 lg:border-b-0 lg:border-r">
               <div className="flex items-center gap-3">
                 <span className="rounded-full bg-primary px-3 py-1 text-xs font-semibold text-primary-foreground">
                   Suosituin
@@ -44,8 +44,10 @@ Verkkosivut + ylläpito
                 Saat modernit ja selkeät verkkosivut sekä teknisen ylläpidon ja pienet jatkuvat muutokset.
                 Sivusto pysyy ajan tasalla ilman suurta kertamaksua.
               </p>
-              <p className="mt-4 text-sm text-muted-foreground">29 € + alv / kk. Ei suurta aloitusmaksua.</p>
-              <div className="mt-7">
+              <p className="mt-4 text-sm text-muted-foreground">
+                Aloitusmaksu 190 € + alv (kertaluonteinen). Ei sidottua sopimuskautta.
+              </p>
+              <div className="mt-auto pt-7">
                 <RequestReviewButton label="Pyydä ilmainen sivustoarvio" />
               </div>
             </div>
@@ -61,9 +63,12 @@ Verkkosivut + ylläpito
                 ))}
               </ul>
             </div>
+            <p className="border-t border-border px-8 py-4 text-xs leading-relaxed text-muted-foreground sm:px-10">
+              Pienet muutokset: 30 min / kk · Hosting sisältyy, domain erikseen (noin 10–20 € / vuosi) ·
+              Irtisanomisaika: 1 kuukausi
+            </p>
           </div>
         </div>
-        <p className="mt-4 text-sm text-muted-foreground">Pienet muutokset: X h/kk · Domain ja hosting: sisältyy/ei sisälly · Irtisanomisaika: X</p>
 
         {/* Secondary offers */}
         <div className="mt-6 grid gap-6 md:grid-cols-2">
@@ -76,7 +81,7 @@ Verkkosivut + ylläpito
               Tarvitsetko vain yhden muutoksen? Korjaan esimerkiksi etusivun, mobiilinäkymän,
               yhteydenottolomakkeen tai muun yksittäisen ongelman ilman kuukausimaksua.
             </p>
-            <span className="mt-5 inline-flex text-sm font-medium text-primary">Alk. X €</span>
+            <span className="mt-5 inline-flex text-sm font-medium text-primary">Alk. 90 € + alv</span>
           </div>
 
           <div className="rounded-xl border border-border bg-card p-8">
@@ -88,7 +93,10 @@ Verkkosivut + ylläpito
               Ylläpidän sivustoa ja teen pieniä muutoksia tarpeen mukaan: tekstipäivityksiä, kampanjasivuja
               ja muita sovittuja parannuksia.
             </p>
-            <span className="mt-5 inline-flex text-sm font-medium text-muted-foreground">Tuntihinta alk. X €</span>
+            <span className="mt-5 inline-flex items-baseline gap-2 text-sm font-medium text-primary">
+              60 € / h + alv
+              <span className="text-xs font-normal text-muted-foreground">laskutus 30 min tarkkuudella</span>
+            </span>
           </div>
         </div>
       </div>
