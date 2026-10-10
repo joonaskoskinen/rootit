@@ -134,7 +134,7 @@ export const PhoneMockup = forwardRef<PhoneMockupRef>(function PhoneMockup(_, re
             {/* Screen */}
 <div className="relative flex min-h-[600px] flex-col overflow-hidden rounded-[1.7rem] bg-gradient-to-b from-[#12151e] to-[#0b0d13] text-white sm:min-h-[640px] sm:rounded-[2rem]">
   <video className="pointer-events-none absolute inset-0 size-full object-cover opacity-[0.08]" autoPlay muted loop playsInline aria-hidden="true">
-    <source src="/hero-it-alt.mp4" type="video/mp4" />
+    <source src="/hero-it.mp4" type="video/mp4" />
   </video>
   <div className="pointer-events-none absolute inset-0 bg-[#0b0d13]/70" aria-hidden="true" />
   <div className="relative z-10 flex min-h-[600px] flex-1 flex-col sm:min-h-[640px]">
