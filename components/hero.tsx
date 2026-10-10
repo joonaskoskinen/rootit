@@ -83,7 +83,8 @@ export function Hero() {
             >
               <RequestReviewButton className="w-full sm:w-auto" />
               <div className="space-y-1">
-                <p className="text-sm text-muted-foreground">Ilmainen eikä sido mihinkään.</p>
+                <p className="text-sm text-muted-foreground">Saat 3 konkreettista huomiota sähköpostiin 2 arkipäivässä.</p>
+                <p className="text-xs text-muted-foreground">Suora yhteys tekijään · Hinta sovitaan etukäteen · Ei sitoutumista</p>
                 <a href="#palvelut" className="text-sm font-medium text-primary hover:underline">Katso palvelut</a>
               </div>
             </div>

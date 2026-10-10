@@ -3,7 +3,7 @@
 import { ArrowRight } from "lucide-react"
 import { cn } from "@/lib/utils"
 
-export function openReviewForm() {
+export function openReviewForm(problem?: string) {
   const mockup = document.getElementById("consultation-mockup")
   if (mockup) {
     mockup.scrollIntoView({ behavior: "smooth", block: "center" })
