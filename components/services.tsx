@@ -75,25 +75,19 @@ Verkkosivut + ylläpito
               Tarvitsetko vain yhden muutoksen? Korjaan esimerkiksi etusivun, mobiilinäkymän,
               yhteydenottolomakkeen tai muun yksittäisen ongelman ilman kuukausimaksua.
             </p>
-            <span className="mt-5 inline-flex items-center gap-1.5 text-sm font-medium text-primary">
-              Ei sitoutumista
-              <ArrowRight className="h-3.5 w-3.5" />
-            </span>
+            <span className="mt-5 inline-flex text-sm font-medium text-primary">Ei sitoutumista · alk. X €</span>
           </div>
 
           <div className="rounded-xl border border-border bg-card p-8">
             <p className="text-xs font-semibold uppercase tracking-[0.14em] text-muted-foreground">
               Kuukausipalvelun lisänä
             </p>
-            <h3 className="mt-3 text-xl font-semibold text-foreground">Jatkuva kehitys</h3>
+            <h3 className="mt-3 text-xl font-semibold text-foreground">Lisätyöt</h3>
             <p className="mt-2 text-sm leading-relaxed text-muted-foreground">
               Ylläpidän sivustoa ja teen pieniä muutoksia tarpeen mukaan: tekstipäivityksiä, kampanjasivuja
               ja muita sovittuja parannuksia.
             </p>
-            <span className="mt-5 inline-flex items-center gap-1.5 text-sm font-medium text-muted-foreground">
-              Vapaaehtoinen ja joustava
-              <ArrowRight className="h-3.5 w-3.5" />
-            </span>
+            <span className="mt-5 inline-flex text-sm font-medium text-muted-foreground">Tuntihinta alk. X € · vapaaehtoinen ja joustava</span>
           </div>
         </div>
       </div>
