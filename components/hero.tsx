@@ -11,7 +11,17 @@ export function Hero() {
   const phoneMockupRef = useRef<PhoneMockupRef>(null)
   return (
     <section className="relative isolate w-full min-w-0 overflow-x-hidden overflow-y-visible">
-      <div className="pointer-events-none absolute inset-0 z-0 bg-background/65" aria-hidden="true" />
+      <video
+        className="pointer-events-none absolute inset-0 z-0 size-full object-cover opacity-[0.1] [mask-image:linear-gradient(to_bottom,black_0%,black_62%,transparent_100%)]"
+        autoPlay
+        muted
+        loop
+        playsInline
+        aria-hidden="true"
+      >
+        <source src="/hero-background.mp4" type="video/mp4" />
+      </video>
+      <div className="pointer-events-none absolute inset-0 z-0 bg-background/70" aria-hidden="true" />
       <div className="relative z-10 mx-auto grid w-full min-w-0 max-w-6xl items-center gap-12 px-5 pb-16 pt-10 sm:pb-20 sm:pt-14 lg:items-start lg:grid-cols-[minmax(0,1fr)_340px] lg:gap-16 lg:px-8 lg:pb-28 lg:pt-20">
         <div className="order-1 lg:order-1">
           <p className="text-sm font-medium tracking-wide text-primary">rootIT · verkkosivut ilman turhaa säätöä</p>
