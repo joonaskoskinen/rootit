@@ -121,10 +121,14 @@ h1, h2, h3, .font-display {
     -webkit-tap-highlight-color: transparent;
   }
 
-  html {
-    -webkit-text-size-adjust: 100%;
-    text-size-adjust: 100%;
-  }
+html {
+  scroll-behavior: smooth;
+  overflow-x: hidden;
+}
+
+body {
+  overflow-x: hidden;
+}
 
   /* Prevent zoom on input focus (iOS) */
   @media screen and (max-width: 767px) {
