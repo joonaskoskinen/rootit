@@ -5,99 +5,55 @@ import { Check } from "lucide-react"
 import { PhoneMockup, type PhoneMockupRef } from "@/components/phone-mockup"
 import { RequestReviewButton } from "@/components/request-review-button"
 
-const BULLETS = [
-  "Modernit ja selkeät verkkosivut",
-  "Ylläpito ja pienet muutokset samassa palvelussa",
-  "Ei suurta kertamaksua",
-]
-
-// Otsikko pilkottuna sanoiksi, jotta jokainen sana voi terävöityä
-// omalla viiveellään ("epäselvä -> selkeä" on kirjaimellisesti brändin lupaus).
-const HEADLINE_LINE_1 = ["Selkeät", "verkkosivut"]
-const HEADLINE_LINE_2 = ["pienyrityksille.", "alk. 29 € + alv / kk."]
-
-function FocusWord({ word, index }: { word: string; index: number }) {
-  return (
-    <span
-      className="focus-word inline-block"
-      style={{ animationDelay: `${100 + index * 70}ms` }}
-    >
-      {word}
-    </span>
-  )
-}
-// 4 sanaa, viimeinen alkaa 100+3*70=310ms, kestää 700ms -> valmis ~1010ms.
-// Loppusisältö ajastetaan tästä eteenpäin, ei sen yli.
+const BULLETS = ["Modernit ja selkeät verkkosivut", "Ylläpito ja pienet muutokset samassa palvelussa", "Ei suurta kertamaksua"]
 
 export function Hero() {
   const phoneMockupRef = useRef<PhoneMockupRef>(null)
-
   return (
-    <section className="relative overflow-hidden">
-      <div className="mx-auto max-w-6xl px-5 pb-16 pt-10 sm:pb-20 sm:pt-14 lg:px-8 lg:pb-28 lg:pt-20">
-        <div className="grid items-center gap-12 lg:grid-cols-[1fr_340px] lg:gap-16">
-          {/* Copy */}
-          <div className="order-2 lg:order-1">
-            <div className="relative inline-block">
-              <h1 className="text-balance text-4xl font-semibold leading-[1.08] tracking-tight text-foreground sm:text-5xl lg:text-6xl">
-                <span className="block">
-                  {HEADLINE_LINE_1.map((w, i) => (
-                    <FocusWord key={w} word={w} index={i} />
-                  ))}
-                </span>
-                <span className="block">
-                  <FocusWord word={HEADLINE_LINE_2[0]} index={HEADLINE_LINE_1.length} />{" "}
-                  <span className="text-[0.68em] sm:text-[0.72em]">
-                    <FocusWord word={HEADLINE_LINE_2[1]} index={HEADLINE_LINE_1.length + 1} />
-                  </span>
-                </span>
-              </h1>
-              {/* Väriaaltoviiva joka pyyhkäisee otsikon alta kun teksti terävöityy */}
-              <span className="headline-sweep" aria-hidden="true" />
-            </div>
-
-            <p
-              className="reveal mt-5 max-w-xl text-pretty text-base leading-relaxed text-muted-foreground sm:text-lg"
-              style={{ animationDelay: "1000ms" }}
-            >
-              Modernit verkkosivut, tekninen ylläpito ja pienet jatkuvat parannukset ilman suurta
-              kertamaksua. Jos tarvitset vain yksittäisen korjauksen, sen voi tilata myös ilman
-              kuukausimaksua.
-            </p>
-
-            <ul
-              className="reveal mt-7 space-y-2.5"
-              style={{ animationDelay: "1080ms" }}
-            >
-              {BULLETS.map((b) => (
-                <li key={b} className="flex items-start gap-3 text-sm text-foreground sm:text-base">
-                  <Check className="mt-0.5 h-4 w-4 shrink-0 text-primary" />
-                  <span>{b}</span>
-                </li>
-              ))}
-            </ul>
-
-            <div
-              className="reveal mt-8 flex flex-col items-start gap-3 sm:flex-row sm:items-center"
-              style={{ animationDelay: "1160ms" }}
-            >
-              <RequestReviewButton className="w-full sm:w-auto" />
-              <div className="space-y-1">
-                <p className="text-sm text-muted-foreground">Ilmainen eikä sido mihinkään.</p>
-                <a href="#palvelut" className="text-sm font-medium text-primary hover:underline">Katso palvelut</a>
-              </div>
-            </div>
+    <section className="relative isolate overflow-hidden">
+      <video
+        className="pointer-events-none absolute inset-0 z-0 size-full object-cover opacity-[0.12] [mask-image:linear-gradient(to_bottom,black_0%,black_62%,transparent_100%)]"
+        autoPlay
+        muted
+        loop
+        playsInline
+        poster="/hero-it.png"
+        aria-hidden="true"
+      >
+        <source src="/hero-it-alt.mp4" type="video/mp4" />
+      </video>
+      <div className="pointer-events-none absolute inset-0 z-0 bg-background/65" aria-hidden="true" />
+      <div className="relative z-10 mx-auto grid max-w-6xl items-center gap-12 px-5 pb-16 pt-10 sm:pb-20 sm:pt-14 lg:grid-cols-[1fr_340px] lg:gap-16 lg:px-8 lg:pb-28 lg:pt-20">
+        <div className="order-1 lg:order-1">
+          <p className="text-sm font-medium tracking-wide text-primary">rootIT · verkkosivut ilman turhaa säätöä</p>
+          <h1 className="mt-4 max-w-3xl text-balance text-4xl font-semibold leading-[1.08] tracking-tight text-foreground sm:text-5xl lg:text-6xl">
+            Selkeät verkkosivut pienyrityksille.
+          </h1>
+          <p className="mt-5 max-w-xl text-pretty text-base leading-relaxed text-muted-foreground sm:text-lg">
+            Modernit sivut, tekninen ylläpito ja pienet parannukset ilman suurta kertamaksua. Aloita ilmaisella arviolla ja päätä itse, etenetkö.
+          </p>
+          <ul className="mt-7 flex flex-col gap-2.5">
+            {BULLETS.map((bullet) => <li key={bullet} className="flex items-start gap-3 text-base text-foreground"><Check className="mt-0.5 size-4 shrink-0 text-primary" />{bullet}</li>)}
+          </ul>
+          <div className="mt-8 flex flex-col items-start gap-3 sm:flex-row sm:items-center">
+            <RequestReviewButton className="w-full sm:w-auto" />
+            <a href="#palvelut" className="text-sm font-medium text-primary underline-offset-4 hover:underline">Katso palvelut</a>
           </div>
-
-          {/* Phone mockup — the visual anchor */}
-          <div
-            id="consultation-mockup"
-            className="order-1 flex justify-center lg:order-2 lg:justify-end"
-          >
-            <PhoneMockup ref={phoneMockupRef} />
-          </div>
+          <p className="mt-3 text-sm text-muted-foreground">Suora yhteys tekijään · Hinta sovitaan etukäteen · Ei sitoutumista</p>
         </div>
+        <div id="consultation-mockup" className="order-2 flex justify-center pt-2 lg:order-2 lg:justify-end lg:pt-0"><div className="w-full max-w-[230px] sm:max-w-[290px] lg:max-w-[340px]"><PhoneMockup ref={phoneMockupRef} /></div></div>
       </div>
     </section>
   )
 }
+
+export function AssessmentPreview() {
+  return <div className="mx-auto mt-10 max-w-2xl rounded-xl border border-border bg-card p-5"><p className="text-sm font-semibold text-foreground">Tällaisen arvion saat</p><div className="mt-4 flex flex-col gap-3">{["01  Otsikko ei kerro heti, mitä tarjoat", "02  Yhteydenotto jää liian alas sivulla", "03  Mobiilin painikkeet ovat vaikeita käyttää"].map((item) => <div key={item} className="flex items-center gap-3 text-sm text-muted-foreground"><span className="size-2 rounded-full bg-primary" />{item}</div>)}</div><p className="mt-4 border-t border-border pt-4 text-sm text-primary">Suositus: selkeytetään ensimmäinen näkymä ja nostetaan yhteydenotto esiin.</p></div>
+}
+
+export { AssessmentPreview as ArvionNayte }
+
+export const HEADLINE_LINE_1 = ["Selkeät", "verkkosivut"]
+export const HEADLINE_LINE_2 = ["pienyrityksille.", "alk. 29 € + alv / kk."]
+
+export default Hero

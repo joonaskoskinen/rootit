@@ -24,15 +24,21 @@ export const PhoneMockup = forwardRef<PhoneMockupRef>(function PhoneMockup(_, re
   const [showForm, setShowForm] = useState(false)
   const [isSubmitting, setIsSubmitting] = useState(false)
   const [isSubmitted, setIsSubmitted] = useState(false)
+  const [description, setDescription] = useState("")
   const [error, setError] = useState<string | null>(null)
   const [currentTime, setCurrentTime] = useState<string>("")
+  const [showBefore, setShowBefore] = useState(false)
 
   useImperativeHandle(ref, () => ({
     openForm: () => setShowForm(true),
   }))
 
   useEffect(() => {
-    const handleOpenForm = () => setShowForm(true)
+    const handleOpenForm = (event: Event) => {
+      const problem = (event as CustomEvent<{ problem?: string }>).detail?.problem
+      if (problem) setDescription(problem)
+      setShowForm(true)
+    }
     window.addEventListener("openConsultationForm", handleOpenForm)
     return () => window.removeEventListener("openConsultationForm", handleOpenForm)
   }, [])
@@ -101,11 +107,12 @@ export const PhoneMockup = forwardRef<PhoneMockupRef>(function PhoneMockup(_, re
   const handleBack = () => {
     setShowForm(false)
     setIsSubmitted(false)
+    setDescription("")
     setError(null)
   }
 
   return (
-    <div className="relative w-full max-w-[280px] [perspective:1400px] sm:max-w-[320px]">
+    <div className="relative w-full max-w-[320px] [perspective:1400px] sm:max-w-[350px]">
       <div
         ref={tiltRef}
         onPointerMove={handlePointerMove}
@@ -126,7 +133,7 @@ export const PhoneMockup = forwardRef<PhoneMockupRef>(function PhoneMockup(_, re
             <div className="absolute left-1/2 top-3 z-10 h-[22px] w-[92px] -translate-x-1/2 rounded-full bg-black sm:top-3.5" />
 
             {/* Screen */}
-            <div className="relative flex min-h-[540px] flex-col overflow-hidden rounded-[1.7rem] bg-gradient-to-b from-[#12151e] to-[#0b0d13] text-white sm:min-h-[580px] sm:rounded-[2rem]">
+            <div className="relative flex min-h-[600px] flex-col overflow-hidden rounded-[1.7rem] bg-gradient-to-b from-[#12151e] to-[#0b0d13] text-white sm:min-h-[640px] sm:rounded-[2rem]">
               {/* Status bar */}
               <div className="flex items-center justify-between px-6 pt-2.5 text-[10px] font-medium text-white/60 sm:pt-3">
                 <span>{currentTime || "9.41"}</span>
@@ -142,120 +149,36 @@ export const PhoneMockup = forwardRef<PhoneMockupRef>(function PhoneMockup(_, re
               </div>
 
               {/* Sliding container */}
-              <div className="relative flex flex-1 overflow-hidden">
-                {/* Default face — an on-brand animation (root/node motif) + the one CTA */}
-                <div
-                  className={cn(
-                    "flex w-full flex-col px-5 pt-4 transition-all duration-500 ease-out",
-                    showForm ? "-translate-x-full opacity-0" : "translate-x-0 opacity-100",
-                  )}
-                >
-                  {/* Animation stage */}
-                  <div className="relative flex flex-1 items-center justify-center">
-                    {/* Expanding rings */}
-                    <div className="pointer-events-none absolute inset-0 flex items-center justify-center">
-                      {[0, 1, 2].map((i) => (
-                        <span
-                          key={i}
-                          className="absolute rounded-full border border-primary/25 animate-root-ring"
-                          style={{
-                            width: "160px",
-                            height: "160px",
-                            animationDelay: `${i * 1.3}s`,
-                          }}
-                        />
-                      ))}
+              <div className="relative flex flex-1 flex-col overflow-hidden px-5">
+                  {/* Mini before/after preview */}
+                  <div className="flex flex-1 flex-col justify-center px-1 pt-4">
+                    <div className="mb-3 flex items-center justify-between text-[10px] font-semibold uppercase tracking-[0.16em] text-primary">
+                      <span>Esimerkki</span>
+                      <span>{showBefore ? "Ennen" : "Jälkeen"}</span>
                     </div>
-
-                    {/* Node graph */}
-                    <svg
-                      viewBox="0 0 200 200"
-                      className="relative h-[200px] w-[200px]"
-                      aria-hidden="true"
-                    >
-                      <defs>
-                        <radialGradient id="coreGlow" cx="50%" cy="50%" r="50%">
-                          <stop offset="0%" stopColor="oklch(0.76 0.13 178)" stopOpacity="0.9" />
-                          <stop offset="100%" stopColor="oklch(0.76 0.13 178)" stopOpacity="0" />
-                        </radialGradient>
-                      </defs>
-
-                      {/* connecting lines */}
-                      {[
-                        [100, 100, 52, 44],
-                        [100, 100, 150, 52],
-                        [100, 100, 40, 118],
-                        [100, 100, 156, 132],
-                        [100, 100, 100, 168],
-                      ].map(([x1, y1, x2, y2], i) => (
-                        <line
-                          key={i}
-                          x1={x1}
-                          y1={y1}
-                          x2={x2}
-                          y2={y2}
-                          stroke="oklch(0.76 0.13 178)"
-                          strokeWidth="1"
-                          strokeOpacity="0.35"
-                          className="animate-root-line"
-                          style={{ animationDelay: `${i * 0.35}s` }}
-                        />
-                      ))}
-
-                      {/* satellite nodes */}
-                      {[
-                        [52, 44],
-                        [150, 52],
-                        [40, 118],
-                        [156, 132],
-                        [100, 168],
-                      ].map(([cx, cy], i) => (
-                        <circle
-                          key={i}
-                          cx={cx}
-                          cy={cy}
-                          r="4"
-                          fill="oklch(0.76 0.13 178)"
-                          className="animate-root-node"
-                          style={{ animationDelay: `${i * 0.35}s` }}
-                        />
-                      ))}
-
-                      {/* core */}
-                      <circle cx="100" cy="100" r="34" fill="url(#coreGlow)" />
-                      <circle
-                        cx="100"
-                        cy="100"
-                        r="9"
-                        fill="oklch(0.76 0.13 178)"
-                        className="animate-root-core"
-                      />
-                    </svg>
+                    <div className="relative overflow-hidden rounded-2xl border border-white/10 bg-white/[0.06] p-4 shadow-lg">
+                      {showBefore ? (
+                        <div className="space-y-2 text-white/70">
+                          <div className="flex items-center justify-between text-[8px] text-white/35"><span>YRITYS</span><span>☰</span></div>
+                          <div className="h-16 rounded-lg bg-gradient-to-r from-rose-400/40 via-amber-300/30 to-violet-400/40 p-2 text-[9px] font-bold">Tervetuloa sivuillemme!</div>
+                          <div className="grid grid-cols-3 gap-1"><div className="h-5 rounded bg-white/10" /><div className="h-5 rounded bg-white/20" /><div className="h-5 rounded bg-white/10" /></div>
+                          <div className="h-2 w-4/5 rounded bg-white/15" /><div className="h-2 w-2/3 rounded bg-white/10" />
+                        </div>
+                      ) : (
+                        <div className="space-y-2 text-white">
+                          <div className="flex items-center justify-between text-[8px] text-white/60"><span className="font-semibold">rootIT</span><span className="text-primary">Palvelut</span></div>
+                          <div className="rounded-lg bg-primary/15 p-3"><p className="text-[15px] font-semibold leading-tight">Selkeä sivu, joka toimii.</p><div className="mt-2 inline-flex rounded bg-primary px-2 py-1 text-[8px] font-bold text-primary-foreground">Pyydä arvio</div></div>
+                          <div className="flex items-center gap-2 text-[8px] text-white/55"><span className="text-primary">✓</span> Suora yhteys <span className="text-primary">✓</span> Selkeä hinta</div>
+                        </div>
+                      )}
+                    </div>
+                    <button type="button" onClick={() => setShowBefore((value) => !value)} className="mt-3 self-center text-[10px] text-white/55 underline underline-offset-2 hover:text-white focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-primary">Vaihda näkymää</button>
                   </div>
 
-                  {/* Caption */}
-                  <div className="phone-card-enter px-1 text-center" style={{ animationDelay: "120ms" }}>
-                    <p className="text-[15px] font-semibold leading-snug text-white text-balance">
-                      Selkeä sivu, joka tekee asioinnista helpompaa.
-                    </p>
-                    <p className="mt-1.5 text-[12px] leading-relaxed text-white/45">
-                      Korjaan tärkeimmät ongelmat viestissä, rakenteessa, mobiilikäytössä ja yhteydenottopolussa.
-                    </p>
-                  </div>
 
-                  {/* CTA */}
-                  <div className="phone-card-enter py-4" style={{ animationDelay: "220ms" }}>
-                    <button
-                      onClick={() => setShowForm(true)}
-                      className="flex w-full items-center justify-center gap-2 rounded-lg bg-primary py-3 text-[13px] font-semibold text-primary-foreground transition-transform active:scale-[0.98]"
-                    >
-                      Pyydä ilmainen sivustoarvio
-                      <ArrowRight className="h-4 w-4" />
-                    </button>
-                  </div>
-                </div>
 
                 {/* Free-review request form */}
+
                 <div
                   className={cn(
                     "absolute inset-0 flex flex-col bg-card transition-all duration-500 ease-out",
@@ -346,13 +269,15 @@ export const PhoneMockup = forwardRef<PhoneMockupRef>(function PhoneMockup(_, re
                             <label htmlFor="phone-desc" className="text-[11px] font-medium text-muted-foreground">
                               Mikä sivustossasi tuntuu tällä hetkellä suurimmalta ongelmalta? (valinnainen)
                             </label>
-                            <textarea
-                              id="phone-desc"
-                              name="description"
-                              rows={3}
-                              placeholder="Kerro lyhyesti, mikä sivustossa kaipaa mielestäsi parannusta."
-                              className="w-full resize-none rounded-lg border border-border bg-background px-3 py-2.5 text-[15px] text-foreground placeholder:text-muted-foreground/60 focus:border-primary focus:outline-none focus:ring-1 focus:ring-primary"
-                            />
+          <textarea
+            id="phone-desc"
+            name="description"
+            rows={3}
+            value={description}
+            onChange={(event) => setDescription(event.target.value)}
+            placeholder="Kerro lyhyesti, mikä sivustossa kaipaa mielestäsi parannusta."
+            className="w-full resize-none rounded-lg border border-border bg-background px-3 py-2.5 text-[15px] text-foreground placeholder:text-muted-foreground/60 focus:border-primary focus:outline-none focus:ring-1 focus:ring-primary"
+          />
                           </div>
                         </div>
 

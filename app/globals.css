@@ -23,10 +23,10 @@
   --secondary-foreground: oklch(0.96 0.005 90);
 
   --muted: oklch(0.23 0.025 260);
-  --muted-foreground: oklch(0.72 0.015 250);
+  --muted-foreground: oklch(0.84 0.015 250);
 
-  --accent: oklch(0.76 0.13 178);
-  --accent-foreground: oklch(0.14 0.015 260);
+  --accent: oklch(0.78 0.12 55);
+  --accent-foreground: oklch(0.18 0.02 260);
 
   --destructive: oklch(0.65 0.22 15);
   --destructive-foreground: oklch(0.98 0 0);
@@ -53,9 +53,15 @@
   --sidebar-ring: oklch(0.76 0.13 178);
 }
 
+h1, h2, h3, .font-display {
+  font-family: var(--font-heading), 'Space Grotesk', system-ui, sans-serif;
+}
+
 @theme inline {
   --font-sans: var(--font-sans), 'Inter', system-ui, sans-serif;
-  --font-display: var(--font-sans), 'Inter', system-ui, sans-serif;
+  --font-display: var(--font-heading), 'Space Grotesk', system-ui, sans-serif;
+  --font-heading: var(--font-heading), 'Space Grotesk', system-ui, sans-serif;
+  --font-handwriting: var(--font-handwriting), 'Caveat', cursive;
   --font-mono: var(--font-mono), 'Geist Mono', ui-monospace, monospace;
 
   --color-background: var(--background);

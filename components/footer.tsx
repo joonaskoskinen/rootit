@@ -37,6 +37,7 @@ export function Footer() {
               Selkeämmät verkkosivut pienyrityksille. Korjaan vanhat ja sekavat sivut nykyaikaisiksi,
               selkeiksi ja helpoiksi käyttää.
             </p>
+            <p className="mt-3 text-sm text-muted-foreground">Palvelen koko Suomessa etänä.</p>
           </div>
 
           <div className="flex flex-col gap-3 text-sm">
@@ -45,7 +46,7 @@ export function Footer() {
               href="mailto:rootit.info@gmail.com"
               className="text-muted-foreground transition-colors hover:text-foreground"
             >
-              rootit.info@gmail.com
+              info@rootit.fi
             </a>
             <a
               href="https://rootit.fi"
@@ -57,7 +58,7 @@ export function Footer() {
         </div>
 
         <div className="mt-12 flex flex-col gap-3 border-t border-border pt-6 text-xs text-muted-foreground sm:flex-row sm:items-center sm:justify-between">
-          <p>© {year} Rootit</p>
+          <p>© {year} rootIT</p>
           <div className="flex gap-5">
             <Link href="/palvelut/verkkosivut-pienyritykselle" className="transition-colors hover:text-foreground">
               Verkkosivut
