@@ -132,8 +132,13 @@ export const PhoneMockup = forwardRef<PhoneMockupRef>(function PhoneMockup(_, re
             <div className="absolute left-1/2 top-3 z-10 h-[22px] w-[92px] -translate-x-1/2 rounded-full bg-black sm:top-3.5" />
 
             {/* Screen */}
-            <div className="relative flex min-h-[600px] flex-col overflow-hidden rounded-[1.7rem] bg-gradient-to-b from-[#12151e] to-[#0b0d13] text-white sm:min-h-[640px] sm:rounded-[2rem]">
-              {/* Status bar */}
+<div className="relative flex min-h-[600px] flex-col overflow-hidden rounded-[1.7rem] bg-gradient-to-b from-[#12151e] to-[#0b0d13] text-white sm:min-h-[640px] sm:rounded-[2rem]">
+  <video className="pointer-events-none absolute inset-0 size-full object-cover opacity-[0.16]" autoPlay muted loop playsInline aria-hidden="true">
+    <source src="/phone-mockup-video.mp4" type="video/mp4" />
+  </video>
+  <div className="pointer-events-none absolute inset-0 bg-[#0b0d13]/70" aria-hidden="true" />
+  <div className="relative z-10 flex min-h-[600px] flex-1 flex-col sm:min-h-[640px]">
+  {/* Status bar */}
               <div className="flex items-center justify-between px-6 pt-2.5 text-[10px] font-medium text-white/60 sm:pt-3">
                 <span>{currentTime || "9.41"}</span>
                 <div className="flex items-center gap-1">
@@ -311,5 +316,6 @@ export const PhoneMockup = forwardRef<PhoneMockupRef>(function PhoneMockup(_, re
         </div>
       </div>
     </div>
+  </div>
   )
 })
