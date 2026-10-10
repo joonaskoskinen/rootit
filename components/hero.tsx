@@ -10,7 +10,7 @@ const BULLETS = ["Modernit ja selkeät verkkosivut", "Ylläpito ja pienet muutok
 export function Hero() {
   const phoneMockupRef = useRef<PhoneMockupRef>(null)
   return (
-    <section className="relative isolate overflow-hidden">
+    <section className="relative isolate w-full min-w-0 overflow-x-hidden overflow-y-visible">
       <video
         className="pointer-events-none absolute inset-0 z-0 size-full object-cover opacity-[0.12] [mask-image:linear-gradient(to_bottom,black_0%,black_62%,transparent_100%)]"
         autoPlay
@@ -23,7 +23,7 @@ export function Hero() {
         <source src="/hero-it-alt.mp4" type="video/mp4" />
       </video>
       <div className="pointer-events-none absolute inset-0 z-0 bg-background/65" aria-hidden="true" />
-      <div className="relative z-10 mx-auto grid max-w-6xl items-center gap-12 px-5 pb-16 pt-10 sm:pb-20 sm:pt-14 lg:grid-cols-[1fr_340px] lg:gap-16 lg:px-8 lg:pb-28 lg:pt-20">
+      <div className="relative z-10 mx-auto grid w-full min-w-0 max-w-6xl items-center gap-12 px-5 pb-16 pt-10 sm:pb-20 sm:pt-14 lg:items-start lg:grid-cols-[minmax(0,1fr)_340px] lg:gap-16 lg:px-8 lg:pb-28 lg:pt-20">
         <div className="order-1 lg:order-1">
           <p className="text-sm font-medium tracking-wide text-primary">rootIT · verkkosivut ilman turhaa säätöä</p>
           <h1 className="mt-4 max-w-3xl text-balance text-4xl font-semibold leading-[1.08] tracking-tight text-foreground sm:text-5xl lg:text-6xl">
@@ -41,7 +41,7 @@ export function Hero() {
           </div>
           <p className="mt-3 text-sm text-muted-foreground">Suora yhteys tekijään · Hinta sovitaan etukäteen · Ei sitoutumista</p>
         </div>
-        <div id="consultation-mockup" className="order-2 flex justify-center pt-2 lg:order-2 lg:justify-end lg:pt-0"><div className="w-full max-w-[205px] sm:max-w-[290px] lg:max-w-[340px]"><PhoneMockup ref={phoneMockupRef} /></div></div>
+        <div id="consultation-mockup" className="order-2 flex justify-center pt-2 lg:order-2 lg:justify-end lg:pt-6"><div className="w-full max-w-[min(205px,calc(100vw-2.5rem))] sm:max-w-[290px] lg:max-w-[340px]"><PhoneMockup ref={phoneMockupRef} /></div></div>
       </div>
     </section>
   )
