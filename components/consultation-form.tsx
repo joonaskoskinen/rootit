@@ -32,8 +32,8 @@ export function ConsultationForm({ children, className }: ConsultationFormProps)
 
   useEffect(() => {
     const handleOpenForm = (event: Event) => {
-      const problem = (event as CustomEvent<{ problem?: string }>).detail?.problem
-      if (problem) setDescription(problem)
+      const problem = (event as CustomEvent<{ problem?: unknown }>).detail?.problem
+      if (typeof problem === "string") setDescription(problem)
       setOpen(true)
     }
 

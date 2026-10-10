@@ -27,7 +27,6 @@ export const PhoneMockup = forwardRef<PhoneMockupRef>(function PhoneMockup(_, re
   const [description, setDescription] = useState("")
   const [error, setError] = useState<string | null>(null)
   const [currentTime, setCurrentTime] = useState<string>("")
-  const [showBefore, setShowBefore] = useState(false)
 
   useImperativeHandle(ref, () => ({
     openForm: () => setShowForm(true),
@@ -35,8 +34,8 @@ export const PhoneMockup = forwardRef<PhoneMockupRef>(function PhoneMockup(_, re
 
   useEffect(() => {
     const handleOpenForm = (event: Event) => {
-      const problem = (event as CustomEvent<{ problem?: string }>).detail?.problem
-      if (problem) setDescription(problem)
+      const problem = (event as CustomEvent<{ problem?: unknown }>).detail?.problem
+      if (typeof problem === "string") setDescription(problem)
       setShowForm(true)
     }
     window.addEventListener("openConsultationForm", handleOpenForm)
@@ -150,29 +149,21 @@ export const PhoneMockup = forwardRef<PhoneMockupRef>(function PhoneMockup(_, re
 
               {/* Sliding container */}
               <div className="relative flex flex-1 flex-col overflow-hidden px-5">
-                  {/* Mini before/after preview */}
                   <div className="flex flex-1 flex-col justify-center px-1 pt-4">
-                    <div className="mb-3 flex items-center justify-between text-[10px] font-semibold uppercase tracking-[0.16em] text-primary">
-                      <span>Esimerkki</span>
-                      <span>{showBefore ? "Ennen" : "Jälkeen"}</span>
+                    <div className="mb-3 text-center text-[10px] font-semibold uppercase tracking-[0.16em] text-primary">
+                      rootIT
                     </div>
-                    <div className="relative overflow-hidden rounded-2xl border border-white/10 bg-white/[0.06] p-4 shadow-lg">
-                      {showBefore ? (
-                        <div className="space-y-2 text-white/70">
-                          <div className="flex items-center justify-between text-[8px] text-white/35"><span>YRITYS</span><span>☰</span></div>
-                          <div className="h-16 rounded-lg bg-gradient-to-r from-rose-400/40 via-amber-300/30 to-violet-400/40 p-2 text-[9px] font-bold">Tervetuloa sivuillemme!</div>
-                          <div className="grid grid-cols-3 gap-1"><div className="h-5 rounded bg-white/10" /><div className="h-5 rounded bg-white/20" /><div className="h-5 rounded bg-white/10" /></div>
-                          <div className="h-2 w-4/5 rounded bg-white/15" /><div className="h-2 w-2/3 rounded bg-white/10" />
-                        </div>
-                      ) : (
-                        <div className="space-y-2 text-white">
-                          <div className="flex items-center justify-between text-[8px] text-white/60"><span className="font-semibold">rootIT</span><span className="text-primary">Palvelut</span></div>
-                          <div className="rounded-lg bg-primary/15 p-3"><p className="text-[15px] font-semibold leading-tight">Selkeä sivu, joka toimii.</p><div className="mt-2 inline-flex rounded bg-primary px-2 py-1 text-[8px] font-bold text-primary-foreground">Pyydä arvio</div></div>
-                          <div className="flex items-center gap-2 text-[8px] text-white/55"><span className="text-primary">✓</span> Suora yhteys <span className="text-primary">✓</span> Selkeä hinta</div>
-                        </div>
-                      )}
+                    <div className="rounded-2xl border border-white/10 bg-white/[0.06] p-4 shadow-lg">
+                      <div className="flex items-center justify-between text-[8px] text-white/60">
+                        <span className="font-semibold">Selkeä sivu</span>
+                        <span className="text-primary">Palvelut</span>
+                      </div>
+                      <div className="mt-3 rounded-xl bg-primary/15 p-3">
+                        <p className="text-[15px] font-semibold leading-tight">Sivu, joka tekee asioinnista helppoa.</p>
+                        <div className="mt-3 h-1.5 w-2/3 rounded-full bg-white/20" />
+                        <div className="mt-2 h-1.5 w-1/2 rounded-full bg-white/10" />
+                      </div>
                     </div>
-                    <button type="button" onClick={() => setShowBefore((value) => !value)} className="mt-3 self-center text-[10px] text-white/55 underline underline-offset-2 hover:text-white focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-primary">Vaihda näkymää</button>
                   </div>
 
 
