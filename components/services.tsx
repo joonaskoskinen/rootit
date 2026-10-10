@@ -1,4 +1,4 @@
-import { Check } from "lucide-react"
+import { Check, Clock3, Globe2, LogOut } from "lucide-react"
 import { SectionHeading } from "@/components/section-heading"
 import { RequestReviewButton } from "@/components/request-review-button"
 
@@ -60,10 +60,14 @@ Verkkosivut + ylläpito
                 ))}
               </ul>
             </div>
-            <p className="col-span-full border-t border-border px-8 py-4 text-xs leading-relaxed text-muted-foreground sm:px-10">
-              Pienet muutokset: 30 min / kk · Hosting sisältyy, domain erikseen (noin 10–20 € / vuosi) ·
-              Irtisanomisaika: 1 kuukausi
-            </p>
+            <div className="col-span-full grid border-t border-border sm:grid-cols-3">
+              {[[Clock3, "30 min muutoksia / kk"], [Globe2, "Hosting sisältyy, domain erikseen"], [LogOut, "Irtisanomisaika 1 kk"]].map(([Icon, label]) => (
+                <div key={label as string} className="flex items-center gap-3 border-b border-border px-8 py-4 text-sm text-muted-foreground last:border-b-0 sm:border-b-0 sm:border-r sm:last:border-r-0 sm:px-10">
+                  <Icon className="size-4 shrink-0 text-primary" aria-hidden="true" />
+                  <span>{label as string}</span>
+                </div>
+              ))}
+            </div>
           </div>
         </div>
 

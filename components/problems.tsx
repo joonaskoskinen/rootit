@@ -1,15 +1,15 @@
 "use client"
 
 import { useState } from "react"
-import { Check, ArrowRight, Smartphone, Palette, Compass, FileText, Pencil, Wrench } from "lucide-react"
+import { Check, ArrowRight, Smartphone, Palette, Compass, FileText, Pencil, Wrench, Search, Gauge } from "lucide-react"
 import { SectionHeading } from "@/components/section-heading"
 import { openReviewForm } from "@/components/request-review-button"
 
 const PROBLEMS = [
   ["Ei ole heti selvää, mitä yritys tekee", "Kävijän pitäisi ymmärtää muutamassa sekunnissa, mitä tarjoat ja kenelle.", Smartphone],
   ["Sivusto näyttää vanhentuneelta", "Ensivaikutelma vaikuttaa siihen, syntyykö luottamus yritykseen.", Palette],
-  ["Mobiilikäyttö ei toimi kunnolla", "Sivuston pitää toimia yhtä hyvin puhelimella kuin tietokoneella.", Smartphone],
-  ["Tärkeät tiedot ovat vaikeasti löydettävissä", "Yhteystiedot, palvelut, hinnat tai ajanvaraus eivät saa olla piilossa.", Compass],
+  ["Mobiilikäyttö ei toimi kunnolla", "Sivuston pitää toimia yhtä hyvin puhelimella kuin tietokoneella.", Gauge],
+  ["Tärkeät tiedot ovat vaikeasti löydettävissä", "Yhteystiedot, palvelut, hinnat tai ajanvaraus eivät saa olla piilossa.", Search],
   ["Sivuston sisältö kaipaa päivitystä", "Vanha sisältö antaa helposti kuvan, ettei sivustoa enää ylläpidetä.", FileText],
   ["Et halua käyttää aikaa tekniseen ylläpitoon", "Voit keskittyä omaan liiketoimintaasi ja jättää sivuston ylläpidon rootITille.", Wrench]
 ]
@@ -22,7 +22,7 @@ export function Problems() {
   return (
     <section id="problem" className="border-t border-border scroll-mt-20 py-16 md:py-24">
       <div className="mx-auto max-w-6xl px-5 lg:px-8">
-        <SectionHeading eyebrow="Ongelmat" title="Onko verkkosivusi näissä kunnossa?" description="Valitse kohdat, jotka kuulostavat tutuilta. Näet yhteenvedon ja voit pyytää arvion niiden perusteella." />
+        <SectionHeading title="Onko verkkosivusi näissä kunnossa?" description="Valitse kohdat, jotka kuulostavat tutuilta. Näet yhteenvedon ja voit pyytää arvion niiden perusteella." />
         <div className="mt-10 grid gap-3 sm:grid-cols-2 lg:grid-cols-3">
           {PROBLEMS.map(([title, desc, Icon], index) => {
             const isSelected = selected.includes(index)

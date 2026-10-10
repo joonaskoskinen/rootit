@@ -9,6 +9,14 @@ import { RequestReviewButton } from "@/components/request-review-button"
 
 const FAQS = [
   {
+    q: "Mitä verkkosivut + ylläpito maksaa?",
+    a: "Verkkosivut + ylläpito maksaa 29 € + alv / kk. Lisäksi tulee kertaluonteinen aloitusmaksu 190 € + alv. Hosting sisältyy hintaan, domain on erikseen (noin 10–20 € / vuosi). Yksittäiset korjaukset alkavat 90 € + alv.",
+  },
+  {
+    q: "Voiko kuukausipalvelun lopettaa?",
+    a: "Kyllä. Irtisanomisaika on 1 kuukausi, ei sidottua sopimuskautta. Irtisanominen onnistuu sähköpostilla. Sivusto ja sisältö kuuluvat sinulle, ja luovutan ne pyydettäessä.",
+  },
+  {
     q: "Tarvitsenko kokonaan uudet sivut?",
     a: "Yleensä et. Useimmiten suurin hyöty tulee siitä, että nykyisen sivun viesti selkeytetään, tärkein toimintakehotus nostetaan esiin ja yhteydenotto tehdään helpommaksi. Kokonaan uudet sivut ovat vasta viimeinen vaihtoehto.",
   },
@@ -28,10 +36,7 @@ const FAQS = [
     q: "Kirjoitatteko myös tekstit?",
     a: "Kyllä. Autan selkeyttämään otsikot ja tärkeimmät tekstit niin, että asiakas ymmärtää nopeasti mitä tarjoat. Sinä tunnet alasi — minä autan sanomaan sen selkeästi ja toimintaan ohjaavasti.",
   },
-  {
-    q: "Mitä verkkosivut + ylläpito maksaa?",
-    a: "Verkkosivut ja ylläpito maksavat 29 € + alv / kk. Hintaan kuuluu sovittu sivusto, tekninen ylläpito ja pienet jatkuvat muutokset.",
-  },
+
   {
     q: "Voinko tilata vain yksittäisen korjauksen?",
     a: "Kyllä. Voit tilata yksittäisen muutoksen tai korjauksen ilman kuukausimaksua. Sovitaan työstä ja hinnasta etukäteen.",
@@ -44,10 +49,7 @@ const FAQS = [
     q: "Toimiiko tämä, jos suurin osa liikenteestä tulee mobiilista?",
     a: "Kyllä. Käyn läpi erityisesti tekstien koon, painikkeet, rakenteen ja tärkeimmät toiminnot puhelimen näkökulmasta.",
   },
-  {
-    q: "Voiko kuukausipalvelun lopettaa?",
-    a: "Kyllä. Kuukausipalvelu on joustava, eikä yksittäisiä korjauksia tarvitse tilata kuukausipalveluna.",
-  },
+
 ]
 
 const faqStructuredData = {
