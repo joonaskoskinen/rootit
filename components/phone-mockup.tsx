@@ -24,6 +24,7 @@ export const PhoneMockup = forwardRef<PhoneMockupRef>(function PhoneMockup(_, re
   const [showForm, setShowForm] = useState(false)
   const [isSubmitting, setIsSubmitting] = useState(false)
   const [isSubmitted, setIsSubmitted] = useState(false)
+  const [description, setDescription] = useState("")
   const [error, setError] = useState<string | null>(null)
   const [currentTime, setCurrentTime] = useState<string>("")
 
@@ -32,7 +33,11 @@ export const PhoneMockup = forwardRef<PhoneMockupRef>(function PhoneMockup(_, re
   }))
 
   useEffect(() => {
-    const handleOpenForm = () => setShowForm(true)
+    const handleOpenForm = (event: Event) => {
+      const problem = (event as CustomEvent<{ problem?: string }>).detail?.problem
+      if (problem) setDescription(problem)
+      setShowForm(true)
+    }
     window.addEventListener("openConsultationForm", handleOpenForm)
     return () => window.removeEventListener("openConsultationForm", handleOpenForm)
   }, [])
@@ -101,6 +106,7 @@ export const PhoneMockup = forwardRef<PhoneMockupRef>(function PhoneMockup(_, re
   const handleBack = () => {
     setShowForm(false)
     setIsSubmitted(false)
+    setDescription("")
     setError(null)
   }
 
@@ -346,13 +352,15 @@ export const PhoneMockup = forwardRef<PhoneMockupRef>(function PhoneMockup(_, re
                             <label htmlFor="phone-desc" className="text-[11px] font-medium text-muted-foreground">
                               Mikä sivustossasi tuntuu tällä hetkellä suurimmalta ongelmalta? (valinnainen)
                             </label>
-                            <textarea
-                              id="phone-desc"
-                              name="description"
-                              rows={3}
-                              placeholder="Kerro lyhyesti, mikä sivustossa kaipaa mielestäsi parannusta."
-                              className="w-full resize-none rounded-lg border border-border bg-background px-3 py-2.5 text-[15px] text-foreground placeholder:text-muted-foreground/60 focus:border-primary focus:outline-none focus:ring-1 focus:ring-primary"
-                            />
+          <textarea
+            id="phone-desc"
+            name="description"
+            rows={3}
+            value={description}
+            onChange={(event) => setDescription(event.target.value)}
+            placeholder="Kerro lyhyesti, mikä sivustossa kaipaa mielestäsi parannusta."
+            className="w-full resize-none rounded-lg border border-border bg-background px-3 py-2.5 text-[15px] text-foreground placeholder:text-muted-foreground/60 focus:border-primary focus:outline-none focus:ring-1 focus:ring-primary"
+          />
                           </div>
                         </div>
 

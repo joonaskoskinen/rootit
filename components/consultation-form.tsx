@@ -27,7 +27,19 @@ export function ConsultationForm({ children, className }: ConsultationFormProps)
   const [open, setOpen] = useState(false)
   const [isSubmitting, setIsSubmitting] = useState(false)
   const [isSubmitted, setIsSubmitted] = useState(false)
+  const [description, setDescription] = useState("")
   const [error, setError] = useState<string | null>(null)
+
+  useEffect(() => {
+    const handleOpenForm = (event: Event) => {
+      const problem = (event as CustomEvent<{ problem?: string }>).detail?.problem
+      if (problem) setDescription(problem)
+      setOpen(true)
+    }
+
+    window.addEventListener("openConsultationForm", handleOpenForm)
+    return () => window.removeEventListener("openConsultationForm", handleOpenForm)
+  }, [])
 
   const handleSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault()
@@ -67,6 +79,7 @@ export function ConsultationForm({ children, className }: ConsultationFormProps)
       // Reset form state when closing
       setTimeout(() => {
         setIsSubmitted(false)
+        setDescription("")
         setError(null)
       }, 200)
     }
@@ -140,8 +153,10 @@ export function ConsultationForm({ children, className }: ConsultationFormProps)
                 <Textarea
                   id="description"
                   name="description"
+                  value={description}
+                  onChange={(event) => setDescription(event.target.value)}
                   placeholder={t("form.description.placeholder")}
-                  className="min-h-24 rounded-xl resize-none"
+                  className="min-h-24 resize-none rounded-xl"
                 />
               </div>
               

@@ -5,13 +5,14 @@ import { cn } from "@/lib/utils"
 
 export function openReviewForm(problem?: string) {
   const mockup = document.getElementById("consultation-mockup")
+  const detail = problem ? { problem } : undefined
+  const openForm = () => window.dispatchEvent(new CustomEvent("openConsultationForm", { detail }))
+
   if (mockup) {
     mockup.scrollIntoView({ behavior: "smooth", block: "center" })
-    setTimeout(() => {
-      window.dispatchEvent(new CustomEvent("openConsultationForm"))
-    }, 500)
+    setTimeout(openForm, 500)
   } else {
-    window.dispatchEvent(new CustomEvent("openConsultationForm"))
+    openForm()
   }
 }
 
