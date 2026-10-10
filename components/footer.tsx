@@ -43,7 +43,7 @@ export function Footer() {
           <div className="flex flex-col gap-3 text-sm">
             <span className="font-medium text-foreground">Yhteys</span>
             <a
-              href="mailto:info@rootit.fi"
+              href="mailto:rootit.info@gmail.com"
               className="text-muted-foreground transition-colors hover:text-foreground"
             >
               info@rootit.fi

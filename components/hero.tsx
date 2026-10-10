@@ -20,7 +20,7 @@ export function Hero() {
         preload="metadata"
         aria-hidden="true"
       >
-        <source src="https://videos.pexels.com/video-files/3195394/3195394-hd_1920_1080_25fps.mp4" type="video/mp4" />
+        <source src="https://videos.pexels.com/video-files/3861969/3861969-hd_1920_1080_25fps.mp4" type="video/mp4" />
       </video>
       <div className="pointer-events-none absolute inset-0 -z-10 bg-background/80" aria-hidden="true" />
       <div className="mx-auto grid max-w-6xl items-center gap-12 px-5 pb-16 pt-10 sm:pb-20 sm:pt-14 lg:grid-cols-[1fr_340px] lg:gap-16 lg:px-8 lg:pb-28 lg:pt-20">
