@@ -176,26 +176,6 @@ export const PhoneMockup = forwardRef<PhoneMockupRef>(function PhoneMockup(_, re
                   </div>
 
 
-                  {/* Caption */}
-                  <div className="phone-card-enter px-1 text-center" style={{ animationDelay: "120ms" }}>
-                    <p className="text-[15px] font-semibold leading-snug text-white text-balance">
-                      Selkeä sivu, joka tekee asioinnista helpompaa.
-                    </p>
-                    <p className="mt-1.5 text-[12px] leading-relaxed text-white/45">
-                      Korjaan tärkeimmät ongelmat viestissä, rakenteessa, mobiilikäytössä ja yhteydenottopolussa.
-                    </p>
-                  </div>
-
-                  {/* CTA */}
-                  <div className="phone-card-enter py-4" style={{ animationDelay: "220ms" }}>
-                    <button
-                      onClick={() => setShowForm(true)}
-                      className="flex w-full items-center justify-center gap-2 rounded-lg bg-primary py-3 text-[13px] font-semibold text-primary-foreground transition-transform active:scale-[0.98]"
-                    >
-                      Pyydä ilmainen sivustoarvio
-                      <ArrowRight className="h-4 w-4" />
-                    </button>
-                  </div>
 
                 {/* Free-review request form */}
 

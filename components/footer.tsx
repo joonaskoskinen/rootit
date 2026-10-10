@@ -43,10 +43,10 @@ export function Footer() {
           <div className="flex flex-col gap-3 text-sm">
             <span className="font-medium text-foreground">Yhteys</span>
             <a
-              href="mailto:rootit.info@gmail.com"
+              href="mailto:info@rootit.fi"
               className="text-muted-foreground transition-colors hover:text-foreground"
             >
-              rootit.info@gmail.com
+              info@rootit.fi
             </a>
             <a
               href="https://rootit.fi"
@@ -58,7 +58,7 @@ export function Footer() {
         </div>
 
         <div className="mt-12 flex flex-col gap-3 border-t border-border pt-6 text-xs text-muted-foreground sm:flex-row sm:items-center sm:justify-between">
-          <p>© {year} Rootit</p>
+          <p>© {year} rootIT</p>
           <div className="flex gap-5">
             <Link href="/palvelut/verkkosivut-pienyritykselle" className="transition-colors hover:text-foreground">
               Verkkosivut

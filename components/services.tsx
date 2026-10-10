@@ -23,19 +23,16 @@ export function Services() {
 
         {/* Featured offer: Verkkosivujen parannus */}
         <div className="mt-14 overflow-hidden rounded-xl border border-primary/25 bg-card">
-          <div className="grid lg:grid-cols-[1.1fr_0.9fr]">
+          <div className="grid items-stretch lg:grid-cols-[1fr_1fr]">
             <div className="flex flex-col border-b border-border p-8 sm:p-10 lg:border-b-0 lg:border-r">
               <div className="flex items-center gap-3">
-                <span className="rounded-full bg-primary px-3 py-1 text-xs font-semibold text-primary-foreground">
-                  Suosituin
-                </span>
-                <span className="text-sm text-muted-foreground">Pääpalvelu</span>
+                <span className="rounded-full bg-primary px-3 py-1 text-xs font-semibold text-primary-foreground">Pääpalvelu</span>
               </div>
               <h3 className="mt-5 text-2xl font-semibold tracking-tight text-foreground sm:text-3xl">
 Verkkosivut + ylläpito
               </h3>
               <p className="mt-3 flex items-baseline gap-2">
-                <span className="text-2xl font-semibold tracking-tight text-primary">
+                <span className="text-3xl font-semibold tracking-tight text-accent sm:text-4xl">
                   29 € + alv / kk
                 </span>
                 <span className="text-sm text-muted-foreground">kuukausihinta</span>
@@ -63,7 +60,7 @@ Verkkosivut + ylläpito
                 ))}
               </ul>
             </div>
-            <p className="border-t border-border px-8 py-4 text-xs leading-relaxed text-muted-foreground sm:px-10">
+            <p className="col-span-full border-t border-border px-8 py-4 text-xs leading-relaxed text-muted-foreground sm:px-10">
               Pienet muutokset: 30 min / kk · Hosting sisältyy, domain erikseen (noin 10–20 € / vuosi) ·
               Irtisanomisaika: 1 kuukausi
             </p>

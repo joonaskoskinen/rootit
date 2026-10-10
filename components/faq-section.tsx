@@ -5,6 +5,7 @@ import {
   AccordionTrigger,
 } from "@/components/ui/accordion"
 import { SectionHeading } from "@/components/section-heading"
+import { RequestReviewButton } from "@/components/request-review-button"
 
 const FAQS = [
   {
@@ -71,13 +72,20 @@ export function FaqSection() {
       />
       <div className="mx-auto max-w-6xl px-5 py-20 sm:py-24 lg:px-8">
         <div className="grid gap-12 lg:grid-cols-[0.8fr_1.2fr] lg:gap-16">
-          <SectionHeading
-            eyebrow="UKK"
-            title="Usein kysyttyä"
-            description="Rehellisiä vastauksia yleisimpiin kysymyksiin. Jos jokin jää mietityttämään, kysy arvion yhteydessä."
-          />
+          <div className="flex flex-col gap-6">
+            <SectionHeading
+              title="Usein kysyttyä"
+              description="Rehellisiä vastauksia yleisimpiin kysymyksiin. Jos jokin jää mietityttämään, kysy arvion yhteydessä."
+            />
+            <div className="rounded-xl border border-border bg-card p-6">
+              <h3 className="font-semibold text-foreground">Etkö löytänyt vastausta?</h3>
+              <p className="mt-2 text-sm text-muted-foreground">Kysy suoraan sähköpostilla.</p>
+              <a className="mt-3 block text-sm text-primary underline underline-offset-4" href="mailto:info@rootit.fi">info@rootit.fi</a>
+              <RequestReviewButton className="mt-5 w-full" label="Pyydä sivustoarvio" />
+            </div>
+          </div>
 
-          <Accordion type="single" collapsible className="w-full">
+          <Accordion type="single" collapsible defaultValue="item-0" className="w-full">
             {FAQS.map((item, i) => (
               <AccordionItem key={i} value={`item-${i}`} className="border-border">
                 <AccordionTrigger className="text-left text-base font-medium text-foreground hover:no-underline">

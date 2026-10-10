@@ -92,7 +92,7 @@ const structuredData = {
       description:
         'Rootit tekee pienyrityksille selkeät verkkosivut ja huolehtii niiden ylläpidosta. Palveluun kuuluu myös yksittäisiä verkkosivujen korjauksia ilman kuukausimaksua.',
       url: BASE_URL,
-      email: 'mailto:rootit.info@gmail.com',
+      email: 'mailto:info@rootit.fi',
       areaServed: { '@type': 'Country', name: 'Finland' },
       priceRange: '€€',
       serviceType: [

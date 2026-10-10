@@ -27,8 +27,7 @@ export function Problems() {
           {PROBLEMS.map(([title, desc, Icon], index) => {
             const isSelected = selected.includes(index)
             return <button key={title} type="button" aria-pressed={isSelected} onClick={() => toggle(index)} className={`rounded-xl border p-5 text-left transition-colors focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring ${isSelected ? "border-primary bg-primary/10" : "border-border bg-card hover:border-primary/40"}`}>
-              <span className="mb-4 flex size-9 items-center justify-center rounded-lg bg-primary/10 text-primary"><Icon className="size-4" /></span>
-              <span className={`mb-4 flex size-6 items-center justify-center rounded-md border ${isSelected ? "border-primary bg-primary text-primary-foreground" : "border-muted-foreground/40"}`}>{isSelected && <Check className="size-4" />}</span>
+              <span className={`mb-4 flex size-10 items-center justify-center rounded-lg border transition-colors ${isSelected ? "border-primary bg-primary text-primary-foreground" : "border-border bg-primary/10 text-primary"}`}>{isSelected ? <Check className="size-4" /> : <Icon className="size-4" />}</span>
               <h3 className="font-semibold text-foreground">{title}</h3><p className="mt-2 text-sm leading-relaxed text-muted-foreground">{desc}</p>
             </button>
           })}
