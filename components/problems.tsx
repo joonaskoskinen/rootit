@@ -1,7 +1,7 @@
 "use client"
 
 import { useState } from "react"
-import { Check, ArrowRight } from "lucide-react"
+import { Check, ArrowRight, Smartphone, Palette, Compass, FileText, Pencil, Wrench } from "lucide-react"
 import { SectionHeading } from "@/components/section-heading"
 import { openReviewForm } from "@/components/request-review-button"
 

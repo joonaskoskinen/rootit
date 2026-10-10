@@ -1,4 +1,4 @@
-import { Check, ArrowRight } from "lucide-react"
+import { Check } from "lucide-react"
 import { SectionHeading } from "@/components/section-heading"
 import { RequestReviewButton } from "@/components/request-review-button"
 
