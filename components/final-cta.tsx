@@ -11,8 +11,9 @@ export function FinalCta() {
           <p className="mx-auto mt-5 max-w-xl text-pretty text-base leading-relaxed text-muted-foreground sm:text-lg">
             Saat konkreettiset huomiot sivustasi ja voit valita jatkuvan palvelun tai yksittäisen korjauksen. Arvio on ilmainen eikä sido mihinkään.
           </p>
-          <div className="mt-9 flex justify-center">
+          <div className="mt-9 flex flex-col items-center gap-3">
             <RequestReviewButton className="px-8 py-3.5 text-base" />
+            <p className="text-sm text-muted-foreground">tai laita viestiä: <a href="mailto:info@rootit.fi" className="text-foreground underline underline-offset-4">info@rootit.fi</a></p>
           </div>
         </div>
       </div>

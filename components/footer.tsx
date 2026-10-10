@@ -37,6 +37,7 @@ export function Footer() {
               Selkeämmät verkkosivut pienyrityksille. Korjaan vanhat ja sekavat sivut nykyaikaisiksi,
               selkeiksi ja helpoiksi käyttää.
             </p>
+            <p className="mt-3 text-sm text-muted-foreground">Palvelen koko Suomessa etänä · Y-tunnus: TODO</p>
           </div>
 
           <div className="flex flex-col gap-3 text-sm">

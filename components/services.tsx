@@ -52,7 +52,7 @@ Verkkosivut + ylläpito
 
             <div className="bg-secondary/40 p-8 sm:p-10">
               <p className="text-sm font-medium text-foreground">Sisältää:</p>
-              <ul className="mt-4 space-y-3">
+              <ul className="mt-4 flex flex-col gap-3">
                 {FIX_ITEMS.map((item) => (
                   <li key={item} className="flex items-start gap-3 text-sm text-foreground">
                     <Check className="mt-0.5 h-4 w-4 shrink-0 text-primary" />
@@ -63,6 +63,7 @@ Verkkosivut + ylläpito
             </div>
           </div>
         </div>
+        <p className="mt-4 text-sm text-muted-foreground">Pienet muutokset: X h/kk · Domain ja hosting: sisältyy/ei sisälly · Irtisanomisaika: X</p>
 
         {/* Secondary offers */}
         <div className="mt-6 grid gap-6 md:grid-cols-2">
@@ -75,7 +76,7 @@ Verkkosivut + ylläpito
               Tarvitsetko vain yhden muutoksen? Korjaan esimerkiksi etusivun, mobiilinäkymän,
               yhteydenottolomakkeen tai muun yksittäisen ongelman ilman kuukausimaksua.
             </p>
-            <span className="mt-5 inline-flex text-sm font-medium text-primary">Ei sitoutumista · alk. X €</span>
+            <span className="mt-5 inline-flex text-sm font-medium text-primary">Alk. X €</span>
           </div>
 
           <div className="rounded-xl border border-border bg-card p-8">
@@ -87,7 +88,7 @@ Verkkosivut + ylläpito
               Ylläpidän sivustoa ja teen pieniä muutoksia tarpeen mukaan: tekstipäivityksiä, kampanjasivuja
               ja muita sovittuja parannuksia.
             </p>
-            <span className="mt-5 inline-flex text-sm font-medium text-muted-foreground">Tuntihinta alk. X € · vapaaehtoinen ja joustava</span>
+            <span className="mt-5 inline-flex text-sm font-medium text-muted-foreground">Tuntihinta alk. X €</span>
           </div>
         </div>
       </div>

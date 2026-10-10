@@ -3,7 +3,6 @@ import { Hero } from "@/components/hero"
 import { Problems } from "@/components/problems"
 import { Services } from "@/components/services"
 import { BeforeAfter } from "@/components/before-after"
-import { Process } from "@/components/process"
 import { WhyRootit } from "@/components/why-rootit"
 import { FaqSection } from "@/components/faq-section"
 import { FinalCta } from "@/components/final-cta"
@@ -41,7 +40,6 @@ export default function Home(): React.JSX.Element {
         <Problems />
         <Services />
         <BeforeAfter />
-        <Process />
         <WhyRootit />
         <FaqSection />
         <FinalCta />

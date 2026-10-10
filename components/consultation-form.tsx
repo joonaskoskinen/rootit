@@ -154,7 +154,7 @@ export function ConsultationForm({ children, className }: ConsultationFormProps)
                   id="description"
                   name="description"
                   value={description}
-                  onChange={(event) => setDescription(event.target.value)}
+                  onChange={(event: React.ChangeEvent<HTMLTextAreaElement>) => setDescription(event.target.value)}
                   placeholder={t("form.description.placeholder")}
                   className="min-h-24 resize-none rounded-xl"
                 />
