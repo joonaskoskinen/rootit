@@ -7,6 +7,7 @@ import { WhyRootit } from "@/components/why-rootit"
 import { FaqSection } from "@/components/faq-section"
 import { FinalCta } from "@/components/final-cta"
 import { Footer } from "@/components/footer"
+import { MobileContactBar, MobileContactBarSpacer } from "@/components/mobile-contact-bar"
 
 export default function Home(): React.JSX.Element {
   return (
@@ -23,6 +24,8 @@ export default function Home(): React.JSX.Element {
         <FinalCta />
       </main>
       <Footer />
+      <MobileContactBarSpacer />
+      <MobileContactBar />
       </div>
     </div>
   )
