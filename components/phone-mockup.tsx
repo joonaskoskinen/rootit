@@ -150,8 +150,8 @@ export const PhoneMockup = forwardRef<PhoneMockupRef>(function PhoneMockup(_, re
           <div className={cn("animate-phone-float", isFlipping && "[animation-play-state:paused]")}>
           {/* iPhone-style frame */}
           <div
-            className="relative w-full rounded-[2.2rem] bg-gradient-to-br from-[#6d7076] via-[#24262b] to-[#111216] p-[3px] shadow-[0_22px_32px_-24px_rgba(5,8,18,0.7),inset_0_0_0_1px_rgba(255,255,255,0.28)] sm:rounded-[2.5rem] sm:p-[4px]"
-            style={{ transform: "translateZ(30px)" }}
+            className="relative w-full rounded-[2.2rem] bg-gradient-to-br from-[#6d7076] via-[#24262b] to-[#111216] p-[3px] shadow-[0_22px_32px_-24px_rgba(5,8,18,0.7),inset_0_0_0_1px_rgba(255,255,255,0.28)] [transform-style:preserve-3d] sm:rounded-[2.5rem] sm:p-[4px]"
+            style={{ transform: "translateZ(30px)", transformStyle: "preserve-3d" }}
           >
             {/* Side controls */}
             <div className="pointer-events-none absolute -left-[3px] top-[86px] flex flex-col gap-3 sm:-left-[4px] sm:top-[100px] sm:gap-4" aria-hidden="true">
@@ -164,7 +164,7 @@ export const PhoneMockup = forwardRef<PhoneMockupRef>(function PhoneMockup(_, re
             {/* Screen */}
 <div
               className={cn(
-                "relative flex min-h-[600px] flex-col overflow-hidden rounded-[1.7rem] bg-gradient-to-b from-[#12151e] to-[#0b0d13] text-white sm:min-h-[640px] sm:rounded-[2rem]",
+                "relative flex min-h-[600px] flex-col overflow-hidden rounded-[1.7rem] bg-gradient-to-b from-[#12151e] to-[#0b0d13] text-white [backface-visibility:hidden] [transform:translateZ(1px)] sm:min-h-[640px] sm:rounded-[2rem]",
               )}
             >
               {/* Dynamic Island */}
