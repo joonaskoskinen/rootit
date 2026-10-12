@@ -147,7 +147,7 @@ export const PhoneMockup = forwardRef<PhoneMockupRef>(function PhoneMockup(_, re
           transformStyle: "preserve-3d",
         }}
       >
-        <div className="animate-phone-float">
+          <div className={cn("animate-phone-float", isFlipping && "[animation-play-state:paused]")}>
           {/* iPhone-style frame */}
           <div
             className="relative w-full rounded-[2.2rem] bg-gradient-to-br from-[#6d7076] via-[#24262b] to-[#111216] p-[3px] shadow-[0_22px_32px_-24px_rgba(5,8,18,0.7),inset_0_0_0_1px_rgba(255,255,255,0.28)] sm:rounded-[2.5rem] sm:p-[4px]"
