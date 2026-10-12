@@ -22,8 +22,8 @@ export function Hero() {
         <source src="/hero-background.mp4" type="video/mp4" />
       </video>
       <div className="pointer-events-none absolute inset-0 z-0 bg-background/70" aria-hidden="true" />
-      <div className="relative z-10 mx-auto grid w-full min-w-0 max-w-6xl items-center gap-12 px-5 pb-16 pt-10 sm:pb-20 sm:pt-14 lg:grid-cols-[minmax(0,1fr)_380px] lg:gap-12 lg:px-8 lg:pb-28 lg:pt-20">
-        <div className="order-1 lg:order-1">
+      <div className="relative z-10 mx-auto grid w-full min-w-0 max-w-6xl items-center gap-8 px-5 pb-16 pt-10 sm:pb-20 sm:pt-14 md:grid-cols-[minmax(0,1fr)_280px] md:gap-8 md:px-6 md:pb-24 md:pt-16 lg:grid-cols-[minmax(0,1fr)_380px] lg:gap-12 lg:px-8 lg:pb-28 lg:pt-20">
+        <div className="order-1 md:order-1">
           <p className="text-sm font-medium tracking-wide text-primary">rootIT · verkkosivut ilman turhaa säätöä</p>
           <h1 className="mt-4 max-w-3xl text-balance text-4xl font-semibold leading-[1.08] tracking-tight text-foreground sm:text-5xl lg:text-6xl">
             Selkeät verkkosivut pienyrityksille.
@@ -40,7 +40,7 @@ export function Hero() {
           </div>
           <p className="mt-3 text-sm text-muted-foreground">Suora yhteys tekijään · Hinta sovitaan etukäteen · Ei sitoutumista</p>
         </div>
-        <div id="consultation-mockup" className="order-2 flex justify-center pt-2 lg:order-2 lg:justify-end lg:pt-0"><div className="w-full max-w-[min(290px,calc(100vw-2rem))] sm:max-w-[290px] lg:max-w-[330px]"><PhoneMockup ref={phoneMockupRef} /></div></div>
+        <div id="consultation-mockup" className="order-2 flex justify-center pt-2 md:order-2 md:justify-end md:pt-0"><div className="w-full max-w-[min(290px,calc(100vw-2rem))] sm:max-w-[290px] md:max-w-[280px] lg:max-w-[330px]"><PhoneMockup ref={phoneMockupRef} /></div></div>
       </div>
     </section>
   )
