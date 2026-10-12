@@ -22,21 +22,39 @@ export interface PhoneMockupRef {
  */
 export const PhoneMockup = forwardRef<PhoneMockupRef>(function PhoneMockup(_, ref) {
   const [showForm, setShowForm] = useState(false)
+  const [isFlipping, setIsFlipping] = useState(false)
   const [isSubmitting, setIsSubmitting] = useState(false)
   const [isSubmitted, setIsSubmitted] = useState(false)
   const [description, setDescription] = useState("")
   const [error, setError] = useState<string | null>(null)
   const [currentTime, setCurrentTime] = useState<string>("")
+  const flipTimerRef = useRef<ReturnType<typeof setTimeout> | null>(null)
+
+  const openFormWithFlip = () => {
+    if (showForm || flipTimerRef.current) return
+    setIsFlipping(true)
+    flipTimerRef.current = setTimeout(() => {
+      setShowForm(true)
+      setIsFlipping(false)
+      flipTimerRef.current = null
+    }, 1050)
+  }
 
   useImperativeHandle(ref, () => ({
-    openForm: () => setShowForm(true),
+    openForm: openFormWithFlip,
   }))
+
+  useEffect(() => {
+    return () => {
+      if (flipTimerRef.current) clearTimeout(flipTimerRef.current)
+    }
+  }, [])
 
   useEffect(() => {
     const handleOpenForm = (event: Event) => {
       const problem = (event as CustomEvent<{ problem?: unknown }>).detail?.problem
       if (typeof problem === "string") setDescription(problem)
-      setShowForm(true)
+      openFormWithFlip()
     }
     window.addEventListener("openConsultationForm", handleOpenForm)
     return () => window.removeEventListener("openConsultationForm", handleOpenForm)
@@ -117,11 +135,12 @@ export const PhoneMockup = forwardRef<PhoneMockupRef>(function PhoneMockup(_, re
         onPointerMove={handlePointerMove}
         onPointerEnter={handlePointerEnter}
         onPointerLeave={handlePointerLeave}
-        className="relative transition-transform duration-200 ease-out [transform-style:preserve-3d] will-change-transform"
+        className={cn(
+          "relative transition-transform duration-200 ease-out [transform-style:preserve-3d] will-change-transform",
+          isFlipping && "animate-phone-flip",
+        )}
         style={{
-          transform: `rotateX(${tilt.x}deg) rotateY(${showForm ? 180 : tilt.y}deg) scale(${isHovering ? 1.015 : 1})`,
-          transitionDuration: showForm ? "800ms" : undefined,
-          transitionTimingFunction: showForm ? "cubic-bezier(0.22, 1, 0.36, 1)" : undefined,
+          transform: `rotateX(${tilt.x}deg) rotateY(${tilt.y}deg) scale(${isHovering ? 1.015 : 1})`,
         }}
       >
         <div className="animate-phone-float">
@@ -193,8 +212,8 @@ export const PhoneMockup = forwardRef<PhoneMockupRef>(function PhoneMockup(_, re
 
                 <div
                   className={cn(
-                    "absolute inset-0 flex flex-col bg-card transition-all duration-500 ease-out",
-                    showForm ? "translate-x-0 opacity-100 [transform:rotateY(180deg)]" : "translate-x-full opacity-0",
+                    "absolute inset-0 flex flex-col bg-card transition-opacity duration-500 ease-out",
+                    showForm ? "translate-x-0 opacity-100" : "translate-x-full opacity-0",
                   )}
                 >
                   {isSubmitted ? (
