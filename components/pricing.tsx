@@ -75,12 +75,7 @@ function PricingCard({ plan, index }: { plan: PricingPlan; index: number }) {
       <p className="mb-3 text-xs text-muted-foreground/80 italic sm:mb-4">{plan.note}</p>
       
       <Button
-        className={cn(
-          "h-11 w-full rounded-full cursor-pointer sm:h-auto",
-          plan.featured
-            ? "bg-primary text-primary-foreground shadow-md hover:bg-primary/90"
-            : "bg-secondary text-secondary-foreground hover:bg-secondary/80"
-        )}
+        className="h-11 w-full rounded-full cursor-pointer bg-primary text-primary-foreground shadow-md hover:bg-primary/90 sm:h-auto"
         onClick={handleConsultationClick}
       >
         {t("pricing.cta")}
