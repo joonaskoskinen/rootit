@@ -40,7 +40,7 @@ export function Hero() {
           </div>
           <p className="mt-3 text-sm text-muted-foreground">Suora yhteys tekijään · Hinta sovitaan etukäteen · Ei sitoutumista</p>
         </div>
-        <div id="consultation-mockup" className="order-2 flex justify-center pt-2 lg:order-2 lg:justify-end lg:pt-6"><div className="w-full max-w-[min(205px,calc(100vw-2.5rem))] sm:max-w-[290px] lg:max-w-[340px]"><PhoneMockup ref={phoneMockupRef} /></div></div>
+        <div id="consultation-mockup" className="order-2 flex justify-center pt-2 lg:order-2 lg:justify-end lg:pt-6"><div className="w-full max-w-[min(290px,calc(100vw-2rem))] sm:max-w-[290px] lg:max-w-[340px]"><PhoneMockup ref={phoneMockupRef} /></div></div>
       </div>
     </section>
   )
