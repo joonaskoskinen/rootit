@@ -37,7 +37,7 @@ export const PhoneMockup = forwardRef<PhoneMockupRef>(function PhoneMockup(_, re
       setShowForm(true)
       setIsFlipping(false)
       flipTimerRef.current = null
-    }, 1050)
+    }, 2100)
   }
 
   useImperativeHandle(ref, () => ({
@@ -140,7 +140,11 @@ export const PhoneMockup = forwardRef<PhoneMockupRef>(function PhoneMockup(_, re
           isFlipping && "animate-phone-flip",
         )}
         style={{
-          transform: `rotateX(${tilt.x}deg) rotateY(${tilt.y}deg) scale(${isHovering ? 1.015 : 1})`,
+          transform: isFlipping
+            ? undefined
+            : `rotateX(${tilt.x}deg) rotateY(${tilt.y}deg) scale(${isHovering ? 1.015 : 1})`,
+          animation: isFlipping ? "phone-flip 2.1s cubic-bezier(0.22, 1, 0.36, 1) both" : undefined,
+          transformStyle: "preserve-3d",
         }}
       >
         <div className="animate-phone-float">
