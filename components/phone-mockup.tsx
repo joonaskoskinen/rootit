@@ -123,17 +123,27 @@ export const PhoneMockup = forwardRef<PhoneMockupRef>(function PhoneMockup(_, re
         }}
       >
         <div className="animate-phone-float">
-          {/* Phone frame */}
+          {/* iPhone-style frame */}
           <div
-            className="relative w-full rounded-[2.2rem] border border-black/10 bg-[#1c1c1a] p-2.5 shadow-[0_30px_60px_-20px_rgba(31,31,26,0.35)] sm:rounded-[2.5rem] sm:p-3"
+            className="relative w-full rounded-[2.2rem] bg-gradient-to-br from-[#6d7076] via-[#24262b] to-[#111216] p-[3px] shadow-[0_22px_32px_-24px_rgba(5,8,18,0.7),inset_0_0_0_1px_rgba(255,255,255,0.28)] sm:rounded-[2.5rem] sm:p-[4px]"
             style={{ transform: "translateZ(30px)" }}
           >
-            {/* Notch */}
-            <div className="absolute left-1/2 top-3 z-10 h-[22px] w-[92px] -translate-x-1/2 rounded-full bg-black sm:top-3.5" />
+            {/* Side controls */}
+            <div className="pointer-events-none absolute -left-[3px] top-[86px] flex flex-col gap-3 sm:-left-[4px] sm:top-[100px] sm:gap-4" aria-hidden="true">
+              <span className="h-8 w-[3px] rounded-l-full bg-gradient-to-b from-[#aeb1b6] to-[#303238] sm:h-10" />
+              <span className="h-12 w-[3px] rounded-l-full bg-gradient-to-b from-[#aeb1b6] to-[#303238] sm:h-14" />
+              <span className="h-12 w-[3px] rounded-l-full bg-gradient-to-b from-[#aeb1b6] to-[#303238] sm:h-14" />
+            </div>
+            <div className="pointer-events-none absolute -right-[3px] top-[130px] h-16 w-[3px] rounded-r-full bg-gradient-to-b from-[#aeb1b6] to-[#303238] sm:-right-[4px] sm:top-[150px] sm:h-20" aria-hidden="true" />
 
             {/* Screen */}
 <div className="relative flex min-h-[600px] flex-col overflow-hidden rounded-[1.7rem] bg-gradient-to-b from-[#12151e] to-[#0b0d13] text-white sm:min-h-[640px] sm:rounded-[2rem]">
-  <video className="pointer-events-none absolute inset-0 size-full object-cover opacity-[0.16]" autoPlay muted loop playsInline aria-hidden="true">
+              {/* Dynamic Island */}
+              <div className="absolute left-1/2 top-2.5 z-20 flex h-[25px] w-[94px] -translate-x-1/2 items-center justify-end rounded-full bg-black px-2 shadow-[inset_0_0_0_1px_rgba(255,255,255,0.08)] sm:top-3 sm:h-[27px] sm:w-[104px]">
+                <span className="size-2 rounded-full bg-[#11151d] shadow-[inset_0_0_3px_1px_rgba(80,100,140,0.5)]" />
+              </div>
+              <video className="pointer-events-none absolute inset-0 size-full object-cover opacity-[0.16]" autoPlay muted loop playsInline aria-hidden="true">
+
     <source src="/phone-mockup-video.mp4" type="video/mp4" />
   </video>
   <div className="pointer-events-none absolute inset-0 bg-[#0b0d13]/70" aria-hidden="true" />
