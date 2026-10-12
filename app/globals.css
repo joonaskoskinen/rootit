@@ -145,6 +145,17 @@ body {
 }
 
 @layer utilities {
+  /* Chrome Androidin "desktop site" käyttää leveää CSS-viewportia, vaikka laite on kosketuslaite. */
+  @media (pointer: coarse) and (max-width: 1200px) {
+    .coarse-device-hide {
+      display: none !important;
+    }
+
+    .coarse-device-show {
+      display: inline-flex !important;
+    }
+  }
+
   .safe-area-inset {
     padding-left: env(safe-area-inset-left);
     padding-right: env(safe-area-inset-right);

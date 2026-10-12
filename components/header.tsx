@@ -68,7 +68,7 @@ export function Header() {
           <Wordmark />
         </Link>
 
-        <nav className="hidden items-center gap-8 md:flex" aria-label="Päänavigaatio">
+        <nav className="hidden items-center gap-8 md:flex coarse-device-hide" aria-label="Päänavigaatio">
           {NAV.map((item) => (
             <Link
               key={item.href}
@@ -83,14 +83,14 @@ export function Header() {
         <div className="flex items-center gap-2">
           <RequestReviewButton
             withArrow={false}
-            className="hidden !bg-primary !px-4 !py-2 !text-primary-foreground hover:!bg-primary/90 md:inline-flex"
+            className="hidden !bg-primary !px-4 !py-2 !text-primary-foreground hover:!bg-primary/90 md:inline-flex coarse-device-hide"
           />
           <button
             type="button"
             onClick={() => setMenuOpen((v) => !v)}
             aria-label="Valikko"
             aria-expanded={menuOpen}
-            className="inline-flex h-10 w-10 items-center justify-center rounded-lg border border-border text-foreground md:hidden"
+            className="inline-flex h-10 w-10 items-center justify-center rounded-lg border border-border text-foreground md:hidden coarse-device-show"
           >
             {menuOpen ? <X className="h-5 w-5" /> : <Menu className="h-5 w-5" />}
           </button>
