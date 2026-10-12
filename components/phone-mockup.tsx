@@ -119,7 +119,9 @@ export const PhoneMockup = forwardRef<PhoneMockupRef>(function PhoneMockup(_, re
         onPointerLeave={handlePointerLeave}
         className="relative transition-transform duration-200 ease-out [transform-style:preserve-3d] will-change-transform"
         style={{
-          transform: `rotateX(${tilt.x}deg) rotateY(${tilt.y}deg) scale(${isHovering ? 1.015 : 1})`,
+          transform: `rotateX(${tilt.x}deg) rotateY(${showForm ? 180 : tilt.y}deg) scale(${isHovering ? 1.015 : 1})`,
+          transitionDuration: showForm ? "800ms" : undefined,
+          transitionTimingFunction: showForm ? "cubic-bezier(0.22, 1, 0.36, 1)" : undefined,
         }}
       >
         <div className="animate-phone-float">
@@ -137,7 +139,11 @@ export const PhoneMockup = forwardRef<PhoneMockupRef>(function PhoneMockup(_, re
             <div className="pointer-events-none absolute -right-[3px] top-[130px] h-16 w-[3px] rounded-r-full bg-gradient-to-b from-[#aeb1b6] to-[#303238] sm:-right-[4px] sm:top-[150px] sm:h-20" aria-hidden="true" />
 
             {/* Screen */}
-<div className="relative flex min-h-[600px] flex-col overflow-hidden rounded-[1.7rem] bg-gradient-to-b from-[#12151e] to-[#0b0d13] text-white sm:min-h-[640px] sm:rounded-[2rem]">
+<div
+              className={cn(
+                "relative flex min-h-[600px] flex-col overflow-hidden rounded-[1.7rem] bg-gradient-to-b from-[#12151e] to-[#0b0d13] text-white sm:min-h-[640px] sm:rounded-[2rem]",
+              )}
+            >
               {/* Dynamic Island */}
               <div className="absolute left-1/2 top-2.5 z-20 flex h-[25px] w-[94px] -translate-x-1/2 items-center justify-end rounded-full bg-black px-2 shadow-[inset_0_0_0_1px_rgba(255,255,255,0.08)] sm:top-3 sm:h-[27px] sm:w-[104px]">
                 <span className="size-2 rounded-full bg-[#11151d] shadow-[inset_0_0_3px_1px_rgba(80,100,140,0.5)]" />
@@ -188,7 +194,7 @@ export const PhoneMockup = forwardRef<PhoneMockupRef>(function PhoneMockup(_, re
                 <div
                   className={cn(
                     "absolute inset-0 flex flex-col bg-card transition-all duration-500 ease-out",
-                    showForm ? "translate-x-0 opacity-100" : "translate-x-full opacity-0",
+                    showForm ? "translate-x-0 opacity-100 [transform:rotateY(180deg)]" : "translate-x-full opacity-0",
                   )}
                 >
                   {isSubmitted ? (
@@ -321,6 +327,21 @@ export const PhoneMockup = forwardRef<PhoneMockupRef>(function PhoneMockup(_, re
               <div className="flex justify-center pb-2.5 pt-1">
                 <div className="h-1 w-24 rounded-full bg-foreground/15" />
               </div>
+            </div>
+
+            {/* iPhone back glass, revealed during the 360° form transition */}
+            <div
+              className="pointer-events-none absolute inset-[3px] overflow-hidden rounded-[2rem] border border-white/15 bg-gradient-to-br from-[#34363d] via-[#16181d] to-[#090a0d] [backface-visibility:hidden] [transform:rotateY(180deg)] sm:inset-[4px] sm:rounded-[2.25rem]"
+              aria-hidden="true"
+            >
+              <div className="absolute inset-0 bg-[radial-gradient(circle_at_35%_20%,rgba(255,255,255,0.13),transparent_28%),linear-gradient(120deg,transparent_20%,rgba(255,255,255,0.05)_48%,transparent_60%)]" />
+              <div className="absolute left-5 top-7 flex size-[76px] flex-wrap gap-1.5 rounded-[22px] border border-white/10 bg-black/25 p-2 shadow-[0_8px_18px_rgba(0,0,0,0.35)] sm:left-6 sm:top-8 sm:size-[84px] sm:rounded-[24px] sm:p-2.5">
+                <span className="size-7 rounded-full border-2 border-[#343840] bg-[#08090c] shadow-[inset_0_0_0_2px_rgba(255,255,255,0.08)] sm:size-8" />
+                <span className="size-7 rounded-full border-2 border-[#343840] bg-[#08090c] shadow-[inset_0_0_0_2px_rgba(255,255,255,0.08)] sm:size-8" />
+                <span className="size-2.5 rounded-full bg-[#d2d5db]/70 sm:size-3" />
+                <span className="size-2.5 rounded-full bg-[#17191e] sm:size-3" />
+              </div>
+              <div className="absolute bottom-6 left-1/2 h-1 w-16 -translate-x-1/2 rounded-full bg-white/10" />
             </div>
           </div>
         </div>
