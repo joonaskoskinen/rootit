@@ -15,12 +15,12 @@ export default function Home(): React.JSX.Element {
       <Header />
       <main>
         <Hero />
-        <Problems />
-        <Services />
-        <BeforeAfter />
-        <WhyRootit />
-        <FaqSection />
-        <FinalCta />
+        <div className="site-section"><Problems /></div>
+        <div className="site-section"><Services /></div>
+        <div className="site-section"><BeforeAfter /></div>
+        <div className="site-section"><WhyRootit /></div>
+        <div className="site-section"><FaqSection /></div>
+        <div className="site-section"><FinalCta /></div>
       </main>
       <Footer />
       </div>

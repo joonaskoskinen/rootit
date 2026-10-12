@@ -7,10 +7,10 @@
   Restrained palette with a subtle teal→violet nod reserved for the logo.
 */
 :root {
-  --background: oklch(0.14 0.015 260);
-  --foreground: oklch(0.96 0.005 90);
+  --background: oklch(0.115 0.018 255);
+  --foreground: oklch(0.97 0.008 90);
 
-  --card: oklch(0.18 0.02 260);
+  --card: oklch(0.155 0.022 255);
   --card-foreground: oklch(0.96 0.005 90);
 
   --popover: oklch(0.18 0.02 260);
@@ -31,8 +31,8 @@
   --destructive: oklch(0.65 0.22 15);
   --destructive-foreground: oklch(0.98 0 0);
 
-  --border: oklch(0.29 0.025 260);
-  --input: oklch(0.24 0.025 260);
+  --border: oklch(0.25 0.028 255);
+  --input: oklch(0.205 0.026 255);
   --ring: oklch(0.76 0.13 178);
 
   --radius: 0.7rem;
@@ -145,6 +145,21 @@ body {
 }
 
 @layer utilities {
+  .site-section {
+    animation: section-enter 0.8s cubic-bezier(0.22, 1, 0.36, 1) both;
+  }
+
+  .site-section > section > div > div[class*="rounded"],
+  .site-section [class*="rounded-xl"][class*="border"] {
+    transition: transform 350ms cubic-bezier(0.22, 1, 0.36, 1), border-color 350ms ease, box-shadow 350ms ease;
+  }
+
+  .site-section [class*="rounded-xl"][class*="border"]:hover {
+    transform: translateY(-4px);
+    border-color: color-mix(in oklch, var(--primary) 40%, var(--border));
+    box-shadow: 0 18px 50px oklch(0 0 0 / 0.2), 0 0 0 1px oklch(0.76 0.13 178 / 0.06);
+  }
+
   .safe-area-inset {
     padding-left: env(safe-area-inset-left);
     padding-right: env(safe-area-inset-right);
@@ -167,6 +182,17 @@ body {
 }
 
 /* ---------- Motion (restrained) ---------- */
+
+@keyframes section-enter {
+  from { opacity: 0; transform: translateY(18px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
+.site-section:nth-of-type(2) { animation-delay: 80ms; }
+.site-section:nth-of-type(3) { animation-delay: 140ms; }
+.site-section:nth-of-type(4) { animation-delay: 200ms; }
+.site-section:nth-of-type(5) { animation-delay: 260ms; }
+.site-section:nth-of-type(6) { animation-delay: 320ms; }
 
 @keyframes phone-float {
   0%, 100% { transform: translateY(0); }
@@ -318,7 +344,7 @@ body {
     transition-duration: 0.01ms !important;
     scroll-behavior: auto !important;
   }
-  .reveal, .phone-card-enter {
+  .reveal, .phone-card-enter, .site-section {
     opacity: 1 !important;
     animation: none !important;
   }
