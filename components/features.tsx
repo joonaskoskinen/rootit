@@ -148,7 +148,7 @@ function ServiceCard({ service, index, onCta }: ServiceCardProps) {
       <div className="mt-auto pt-3 sm:pt-4">
         <Button
           onClick={onCta}
-          className="h-11 w-full rounded-full cursor-pointer bg-primary text-primary-foreground shadow-md hover:bg-primary/90 sm:h-auto"
+          className="h-11 w-full rounded-full cursor-pointer bg-accent text-accent-foreground shadow-md hover:bg-accent/90 sm:h-auto"
         >
           {t("pricing.cta")}
           <ArrowRight className="ml-2 h-4 w-4" />
