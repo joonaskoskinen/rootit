@@ -83,7 +83,7 @@ export function Header() {
         <div className="flex items-center gap-2">
           <RequestReviewButton
             withArrow={false}
-            className="hidden px-4 py-2 md:inline-flex"
+            className="hidden !bg-primary !px-4 !py-2 !text-primary-foreground hover:!bg-primary/90 md:inline-flex"
           />
           <button
             type="button"
