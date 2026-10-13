@@ -83,7 +83,7 @@ export function Header() {
         <div className="flex items-center gap-2">
           <RequestReviewButton
             withArrow={false}
-            className="hidden !bg-primary !px-4 !py-2 !text-primary-foreground hover:!bg-primary/90 md:inline-flex"
+            className="hidden !bg-accent !px-4 !py-2 !text-accent-foreground hover:!bg-accent/90 md:inline-flex"
           />
           <button
             type="button"
@@ -119,7 +119,7 @@ export function Header() {
                 setMenuOpen(false)
                 openReviewForm()
               }}
-              className="mt-2 rounded-lg bg-primary px-4 py-3 text-center text-sm font-semibold text-primary-foreground"
+              className="mt-2 rounded-lg bg-accent px-4 py-3 text-center text-sm font-semibold text-accent-foreground"
             >
               Pyydä ilmainen sivustoarvio
             </button>

@@ -5,7 +5,7 @@ import { Check } from "lucide-react"
 import { PhoneMockup, type PhoneMockupRef } from "@/components/phone-mockup"
 import { RequestReviewButton } from "@/components/request-review-button"
 
-const BULLETS = ["Modernit ja selkeät verkkosivut", "Ylläpito ja pienet muutokset samassa palvelussa", "Ei suurta kertamaksua"]
+const BULLETS = ["Modernit ja selkeät verkkosivut", "Ylläpito ja pienet muutokset samassa palvelussa"]
 
 export function Hero() {
   const phoneMockupRef = useRef<PhoneMockupRef>(null)
@@ -29,7 +29,7 @@ export function Hero() {
             Selkeät verkkosivut pienyrityksille.
           </h1>
           <p className="mt-5 max-w-xl text-pretty text-base leading-relaxed text-muted-foreground sm:text-lg">
-            Modernit sivut, tekninen ylläpito ja pienet parannukset ilman suurta kertamaksua. Aloita ilmaisella arviolla ja päätä itse, etenetkö.
+            rootIT korjaa ja ylläpitää pienyritysten verkkosivuja. Aloita ilmaisella arviolla ja päätä itse, etenetkö.
           </p>
           <ul className="mt-7 flex flex-col gap-2.5">
             {BULLETS.map((bullet) => <li key={bullet} className="flex items-start gap-3 text-base text-foreground"><Check className="mt-0.5 size-4 shrink-0 text-primary" />{bullet}</li>)}
@@ -38,7 +38,7 @@ export function Hero() {
             <RequestReviewButton className="w-full sm:w-auto" />
             <a href="#palvelut" className="text-sm font-medium text-primary underline-offset-4 hover:underline">Katso palvelut</a>
           </div>
-          <p className="mt-3 text-sm text-muted-foreground">Suora yhteys tekijään · Hinta sovitaan etukäteen · Ei sitoutumista</p>
+          <p className="mt-3 text-sm text-muted-foreground">Ilmainen, ei sitoutumista. Vastaus 2 arkipäivässä.</p>
         </div>
         <div id="consultation-mockup" className="order-2 flex justify-center pt-2 lg:order-2 lg:justify-end lg:pt-0"><div className="w-full max-w-[min(290px,calc(100vw-2rem))] sm:max-w-[290px] lg:max-w-[330px]"><PhoneMockup ref={phoneMockupRef} /></div></div>
       </div>

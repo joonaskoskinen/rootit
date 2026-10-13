@@ -6,9 +6,7 @@ const FIX_ITEMS = [
   "Moderni ja selkeä toteutus",
   "Tekninen ylläpito",
   "Pienet sisältömuutokset (30 min / kk)",
-  "Mobiiliystävällinen rakenne",
-  "Turvallisuudesta ja toimivuudesta huolehtiminen",
-  "Selkeä yhteydenottopolku",
+  "Hosting sisältyy",
 ]
 
 export function Services() {
@@ -38,8 +36,7 @@ Verkkosivut + ylläpito
                 <span className="text-sm text-muted-foreground">kuukausihinta</span>
               </p>
               <p className="mt-3 max-w-md text-pretty text-base leading-relaxed text-muted-foreground">
-                Saat modernit ja selkeät verkkosivut sekä teknisen ylläpidon ja pienet jatkuvat muutokset.
-                Sivusto pysyy ajan tasalla ilman suurta kertamaksua.
+                Modernit ja selkeät verkkosivut sekä tekninen ylläpito ja pienet muutokset. Sivusto pysyy toimivana ja ajan tasalla, eikä suurta kertamaksua tarvita.
               </p>
               <p className="mt-4 text-sm text-muted-foreground">
                 Aloitusmaksu 190 € + alv (kertaluonteinen). Ei sidottua sopimuskautta.

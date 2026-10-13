@@ -1,11 +1,9 @@
-import { Euro, LockKeyhole, MessageSquareText, Wrench } from "lucide-react"
+import { MessageSquareText, Wrench } from "lucide-react"
 import { SectionHeading } from "@/components/section-heading"
 
 const REASONS = [
-  [MessageSquareText, "Suora yhteys tekijään", "Keskustelemme suoraan siitä, mitä sivullesi kannattaa tehdä."],
-  [Euro, "Selkeä hinta etukäteen", "Sovitaan työn sisältö ja hinta ennen aloittamista."],
-  [Wrench, "Korjaa, älä rakenna turhaan", "Jos nykyinen sivu voidaan korjata, sitä ei tarvitse tehdä uudestaan."],
-  [LockKeyhole, "Ei sitoutumista", "Ilmainen sivustoarvio kertoo ensin, onko jotain konkreettista korjattavaa."],
+  [MessageSquareText, "Suora yhteys", "Sovitaan suoraan siitä, mitä sivullesi kannattaa tehdä."],
+  [Wrench, "Korjaa, älä rakenna turhaan", "Jos nykyinen sivu voidaan korjata, uutta ei tehdä."],
 ] as const
 
 const STEPS = ["Pyydä ilmainen sivustoarvio", "Saat konkreettiset huomiot", "Sovitaan työ, hinta ja aikataulu", "Korjaan tai rakennan sovitun"]
@@ -18,9 +16,8 @@ export function WhyRootit() {
         <div className="mt-10 grid gap-10 rounded-xl border border-border bg-card p-6 sm:grid-cols-[0.8fr_1.2fr] sm:p-8">
           <div>
             <div className="max-w-md rounded-2xl rounded-bl-sm border border-primary/20 bg-primary/10 p-5 text-base leading-relaxed text-foreground">
-              Hei! Lähetä sivusi osoite, käyn sen läpi itse ja vastaan 2 arkipäivässä.
+              Hei! Lähetä sivusi osoite. rootIT käy sen läpi ja vastaa 2 arkipäivässä.
             </div>
-            <p className="mt-4 flex items-center gap-2 text-sm text-muted-foreground"><span className="size-2 rounded-full bg-emerald-400" />Vastaan yleensä saman päivän aikana</p>
           </div>
           <div className="grid gap-6 sm:grid-cols-2">
             {REASONS.map(([Icon, title, desc]) => (

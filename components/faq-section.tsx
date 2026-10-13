@@ -5,7 +5,6 @@ import {
   AccordionTrigger,
 } from "@/components/ui/accordion"
 import { SectionHeading } from "@/components/section-heading"
-import { RequestReviewButton } from "@/components/request-review-button"
 
 const FAQS = [
   {
@@ -43,7 +42,7 @@ const FAQS = [
   },
   {
     q: "Voinko pyytää ensin vain arvion?",
-    a: "Ehdottomasti, ja se on suositeltu tapa aloittaa. Ilmainen sivustoarvio ei sido mihinkään. Saat konkreettiset huomiot, ja päätät sen jälkeen itse, haluatko edetä korjaukseen.",
+    a: "Ehdottomasti. Saat konkreettiset huomiot ja päätät sen jälkeen itse, haluatko edetä korjaukseen.",
   },
   {
     q: "Toimiiko tämä, jos suurin osa liikenteestä tulee mobiilista?",
@@ -82,8 +81,7 @@ export function FaqSection() {
             <div className="rounded-xl border border-border bg-card p-6">
               <h3 className="font-semibold text-foreground">Etkö löytänyt vastausta?</h3>
               <p className="mt-2 text-sm text-muted-foreground">Kysy suoraan sähköpostilla.</p>
-              <a className="mt-3 block text-sm text-primary underline underline-offset-4" href="mailto:rootit.info@gmail.com">rootit.info@gmail.com</a>
-              <RequestReviewButton className="mt-5 w-full" label="Pyydä sivustoarvio" />
+              <a className="mt-3 block text-sm text-primary underline underline-offset-4" href="mailto:info@rootit.fi">info@rootit.fi</a>
             </div>
           </div>
 
