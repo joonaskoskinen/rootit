@@ -25,11 +25,14 @@ const caveat = Caveat({
 })
 
 export const metadata: Metadata = {
-  title: 'Verkkosivut pienyrityksille ja ylläpito alk. 29 € | Rootit',
+  title: {
+    default: 'rootIT – selkeät verkkosivut pienyrityksille',
+    template: '%s | rootIT',
+  },
   description:
-    'Rootit tekee pienyrityksille selkeät verkkosivut ja huolehtii ylläpidosta. Verkkosivut + ylläpito alk. 29 € + alv / kk. Myös yksittäiset korjaukset ilman kuukausimaksua.',
+    'rootIT tekee ja ylläpitää selkeitä verkkosivuja pienyrityksille. Pyydä ilmainen sivustoarvio ja päätä itse, etenetkö.',
   generator: 'JK',
-  applicationName: 'Rootit',
+  applicationName: 'rootIT',
   keywords: [
     'verkkosivujen parannus',
     'pienyrityksen verkkosivut',
@@ -48,19 +51,17 @@ export const metadata: Metadata = {
   openGraph: {
     type: 'website',
     locale: 'fi_FI',
-    url: BASE_URL,
-    siteName: 'Rootit',
-    title: 'Rootit – Selkeämmät verkkosivut pienyrityksille',
+    url: '/',
+    siteName: 'rootIT',
+    title: 'rootIT – selkeät verkkosivut pienyrityksille',
     description:
-      'Selkeät verkkosivut, tekninen ylläpito ja pienet muutokset pienyrityksille. Myös yksittäiset korjaukset ilman kuukausimaksua.',
-    images: [{ url: '/og-image.jpg', width: 1200, height: 630, alt: 'Rootit' }],
+      'rootIT tekee ja ylläpitää selkeitä verkkosivuja pienyrityksille. Pyydä ilmainen sivustoarvio ja päätä itse, etenetkö.',
   },
   twitter: {
     card: 'summary_large_image',
-    title: 'Rootit – Selkeämmät verkkosivut pienyrityksille',
+    title: 'rootIT – selkeät verkkosivut pienyrityksille',
     description:
-      'Selkeät verkkosivut, tekninen ylläpito ja pienet muutokset pienyrityksille. Myös yksittäiset korjaukset ilman kuukausimaksua.',
-    images: ['/og-image.jpg'],
+      'rootIT tekee ja ylläpitää selkeitä verkkosivuja pienyrityksille. Pyydä ilmainen sivustoarvio ja päätä itse, etenetkö.',
   },
   robots: {
     index: true,
@@ -80,7 +81,7 @@ export const metadata: Metadata = {
 }
 
 export const viewport: Viewport = {
-  themeColor: '#0f1119',
+  themeColor: '#05080f',
   width: 'device-width',
   initialScale: 1,
   maximumScale: 5,

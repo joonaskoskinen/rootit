@@ -10,12 +10,12 @@ import { RequestReviewButton } from "@/components/request-review-button"
 
 export function Testimonials() {
   return (
-    <section id="muutokset" className="border-t border-border scroll-mt-20">
+    <section id="esimerkit" className="border-t border-border scroll-mt-20">
       <div className="mx-auto max-w-6xl px-5 py-20 sm:py-24 lg:px-8">
         <SectionHeading
           eyebrow="Työskentelytapa"
           title="Näin työskentelen"
-          description="RootIT on pieni ja henkilökohtainen palvelu. Siksi pidän yhteistyön tarkoituksella suoraviivaisena."
+          description="rootIT on pieni ja henkilökohtainen palvelu. Siksi pidän yhteistyön tarkoituksella suoraviivaisena."
         />
 
         <div className="mt-14 grid gap-6 md:grid-cols-3">

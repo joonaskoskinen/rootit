@@ -5,12 +5,11 @@ import {
   AccordionTrigger,
 } from "@/components/ui/accordion"
 import { SectionHeading } from "@/components/section-heading"
-import { RequestReviewButton } from "@/components/request-review-button"
 
 const FAQS = [
   {
     q: "Mitä verkkosivut + ylläpito maksaa?",
-    a: "Verkkosivut + ylläpito maksaa 29 € + alv / kk. Lisäksi tulee kertaluonteinen aloitusmaksu 190 € + alv. Hosting sisältyy hintaan, domain on erikseen (noin 10–20 € / vuosi). Yksittäiset korjaukset alkavat 90 € + alv.",
+    a: "Verkkosivut + ylläpito maksaa 29 € + alv / kk. Lisäksi tulee kertaluonteinen aloitusmaksu alkaen 190 € + alv. Hosting sisältyy hintaan, domain on erikseen (noin 10–20 € / vuosi). Yksittäiset korjaukset alkavat 90 € + alv.",
   },
   {
     q: "Voiko kuukausipalvelun lopettaa?",
@@ -43,13 +42,12 @@ const FAQS = [
   },
   {
     q: "Voinko pyytää ensin vain arvion?",
-    a: "Ehdottomasti, ja se on suositeltu tapa aloittaa. Ilmainen sivustoarvio ei sido mihinkään. Saat konkreettiset huomiot, ja päätät sen jälkeen itse, haluatko edetä korjaukseen.",
+    a: "Ehdottomasti. Saat konkreettiset huomiot ja päätät sen jälkeen itse, haluatko edetä korjaukseen.",
   },
   {
     q: "Toimiiko tämä, jos suurin osa liikenteestä tulee mobiilista?",
     a: "Kyllä. Käyn läpi erityisesti tekstien koon, painikkeet, rakenteen ja tärkeimmät toiminnot puhelimen näkökulmasta.",
   },
-
 ]
 
 const faqStructuredData = {
@@ -83,7 +81,6 @@ export function FaqSection() {
               <h3 className="font-semibold text-foreground">Etkö löytänyt vastausta?</h3>
               <p className="mt-2 text-sm text-muted-foreground">Kysy suoraan sähköpostilla.</p>
               <a className="mt-3 block text-sm text-primary underline underline-offset-4" href="mailto:rootit.info@gmail.com">rootit.info@gmail.com</a>
-              <RequestReviewButton className="mt-5 w-full" label="Pyydä sivustoarvio" />
             </div>
           </div>
 

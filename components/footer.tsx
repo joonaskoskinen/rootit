@@ -46,7 +46,7 @@ export function Footer() {
               href="mailto:rootit.info@gmail.com"
               className="text-muted-foreground transition-colors hover:text-foreground"
             >
-              info@rootit.fi
+              rootit.info@gmail.com
             </a>
             <a
               href="https://rootit.fi"
@@ -60,18 +60,6 @@ export function Footer() {
         <div className="mt-12 flex flex-col gap-3 border-t border-border pt-6 text-xs text-muted-foreground sm:flex-row sm:items-center sm:justify-between">
           <p>© {year} rootIT</p>
           <div className="flex gap-5">
-            <Link href="/palvelut/verkkosivut-pienyritykselle" className="transition-colors hover:text-foreground">
-              Verkkosivut
-            </Link>
-            <Link href="/palvelut/verkkosivujen-yllapito" className="transition-colors hover:text-foreground">
-              Ylläpito
-            </Link>
-            <Link href="/palvelut/verkkosivujen-korjaus" className="transition-colors hover:text-foreground">
-              Korjaukset
-            </Link>
-            <Link href="/artikkelit" className="transition-colors hover:text-foreground">
-              Artikkelit
-            </Link>
             <Link href="/tietosuoja" className="transition-colors hover:text-foreground">
               Tietosuojaseloste
             </Link>
