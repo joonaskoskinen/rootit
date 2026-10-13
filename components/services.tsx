@@ -39,7 +39,7 @@ Verkkosivut + ylläpito
                 Modernit ja selkeät verkkosivut sekä tekninen ylläpito ja pienet muutokset. Sivusto pysyy toimivana ja ajan tasalla, eikä suurta kertamaksua tarvita.
               </p>
               <p className="mt-4 text-sm text-muted-foreground">
-                Aloitusmaksu 190 € + alv (kertaluonteinen). Ei sidottua sopimuskautta.
+                Aloitusmaksu alkaen 190 € + alv (kertaluonteinen). Ei sidottua sopimuskautta.
               </p>
               <div className="mt-auto pt-7">
                 <RequestReviewButton label="Pyydä ilmainen sivustoarvio" />

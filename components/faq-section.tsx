@@ -9,7 +9,7 @@ import { SectionHeading } from "@/components/section-heading"
 const FAQS = [
   {
     q: "Mitä verkkosivut + ylläpito maksaa?",
-    a: "Verkkosivut + ylläpito maksaa 29 € + alv / kk. Lisäksi tulee kertaluonteinen aloitusmaksu 190 € + alv. Hosting sisältyy hintaan, domain on erikseen (noin 10–20 € / vuosi). Yksittäiset korjaukset alkavat 90 € + alv.",
+    a: "Verkkosivut + ylläpito maksaa 29 € + alv / kk. Lisäksi tulee kertaluonteinen aloitusmaksu alkaen 190 € + alv. Hosting sisältyy hintaan, domain on erikseen (noin 10–20 € / vuosi). Yksittäiset korjaukset alkavat 90 € + alv.",
   },
   {
     q: "Voiko kuukausipalvelun lopettaa?",
@@ -80,7 +80,7 @@ export function FaqSection() {
             <div className="rounded-xl border border-border bg-card p-6">
               <h3 className="font-semibold text-foreground">Etkö löytänyt vastausta?</h3>
               <p className="mt-2 text-sm text-muted-foreground">Kysy suoraan sähköpostilla.</p>
-              <a className="mt-3 block text-sm text-primary underline underline-offset-4" href="mailto:info@rootit.fi">info@rootit.fi</a>
+              <a className="mt-3 block text-sm text-primary underline underline-offset-4" href="mailto:rootit.info@gmail.com">rootit.info@gmail.com</a>
             </div>
           </div>
 
