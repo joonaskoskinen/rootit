@@ -48,7 +48,6 @@ const FAQS = [
     q: "Toimiiko tämä, jos suurin osa liikenteestä tulee mobiilista?",
     a: "Kyllä. Käyn läpi erityisesti tekstien koon, painikkeet, rakenteen ja tärkeimmät toiminnot puhelimen näkökulmasta.",
   },
-
 ]
 
 const faqStructuredData = {
