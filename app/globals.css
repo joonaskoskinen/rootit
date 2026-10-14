@@ -189,8 +189,44 @@ body {
   100% { opacity: 1; transform: translateY(0); }
 }
 
+@keyframes phone-content-reveal {
+  0% { opacity: 0; transform: translateY(8px); filter: blur(4px); }
+  100% { opacity: 1; transform: translateY(0); filter: blur(0); }
+}
+
+@keyframes phone-card-breathe {
+  0%, 100% { transform: translateY(0); box-shadow: 0 10px 24px -18px oklch(0.76 0.13 178 / 0.45); }
+  50% { transform: translateY(-3px); box-shadow: 0 16px 28px -18px oklch(0.76 0.13 178 / 0.7); }
+}
+
+@keyframes phone-line-shimmer {
+  0%, 100% { opacity: 0.35; transform: scaleX(0.92); transform-origin: left; }
+  50% { opacity: 0.75; transform: scaleX(1); transform-origin: left; }
+}
+
 .animate-phone-float {
   animation: phone-float 6s ease-in-out infinite;
+}
+
+.phone-content-reveal {
+  animation: phone-content-reveal 0.8s cubic-bezier(0.22, 1, 0.36, 1) both;
+}
+
+.phone-content-reveal-delay {
+  animation-delay: 180ms;
+}
+
+.phone-card-breathe {
+  animation: phone-card-breathe 4.8s ease-in-out 0.8s infinite;
+  will-change: transform, box-shadow;
+}
+
+.phone-line-shimmer {
+  animation: phone-line-shimmer 3.6s ease-in-out 1.1s infinite;
+}
+
+.phone-line-shimmer-delay {
+  animation-delay: 1.35s;
 }
 
 .phone-card-enter {
@@ -324,8 +360,11 @@ body {
     transition-duration: 0.01ms !important;
     scroll-behavior: auto !important;
   }
-  .reveal, .phone-card-enter {
+  .reveal, .phone-card-enter, .phone-content-reveal {
     opacity: 1 !important;
+    animation: none !important;
+  }
+  .phone-card-breathe, .phone-line-shimmer {
     animation: none !important;
   }
 }

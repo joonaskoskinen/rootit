@@ -165,18 +165,18 @@ export const PhoneMockup = forwardRef<PhoneMockupRef>(function PhoneMockup(_, re
               {/* Sliding container */}
               <div className="relative flex flex-1 flex-col overflow-hidden px-5">
                   <div className="flex flex-1 flex-col justify-center px-1 pt-4">
-                    <div className="mb-3 text-center text-[10px] font-semibold uppercase tracking-[0.16em] text-primary">
+                    <div className="phone-content-reveal mb-3 text-center text-[10px] font-semibold uppercase tracking-[0.16em] text-primary">
                       rootIT
                     </div>
-                    <div className="rounded-2xl border border-white/10 bg-white/[0.06] p-4 shadow-lg">
+                    <div className="phone-card-breathe rounded-2xl border border-white/10 bg-white/[0.06] p-4 shadow-lg">
                       <div className="flex items-center justify-between text-[8px] text-white/60">
                         <span className="font-semibold">Selkeä sivu</span>
                         <span className="text-primary">Palvelut</span>
                       </div>
                       <div className="mt-3 rounded-xl bg-primary/15 p-3">
-                        <p className="text-[15px] font-semibold leading-tight">Sivu, joka tekee asioinnista helppoa.</p>
-                        <div className="mt-3 h-1.5 w-2/3 rounded-full bg-white/20" />
-                        <div className="mt-2 h-1.5 w-1/2 rounded-full bg-white/10" />
+                        <p className="phone-content-reveal phone-content-reveal-delay text-[15px] font-semibold leading-tight">Sivu, joka tekee asioinnista helppoa.</p>
+                        <div className="phone-line-shimmer mt-3 h-1.5 w-2/3 rounded-full bg-white/20" />
+                        <div className="phone-line-shimmer phone-line-shimmer-delay mt-2 h-1.5 w-1/2 rounded-full bg-white/10" />
                       </div>
                     </div>
                   </div>
