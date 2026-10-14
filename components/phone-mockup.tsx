@@ -27,8 +27,6 @@ export const PhoneMockup = forwardRef<PhoneMockupRef>(function PhoneMockup(_, re
   const [description, setDescription] = useState("")
   const [error, setError] = useState<string | null>(null)
   const [currentTime, setCurrentTime] = useState<string>("")
-  const swipeStartRef = useRef<{ x: number; y: number } | null>(null)
-
   useImperativeHandle(ref, () => ({
     openForm: () => setShowForm(true),
   }))
@@ -64,24 +62,6 @@ export const PhoneMockup = forwardRef<PhoneMockupRef>(function PhoneMockup(_, re
   const handlePointerLeave = () => {
     setIsHovering(false)
     setTilt({ x: 0, y: 0 })
-  }
-
-  const handleTouchStart = (e: PointerEvent<HTMLDivElement>) => {
-    if (e.pointerType === "mouse") return
-    swipeStartRef.current = { x: e.clientX, y: e.clientY }
-  }
-
-  const handleTouchEnd = (e: PointerEvent<HTMLDivElement>) => {
-    const start = swipeStartRef.current
-    swipeStartRef.current = null
-    if (!start || e.pointerType === "mouse") return
-
-    const deltaX = e.clientX - start.x
-    const deltaY = e.clientY - start.y
-    if (Math.abs(deltaX) < 56 || Math.abs(deltaX) < Math.abs(deltaY) * 1.2) return
-
-    if (deltaX > 0 && !showForm) setShowForm(true)
-    if (deltaX < 0 && showForm) handleBack()
   }
 
   useEffect(() => {
@@ -157,10 +137,8 @@ export const PhoneMockup = forwardRef<PhoneMockupRef>(function PhoneMockup(_, re
 
             {/* Screen */}
 <div
-                className="relative flex min-h-[600px] touch-pan-y flex-col overflow-hidden rounded-[1.7rem] bg-gradient-to-b from-[#12151e] to-[#0b0d13] text-white sm:min-h-[640px] sm:rounded-[2rem]"
-                onPointerDown={handleTouchStart}
-                onPointerUp={handleTouchEnd}
-                aria-label="Puhelinmockup. Pyyhkäise oikealle avataksesi lomakkeen."
+                className="relative flex min-h-[600px] flex-col overflow-hidden rounded-[1.7rem] bg-gradient-to-b from-[#12151e] to-[#0b0d13] text-white sm:min-h-[640px] sm:rounded-[2rem]"
+                aria-label="Puhelinmockup"
               >
               {/* Dynamic Island */}
               <div className="absolute left-1/2 top-2.5 z-20 flex h-[25px] w-[94px] -translate-x-1/2 items-center justify-end rounded-full bg-black px-2 shadow-[inset_0_0_0_1px_rgba(255,255,255,0.08)] sm:top-3 sm:h-[27px] sm:w-[104px]">
