@@ -26,11 +26,11 @@ const caveat = Caveat({
 
 export const metadata: Metadata = {
   title: {
-    default: 'rootIT – verkkosivut, jotka kasvavat mukana',
+    default: 'rootIT – selkeät verkkosivut projektillesi',
     template: '%s | rootIT',
   },
   description:
-    'rootIT suunnittelee, uudistaa ja ylläpitää selkeitä verkkosivuja yrityksille, yhdistyksille ja asiantuntijoille. Pyydä ilmainen sivustoarvio.',
+    'rootIT suunnittelee, toteuttaa ja ylläpitää selkeitä verkkosivuja yrityksille, yhdistyksille, asiantuntijoille ja kaikille, jotka tarvitsevat uudet verkkosivut tai haluavat parantaa nykyisiä.',
   generator: 'JK',
   applicationName: 'rootIT',
   keywords: [
@@ -53,13 +53,13 @@ export const metadata: Metadata = {
     locale: 'fi_FI',
     url: '/',
     siteName: 'rootIT',
-    title: 'rootIT – verkkosivut, jotka kasvavat mukana',
+    title: 'rootIT – selkeät verkkosivut projektillesi',
     description:
       'rootIT suunnittelee, uudistaa ja ylläpitää selkeitä verkkosivuja yrityksille, yhdistyksille ja asiantuntijoille. Pyydä ilmainen sivustoarvio.',
   },
   twitter: {
     card: 'summary_large_image',
-    title: 'rootIT – verkkosivut, jotka kasvavat mukana',
+    title: 'rootIT – selkeät verkkosivut projektillesi',
     description:
       'rootIT suunnittelee, uudistaa ja ylläpitää selkeitä verkkosivuja yrityksille, yhdistyksille ja asiantuntijoille. Pyydä ilmainen sivustoarvio.',
   },
@@ -97,16 +97,16 @@ const structuredData = {
       '@id': `${BASE_URL}/#organization`,
       name: 'Rootit',
       description:
-        'Rootit suunnittelee ja ylläpitää selkeitä verkkosivuja yrityksille, yhdistyksille ja asiantuntijoille. Palveluun kuuluu myös yksittäisiä verkkosivujen korjauksia ilman kuukausimaksua.',
+        'Rootit suunnittelee, toteuttaa ja ylläpitää verkkosivuja yrityksille, yhdistyksille, asiantuntijoille ja kaikille, jotka tarvitsevat uudet verkkosivut tai haluavat parantaa nykyisiä.',
       url: BASE_URL,
       email: 'mailto:rootit.info@gmail.com',
       areaServed: { '@type': 'Country', name: 'Finland' },
       priceRange: '€€',
       serviceType: [
-        'Verkkosivut pienyrityksille',
+        'Verkkosivujen suunnittelu',
+        'Verkkosivujen toteutus',
+        'Verkkosivujen uudistus',
         'Verkkosivujen ylläpito',
-        'Verkkosivujen korjaus',
-        'Kotisivut yritykselle',
         'Sivustoarvio',
       ],
       knowsLanguage: ['fi'],
@@ -116,7 +116,7 @@ const structuredData = {
       '@id': `${BASE_URL}/#website`,
       url: BASE_URL,
       name: 'Rootit',
-      description: 'Selkeämmät verkkosivut pienyrityksille',
+      description: 'Selkeät verkkosivut projektillesi',
       publisher: { '@id': `${BASE_URL}/#organization` },
       inLanguage: 'fi',
     },

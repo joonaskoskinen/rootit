@@ -29,7 +29,7 @@ export function Hero() {
             Selkeät verkkosivut projektillesi.
           </h1>
           <p className="mt-5 max-w-xl text-pretty text-base leading-relaxed text-muted-foreground sm:text-lg">
-            Suunnittelen, uudistan ja ylläpidän selkeitä verkkosivuja yrityksille, yhdistyksille ja asiantuntijoille — koosta riippumatta.
+            Suunnittelen, toteutan ja ylläpidän verkkosivuja, jotka tekevät palveluistasi selkeitä ja yhteydenotosta helppoa.
           </p>
           <ul className="mt-7 flex flex-col gap-2.5">
             {BULLETS.map((bullet) => <li key={bullet} className="flex items-start gap-3 text-base text-foreground"><Check className="mt-0.5 size-4 shrink-0 text-primary" />{bullet}</li>)}
