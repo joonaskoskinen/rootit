@@ -32,6 +32,10 @@ const FAQS = [
     a: "Aikataulu riippuu työn laajuudesta. Sovimme siitä etukäteen, kun tiedämme mitä sivulla pitää tehdä.",
   },
   {
+    q: "Voinko muokata verkkosivujeni sisältöä itse?",
+    a: "Kyllä! Verkkosivut voidaan toteuttaa tarpeidesi mukaan. Ylläpitopalvelussa huolehdin sivuston teknisestä ylläpidosta, ja voit pyytää minulta sisältömuutoksia tarpeen mukaan. Jos haluat muokata sisältöjä itse, sivustoon voidaan lisätä erillinen sisällönhallintajärjestelmä (CMS). Sen käyttöönotto ja asennus hinnoitellaan erikseen, ja saat käyttöösi helpon hallintanäkymän esimerkiksi tekstien ja kuvien päivittämiseen. Käydään yhdessä läpi, kumpi vaihtoehto sopii parhaiten projektillesi.",
+  },
+  {
     q: "Kirjoitatteko myös tekstit?",
     a: "Kyllä. Autan selkeyttämään otsikot ja tärkeimmät tekstit niin, että asiakas ymmärtää nopeasti mitä tarjoat. Sinä tunnet alasi — minä autan sanomaan sen selkeästi ja toimintaan ohjaavasti.",
   },
