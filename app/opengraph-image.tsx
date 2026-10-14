@@ -1,6 +1,6 @@
 import { ImageResponse } from "next/og"
 
-export const alt = "rootIT – selkeät verkkosivut pienyrityksille"
+export const alt = "rootIT – verkkosivut, jotka kasvavat mukana"
 export const size = { width: 1200, height: 630 }
 export const contentType = "image/png"
 
@@ -24,7 +24,7 @@ export default function OpenGraphImage() {
       </div>
       <div style={{ display: "flex", flexDirection: "column", gap: 22, maxWidth: 900 }}>
         <div style={{ display: "flex", fontSize: 64, lineHeight: 1.08, fontWeight: 700 }}>
-          Selkeät verkkosivut pienyrityksille.
+          Verkkosivut, jotka kasvavat mukana.
         </div>
         <div style={{ display: "flex", fontSize: 28, color: "#aeb8c8" }}>
           Ylläpito ja pienet muutokset samassa palvelussa.

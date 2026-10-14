@@ -25,11 +25,15 @@ const FAQS = [
   },
   {
     q: "Kenelle tämä palvelu sopii?",
-    a: "Pienille yrityksille, joiden nykyinen verkkosivu on vanha, sekava tai toimii mobiilissa huonosti. Palvelu sopii erityisesti paikallisille palveluyrityksille.",
+    a: "Kaikille, jotka tarvitsevat uudet verkkosivut tai haluavat parantaa nykyisiä sivujaan. Autan selkeyttämään sisältöä, uudistamaan ilmettä ja tekemään sivustosta toimivamman niin yrityksille, yhdistyksille, asiantuntijoille kuin organisaatioillekin.",
   },
   {
     q: "Kauan verkkosivujen tekeminen tai korjaus kestää?",
     a: "Aikataulu riippuu työn laajuudesta. Sovimme siitä etukäteen, kun tiedämme mitä sivulla pitää tehdä.",
+  },
+  {
+    q: "Voinko muokata verkkosivujeni sisältöä itse?",
+    a: "Kyllä! Verkkosivut voidaan toteuttaa tarpeidesi mukaan. Ylläpitopalvelussa huolehdin sivuston teknisestä ylläpidosta, ja voit pyytää minulta sisältömuutoksia tarpeen mukaan. Jos haluat muokata sisältöjä itse, sivustoon voidaan lisätä erillinen sisällönhallintajärjestelmä (CMS). Sen käyttöönotto ja asennus hinnoitellaan erikseen, ja saat käyttöösi helpon hallintanäkymän esimerkiksi tekstien ja kuvien päivittämiseen. Käydään yhdessä läpi, kumpi vaihtoehto sopii parhaiten projektillesi.",
   },
   {
     q: "Kirjoitatteko myös tekstit?",

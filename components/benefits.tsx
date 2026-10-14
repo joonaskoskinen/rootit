@@ -15,7 +15,7 @@ const BENEFITS = [
   },
   {
     title: "Ei suurta kertamaksua",
-    desc: "Kuukausipalvelu tekee verkkosivuista helpommin hankittavat pienyritykselle.",
+    desc: "Joustava palvelu sopii niin uudelle yritykselle kuin kasvavalle organisaatiolle.",
   },
 ]
 

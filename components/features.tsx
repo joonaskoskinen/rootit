@@ -65,8 +65,7 @@ export function Features() {
           {/* SEO intro text */}
           <p className="mx-auto mt-4 max-w-3xl text-sm leading-relaxed text-muted-foreground/80">
             Tarjoan IT-tukea etänä koko Suomeen. Palveluihini kuuluvat verkkosivujen korjaukset ja uudistukset, 
-            WordPress-apu, domain- ja DNS-ongelmat sekä sähköpostiasetukset. Sopii pienyrityksille, yrittäjille, 
-            yhdistyksille ja yksityishenkilöille.
+            WordPress-apu, domain- ja DNS-ongelmat sekä sähköpostiasetukset. Sopii yrityksille, yrittäjille, yhdistyksille, asiantuntijoille ja organisaatioille.
           </p>
         </div>
 
