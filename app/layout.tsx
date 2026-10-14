@@ -2,6 +2,7 @@ import type { Metadata, Viewport } from 'next'
 import { Caveat, Inter, Space_Grotesk } from 'next/font/google'
 import { Analytics } from '@vercel/analytics/next'
 import { LanguageProvider } from '@/lib/language-context'
+import { CookieConsent } from '@/components/cookie-consent'
 import './globals.css'
 
 const BASE_URL = 'https://rootit.fi'
@@ -138,6 +139,7 @@ export default function RootLayout({
       </head>
       <body className={`${inter.variable} ${spaceGrotesk.variable} ${caveat.variable} font-sans`}>
         <LanguageProvider>{children}</LanguageProvider>
+        <CookieConsent />
         <Analytics />
       </body>
     </html>
