@@ -53,7 +53,7 @@ export const PhoneMockup = forwardRef<PhoneMockupRef>(function PhoneMockup(_, re
     const rect = el.getBoundingClientRect()
     const px = (e.clientX - rect.left) / rect.width
     const py = (e.clientY - rect.top) / rect.height
-    setTilt({ x: (0.5 - py) * 8, y: (px - 0.5) * 9 })
+    setTilt({ x: (0.5 - py) * 3, y: (px - 0.5) * 4 })
   }
   const handlePointerEnter = (e: PointerEvent<HTMLDivElement>) => {
     if (e.pointerType === "touch") return
@@ -118,13 +118,13 @@ export const PhoneMockup = forwardRef<PhoneMockupRef>(function PhoneMockup(_, re
         onPointerLeave={handlePointerLeave}
         className="relative transition-transform duration-200 ease-out [transform-style:preserve-3d] will-change-transform"
         style={{
-          transform: `rotateX(${tilt.x}deg) rotateY(${tilt.y}deg) scale(${isHovering ? 1.015 : 1})`,
+          transform: `rotateX(${tilt.x}deg) rotateY(${tilt.y}deg) scale(${isHovering ? 1.005 : 1})`,
         }}
       >
         <div className="animate-phone-float">
           {/* iPhone-style frame */}
           <div
-            className="relative w-full rounded-[2.2rem] bg-gradient-to-br from-[#6d7076] via-[#24262b] to-[#111216] p-[3px] shadow-[0_22px_32px_-24px_rgba(5,8,18,0.7),inset_0_0_0_1px_rgba(255,255,255,0.28)] sm:rounded-[2.5rem] sm:p-[4px]"
+            className="relative w-full rounded-[2.2rem] bg-gradient-to-br from-[#6d7076] via-[#24262b] to-[#111216] p-[3px] shadow-[0_22px_32px_-24px_rgba(5,8,18,0.7),inset_0_0_0_1px_rgba(255,255,255,0.28)] transition-[box-shadow] duration-500 ease-out hover:shadow-[0_25px_38px_-26px_rgba(5,8,18,0.78),inset_0_0_0_1px_rgba(255,255,255,0.34)] sm:rounded-[2.5rem] sm:p-[4px]"
             style={{ transform: "translateZ(30px)" }}
           >
             {/* Side controls */}
