@@ -29,7 +29,7 @@ const FAQS = [
   },
   {
     q: "Kauan verkkosivujen tekeminen tai korjaus kestää?",
-    a: "Aikataulu riippuu työn laajuudesta. Sovimme siitä etukäteen, kun tiedämme mitä sivulla pitää tehdä.",
+    a: "Aikataulu riippuu työn laajuudesta. Täysin uusien verkkosivujen ensimmäinen demo-versio valmistuu yleensä viikossa. Sen jälkeen kysyn sinulta suoraan parannusehdotuksia ja hiomme sivustoa yhdessä eteenpäin. Pienemmät korjaukset hoituvat usein nopeammin, ja sovimme aikataulusta aina etukäteen.",
   },
   {
     q: "Voinko muokata verkkosivujeni sisältöä itse?",
@@ -50,7 +50,7 @@ const FAQS = [
   },
   {
     q: "Toimiiko tämä, jos suurin osa liikenteestä tulee mobiilista?",
-    a: "Kyllä. Käyn läpi erityisesti tekstien koon, painikkeet, rakenteen ja tärkeimmät toiminnot puhelimen näkökulmasta.",
+    a: "Kyllä — ja erityisesti mobiililiikenteeseen. Iso osa ihmisistä selaa verkkosivuja nykyään puhelimella, joten käyn läpi tekstien koon, painikkeet, rakenteen ja tärkeimmät toiminnot ensisijaisesti puhelimen näkökulmasta.",
   },
 ]
 
