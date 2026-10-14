@@ -26,16 +26,16 @@ const caveat = Caveat({
 
 export const metadata: Metadata = {
   title: {
-    default: 'rootIT – selkeät verkkosivut pienyrityksille',
+    default: 'rootIT – verkkosivut, jotka kasvavat mukana',
     template: '%s | rootIT',
   },
   description:
-    'rootIT tekee ja ylläpitää selkeitä verkkosivuja pienyrityksille. Pyydä ilmainen sivustoarvio ja päätä itse, etenetkö.',
+    'rootIT suunnittelee, uudistaa ja ylläpitää selkeitä verkkosivuja yrityksille, yhdistyksille ja asiantuntijoille. Pyydä ilmainen sivustoarvio.',
   generator: 'JK',
   applicationName: 'rootIT',
   keywords: [
     'verkkosivujen parannus',
-    'pienyrityksen verkkosivut',
+    'yrityksen verkkosivut',
     'sivuston konversio',
     'verkkosivujen selkeytys',
     'sivustoarvio',
@@ -53,15 +53,15 @@ export const metadata: Metadata = {
     locale: 'fi_FI',
     url: '/',
     siteName: 'rootIT',
-    title: 'rootIT – selkeät verkkosivut pienyrityksille',
+    title: 'rootIT – verkkosivut, jotka kasvavat mukana',
     description:
-      'rootIT tekee ja ylläpitää selkeitä verkkosivuja pienyrityksille. Pyydä ilmainen sivustoarvio ja päätä itse, etenetkö.',
+      'rootIT suunnittelee, uudistaa ja ylläpitää selkeitä verkkosivuja yrityksille, yhdistyksille ja asiantuntijoille. Pyydä ilmainen sivustoarvio.',
   },
   twitter: {
     card: 'summary_large_image',
-    title: 'rootIT – selkeät verkkosivut pienyrityksille',
+    title: 'rootIT – verkkosivut, jotka kasvavat mukana',
     description:
-      'rootIT tekee ja ylläpitää selkeitä verkkosivuja pienyrityksille. Pyydä ilmainen sivustoarvio ja päätä itse, etenetkö.',
+      'rootIT suunnittelee, uudistaa ja ylläpitää selkeitä verkkosivuja yrityksille, yhdistyksille ja asiantuntijoille. Pyydä ilmainen sivustoarvio.',
   },
   robots: {
     index: true,
@@ -97,7 +97,7 @@ const structuredData = {
       '@id': `${BASE_URL}/#organization`,
       name: 'Rootit',
       description:
-        'Rootit tekee pienyrityksille selkeät verkkosivut ja huolehtii niiden ylläpidosta. Palveluun kuuluu myös yksittäisiä verkkosivujen korjauksia ilman kuukausimaksua.',
+        'Rootit suunnittelee ja ylläpitää selkeitä verkkosivuja yrityksille, yhdistyksille ja asiantuntijoille. Palveluun kuuluu myös yksittäisiä verkkosivujen korjauksia ilman kuukausimaksua.',
       url: BASE_URL,
       email: 'mailto:rootit.info@gmail.com',
       areaServed: { '@type': 'Country', name: 'Finland' },

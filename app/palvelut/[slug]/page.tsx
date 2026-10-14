@@ -9,14 +9,14 @@ const BASE_URL = 'https://rootit.fi'
 
 const services = {
   'verkkosivut-pienyritykselle': {
-    title: 'Verkkosivut pienyritykselle',
-    description: 'Selkeät, modernit ja mobiiliystävälliset verkkosivut pienyritykselle ilman turhaa monimutkaisuutta.',
+    title: 'Verkkosivut yritykselle',
+    description: 'Selkeät, modernit ja mobiiliystävälliset verkkosivut yrityksille, yhdistyksille ja asiantuntijoille.',
     intro: 'Yrityksesi tarvitsee verkkosivut, jotka kertovat nopeasti mitä tarjoat ja miten sinuun saa yhteyden. Rakennan sivuston, joka näyttää hyvältä, toimii puhelimella ja on helppo pitää ajan tasalla.',
     points: ['Selkeä rakenne ja tekstit', 'Mobiiliystävällinen toteutus', 'Yhteydenottoon ohjaavat sivut', 'Tekninen ylläpito saatavilla'],
   },
   'verkkosivujen-yllapito': {
     title: 'Verkkosivujen ylläpito',
-    description: 'Verkkosivujen tekninen ylläpito ja pienet muutokset pienyrityksille alk. 29 € + alv / kk.',
+    description: 'Verkkosivujen tekninen ylläpito ja pienet muutokset alk. 29 € + alv / kk.',
     intro: 'Sinun ei tarvitse käyttää aikaa päivityksiin, korjauksiin tai pieniin sisältömuutoksiin. Huolehdin sovitusti verkkosivustosi toimivuudesta ja pidän sisällön ajan tasalla.',
     points: ['Alk. 29 € + alv / kk', 'Tekninen ylläpito', 'Pienet sisältömuutokset', 'Joustava palvelu ilman suurta aloitusmaksua'],
   },
@@ -41,7 +41,7 @@ export async function generateMetadata({ params }: { params: Promise<{ slug: str
   return {
     title: `${service.title} | Rootit`,
     description: service.description,
-    keywords: [service.title.toLowerCase(), 'verkkosivut pienyritykselle', 'Rootit'],
+    keywords: [service.title.toLowerCase(), 'verkkosivut yritykselle', 'Rootit'],
     alternates: { canonical: `${BASE_URL}/palvelut/${slug}` },
     openGraph: {
       title: `${service.title} | Rootit`,
