@@ -10,6 +10,7 @@ import {
 } from "react"
 import { ArrowLeft, ArrowRight, Loader2, CheckCircle2 } from "lucide-react"
 import { cn } from "@/lib/utils"
+import { useInView } from "@/hooks/use-in-view"
 
 export interface PhoneMockupRef {
   openForm: () => void
@@ -27,6 +28,16 @@ export const PhoneMockup = forwardRef<PhoneMockupRef>(function PhoneMockup(_, re
   const [description, setDescription] = useState("")
   const [error, setError] = useState<string | null>(null)
   const [currentTime, setCurrentTime] = useState<string>("")
+  const [reducedMotion, setReducedMotion] = useState(false)
+  const { ref: revealRef, isInView } = useInView({ threshold: 0.2 })
+
+  useEffect(() => {
+    const mediaQuery = window.matchMedia("(prefers-reduced-motion: reduce)")
+    const updateMotionPreference = () => setReducedMotion(mediaQuery.matches)
+    updateMotionPreference()
+    mediaQuery.addEventListener("change", updateMotionPreference)
+    return () => mediaQuery.removeEventListener("change", updateMotionPreference)
+  }, [])
   useImperativeHandle(ref, () => ({
     openForm: () => setShowForm(true),
   }))
@@ -110,7 +121,7 @@ export const PhoneMockup = forwardRef<PhoneMockupRef>(function PhoneMockup(_, re
   }
 
   return (
-    <div className="relative w-full max-w-[320px] [perspective:1400px] sm:max-w-[350px]">
+    <div ref={revealRef} className="relative w-full max-w-[320px] [perspective:1400px] sm:max-w-[350px]">
       <div
         ref={tiltRef}
         onPointerMove={handlePointerMove}
@@ -121,8 +132,9 @@ export const PhoneMockup = forwardRef<PhoneMockupRef>(function PhoneMockup(_, re
           transform: `rotateX(${tilt.x}deg) rotateY(${tilt.y}deg) scale(${isHovering ? 1.005 : 1})`,
         }}
       >
-        <div className="animate-phone-float">
+        <div className="animate-phone-float [transform-style:preserve-3d]">
           {/* iPhone-style frame */}
+          <div className={cn("relative [transform-style:preserve-3d]", isInView && !reducedMotion && "phone-intro-rotate")}>
           <div
             className="relative w-full rounded-[2.2rem] bg-gradient-to-br from-[#6d7076] via-[#24262b] to-[#111216] p-[3px] shadow-[0_22px_32px_-24px_rgba(5,8,18,0.7),inset_0_0_0_1px_rgba(255,255,255,0.28)] transition-[box-shadow] duration-500 ease-out hover:shadow-[0_25px_38px_-26px_rgba(5,8,18,0.78),inset_0_0_0_1px_rgba(255,255,255,0.34)] sm:rounded-[2.5rem] sm:p-[4px]"
             style={{ transform: "translateZ(30px)" }}
@@ -324,10 +336,29 @@ export const PhoneMockup = forwardRef<PhoneMockupRef>(function PhoneMockup(_, re
                 <div className="h-1 w-24 rounded-full bg-foreground/15" />
               </div>
             </div>
+            </div>
+          </div>
+          <div
+            className="pointer-events-none absolute inset-0 overflow-hidden rounded-[2.2rem] border border-white/20 bg-gradient-to-br from-[#74777d] via-[#24262b] to-[#111216] p-[3px] shadow-[0_22px_32px_-24px_rgba(5,8,18,0.7),inset_0_0_0_1px_rgba(255,255,255,0.28)] [backface-visibility:hidden] [transform:rotateY(180deg)_translateZ(30px)] sm:rounded-[2.5rem] sm:p-[4px]"
+            aria-hidden="true"
+          >
+            <div className="relative flex size-full min-h-[600px] flex-col overflow-hidden rounded-[1.95rem] bg-gradient-to-br from-[#30343a] via-[#17191e] to-[#0d0f13] sm:min-h-[640px] sm:rounded-[2.15rem]">
+              <div className="absolute -right-2.5 top-7 size-[116px] rounded-[2rem] border border-white/15 bg-[#252930] p-3 shadow-[inset_0_1px_2px_rgba(255,255,255,0.18),0_12px_24px_-16px_rgba(0,0,0,0.9)] sm:-right-3 sm:top-9 sm:size-[132px] sm:rounded-[2.2rem] sm:p-3.5">
+                <div className="grid size-full grid-cols-2 gap-2 rounded-[1.45rem] border border-black/30 bg-[#1b1e24] p-2 shadow-[inset_0_1px_2px_rgba(255,255,255,0.1)] sm:rounded-[1.7rem] sm:p-2.5">
+                  <span className="size-10 rounded-full border-2 border-[#555a63] bg-[radial-gradient(circle_at_35%_30%,#69717c_0_9%,#11141a_37%,#050608_72%)] shadow-[inset_0_0_0_2px_#08090b,0_1px_2px_rgba(255,255,255,0.2)] sm:size-12" />
+                  <span className="size-10 rounded-full border-2 border-[#555a63] bg-[radial-gradient(circle_at_35%_30%,#69717c_0_9%,#11141a_37%,#050608_72%)] shadow-[inset_0_0_0_2px_#08090b,0_1px_2px_rgba(255,255,255,0.2)] sm:size-12" />
+                  <span className="size-10 rounded-full border-2 border-[#555a63] bg-[radial-gradient(circle_at_35%_30%,#69717c_0_9%,#11141a_37%,#050608_72%)] shadow-[inset_0_0_0_2px_#08090b,0_1px_2px_rgba(255,255,255,0.2)] sm:size-12" />
+                  <span className="m-auto size-3 rounded-full bg-[#d7ddd9]/70 shadow-[0_0_8px_2px_rgba(215,221,217,0.18)]" />
+                </div>
+              </div>
+              <div className="absolute inset-x-10 top-1/2 h-px bg-gradient-to-r from-transparent via-white/10 to-transparent" />
+              <div className="absolute bottom-12 left-1/2 h-1 w-20 -translate-x-1/2 rounded-full bg-white/10" />
+              <span className="absolute bottom-8 left-1/2 -translate-x-1/2 text-[8px] font-medium tracking-[0.28em] text-white/20">rootIT</span>
+            </div>
+          </div>
           </div>
         </div>
       </div>
     </div>
-  </div>
   )
 })
