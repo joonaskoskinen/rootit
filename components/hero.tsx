@@ -26,7 +26,7 @@ export function Hero() {
         <div className="order-1 lg:order-1">
           <p className="text-sm font-medium tracking-wide text-primary">rootIT · verkkosivut ilman turhaa säätöä</p>
           <h1 className="mt-4 max-w-3xl text-balance text-4xl font-semibold leading-[1.08] tracking-tight text-foreground sm:text-5xl lg:text-6xl">
-            Selkeämpi sivu. Enemmän yhteydenottoja.
+            Selkeät verkkosivut projektillesi.
           </h1>
           <p className="mt-5 max-w-xl text-pretty text-base leading-relaxed text-muted-foreground sm:text-lg">
             Suunnittelen, uudistan ja ylläpidän selkeitä verkkosivuja yrityksille, yhdistyksille ja asiantuntijoille — koosta riippumatta.
