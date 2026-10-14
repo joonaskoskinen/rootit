@@ -24,9 +24,9 @@ export function Hero() {
       <div className="pointer-events-none absolute inset-0 z-0 bg-background/70" aria-hidden="true" />
       <div className="relative z-10 mx-auto grid w-full min-w-0 max-w-6xl items-center gap-12 px-5 pb-16 pt-10 sm:pb-20 sm:pt-14 lg:grid-cols-[minmax(0,1fr)_380px] lg:gap-12 lg:px-8 lg:pb-28 lg:pt-20">
         <div className="order-1 lg:order-1">
-          <p className="text-sm font-medium tracking-wide text-primary">rootIT · digitaaliset kokemukset ilman turhaa säätöä</p>
+          <p className="text-sm font-medium tracking-wide text-primary">rootIT · verkkosivut ilman turhaa säätöä</p>
           <h1 className="mt-4 max-w-3xl text-balance text-4xl font-semibold leading-[1.08] tracking-tight text-foreground sm:text-5xl lg:text-6xl">
-            Verkkosivut, jotka kasvavat mukana.
+            Selkeämpi sivu. Enemmän yhteydenottoja.
           </h1>
           <p className="mt-5 max-w-xl text-pretty text-base leading-relaxed text-muted-foreground sm:text-lg">
             Suunnittelen, uudistan ja ylläpidän selkeitä verkkosivuja yrityksille, yhdistyksille ja asiantuntijoille — koosta riippumatta.

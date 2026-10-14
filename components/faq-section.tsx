@@ -25,7 +25,7 @@ const FAQS = [
   },
   {
     q: "Kenelle tämä palvelu sopii?",
-    a: "Pienille yrityksille, joiden nykyinen verkkosivu on vanha, sekava tai toimii mobiilissa huonosti. Palvelu sopii erityisesti paikallisille palveluyrityksille.",
+    a: "Kaikille, jotka tarvitsevat uudet verkkosivut tai haluavat parantaa nykyisiä sivujaan. Autan selkeyttämään sisältöä, uudistamaan ilmettä ja tekemään sivustosta toimivamman niin yrityksille, yhdistyksille, asiantuntijoille kuin organisaatioillekin.",
   },
   {
     q: "Kauan verkkosivujen tekeminen tai korjaus kestää?",
