@@ -195,8 +195,8 @@ body {
 }
 
 @keyframes phone-card-breathe {
-  0%, 100% { transform: translateY(0); box-shadow: 0 10px 24px -18px oklch(0.76 0.13 178 / 0.45); }
-  50% { transform: translateY(-3px); box-shadow: 0 16px 28px -18px oklch(0.76 0.13 178 / 0.7); }
+  0%, 100% { transform: translateY(0); box-shadow: 0 10px 24px -18px oklch(0.76 0.13 178 / 0.18); }
+  50% { transform: translateY(-2px); box-shadow: 0 13px 24px -18px oklch(0.76 0.13 178 / 0.28); }
 }
 
 @keyframes phone-line-shimmer {
