@@ -27,7 +27,6 @@ export const PhoneMockup = forwardRef<PhoneMockupRef>(function PhoneMockup(_, re
   const [description, setDescription] = useState("")
   const [error, setError] = useState<string | null>(null)
   const [currentTime, setCurrentTime] = useState<string>("")
-
   useImperativeHandle(ref, () => ({
     openForm: () => setShowForm(true),
   }))
@@ -54,7 +53,7 @@ export const PhoneMockup = forwardRef<PhoneMockupRef>(function PhoneMockup(_, re
     const rect = el.getBoundingClientRect()
     const px = (e.clientX - rect.left) / rect.width
     const py = (e.clientY - rect.top) / rect.height
-    setTilt({ x: (0.5 - py) * 8, y: (px - 0.5) * 9 })
+    setTilt({ x: (0.5 - py) * 3, y: (px - 0.5) * 4 })
   }
   const handlePointerEnter = (e: PointerEvent<HTMLDivElement>) => {
     if (e.pointerType === "touch") return
@@ -119,13 +118,13 @@ export const PhoneMockup = forwardRef<PhoneMockupRef>(function PhoneMockup(_, re
         onPointerLeave={handlePointerLeave}
         className="relative transition-transform duration-200 ease-out [transform-style:preserve-3d] will-change-transform"
         style={{
-          transform: `rotateX(${tilt.x}deg) rotateY(${tilt.y}deg) scale(${isHovering ? 1.015 : 1})`,
+          transform: `rotateX(${tilt.x}deg) rotateY(${tilt.y}deg) scale(${isHovering ? 1.005 : 1})`,
         }}
       >
         <div className="animate-phone-float">
           {/* iPhone-style frame */}
           <div
-            className="relative w-full rounded-[2.2rem] bg-gradient-to-br from-[#6d7076] via-[#24262b] to-[#111216] p-[3px] shadow-[0_22px_32px_-24px_rgba(5,8,18,0.7),inset_0_0_0_1px_rgba(255,255,255,0.28)] sm:rounded-[2.5rem] sm:p-[4px]"
+            className="relative w-full rounded-[2.2rem] bg-gradient-to-br from-[#6d7076] via-[#24262b] to-[#111216] p-[3px] shadow-[0_22px_32px_-24px_rgba(5,8,18,0.7),inset_0_0_0_1px_rgba(255,255,255,0.28)] transition-[box-shadow] duration-500 ease-out hover:shadow-[0_25px_38px_-26px_rgba(5,8,18,0.78),inset_0_0_0_1px_rgba(255,255,255,0.34)] sm:rounded-[2.5rem] sm:p-[4px]"
             style={{ transform: "translateZ(30px)" }}
           >
             {/* Side controls */}
@@ -137,7 +136,10 @@ export const PhoneMockup = forwardRef<PhoneMockupRef>(function PhoneMockup(_, re
             <div className="pointer-events-none absolute -right-[3px] top-[130px] h-16 w-[3px] rounded-r-full bg-gradient-to-b from-[#aeb1b6] to-[#303238] sm:-right-[4px] sm:top-[150px] sm:h-20" aria-hidden="true" />
 
             {/* Screen */}
-<div className="relative flex min-h-[600px] flex-col overflow-hidden rounded-[1.7rem] bg-gradient-to-b from-[#12151e] to-[#0b0d13] text-white sm:min-h-[640px] sm:rounded-[2rem]">
+<div
+                className="relative flex min-h-[600px] flex-col overflow-hidden rounded-[1.7rem] bg-gradient-to-b from-[#12151e] to-[#0b0d13] text-white sm:min-h-[640px] sm:rounded-[2rem]"
+                aria-label="Puhelinmockup"
+              >
               {/* Dynamic Island */}
               <div className="absolute left-1/2 top-2.5 z-20 flex h-[25px] w-[94px] -translate-x-1/2 items-center justify-end rounded-full bg-black px-2 shadow-[inset_0_0_0_1px_rgba(255,255,255,0.08)] sm:top-3 sm:h-[27px] sm:w-[104px]">
                 <span className="size-2 rounded-full bg-[#11151d] shadow-[inset_0_0_3px_1px_rgba(80,100,140,0.5)]" />
@@ -165,18 +167,18 @@ export const PhoneMockup = forwardRef<PhoneMockupRef>(function PhoneMockup(_, re
               {/* Sliding container */}
               <div className="relative flex flex-1 flex-col overflow-hidden px-5">
                   <div className="flex flex-1 flex-col justify-center px-1 pt-4">
-                    <div className="mb-3 text-center text-[10px] font-semibold uppercase tracking-[0.16em] text-primary">
+                    <div className="phone-content-reveal mb-3 text-center text-[10px] font-semibold uppercase tracking-[0.16em] text-primary">
                       rootIT
                     </div>
-                    <div className="rounded-2xl border border-white/10 bg-white/[0.06] p-4 shadow-lg">
+                    <div className="phone-card-breathe rounded-2xl border border-white/10 bg-white/[0.06] p-4 shadow-lg">
                       <div className="flex items-center justify-between text-[8px] text-white/60">
                         <span className="font-semibold">Selkeä sivu</span>
                         <span className="text-primary">Palvelut</span>
                       </div>
                       <div className="mt-3 rounded-xl bg-primary/15 p-3">
-                        <p className="text-[15px] font-semibold leading-tight">Sivu, joka tekee asioinnista helppoa.</p>
-                        <div className="mt-3 h-1.5 w-2/3 rounded-full bg-white/20" />
-                        <div className="mt-2 h-1.5 w-1/2 rounded-full bg-white/10" />
+                        <p className="phone-content-reveal phone-content-reveal-delay text-[15px] font-semibold leading-tight">Sivu, joka tekee asioinnista helppoa.</p>
+                        <div className="phone-line-shimmer mt-3 h-1.5 w-2/3 rounded-full bg-white/20" />
+                        <div className="phone-line-shimmer phone-line-shimmer-delay mt-2 h-1.5 w-1/2 rounded-full bg-white/10" />
                       </div>
                     </div>
                   </div>
