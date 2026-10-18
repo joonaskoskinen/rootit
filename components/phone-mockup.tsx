@@ -124,7 +124,7 @@ export const PhoneMockup = forwardRef<PhoneMockupRef>(function PhoneMockup(_, re
         <div className="animate-phone-float">
           {/* iPhone-style frame */}
           <div
-            className="relative w-full rounded-[2.2rem] bg-gradient-to-br from-[#6d7076] via-[#24262b] to-[#111216] p-[3px] shadow-[0_22px_32px_-24px_rgba(5,8,18,0.7),inset_0_0_0_1px_rgba(255,255,255,0.28)] transition-[box-shadow] duration-500 ease-out hover:shadow-[0_25px_38px_-26px_rgba(5,8,18,0.78),inset_0_0_0_1px_rgba(255,255,255,0.34)] sm:rounded-[2.5rem] sm:p-[4px]"
+            className="relative w-full rounded-[2.2rem] bg-gradient-to-br from-[#34302d] via-[#171514] to-[#090909] p-[3px] shadow-[0_22px_32px_-24px_rgba(126,76,45,0.42),inset_0_0_0_1px_rgba(255,255,255,0.2)] transition-[box-shadow] duration-500 ease-out hover:shadow-[0_25px_38px_-26px_rgba(126,76,45,0.48),inset_0_0_0_1px_rgba(255,255,255,0.25)] sm:rounded-[2.5rem] sm:p-[4px]"
             style={{ transform: "translateZ(30px)" }}
           >
             {/* Side controls */}
@@ -137,51 +137,53 @@ export const PhoneMockup = forwardRef<PhoneMockupRef>(function PhoneMockup(_, re
 
             {/* Screen */}
 <div
-                className="relative flex min-h-[600px] flex-col overflow-hidden rounded-[1.7rem] bg-gradient-to-b from-[#fff8ed] to-[#f3e6d2] text-foreground sm:min-h-[640px] sm:rounded-[2rem]"
+                className="relative flex min-h-[600px] flex-col overflow-hidden rounded-[1.7rem] bg-[#fff8ed] text-[#171513] sm:min-h-[640px] sm:rounded-[2rem]"
                 aria-label="Puhelinmockup"
               >
               {/* Dynamic Island */}
-              <div className="absolute left-1/2 top-2.5 z-20 flex h-[25px] w-[94px] -translate-x-1/2 items-center justify-end rounded-full bg-black px-2 shadow-[inset_0_0_0_1px_rgba(255,255,255,0.08)] sm:top-3 sm:h-[27px] sm:w-[104px]">
+              <div className="absolute left-1/2 top-2.5 z-20 flex h-[25px] w-[94px] -translate-x-1/2 items-center justify-end rounded-full bg-[#0d0d0d] px-2 shadow-[inset_0_0_0_1px_rgba(255,255,255,0.08)] sm:top-3 sm:h-[27px] sm:w-[104px]">
                 <span className="size-2 rounded-full bg-[#11151d] shadow-[inset_0_0_3px_1px_rgba(80,100,140,0.5)]" />
               </div>
-              <video className="pointer-events-none absolute inset-0 size-full object-cover opacity-[0.1] mix-blend-multiply" autoPlay muted loop playsInline aria-hidden="true">
-
-    <source src="/phone-mockup-video.mp4" type="video/mp4" />
-  </video>
-  <div className="pointer-events-none absolute inset-0 bg-[#fff8ed]/70" aria-hidden="true" />
-  <div className="relative z-10 flex min-h-[600px] flex-1 flex-col sm:min-h-[640px]">
-  {/* Status bar */}
-              <div className="flex items-center justify-between px-6 pt-2.5 text-[10px] font-medium text-white/60 sm:pt-3">
-                <span>{currentTime || "9.41"}</span>
-                <div className="flex items-center gap-1">
-                  <span>5G</span>
-                  <div className="flex items-end gap-[2px]">
-                    <div className="h-1 w-[3px] rounded-sm bg-white/40" />
-                    <div className="h-1.5 w-[3px] rounded-sm bg-white/50" />
-                    <div className="h-2 w-[3px] rounded-sm bg-white/60" />
-                    <div className="h-2.5 w-[3px] rounded-sm bg-white/80" />
+              <div className="relative z-10 flex min-h-[600px] flex-1 flex-col sm:min-h-[640px]">
+                {/* Status bar */}
+                <div className="flex items-center justify-between px-6 pt-2.5 text-[10px] font-semibold text-[#171513]/70 sm:pt-3">
+                  <span>{currentTime || "9.41"}</span>
+                  <div className="flex items-center gap-1">
+                    <span>5G</span>
+                    <div className="flex items-end gap-[2px]">
+                      <div className="h-1 w-[3px] rounded-sm bg-[#171513]/40" />
+                      <div className="h-1.5 w-[3px] rounded-sm bg-[#171513]/50" />
+                      <div className="h-2 w-[3px] rounded-sm bg-[#171513]/60" />
+                      <div className="h-2.5 w-[3px] rounded-sm bg-[#171513]/80" />
+                    </div>
                   </div>
                 </div>
-              </div>
 
-              {/* Sliding container */}
-              <div className="relative flex flex-1 flex-col overflow-hidden px-5">
-                  <div className="flex flex-1 flex-col justify-center px-1 pt-4">
-                    <div className="phone-content-reveal mb-3 text-center text-[10px] font-semibold uppercase tracking-[0.16em] text-primary">
-                      rootIT
+                {/* Mobile business website */}
+                <div className="flex flex-1 flex-col px-5 pb-5 pt-5">
+                  <div className="flex items-center justify-between border-b border-[#171513]/10 pb-4">
+                    <span className="text-[11px] font-bold tracking-[0.12em] text-[#171513]">KALLIO</span>
+                    <span className="text-lg leading-none text-[#171513]" aria-label="Valikko">☰</span>
+                  </div>
+                  <div className="flex flex-1 flex-col justify-center py-8">
+                    <p className="mb-3 text-[10px] font-semibold uppercase tracking-[0.16em] text-[#2f765d]">Putkityöt Helsingissä</p>
+                    <h3 className="text-[31px] font-semibold leading-[0.98] tracking-[-0.04em] text-[#171513]">Putkityö Kallio</h3>
+                    <p className="mt-4 max-w-[210px] text-[13px] leading-relaxed text-[#171513]/70">Luotettavat putkiremontit ja huollot kotiin nopeasti.</p>
+                    <button type="button" className="mt-6 w-fit rounded-full bg-[#e66f3d] px-5 py-2.5 text-[12px] font-semibold text-[#fff8ed] shadow-[0_7px_16px_rgba(176,79,39,0.2)]">Soita</button>
+                    <div className="mt-10 border-t border-[#171513]/10 pt-5">
+                      <div className="flex items-start justify-between gap-3 text-[11px]">
+                        <span className="font-semibold text-[#171513]">Vuotokorjaukset</span>
+                        <span className="text-right text-[#171513]/60">Päivystys 24/7</span>
+                      </div>
+                      <div className="mt-3 flex items-start justify-between gap-3 text-[11px]">
+                        <span className="font-semibold text-[#171513]">Putkiremontit</span>
+                        <span className="text-right text-[#171513]/60">Koti ja yritys</span>
+                      </div>
                     </div>
-                    <div className="phone-card-breathe rounded-2xl border border-[#e8d5bd] bg-[#fffaf2] p-4 shadow-lg">
-                      <div className="flex items-center justify-between text-[8px] text-white/60">
-                        <span className="font-semibold">Selkeä sivu</span>
-                        <span className="text-primary">Palvelut</span>
-                      </div>
-                      <div className="mt-3 rounded-xl bg-primary/15 p-3">
-                        <p className="phone-content-reveal phone-content-reveal-delay text-[15px] font-semibold leading-tight text-foreground">Putkityö Kallio</p>
-                        <p className="mt-1 text-[10px] leading-relaxed text-muted-foreground">Putkiremontit ja huollot Helsingissä</p>
-                        <p className="mt-2 text-[10px] font-medium text-primary">040 123 4567 · info@putkityokallio.fi</p>
-                        <div className="phone-line-shimmer mt-3 h-1.5 w-2/3 rounded-full bg-white/20" />
-                        <div className="phone-line-shimmer phone-line-shimmer-delay mt-2 h-1.5 w-1/2 rounded-full bg-white/10" />
-                      </div>
+                    <div className="mt-8 text-[11px] leading-relaxed text-[#171513]/65">
+                      <p className="font-semibold text-[#171513]">040 123 4567</p>
+                      <p>info@putkityokallio.fi</p>
+                      <p>Helsinki · Kallio</p>
                     </div>
                   </div>
 
