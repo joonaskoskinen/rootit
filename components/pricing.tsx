@@ -1,184 +1,19 @@
 "use client"
 
-import { Button } from "@/components/ui/button"
-import { Check, ArrowRight } from "lucide-react"
-import { useInView } from "@/hooks/use-in-view"
-import { cn } from "@/lib/utils"
-import { useLanguage } from "@/lib/language-context"
+import { Check } from "lucide-react"
+import { RequestReviewButton } from "@/components/request-review-button"
 
-interface PricingPlan {
-  name: string
-  price: string
-  description: string
-  features: string[]
-  note: string
-  featured: boolean
-}
+const GROUPS = [
+  { title: "Etä-IT-tuki", plans: [
+    ["Nopea apu", "alk. 39 € + alv / korjaus", ["Yksittäinen etäkorjaus", "Sopii Wi-Fi-, tulostin-, sähköposti-, ohjelma- tai laiteongelmaan"] , "Varaa aika", false],
+    ["Etä-IT-tuki kuukausittain", "alk. 49 € + alv / kk", ["Jatkuva apu yksityishenkilölle tai pienyritykselle", "Etäapu arjen IT-ongelmiin", "Microsoft 365 -tuki", "Pienet asennukset ja käyttöönotot", "Tietoturvan perustarkistus", "Ennaltaehkäisevät vinkit"], "Aloita kuukausituki", true],
+    ["Pienyrityksen IT-kumppani", "Tarjous tilanteen mukaan", ["Säännöllisempi tuki pienyritykselle", "Käyttäjien ja laitteiden tuki", "Microsoft 365 -hallinta", "Etäkäsittely ongelmatilanteissa", "Tietoturvan perusteet", "IT-alkukartoitus"], "Pyydä tarjous", false],
+  ]},
+  { title: "Verkkosivut ja ylläpito", plans: [
+    ["Sivusto kuntoon", "alk. 29 € + alv / kk", ["Yhden sivun tai olemassa olevan sivuston selkeytys", "Sisällön, rakenteen ja mobiilikäytettävyyden parantaminen", "Sopii vanhentuneelle tai epäselvälle sivulle"], "Pyydä arvio", false],
+    ["Sivusto ja ylläpito", "alk. 59 € + alv / kk", ["Selkeä verkkosivu tai olemassa olevan sivuston kehittäminen", "Sisältöpäivitykset ja pienet muutokset", "Tekninen ylläpito", "Yhteystietojen, palvelujen ja kuvien päivitykset"], "Aloita ylläpito", true],
+    ["Kasvava sivusto", "alk. 99 € + alv / kk", ["Laajempi verkkosivukokonaisuus pienyritykselle", "Useampi sivu tai palvelu", "Sisällön ja rakenteen jatkokehitys", "Sopii asiakashankintaa tukevalle sivustolle"], "Pyydä tarjous", false],
+  ]},
+] as const
 
-function PricingCard({ plan, index }: { plan: PricingPlan; index: number }) {
-  const { ref, isInView } = useInView({ threshold: 0.1 })
-  const { t } = useLanguage()
-
-  const handleConsultationClick = () => {
-    const mockup = document.getElementById("consultation-mockup")
-    if (mockup) {
-      mockup.scrollIntoView({ behavior: "smooth", block: "center" })
-      setTimeout(() => {
-        window.dispatchEvent(new CustomEvent("openConsultationForm"))
-      }, 500)
-    }
-  }
-
-  return (
-    <article
-      ref={ref}
-      className={cn(
-        "relative flex flex-col rounded-2xl border p-5 transition-all duration-500 sm:rounded-3xl sm:p-6",
-        plan.featured
-          ? "border-primary/30 bg-gradient-to-br from-primary/10 via-accent/5 to-card shadow-xl shadow-primary/10 lg:-translate-y-2"
-          : "border-border bg-gradient-to-b from-card/90 to-card/60 shadow-lg",
-        isInView ? "translate-y-0 opacity-100" : "translate-y-6 opacity-0"
-      )}
-      style={{ transitionDelay: `${index * 100}ms` }}
-    >
-      {plan.featured && (
-        <div className="absolute -top-3 left-1/2 -translate-x-1/2 whitespace-nowrap rounded-full bg-primary px-3 py-1 text-xs font-medium text-primary-foreground sm:px-4">
-          {t("pricing.recommended")}
-        </div>
-      )}
-      
-      <div className="mb-3 inline-flex items-center self-start rounded-full border border-primary/20 bg-primary/5 px-3 py-1 text-xs font-medium uppercase tracking-wider text-primary sm:mb-4">
-        {plan.name}
-      </div>
-      
-      <div className="mb-2">
-        <span className="text-sm font-normal text-muted-foreground">{t("pricing.from")} </span>
-        <span className="font-display text-3xl font-bold tracking-tight text-accent sm:text-4xl">{plan.price}</span>
-        {plan.name === t("pricing.monthly") && (
-          <span className="text-base font-normal text-muted-foreground sm:text-lg">/kk</span>
-        )}
-      </div>
-      
-      <p className="mb-4 text-sm text-muted-foreground sm:mb-6">{plan.description}</p>
-      
-      <ul className="mb-4 flex-1 space-y-2.5 sm:mb-6 sm:space-y-3">
-        {plan.features.map((feature) => (
-          <li key={feature} className="flex items-start gap-2.5 text-sm sm:gap-3">
-            <div className="mt-0.5 flex h-5 w-5 shrink-0 items-center justify-center rounded-full bg-primary/10">
-              <Check className="h-3 w-3 text-primary" />
-            </div>
-            <span>{feature}</span>
-          </li>
-        ))}
-      </ul>
-      
-      <p className="mb-3 text-xs text-muted-foreground/80 italic sm:mb-4">{plan.note}</p>
-      
-      <Button
-        className="h-11 w-full rounded-full cursor-pointer bg-accent text-accent-foreground shadow-md hover:bg-accent/90 sm:h-auto"
-        onClick={handleConsultationClick}
-      >
-        {t("pricing.cta")}
-        <ArrowRight className="ml-2 h-4 w-4" />
-      </Button>
-    </article>
-  )
-}
-
-export function Pricing() {
-  const { ref: headerRef, isInView: headerInView } = useInView({ threshold: 0.1 })
-  const { ref: noteRef, isInView: noteInView } = useInView({ threshold: 0.1 })
-  const { t } = useLanguage()
-
-  const plans: PricingPlan[] = [
-    {
-      name: t("pricing.oneoff"),
-      price: t("pricing.oneoff.price"),
-      description: t("pricing.oneoff.desc"),
-      features: [
-        t("pricing.oneoff.f1"),
-        t("pricing.oneoff.f2"),
-        t("pricing.oneoff.f3"),
-        t("pricing.oneoff.f4"),
-        t("pricing.oneoff.f5"),
-      ],
-      note: t("pricing.oneoff.note"),
-      featured: false,
-    },
-    {
-      name: t("pricing.project"),
-      price: t("pricing.project.price"),
-      description: t("pricing.project.desc"),
-      features: [
-        t("pricing.project.f1"),
-        t("pricing.project.f2"),
-        t("pricing.project.f3"),
-        t("pricing.project.f4"),
-        t("pricing.project.f5"),
-      ],
-      note: t("pricing.project.note"),
-      featured: true,
-    },
-    {
-      name: t("pricing.monthly"),
-      price: t("pricing.monthly.price"),
-      description: t("pricing.monthly.desc"),
-      features: [
-        t("pricing.monthly.f1"),
-        t("pricing.monthly.f2"),
-        t("pricing.monthly.f3"),
-        t("pricing.monthly.f4"),
-        t("pricing.monthly.f5"),
-      ],
-      note: t("pricing.monthly.note"),
-      featured: false,
-    },
-  ]
-
-  return (
-    <section id="pricing" className="py-16 sm:py-20 lg:py-28" aria-labelledby="pricing-heading">
-      <div className="mx-auto max-w-6xl px-4 lg:px-6">
-        <div
-          ref={headerRef}
-          className={cn(
-            "mb-8 text-center transition-all duration-700 sm:mb-12",
-            headerInView ? "translate-y-0 opacity-100" : "translate-y-6 opacity-0"
-          )}
-        >
-          <h2 id="pricing-heading" className="mb-3 font-display text-2xl font-bold leading-tight tracking-tight sm:mb-4 sm:text-3xl md:text-4xl lg:text-5xl">
-            {t("pricing.title")}
-          </h2>
-          <p className="mx-auto max-w-2xl text-sm text-muted-foreground sm:text-base">
-            {t("pricing.subtitle")}
-          </p>
-        </div>
-
-        <div className="grid gap-4 sm:gap-6 md:grid-cols-3">
-          {plans.map((plan, i) => (
-            <PricingCard key={plan.name} plan={plan} index={i} />
-          ))}
-        </div>
-
-        {/* Additional notes */}
-        <div
-          ref={noteRef}
-          className={cn(
-            "mt-10 flex flex-wrap items-center justify-center gap-4 transition-all duration-700",
-            noteInView ? "translate-y-0 opacity-100" : "translate-y-6 opacity-0"
-          )}
-        >
-          <span className="rounded-full border border-border bg-card/50 px-4 py-2 text-sm text-muted-foreground">
-            {t("pricing.noCommitment")}
-          </span>
-          <span className="rounded-full border border-primary/20 bg-primary/5 px-4 py-2 text-sm text-primary">
-            {t("badge.demo")}
-          </span>
-        </div>
-        
-        <p className="mt-6 text-center text-sm text-muted-foreground">
-          {t("pricing.custom")}
-        </p>
-      </div>
-    </section>
-  )
-}
+export function Pricing() { return <section id="hinnat" className="border-t border-border py-20 sm:py-24" aria-labelledby="pricing-heading"><div className="mx-auto max-w-6xl px-5 lg:px-8"><h2 id="pricing-heading" className="text-center text-3xl font-semibold tracking-tight sm:text-4xl">Hinnoittelu</h2><p className="mx-auto mt-4 max-w-2xl text-center text-muted-foreground">Selkeät vaihtoehdot eri tilanteisiin.</p>{GROUPS.map((group) => <div key={group.title} className="mt-14"><h3 className="text-2xl font-semibold text-foreground">{group.title}</h3><div className="mt-6 grid gap-6 lg:grid-cols-3">{group.plans.map(([name, price, features, cta, featured]) => <article key={name} className={`relative flex flex-col rounded-2xl border p-6 ${featured ? "border-primary/40 bg-primary/10 shadow-lg" : "border-border bg-card"}`}>{featured && <span className="absolute -top-3 left-6 rounded-full bg-primary px-3 py-1 text-xs font-semibold text-primary-foreground">Suosituin</span>}<h4 className="text-xl font-semibold">{name}</h4><p className="mt-4 text-2xl font-semibold text-accent">{price}</p><ul className="mt-6 flex flex-1 flex-col gap-3">{features.map((feature) => <li key={feature} className="flex gap-2 text-sm text-muted-foreground"><Check className="mt-0.5 size-4 shrink-0 text-primary" />{feature}</li>)}</ul><RequestReviewButton label={cta} variant={featured ? "primary" : "outline"} className="mt-7 w-full" /></article>)}</div></div>)}<p className="mt-12 text-center text-sm text-muted-foreground">Etä-IT-tuki ja verkkosivupalvelut ovat erillisiä palveluita. Voit tilata kumpaakin tai vain toisen.</p></div></section> }

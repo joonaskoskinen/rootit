@@ -26,7 +26,7 @@ const caveat = Caveat({
 
 export const metadata: Metadata = {
   title: {
-    default: 'rootIT – selkeät verkkosivut projektillesi',
+    default: 'rootIT – Etä-IT-tukea, kun teknologia ei toimi.',
     template: '%s | rootIT',
   },
   description:

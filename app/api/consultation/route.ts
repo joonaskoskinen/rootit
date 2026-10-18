@@ -15,7 +15,7 @@ export async function POST(request: NextRequest) {
     const resend = new Resend(apiKey)
 
     const body = await request.json()
-    const { website, email, phone, description } = body
+    const { name, need, email, phone, device, description, time } = body
 
     if (!email || !description) {
       return NextResponse.json(
@@ -28,19 +28,23 @@ export async function POST(request: NextRequest) {
     await resend.emails.send({
       from: "Rootit <onboarding@resend.dev>",
       to: "koskinenjoonas@yahoo.com",
-      subject: `Uusi sivustoarviopyyntö: ${email}`,
+      subject: `Uusi yhteydenottopyyntö: ${email}`,
       html: `
-        <h2>Uusi sivustoarviopyyntö</h2>
-        <p><strong>Sivusto:</strong> ${website || "Ei annettu"}</p>
+        <h2>Uusi arvio-/yhteydenottopyyntö</h2>
+        <p><strong>Nimi:</strong> ${name || "Ei annettu"}</p>
+        <p><strong>Mitä tarvitset:</strong> ${need || "Ei annettu"}</p>
+        <p><strong>Laite:</strong> ${device || "Ei annettu"}</p>
         <p><strong>Sähköposti:</strong> ${email}</p>
         <p><strong>Puhelinnumero:</strong> ${phone || "Ei annettu"}</p>
+        <p><strong>Sopiva yhteydenottoaika:</strong> ${time || "Ei annettu"}</p>
         <h3>Kuvaus:</h3>
         <p>${description.replace(/\n/g, "<br>")}</p>
       `,
       text: `
 Uusi konsultaatiopyyntö
 
-Sivusto: ${website || "Ei annettu"}
+Mitä tarvitset: ${need || "Ei annettu"}
+Laite: ${device || "Ei annettu"}
 Sähköposti: ${email}
 Puhelinnumero: ${phone || "Ei annettu"}
 

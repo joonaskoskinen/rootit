@@ -81,10 +81,13 @@ export const PhoneMockup = forwardRef<PhoneMockupRef>(function PhoneMockup(_, re
 
     const formData = new FormData(e.currentTarget)
     const data = {
-      website: (formData.get("site") as string) || "",
+      name: (formData.get("name") as string) || "",
+      need: (formData.get("need") as string) || "",
       email: formData.get("email") as string,
       phone: formData.get("phone") as string,
+      device: (formData.get("device") as string) || "",
       description: (formData.get("description") as string) || "",
+      time: (formData.get("time") as string) || "",
     }
 
     try {
