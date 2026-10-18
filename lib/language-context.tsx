@@ -252,6 +252,14 @@ const translations = {
     "demoSection.code.title": "Systemaattinen korjaus",
     "demoSection.code.desc": "Ongelma paikannetaan ja korjataan tehokkaasti.",
 
+    // Client showcase
+    "showcase.eyebrow": "Asiakasprojekti",
+    "showcase.title": "Verkkokauppa, joka tekee tuotteista löydettäviä.",
+    "showcase.description": "Plushimo.com on esimerkki verkkokaupasta, jossa pehmeä visuaalinen ilme, selkeä rakenne ja tuoteryhmät ohjaavat kävijää kohti oikeaa tuotetta.",
+    "showcase.cta": "Katso Plushimo.com",
+    "showcase.visit": "Vieraile sivustolla",
+    "showcase.imageAlt": "Plushimo-verkkokaupan etusivu, jossa esitellään pehmoleluja",
+
     // Form
     "form.title": "Ota yhteyttä",
     "form.desc": "Kerro tarpeestasi ja palaan asiaan vuorokauden sisällä.",
@@ -522,6 +530,14 @@ const translations = {
     "demoSection.chat.desc": "You talk directly to the person doing the work. No ticket systems.",
     "demoSection.code.title": "Systematic fix",
     "demoSection.code.desc": "Problem is located and fixed efficiently.",
+
+    // Client showcase
+    "showcase.eyebrow": "Client project",
+    "showcase.title": "An online store that makes products easy to discover.",
+    "showcase.description": "Plushimo.com is an example of an online store where a soft visual identity, clear structure and product categories guide visitors toward the right product.",
+    "showcase.cta": "Visit Plushimo.com",
+    "showcase.visit": "Visit website",
+    "showcase.imageAlt": "Plushimo online store homepage showcasing plush toys",
 
     // Form
     "form.title": "Contact",
