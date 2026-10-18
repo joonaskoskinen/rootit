@@ -25,21 +25,15 @@ function Wordmark() {
         fill="currentColor"
         letterSpacing="-0.02em"
       >
-        root<tspan fontWeight="700" fill="url(#logoGradient)">IT</tspan>
+        root<tspan fontWeight="700" fill="oklch(0.72 0.16 52)">IT</tspan>
       </text>
-      <defs>
-        <linearGradient id="logoGradient" x1="0%" y1="0%" x2="100%" y2="0%">
-          <stop offset="0%" stopColor="oklch(0.76 0.13 178)" />
-          <stop offset="100%" stopColor="oklch(0.72 0.16 300)" />
-        </linearGradient>
-      </defs>
     </svg>
   )
 }
 
 const NAV = [
   { href: "/#palvelut", label: "Palvelut" },
-  { href: "/#esimerkit", label: "Ajatus" },
+  { href: "/#esimerkit", label: "Näin työskentelen" },
   { href: "/#ukk", label: "Kysymyksiä" },
 ]
 

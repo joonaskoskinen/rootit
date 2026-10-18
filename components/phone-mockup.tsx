@@ -137,18 +137,18 @@ export const PhoneMockup = forwardRef<PhoneMockupRef>(function PhoneMockup(_, re
 
             {/* Screen */}
 <div
-                className="relative flex min-h-[600px] flex-col overflow-hidden rounded-[1.7rem] bg-gradient-to-b from-[#12151e] to-[#0b0d13] text-white sm:min-h-[640px] sm:rounded-[2rem]"
+                className="relative flex min-h-[600px] flex-col overflow-hidden rounded-[1.7rem] bg-gradient-to-b from-[#fff8ed] to-[#f3e6d2] text-foreground sm:min-h-[640px] sm:rounded-[2rem]"
                 aria-label="Puhelinmockup"
               >
               {/* Dynamic Island */}
               <div className="absolute left-1/2 top-2.5 z-20 flex h-[25px] w-[94px] -translate-x-1/2 items-center justify-end rounded-full bg-black px-2 shadow-[inset_0_0_0_1px_rgba(255,255,255,0.08)] sm:top-3 sm:h-[27px] sm:w-[104px]">
                 <span className="size-2 rounded-full bg-[#11151d] shadow-[inset_0_0_3px_1px_rgba(80,100,140,0.5)]" />
               </div>
-              <video className="pointer-events-none absolute inset-0 size-full object-cover opacity-[0.16]" autoPlay muted loop playsInline aria-hidden="true">
+              <video className="pointer-events-none absolute inset-0 size-full object-cover opacity-[0.1] mix-blend-multiply" autoPlay muted loop playsInline aria-hidden="true">
 
     <source src="/phone-mockup-video.mp4" type="video/mp4" />
   </video>
-  <div className="pointer-events-none absolute inset-0 bg-[#0b0d13]/70" aria-hidden="true" />
+  <div className="pointer-events-none absolute inset-0 bg-[#fff8ed]/70" aria-hidden="true" />
   <div className="relative z-10 flex min-h-[600px] flex-1 flex-col sm:min-h-[640px]">
   {/* Status bar */}
               <div className="flex items-center justify-between px-6 pt-2.5 text-[10px] font-medium text-white/60 sm:pt-3">
@@ -170,13 +170,15 @@ export const PhoneMockup = forwardRef<PhoneMockupRef>(function PhoneMockup(_, re
                     <div className="phone-content-reveal mb-3 text-center text-[10px] font-semibold uppercase tracking-[0.16em] text-primary">
                       rootIT
                     </div>
-                    <div className="phone-card-breathe rounded-2xl border border-white/10 bg-white/[0.06] p-4 shadow-lg">
+                    <div className="phone-card-breathe rounded-2xl border border-[#e8d5bd] bg-[#fffaf2] p-4 shadow-lg">
                       <div className="flex items-center justify-between text-[8px] text-white/60">
                         <span className="font-semibold">Selkeä sivu</span>
                         <span className="text-primary">Palvelut</span>
                       </div>
                       <div className="mt-3 rounded-xl bg-primary/15 p-3">
-                        <p className="phone-content-reveal phone-content-reveal-delay text-[15px] font-semibold leading-tight">Sivu, joka tekee asioinnista helppoa.</p>
+                        <p className="phone-content-reveal phone-content-reveal-delay text-[15px] font-semibold leading-tight text-foreground">Putkityö Kallio</p>
+                        <p className="mt-1 text-[10px] leading-relaxed text-muted-foreground">Putkiremontit ja huollot Helsingissä</p>
+                        <p className="mt-2 text-[10px] font-medium text-primary">040 123 4567 · info@putkityokallio.fi</p>
                         <div className="phone-line-shimmer mt-3 h-1.5 w-2/3 rounded-full bg-white/20" />
                         <div className="phone-line-shimmer phone-line-shimmer-delay mt-2 h-1.5 w-1/2 rounded-full bg-white/10" />
                       </div>

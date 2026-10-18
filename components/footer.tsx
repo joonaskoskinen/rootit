@@ -24,14 +24,8 @@ export function Footer() {
                 fill="currentColor"
                 letterSpacing="-0.02em"
               >
-                root<tspan fontWeight="700" fill="url(#footerLogoGradient)">IT</tspan>
+                root<tspan fontWeight="700" fill="oklch(0.72 0.16 52)">IT</tspan>
               </text>
-              <defs>
-                <linearGradient id="footerLogoGradient" x1="0%" y1="0%" x2="100%" y2="0%">
-                  <stop offset="0%" stopColor="oklch(0.76 0.13 178)" />
-                  <stop offset="100%" stopColor="oklch(0.72 0.16 300)" />
-                </linearGradient>
-              </defs>
             </svg>
             <p className="mt-3 text-sm leading-relaxed text-muted-foreground">
               Teen tavallisia yrityksen ja yhdistyksen verkkosivuja selkeämmiksi, toimivammiksi ja helpommiksi käyttää.
