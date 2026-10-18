@@ -39,8 +39,8 @@ function Wordmark() {
 
 const NAV = [
   { href: "/#palvelut", label: "Palvelut" },
-  { href: "/#esimerkit", label: "Esimerkit" },
-  { href: "/#ukk", label: "UKK" },
+  { href: "/#esimerkit", label: "Ajatus" },
+  { href: "/#ukk", label: "Kysymyksiä" },
 ]
 
 export function Header() {

@@ -8,8 +8,8 @@ import { SectionHeading } from "@/components/section-heading"
 
 const FAQS = [
   {
-    q: "Mitä verkkosivut + ylläpito maksaa?",
-    a: "Verkkosivut + ylläpito maksaa 29 € + alv / kk. Lisäksi tulee kertaluonteinen aloitusmaksu alkaen 190 € + alv. Hosting sisältyy hintaan, domain on erikseen (noin 10–20 € / vuosi). Yksittäiset korjaukset alkavat 90 € + alv.",
+    q: "Mitä verkkosivut maksavat?",
+    a: "Kuukausipalvelu on 29 € + alv / kk ja aloitusmaksu alk. 190 € + alv. Yksittäiset korjaukset alkavat 90 € + alv. Kerron hinnan aina ennen työtä."
   },
   {
     q: "Voiko kuukausipalvelun lopettaa?",
@@ -20,12 +20,12 @@ const FAQS = [
     a: "Yleensä et. Useimmiten suurin hyöty tulee siitä, että nykyisen sivun viesti selkeytetään, tärkein toimintakehotus nostetaan esiin ja yhteydenotto tehdään helpommaksi. Kokonaan uudet sivut ovat vasta viimeinen vaihtoehto.",
   },
   {
-    q: "Voitteko työskennellä nykyisten sivujeni päälle?",
-    a: "Kyllä. Teemme korjaukset mielellämme olemassa olevalle sivulle, jos alusta sen sallii. Katson tilanteen arvion yhteydessä ja kerron suoraan, mikä on järkevin tapa edetä.",
+    q: "Voitko työskennellä nykyisen sivuni päälle?",
+    a: "Kyllä, jos alusta sen sallii. Katson tilanteen arvion yhteydessä ja kerron suoraan, kannattaako nykyistä sivua korjata vai tehdä uusi."
   },
   {
     q: "Kenelle tämä palvelu sopii?",
-    a: "Kaikille, jotka tarvitsevat uudet verkkosivut tai haluavat parantaa nykyisiä sivujaan. Autan selkeyttämään sisältöä, uudistamaan ilmettä ja tekemään sivustosta toimivamman niin yrityksille, yhdistyksille, asiantuntijoille kuin organisaatioillekin.",
+    a: "Yrityksille, yhdistyksille ja asiantuntijoille, jotka tarvitsevat selkeän esittelysivun tai apua nykyisen kanssa. Jos tarvitset verkkokaupan tai ison järjestelmän, tämä ei ole oikea palvelu."
   },
   {
     q: "Kauan verkkosivujen tekeminen tai korjaus kestää?",
@@ -79,7 +79,7 @@ export function FaqSection() {
           <div className="flex flex-col gap-6">
             <SectionHeading
               title="Usein kysyttyä"
-              description="Rehellisiä vastauksia yleisimpiin kysymyksiin. Jos jokin jää mietityttämään, kysy arvion yhteydessä."
+              description="Rehellisiä vastauksia yleisimpiin kysymyksiin. Jos jokin jää mietityttämään, laita viestiä."
             />
             <div className="rounded-xl border border-border bg-card p-6">
               <h3 className="font-semibold text-foreground">Etkö löytänyt vastausta?</h3>

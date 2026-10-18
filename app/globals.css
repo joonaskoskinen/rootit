@@ -7,33 +7,33 @@
   Restrained palette that feels credible for teams of every size.
 */
 :root {
-  --background: oklch(0.14 0.015 260);
-  --foreground: oklch(0.96 0.005 90);
+  --background: oklch(0.965 0.018 88);
+  --foreground: oklch(0.19 0.025 70);
 
-  --card: oklch(0.18 0.02 260);
-  --card-foreground: oklch(0.96 0.005 90);
+  --card: oklch(0.985 0.01 88);
+  --card-foreground: oklch(0.19 0.025 70);
 
-  --popover: oklch(0.18 0.02 260);
-  --popover-foreground: oklch(0.96 0.005 90);
+  --popover: oklch(0.985 0.01 88);
+  --popover-foreground: oklch(0.19 0.025 70);
 
-  --primary: oklch(0.76 0.13 178);
-  --primary-foreground: oklch(0.14 0.015 260);
+  --primary: oklch(0.42 0.09 151);
+  --primary-foreground: oklch(0.98 0.01 88);
 
-  --secondary: oklch(0.23 0.025 260);
-  --secondary-foreground: oklch(0.96 0.005 90);
+  --secondary: oklch(0.92 0.025 88);
+  --secondary-foreground: oklch(0.19 0.025 70);
 
-  --muted: oklch(0.23 0.025 260);
-  --muted-foreground: oklch(0.84 0.015 250);
+  --muted: oklch(0.92 0.025 88);
+  --muted-foreground: oklch(0.43 0.025 70);
 
-  --accent: oklch(0.78 0.12 55);
-  --accent-foreground: oklch(0.18 0.02 260);
+  --accent: oklch(0.62 0.13 54);
+  --accent-foreground: oklch(0.98 0.01 88);
 
   --destructive: oklch(0.65 0.22 15);
   --destructive-foreground: oklch(0.98 0 0);
 
-  --border: oklch(0.29 0.025 260);
-  --input: oklch(0.24 0.025 260);
-  --ring: oklch(0.76 0.13 178);
+  --border: oklch(0.84 0.035 82);
+  --input: oklch(0.89 0.025 82);
+  --ring: oklch(0.42 0.09 151);
 
   --radius: 0.7rem;
 
@@ -54,14 +54,13 @@
 }
 
 h1, h2, h3, .font-display {
-  font-family: var(--font-heading), 'Space Grotesk', system-ui, sans-serif;
+  font-family: var(--font-heading), Georgia, serif;
 }
 
 @theme inline {
-  --font-sans: var(--font-sans), 'Inter', system-ui, sans-serif;
-  --font-display: var(--font-heading), 'Space Grotesk', system-ui, sans-serif;
-  --font-heading: var(--font-heading), 'Space Grotesk', system-ui, sans-serif;
-  --font-handwriting: var(--font-handwriting), 'Caveat', cursive;
+  --font-sans: var(--font-sans), system-ui, sans-serif;
+  --font-display: var(--font-heading), Georgia, serif;
+  --font-heading: var(--font-heading), Georgia, serif;
   --font-mono: var(--font-mono), 'Geist Mono', ui-monospace, monospace;
 
   --color-background: var(--background);

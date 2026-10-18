@@ -1,36 +1,30 @@
 import type { Metadata, Viewport } from 'next'
-import { Caveat, Inter, Space_Grotesk } from 'next/font/google'
+import { Fraunces, Source_Sans_3 } from 'next/font/google'
 import { Analytics } from '@vercel/analytics/next'
 import { LanguageProvider } from '@/lib/language-context'
 import './globals.css'
 
 const BASE_URL = 'https://rootit.fi'
 
-const inter = Inter({
+const sourceSans = Source_Sans_3({
   subsets: ['latin'],
   variable: '--font-sans',
   display: 'swap',
 })
 
-const spaceGrotesk = Space_Grotesk({
+const fraunces = Fraunces({
   subsets: ['latin'],
   variable: '--font-heading',
   display: 'swap',
 })
 
-const caveat = Caveat({
-  subsets: ['latin'],
-  variable: '--font-handwriting',
-  display: 'swap',
-})
-
 export const metadata: Metadata = {
-  title: {
-    default: 'rootIT – selkeät verkkosivut projektillesi',
+    title: {
+    default: 'rootIT – verkkosivut pienille yrityksille',
     template: '%s | rootIT',
   },
-  description:
-    'rootIT suunnittelee, toteuttaa ja ylläpitää selkeitä verkkosivuja yrityksille, yhdistyksille, asiantuntijoille ja kaikille, jotka tarvitsevat uudet verkkosivut tai haluavat parantaa nykyisiä.',
+    description:
+    'Joonas tekee verkkosivuja yrityksille ja yhdistyksille etänä koko Suomeen. Suora yhteys tekijään, hinnat etukäteen.',
   generator: 'JK',
   applicationName: 'rootIT',
   keywords: [
@@ -136,7 +130,7 @@ export default function RootLayout({
           dangerouslySetInnerHTML={{ __html: JSON.stringify(structuredData) }}
         />
       </head>
-      <body className={`${inter.variable} ${spaceGrotesk.variable} ${caveat.variable} font-sans`}>
+      <body className={`${sourceSans.variable} ${fraunces.variable} font-sans`}>
         <LanguageProvider>{children}</LanguageProvider>
         <Analytics />
       </body>

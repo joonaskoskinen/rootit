@@ -7,7 +7,7 @@ import { openReviewForm } from "@/components/request-review-button"
 
 const PROBLEMS = [
   ["Ei ole heti selvää, mitä yritys tekee", "Kävijän pitäisi ymmärtää se sekunnissa.", Smartphone],
-  ["Sivusto näyttää vanhentuneelta", "Ensivaikutelma vaikuttaa luottamukseen.", Palette],
+  ["Sivusto ei tunnu omalta", "Ilme on jäänyt matkan varrelle.", Palette],
   ["Mobiilikäyttö ei toimi kunnolla", "Sivuston pitää toimia hyvin puhelimella.", Gauge],
   ["Tärkeät tiedot ovat vaikeasti löydettävissä", "Yhteystiedot ja hinnat näkyviin.", Search]
 ]
@@ -20,7 +20,7 @@ export function Problems() {
   return (
     <section id="problem" className="border-t border-border scroll-mt-20 py-16 md:py-24">
       <div className="mx-auto max-w-6xl px-5 lg:px-8">
-        <SectionHeading title="Onko verkkosivusi näissä kunnossa?" description="Valitse kohdat, jotka kuulostavat tutuilta. Näet yhteenvedon ja voit pyytää arvion niiden perusteella." />
+        <SectionHeading title="Miltä sivusi tuntuu nyt?" description="Valitse kohdat, jotka tunnistat. Katson ne läpi ja vastaan suoraan, mitä kannattaa tehdä ensin." />
         <div className="mt-10 grid gap-3 sm:grid-cols-2">
           {PROBLEMS.map(([title, desc, Icon], index) => {
             const isSelected = selected.includes(index)

@@ -34,8 +34,7 @@ export function Footer() {
               </defs>
             </svg>
             <p className="mt-3 text-sm leading-relaxed text-muted-foreground">
-              Selkeät verkkosivut yrityksille, yhdistyksille ja asiantuntijoille. Uudistan vanhat ja sekavat sivut nykyaikaisiksi,
-              selkeiksi ja helpoiksi käyttää.
+              Teen tavallisia yrityksen ja yhdistyksen verkkosivuja selkeämmiksi, toimivammiksi ja helpommiksi käyttää.
             </p>
             <p className="mt-3 text-sm text-muted-foreground">Palvelen koko Suomessa etänä.</p>
           </div>

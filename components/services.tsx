@@ -15,8 +15,8 @@ export function Services() {
       <div className="mx-auto max-w-6xl px-5 py-20 sm:py-24 lg:px-8">
         <SectionHeading
           eyebrow="Palvelut"
-          title="Valitse tarpeeseesi sopiva palvelu"
-          description="Voit tilata verkkosivut ylläpidolla tai yksittäisen korjauksen ilman kuukausimaksua."
+          title="Näin työskentelen"
+          description="Teen yrityksen tai yhdistyksen esittelysivuja. Verkkokaupat ja isot räätälöidyt järjestelmät eivät kuulu tähän palveluun."
         />
 
         {/* Featured offer: Verkkosivujen parannus */}
@@ -36,10 +36,10 @@ Verkkosivut + ylläpito
                 <span className="text-sm text-muted-foreground">kuukausihinta</span>
               </p>
               <p className="mt-3 max-w-md text-pretty text-base leading-relaxed text-muted-foreground">
-                Modernit ja selkeät verkkosivut sekä tekninen ylläpito ja pienet muutokset. Sivusto pysyy toimivana ja ajan tasalla, eikä suurta kertamaksua tarvita.
+                Teemme tekstin yhdessä, mutta sinä tunnet yrityksesi parhaiten. Minä rakennan sivut, julkaisen ne ja pidän tekniikan kunnossa.
               </p>
               <p className="mt-4 text-sm text-muted-foreground">
-                Aloitusmaksu alkaen 190 € + alv (kertaluonteinen). Ei sidottua sopimuskautta.
+                Aloitusmaksu alk. 190 € + alv. Ei sidottua kautta, irtisanomisaika 1 kk.
               </p>
               <div className="mt-auto pt-7">
                 <RequestReviewButton label="Pyydä ilmainen sivustoarvio" />
@@ -75,9 +75,8 @@ Verkkosivut + ylläpito
               Kertaluontoinen työ
             </p>
             <h3 className="mt-3 text-xl font-semibold text-foreground">Yksittäiset korjaukset</h3>
-            <p className="mt-2 text-sm leading-relaxed text-muted-foreground">
-              Tarvitsetko vain yhden muutoksen? Korjaan esimerkiksi etusivun, mobiilinäkymän,
-              yhteydenottolomakkeen tai muun yksittäisen ongelman ilman kuukausimaksua.
+              <p className="mt-2 text-sm leading-relaxed text-muted-foreground">
+              Jos yksi kohta tökkii, korjaan sen ilman kuukausimaksua. Esimerkiksi lomake, etusivu tai mobiilinäkymä.
             </p>
             <span className="mt-5 inline-flex text-sm font-medium text-primary">Alk. 90 € + alv</span>
           </div>
@@ -88,8 +87,7 @@ Verkkosivut + ylläpito
             </p>
             <h3 className="mt-3 text-xl font-semibold text-foreground">Lisätyöt</h3>
             <p className="mt-2 text-sm leading-relaxed text-muted-foreground">
-              Ylläpidän sivustoa ja teen pieniä muutoksia tarpeen mukaan: tekstipäivityksiä, kampanjasivuja
-              ja muita sovittuja parannuksia.
+              Teen sovitut sisältöpäivitykset ja muut pienet työt. Hinta sovitaan ennen tekemistä.
             </p>
             <span className="mt-5 inline-flex items-baseline gap-2 text-sm font-medium text-primary">
               60 € / h + alv
