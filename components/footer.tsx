@@ -34,26 +34,20 @@ export function Footer() {
               </defs>
             </svg>
             <p className="mt-3 text-sm leading-relaxed text-muted-foreground">
-              Selkeät verkkosivut yrityksille, yhdistyksille ja asiantuntijoille. Uudistan vanhat ja sekavat sivut nykyaikaisiksi,
-              selkeiksi ja helpoiksi käyttää.
+              Etä-IT-palvelut pienyrityksille. Yksi vastuuhenkilö, selkeä kuukausihinta ja apu silloin kun sitä tarvitaan.
             </p>
-            <p className="mt-3 text-sm text-muted-foreground">Palvelen koko Suomessa etänä.</p>
+            <p className="mt-3 text-sm text-muted-foreground">Rootit · Y-tunnus [Y-TUNNUS]</p>
           </div>
 
           <div className="flex flex-col gap-3 text-sm">
             <span className="font-medium text-foreground">Yhteys</span>
             <a
-              href="mailto:rootit.info@gmail.com"
+              href="mailto:info@rootit.fi"
               className="text-muted-foreground transition-colors hover:text-foreground"
             >
-              rootit.info@gmail.com
+              info@rootit.fi
             </a>
-            <a
-              href="https://rootit.fi"
-              className="text-muted-foreground transition-colors hover:text-foreground"
-            >
-              rootit.fi
-            </a>
+            <span className="text-muted-foreground">[PUHELINNUMERO]</span>
           </div>
         </div>
 

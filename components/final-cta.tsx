@@ -1,22 +1,9 @@
-import { RequestReviewButton } from "@/components/request-review-button"
+"use client"
 
-export function FinalCta() {
-  return (
-    <section id="yhteys" className="scroll-mt-20 border-t border-border bg-gradient-to-br from-primary/15 via-background to-accent/10">
-      <div className="mx-auto max-w-6xl px-5 py-24 sm:py-28 lg:px-8">
-        <div className="mx-auto max-w-2xl text-center">
-          <h2 className="text-balance text-3xl font-semibold tracking-tight text-foreground sm:text-4xl lg:text-5xl">
-            Katsotaan, mitä sivullasi kannattaa parantaa
-          </h2>
-          <p className="mx-auto mt-5 max-w-xl text-pretty text-base leading-relaxed text-muted-foreground sm:text-lg">
-            rootIT antaa konkreettiset huomiot sivustasi. Arvio on ilmainen eikä sido mihinkään.
-          </p>
-          <div className="mt-9 flex flex-col items-center gap-3">
-            <RequestReviewButton className="px-8 py-3.5 text-base" />
-            <p className="text-sm text-muted-foreground">tai laita viestiä: <a href="mailto:rootit.info@gmail.com" className="text-foreground underline underline-offset-4">rootit.info@gmail.com</a></p>
-          </div>
-        </div>
-      </div>
-    </section>
-  )
-}
+import { useState } from "react"
+import { Button } from "@/components/ui/button"
+import { Input } from "@/components/ui/input"
+import { Textarea } from "@/components/ui/textarea"
+import { Label } from "@/components/ui/label"
+
+export function FinalCta() { const [sent, setSent] = useState(false); const [error, setError] = useState(false); const [sending, setSending] = useState(false); async function submit(event: React.FormEvent<HTMLFormElement>) { event.preventDefault(); setSending(true); setError(false); const data = Object.fromEntries(new FormData(event.currentTarget)); try { const response = await fetch("/api/consultation", { method: "POST", headers: { "Content-Type": "application/json" }, body: JSON.stringify(data) }); if (!response.ok) throw new Error(); setSent(true) } catch { setError(true) } finally { setSending(false) } } return <section id="yhteys" className="scroll-mt-20 border-t border-border bg-gradient-to-br from-primary/15 via-background to-accent/10"><div className="mx-auto grid max-w-6xl gap-12 px-5 py-20 sm:py-24 lg:grid-cols-[0.8fr_1.2fr] lg:px-8"><div><p className="text-sm font-medium tracking-wide text-primary">Yhteys</p><h2 className="mt-3 text-balance text-3xl font-semibold tracking-tight text-foreground sm:text-4xl">Pyydä ilmainen IT-katsaus</h2><p className="mt-5 max-w-md leading-relaxed text-muted-foreground">Käydään rauhassa läpi, miten IT toimii tällä hetkellä ja missä voisimme helpottaa arkeasi.</p><div className="mt-8 flex flex-col gap-2 text-sm text-muted-foreground"><a href="mailto:info@rootit.fi" className="text-foreground underline underline-offset-4">info@rootit.fi</a><span>[PUHELINNUMERO]</span><span>Y-tunnus [Y-TUNNUS]</span></div></div>{sent ? <div className="flex min-h-64 items-center rounded-2xl border border-primary/20 bg-card p-8"><div><h3 className="text-xl font-semibold text-foreground">Kiitos viestistäsi.</h3><p className="mt-2 text-muted-foreground">Palaamme asiaan mahdollisimman pian.</p></div></div> : <form onSubmit={submit} className="grid gap-4 rounded-2xl border border-border bg-card p-6 sm:grid-cols-2 sm:p-8"><div><Label htmlFor="name">Nimi *</Label><Input id="name" name="name" required className="mt-2" /></div><div><Label htmlFor="company">Yritys *</Label><Input id="company" name="company" required className="mt-2" /></div><div><Label htmlFor="email">Sähköposti *</Label><Input id="email" name="email" type="email" required className="mt-2" /></div><div><Label htmlFor="phone">Puhelin</Label><Input id="phone" name="phone" type="tel" className="mt-2" /></div><div><Label htmlFor="companySize">Yrityksen koko</Label><select id="companySize" name="companySize" className="mt-2 flex h-9 w-full rounded-md border border-input bg-background px-3 py-1 text-sm text-foreground"><option>3–5 työntekijää</option><option>6–10 työntekijää</option><option>11–20 työntekijää</option><option>21–30 työntekijää</option></select></div><div className="sm:col-span-2"><Label htmlFor="description">Viesti</Label><Textarea id="description" name="description" required className="mt-2 min-h-28" placeholder="Kerro lyhyesti, millaista apua tarvitset." /></div>{error && <p className="text-sm text-destructive sm:col-span-2">Viestin lähetys ei onnistunut. Yritä uudelleen tai lähetä sähköpostia.</p>}<Button type="submit" disabled={sending} className="sm:col-span-2">{sending ? "Lähetetään…" : "Lähetä viesti"}</Button></form>}</div></section> }

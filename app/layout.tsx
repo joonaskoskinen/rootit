@@ -26,7 +26,7 @@ const caveat = Caveat({
 
 export const metadata: Metadata = {
   title: {
-    default: 'rootIT – selkeät verkkosivut projektillesi',
+    default: 'Rootit – Etä-IT-tuki pienyrityksille',
     template: '%s | rootIT',
   },
   description:
@@ -53,13 +53,13 @@ export const metadata: Metadata = {
     locale: 'fi_FI',
     url: '/',
     siteName: 'rootIT',
-    title: 'rootIT – selkeät verkkosivut projektillesi',
+    title: 'Rootit – Etä-IT-tuki pienyrityksille',
     description:
       'rootIT suunnittelee, uudistaa ja ylläpitää selkeitä verkkosivuja yrityksille, yhdistyksille ja asiantuntijoille. Pyydä ilmainen sivustoarvio.',
   },
   twitter: {
     card: 'summary_large_image',
-    title: 'rootIT – selkeät verkkosivut projektillesi',
+    title: 'Rootit – Etä-IT-tuki pienyrityksille',
     description:
       'rootIT suunnittelee, uudistaa ja ylläpitää selkeitä verkkosivuja yrityksille, yhdistyksille ja asiantuntijoille. Pyydä ilmainen sivustoarvio.',
   },
