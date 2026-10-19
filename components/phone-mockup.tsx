@@ -200,10 +200,10 @@ export const PhoneMockup = forwardRef<PhoneMockupRef>(function PhoneMockup(_, re
                         <CheckCircle2 className="h-7 w-7 text-primary" />
                       </div>
                       <h3 className="mb-2 text-base font-semibold text-foreground">
-                        Kiitos! Arviopyyntö vastaanotettu.
+                        Kiitos yhteydenotosta!
                       </h3>
                       <p className="mb-6 text-[13px] leading-relaxed text-muted-foreground">
-                        Käyn sivusi läpi ja palaan asiaan sähköpostitse muutaman päivän sisällä.
+                        Palaan asiaan mahdollisimman pian.
                       </p>
                       <button
                         onClick={handleBack}
