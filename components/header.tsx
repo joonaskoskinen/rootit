@@ -38,8 +38,9 @@ function Wordmark() {
 }
 
 const NAV = [
-  { href: "/#palvelut", label: "Palvelut" },
-  { href: "/#esimerkit", label: "Esimerkit" },
+  { href: "/#palvelut", label: "IT-tuki" },
+  { href: "/#hinnoittelu", label: "Hinnoittelu" },
+  { href: "/#miten-toimii", label: "Näin toimii" },
   { href: "/#ukk", label: "UKK" },
 ]
 
@@ -121,7 +122,7 @@ export function Header() {
               }}
               className="mt-2 rounded-lg bg-accent px-4 py-3 text-center text-sm font-semibold text-accent-foreground"
             >
-              Pyydä ilmainen sivustoarvio
+              Pyydä IT-apua
             </button>
           </nav>
         </div>

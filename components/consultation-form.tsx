@@ -5,188 +5,20 @@ import { Button } from "@/components/ui/button"
 import { Input } from "@/components/ui/input"
 import { Textarea } from "@/components/ui/textarea"
 import { Label } from "@/components/ui/label"
-import {
-  Dialog,
-  DialogContent,
-  DialogDescription,
-  DialogHeader,
-  DialogTitle,
-  DialogTrigger,
-} from "@/components/ui/dialog"
-import { useLanguage } from "@/lib/language-context"
+import { Dialog, DialogContent, DialogDescription, DialogHeader, DialogTitle, DialogTrigger } from "@/components/ui/dialog"
 import { ArrowRight, CheckCircle2, Loader2 } from "lucide-react"
 import { cn } from "@/lib/utils"
 
-interface ConsultationFormProps {
-  children: React.ReactNode
-  className?: string
-}
+interface ConsultationFormProps { children: React.ReactNode; className?: string }
 
 export function ConsultationForm({ children, className }: ConsultationFormProps) {
-  const { t } = useLanguage()
   const [open, setOpen] = useState(false)
   const [isSubmitting, setIsSubmitting] = useState(false)
   const [isSubmitted, setIsSubmitted] = useState(false)
   const [description, setDescription] = useState("")
   const [error, setError] = useState<string | null>(null)
-
-  useEffect(() => {
-    const handleOpenForm = (event: Event) => {
-      const problem = (event as CustomEvent<{ problem?: unknown }>).detail?.problem
-      if (typeof problem === "string") setDescription(problem)
-      setOpen(true)
-    }
-
-    window.addEventListener("openConsultationForm", handleOpenForm)
-    return () => window.removeEventListener("openConsultationForm", handleOpenForm)
-  }, [])
-
-  const handleSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
-    e.preventDefault()
-    setIsSubmitting(true)
-    setError(null)
-
-    const formData = new FormData(e.currentTarget)
-    const data = {
-      website: formData.get("website") as string,
-      email: formData.get("email") as string,
-      phone: formData.get("phone") as string,
-      description: formData.get("description") as string,
-    }
-
-    try {
-      const response = await fetch("/api/consultation", {
-        method: "POST",
-        headers: { "Content-Type": "application/json" },
-        body: JSON.stringify(data),
-      })
-
-      if (!response.ok) {
-        throw new Error("Failed to submit")
-      }
-
-      setIsSubmitted(true)
-    } catch {
-      setError(t("form.error"))
-    } finally {
-      setIsSubmitting(false)
-    }
-  }
-
-  const handleOpenChange = (newOpen: boolean) => {
-    setOpen(newOpen)
-    if (!newOpen) {
-      // Reset form state when closing
-      setTimeout(() => {
-        setIsSubmitted(false)
-        setDescription("")
-        setError(null)
-      }, 200)
-    }
-  }
-
-  return (
-    <Dialog open={open} onOpenChange={handleOpenChange}>
-      <DialogTrigger asChild>
-        <span className={className}>{children}</span>
-      </DialogTrigger>
-      <DialogContent className="sm:max-w-md">
-        {isSubmitted ? (
-          <div className="flex flex-col items-center py-8 text-center">
-            <div className="mb-4 flex h-16 w-16 items-center justify-center rounded-full bg-primary/10">
-              <CheckCircle2 className="h-8 w-8 text-primary" />
-            </div>
-            <DialogTitle className="mb-2 text-xl font-bold">
-              {t("form.success.title")}
-            </DialogTitle>
-            <DialogDescription className="text-muted-foreground">
-              {t("form.success.desc")}
-            </DialogDescription>
-            <Button
-              onClick={() => setOpen(false)}
-              className="mt-6 rounded-full"
-            >
-              {t("form.success.close")}
-            </Button>
-          </div>
-        ) : (
-          <>
-            <DialogHeader>
-              <DialogTitle className="text-xl font-bold">
-                Katsotaan yhdessä, mitä sivullasi kannattaa parantaa
-              </DialogTitle>
-              <DialogDescription>
-                Lähetä sivustosi osoite. Käyn sen läpi ja nostan esiin 2–3 konkreettista asiaa, joita parantaisin ensin.
-              </DialogDescription>
-            </DialogHeader>
-            <form onSubmit={handleSubmit} className="mt-4 space-y-4">
-              <div className="space-y-2">
-                <Label htmlFor="website">Sivustosi osoite</Label>
-                <Input id="website" name="website" type="url" placeholder="https://yrityksesi.fi" className="rounded-xl" />
-              </div>
-
-              <div className="space-y-2">
-                <Label htmlFor="email">{t("form.email")} *</Label>
-                <Input
-                  id="email"
-                  name="email"
-                  type="email"
-                  required
-                  placeholder={t("form.email.placeholder")}
-                  className="rounded-xl"
-                />
-              </div>
-              
-              <div className="space-y-2">
-                <Label htmlFor="phone">{t("form.phone")}</Label>
-                <Input
-                  id="phone"
-                  name="phone"
-                  type="tel"
-                  placeholder={t("form.phone.placeholder")}
-                  className="rounded-xl"
-                />
-              </div>
-              
-              <div className="space-y-2">
-                <Label htmlFor="description">{t("form.description")}</Label>
-                <Textarea
-                  id="description"
-                  name="description"
-                  value={description}
-                  onChange={(event: React.ChangeEvent<HTMLTextAreaElement>) => setDescription(event.target.value)}
-                  placeholder={t("form.description.placeholder")}
-                  className="min-h-24 resize-none rounded-xl"
-                />
-              </div>
-              
-              {error && (
-                <p className="text-sm text-destructive">{error}</p>
-              )}
-
-              <Button
-                type="submit"
-                disabled={isSubmitting}
-                className={cn(
-                  "w-full rounded-full bg-primary text-primary-foreground shadow-md hover:bg-primary/90"
-                )}
-              >
-                {isSubmitting ? (
-                  <>
-                    <Loader2 className="mr-2 h-4 w-4 animate-spin" />
-                    {t("form.submitting")}
-                  </>
-                ) : (
-                  <>
-                    {t("form.submit")}
-                    <ArrowRight className="ml-2 h-4 w-4" />
-                  </>
-                )}
-              </Button>
-            </form>
-          </>
-        )}
-      </DialogContent>
-    </Dialog>
-  )
+  useEffect(() => { const handleOpenForm = (event: Event) => { const problem = (event as CustomEvent<{ problem?: unknown }>).detail?.problem; if (typeof problem === "string") setDescription(problem); setOpen(true) }; window.addEventListener("openConsultationForm", handleOpenForm); return () => window.removeEventListener("openConsultationForm", handleOpenForm) }, [])
+  const handleSubmit = async (event: React.FormEvent<HTMLFormElement>) => { event.preventDefault(); setIsSubmitting(true); setError(null); const formData = new FormData(event.currentTarget); const data = { name: formData.get("name") as string, company: formData.get("company") as string, email: formData.get("email") as string, category: formData.get("category") as string, description: formData.get("description") as string }; try { const response = await fetch("/api/consultation", { method: "POST", headers: { "Content-Type": "application/json" }, body: JSON.stringify(data) }); if (!response.ok) throw new Error("Failed to submit"); setIsSubmitted(true) } catch { setError("Jokin meni pieleen. Yritä uudelleen tai lähetä sähköpostia suoraan.") } finally { setIsSubmitting(false) } }
+  const handleOpenChange = (newOpen: boolean) => { setOpen(newOpen); if (!newOpen) setTimeout(() => { setIsSubmitted(false); setDescription(""); setError(null) }, 200) }
+  return <Dialog open={open} onOpenChange={handleOpenChange}><DialogTrigger asChild><span className={className}>{children}</span></DialogTrigger><DialogContent className="sm:max-w-md">{isSubmitted ? <div className="flex flex-col items-center py-8 text-center"><div className="mb-4 flex h-16 w-16 items-center justify-center rounded-full bg-primary/10"><CheckCircle2 className="h-8 w-8 text-primary" /></div><DialogTitle className="mb-2 text-xl font-bold">Kiitos yhteydenotosta!</DialogTitle><DialogDescription>Palaan asiaan mahdollisimman pian.</DialogDescription><Button onClick={() => setOpen(false)} className="mt-6 rounded-full">Sulje</Button></div> : <><DialogHeader><DialogTitle className="text-xl font-bold">Pyydä IT-apua</DialogTitle><DialogDescription>Kerro lyhyesti ongelmasta. Yhteydenotto ei sido tilaamaan palvelua.</DialogDescription></DialogHeader><form onSubmit={handleSubmit} className="mt-4 space-y-4"><div className="space-y-2"><Label htmlFor="name">Nimi *</Label><Input id="name" name="name" required placeholder="Nimesi" className="rounded-xl" /></div><div className="space-y-2"><Label htmlFor="company">Yritys (valinnainen)</Label><Input id="company" name="company" placeholder="Yrityksen nimi" className="rounded-xl" /></div><div className="space-y-2"><Label htmlFor="email">Sähköposti *</Label><Input id="email" name="email" type="email" required placeholder="sinun@email.fi" className="rounded-xl" /></div><div className="space-y-2"><Label htmlFor="category">Mihin tarvitset apua?</Label><select id="category" name="category" defaultValue="" className="flex h-10 w-full rounded-xl border border-input bg-background px-3 py-2 text-sm"><option value="" disabled>Valitse aihe</option><option>Tietokone tai Windows</option><option>Sähköposti tai Outlook</option><option>Microsoft 365 tai Teams</option><option>Käyttäjätunnukset tai käyttöoikeudet</option><option>Yritysohjelma</option><option>Muu IT-ongelma</option></select></div><div className="space-y-2"><Label htmlFor="description">Kuvaile ongelmaa *</Label><Textarea id="description" name="description" required value={description} onChange={(event) => setDescription(event.target.value)} placeholder="Kerro lyhyesti, mitä tapahtuu." className="min-h-24 resize-none rounded-xl" /></div>{error && <p className="text-sm text-destructive">{error}</p>}<Button type="submit" disabled={isSubmitting} className={cn("w-full rounded-full bg-primary text-primary-foreground shadow-md hover:bg-primary/90")}>{isSubmitting ? <><Loader2 className="mr-2 h-4 w-4 animate-spin" />Lähetetään...</> : <>Lähetä tukipyyntö<ArrowRight className="ml-2 h-4 w-4" /></>}</Button><p className="text-center text-xs text-muted-foreground">Maksullisesta työstä ja hinnasta sovitaan etukäteen.</p></form></>}</DialogContent></Dialog>
 }
