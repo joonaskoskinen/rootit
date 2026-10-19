@@ -26,11 +26,11 @@ const caveat = Caveat({
 
 export const metadata: Metadata = {
   title: {
-    default: 'rootIT – selkeät verkkosivut projektillesi',
+    default: 'Edullinen IT-tuki pienyrityksille | Rootit',
     template: '%s | rootIT',
   },
   description:
-    'rootIT suunnittelee, toteuttaa ja ylläpitää selkeitä verkkosivuja yrityksille, yhdistyksille, asiantuntijoille ja kaikille, jotka tarvitsevat uudet verkkosivut tai haluavat parantaa nykyisiä.',
+    'Helposti lähestyttävää IT-apua pienyrityksille. Apua Microsoft 365:n, sähköpostin, tietokoneiden ja arjen IT-ongelmien kanssa. Selkeä hinnoittelu.',
   generator: 'JK',
   applicationName: 'rootIT',
   keywords: [
@@ -38,7 +38,7 @@ export const metadata: Metadata = {
     'yrityksen verkkosivut',
     'sivuston konversio',
     'verkkosivujen selkeytys',
-    'sivustoarvio',
+    'IT-tuki pienyrityksille',
     'CTA-rakenne',
     'mobiilikäytettävyys',
     'kampaamon verkkosivut',
@@ -53,15 +53,15 @@ export const metadata: Metadata = {
     locale: 'fi_FI',
     url: '/',
     siteName: 'rootIT',
-    title: 'rootIT – selkeät verkkosivut projektillesi',
+    title: 'Edullinen IT-tuki pienyrityksille | Rootit',
     description:
-      'rootIT suunnittelee, uudistaa ja ylläpitää selkeitä verkkosivuja yrityksille, yhdistyksille ja asiantuntijoille. Pyydä ilmainen sivustoarvio.',
+      'Helposti lähestyttävää IT-apua pienyrityksille. Apua Microsoft 365:n, sähköpostin, tietokoneiden ja arjen IT-ongelmien kanssa. Selkeä hinnoittelu.',
   },
   twitter: {
     card: 'summary_large_image',
-    title: 'rootIT – selkeät verkkosivut projektillesi',
+    title: 'Edullinen IT-tuki pienyrityksille | Rootit',
     description:
-      'rootIT suunnittelee, uudistaa ja ylläpitää selkeitä verkkosivuja yrityksille, yhdistyksille ja asiantuntijoille. Pyydä ilmainen sivustoarvio.',
+      'Helposti lähestyttävää IT-apua pienyrityksille. Apua Microsoft 365:n, sähköpostin, tietokoneiden ja arjen IT-ongelmien kanssa. Selkeä hinnoittelu.',
   },
   robots: {
     index: true,
@@ -103,11 +103,11 @@ const structuredData = {
       areaServed: { '@type': 'Country', name: 'Finland' },
       priceRange: '€€',
       serviceType: [
-        'Verkkosivujen suunnittelu',
+        'IT-tuki pienyrityksille',
+        'Microsoft 365 -apu',
+        'Sähköposti- ja Outlook-apu',
+        'Windows-tuki',
         'Verkkosivujen toteutus',
-        'Verkkosivujen uudistus',
-        'Verkkosivujen ylläpito',
-        'Sivustoarvio',
       ],
       knowsLanguage: ['fi'],
     },
@@ -116,7 +116,7 @@ const structuredData = {
       '@id': `${BASE_URL}/#website`,
       url: BASE_URL,
       name: 'Rootit',
-      description: 'Selkeät verkkosivut projektillesi',
+      description: 'Selkeää IT-apua pienyrityksille ilman turhaa IT-sopimusta.',
       publisher: { '@id': `${BASE_URL}/#organization` },
       inLanguage: 'fi',
     },

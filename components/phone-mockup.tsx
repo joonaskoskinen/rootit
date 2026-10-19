@@ -81,9 +81,10 @@ export const PhoneMockup = forwardRef<PhoneMockupRef>(function PhoneMockup(_, re
 
     const formData = new FormData(e.currentTarget)
     const data = {
-      website: (formData.get("site") as string) || "",
+      name: "Puhelinmockupin tukipyyntö",
+      company: "",
       email: formData.get("email") as string,
-      phone: formData.get("phone") as string,
+      category: formData.get("category") as string,
       description: (formData.get("description") as string) || "",
     }
 
@@ -172,11 +173,11 @@ export const PhoneMockup = forwardRef<PhoneMockupRef>(function PhoneMockup(_, re
                     </div>
                     <div className="phone-card-breathe rounded-2xl border border-white/10 bg-white/[0.06] p-4 shadow-lg">
                       <div className="flex items-center justify-between text-[8px] text-white/60">
-                        <span className="font-semibold">Selkeä sivu</span>
-                        <span className="text-primary">Palvelut</span>
+                        <span className="font-semibold">rootIT tuki</span>
+                        <span className="text-primary">IT-apu</span>
                       </div>
                       <div className="mt-3 rounded-xl bg-primary/15 p-3">
-                        <p className="phone-content-reveal phone-content-reveal-delay text-[15px] font-semibold leading-tight">Sivu, joka tekee asioinnista helppoa.</p>
+                        <p className="phone-content-reveal phone-content-reveal-delay text-[15px] font-semibold leading-tight">Hei! Miten voin auttaa?</p>
                         <div className="phone-line-shimmer mt-3 h-1.5 w-2/3 rounded-full bg-white/20" />
                         <div className="phone-line-shimmer phone-line-shimmer-delay mt-2 h-1.5 w-1/2 rounded-full bg-white/10" />
                       </div>
@@ -222,7 +223,7 @@ export const PhoneMockup = forwardRef<PhoneMockupRef>(function PhoneMockup(_, re
                           <ArrowLeft className="h-4 w-4 text-foreground" />
                         </button>
                         <h3 className="text-sm font-semibold text-foreground">
-                          Pyydä ilmainen sivustoarvio
+                          Pyydä IT-apua
                         </h3>
                       </div>
 
@@ -232,17 +233,8 @@ export const PhoneMockup = forwardRef<PhoneMockupRef>(function PhoneMockup(_, re
                       >
                         <div className="space-y-2">
                           <div className="space-y-1">
-                            <label htmlFor="phone-site" className="text-[11px] font-medium text-muted-foreground">
-                              Sivustosi osoite
-                            </label>
-                            <input
-                              id="phone-site"
-                              name="site"
-                              type="text"
-                              inputMode="url"
-                              placeholder="esim. yritys.fi"
-                              className="w-full rounded-lg border border-border bg-background px-2.5 py-1.5 text-[12px] text-foreground placeholder:text-muted-foreground/60 focus:border-primary focus:outline-none focus:ring-1 focus:ring-primary"
-                            />
+                            <label htmlFor="phone-category" className="text-[11px] font-medium text-muted-foreground">Mihin tarvitset apua?</label>
+                            <select id="phone-category" name="category" defaultValue="Muu IT-ongelma" className="w-full rounded-lg border border-border bg-background px-2.5 py-1.5 text-[12px] text-foreground focus:border-primary focus:outline-none focus:ring-1 focus:ring-primary"><option>Tietokone tai Windows</option><option>Sähköposti tai Outlook</option><option>Microsoft 365 tai Teams</option><option>Käyttäjätunnukset tai käyttöoikeudet</option><option>Muu IT-ongelma</option></select>
                           </div>
                           <div className="space-y-1">
                             <label htmlFor="phone-email" className="text-[11px] font-medium text-muted-foreground">
@@ -275,7 +267,7 @@ export const PhoneMockup = forwardRef<PhoneMockupRef>(function PhoneMockup(_, re
                           </div>
                           <div className="space-y-1">
                             <label htmlFor="phone-desc" className="text-[11px] font-medium text-muted-foreground">
-                              Mikä sivustossasi tuntuu tällä hetkellä suurimmalta ongelmalta? (valinnainen)
+                              Kuvaile lyhyesti ongelmaa *
                             </label>
           <textarea
             id="phone-desc"
@@ -305,7 +297,7 @@ export const PhoneMockup = forwardRef<PhoneMockupRef>(function PhoneMockup(_, re
                             </>
                           ) : (
                             <>
-                              Lähetä sivustoarvio
+                              Lähetä tukipyyntö
                               <ArrowRight className="h-4 w-4" />
                             </>
                           )}

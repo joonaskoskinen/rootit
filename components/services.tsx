@@ -1,103 +1,14 @@
-import { Check, Clock3, Globe2, LogOut } from "lucide-react"
+import { Check } from "lucide-react"
 import { SectionHeading } from "@/components/section-heading"
 import { RequestReviewButton } from "@/components/request-review-button"
 
-const FIX_ITEMS = [
-  "Moderni ja selkeä toteutus",
-  "Tekninen ylläpito",
-  "Pienet sisältömuutokset (30 min / kk)",
-  "Hosting sisältyy",
-]
+const SUPPORT = ["Windowsin ja tietokoneen tavalliset ongelmat", "Outlookin, sähköpostin ja Teamsin käyttö", "Tulostimet ja muut tavalliset oheislaitteet", "Yleisten yritysohjelmien käyttöön liittyvä neuvonta"]
+const M365 = ["Käyttäjätunnukset ja käyttöoikeudet", "Outlook, Teams ja OneDrive", "Uuden työntekijän perustason käyttöönotto", "Käyttäjien ja asetusten selvittäminen sovitussa laajuudessa"]
+
+function ServiceCard({ title, description, items }: { title: string; description: string; items: string[] }) {
+  return <article className="rounded-xl border border-border bg-card p-7 sm:p-8"><h3 className="text-2xl font-semibold tracking-tight text-foreground">{title}</h3><p className="mt-3 text-sm leading-relaxed text-muted-foreground">{description}</p><ul className="mt-6 flex flex-col gap-3">{items.map((item) => <li key={item} className="flex items-start gap-3 text-sm text-foreground"><Check className="mt-0.5 size-4 shrink-0 text-primary" />{item}</li>)}</ul></article>
+}
 
 export function Services() {
-  return (
-    <section id="palvelut" className="border-t border-border scroll-mt-20">
-      <div className="mx-auto max-w-6xl px-5 py-20 sm:py-24 lg:px-8">
-        <SectionHeading
-          eyebrow="Palvelut"
-          title="Valitse tarpeeseesi sopiva palvelu"
-          description="Voit tilata verkkosivut ylläpidolla tai yksittäisen korjauksen ilman kuukausimaksua."
-        />
-
-        {/* Featured offer: Verkkosivujen parannus */}
-        <div className="mt-14 overflow-hidden rounded-xl border border-primary/25 bg-card">
-          <div className="grid items-stretch lg:grid-cols-[1fr_1fr]">
-            <div className="flex flex-col border-b border-border p-8 sm:p-10 lg:border-b-0 lg:border-r">
-              <div className="flex items-center gap-3">
-                <span className="rounded-full bg-primary px-3 py-1 text-xs font-semibold text-primary-foreground">Pääpalvelu</span>
-              </div>
-              <h3 className="mt-5 text-2xl font-semibold tracking-tight text-foreground sm:text-3xl">
-Verkkosivut + ylläpito
-              </h3>
-              <p className="mt-3 flex items-baseline gap-2">
-                <span className="text-3xl font-semibold tracking-tight text-accent sm:text-4xl">
-                  29 € + alv / kk
-                </span>
-                <span className="text-sm text-muted-foreground">kuukausihinta</span>
-              </p>
-              <p className="mt-3 max-w-md text-pretty text-base leading-relaxed text-muted-foreground">
-                Modernit ja selkeät verkkosivut sekä tekninen ylläpito ja pienet muutokset. Sivusto pysyy toimivana ja ajan tasalla, eikä suurta kertamaksua tarvita.
-              </p>
-              <p className="mt-4 text-sm text-muted-foreground">
-                Aloitusmaksu alkaen 190 € + alv (kertaluonteinen). Ei sidottua sopimuskautta.
-              </p>
-              <div className="mt-auto pt-7">
-                <RequestReviewButton label="Pyydä ilmainen sivustoarvio" />
-              </div>
-            </div>
-
-            <div className="bg-secondary/40 p-8 sm:p-10">
-              <p className="text-sm font-medium text-foreground">Sisältää:</p>
-              <ul className="mt-4 flex flex-col gap-3">
-                {FIX_ITEMS.map((item) => (
-                  <li key={item} className="flex items-start gap-3 text-sm text-foreground">
-                    <Check className="mt-0.5 h-4 w-4 shrink-0 text-primary" />
-                    <span>{item}</span>
-                  </li>
-                ))}
-              </ul>
-            </div>
-            <div className="col-span-full grid border-t border-border sm:grid-cols-3">
-              {[[Clock3, "30 min muutoksia / kk"], [Globe2, "Hosting sisältyy, domain erikseen"], [LogOut, "Irtisanomisaika 1 kk"]].map(([Icon, label]) => (
-                <div key={label as string} className="flex items-center gap-3 border-b border-border px-8 py-4 text-sm text-muted-foreground last:border-b-0 sm:border-b-0 sm:border-r sm:last:border-r-0 sm:px-10">
-                  <Icon className="size-4 shrink-0 text-primary" aria-hidden="true" />
-                  <span>{label as string}</span>
-                </div>
-              ))}
-            </div>
-          </div>
-        </div>
-
-        {/* Secondary offers */}
-        <div className="mt-6 grid gap-6 md:grid-cols-2">
-          <div className="rounded-xl border border-border bg-card p-8">
-            <p className="text-xs font-semibold uppercase tracking-[0.14em] text-muted-foreground">
-              Kertaluontoinen työ
-            </p>
-            <h3 className="mt-3 text-xl font-semibold text-foreground">Yksittäiset korjaukset</h3>
-            <p className="mt-2 text-sm leading-relaxed text-muted-foreground">
-              Tarvitsetko vain yhden muutoksen? Korjaan esimerkiksi etusivun, mobiilinäkymän,
-              yhteydenottolomakkeen tai muun yksittäisen ongelman ilman kuukausimaksua.
-            </p>
-            <span className="mt-5 inline-flex text-sm font-medium text-primary">Alk. 90 € + alv</span>
-          </div>
-
-          <div className="rounded-xl border border-border bg-card p-8">
-            <p className="text-xs font-semibold uppercase tracking-[0.14em] text-muted-foreground">
-              Kuukausipalvelun lisänä
-            </p>
-            <h3 className="mt-3 text-xl font-semibold text-foreground">Lisätyöt</h3>
-            <p className="mt-2 text-sm leading-relaxed text-muted-foreground">
-              Ylläpidän sivustoa ja teen pieniä muutoksia tarpeen mukaan: tekstipäivityksiä, kampanjasivuja
-              ja muita sovittuja parannuksia.
-            </p>
-            <span className="mt-5 inline-flex items-baseline gap-2 text-sm font-medium text-primary">
-              60 € / h + alv
-              <span className="text-xs font-normal text-muted-foreground">laskutus 30 min tarkkuudella</span>
-            </span>
-          </div>
-        </div>
-      </div>
-    </section>
-  )
+  return <section id="palvelut" className="border-t border-border scroll-mt-20"><div className="mx-auto max-w-6xl px-5 py-20 sm:py-24 lg:px-8"><SectionHeading eyebrow="IT-tuki" title="Käytännön apua, kun tekniikka tökkii" description="Selkeää IT-apua pienyrityksille. Tiedät aina, mistä maksat." /><div className="mt-12 grid gap-6 lg:grid-cols-2"><ServiceCard title="Arjen IT-tuki" description="Kun sähköposti ei toimi, tietokone temppuilee tai ohjelman käyttö takkuaa, autan selvittämään ongelman etänä." items={SUPPORT} /><ServiceCard title="Microsoft 365" description="Autan yrityksesi Microsoft 365 -ympäristön tavallisissa käyttöön ja hallintaan liittyvissä asioissa." items={M365} /></div><div className="mt-6 rounded-xl border border-primary/25 bg-card p-7 sm:p-8"><p className="text-xs font-semibold uppercase tracking-[0.14em] text-primary">Ilman omaa IT-henkilöä</p><h3 className="mt-3 text-2xl font-semibold tracking-tight text-foreground">Matala kynnys pyytää apua</h3><p className="mt-3 max-w-2xl text-sm leading-relaxed text-muted-foreground">Kaikki pienyritykset eivät tarvitse omaa IT-asiantuntijaa. Voit pyytää apua yhteen ongelmaan ja saat selkeän hinnan tai arvion ennen maksullisen työn aloittamista. Monimutkaiset infrastruktuuriprojektit ja erikoistunut tietoturvatyö sovitaan erikseen tai ohjataan tarvittaessa toiselle asiantuntijalle.</p></div><div id="hinnoittelu" className="mt-16 scroll-mt-20"><SectionHeading eyebrow="Hinnoittelu" title="Yksinkertainen ja ennakoitava" description="Nämä ovat ehdotetut aloitushinnat. Lopullinen sisältö ja laajuus sovitaan aina ennen työn aloittamista." /><div className="mt-10 grid gap-6 md:grid-cols-2"><div className="rounded-xl border border-primary/25 bg-card p-7 sm:p-8"><p className="text-sm font-medium text-primary">Kun tarvitset apua</p><p className="mt-3 text-3xl font-semibold text-foreground">15 € <span className="text-base font-normal text-muted-foreground">/ 15 min + alv</span></p><p className="mt-3 text-sm leading-relaxed text-muted-foreground">Pieniin, selkeästi rajattuihin etätukitehtäviin. Kerron arvioidun hinnan ennen maksullisen työn aloittamista.</p><RequestReviewButton label="Pyydä IT-apua" className="mt-6" /></div><div className="rounded-xl border border-border bg-card p-7 sm:p-8"><p className="text-sm font-medium text-primary">Jatkuva perustason tuki</p><p className="mt-3 text-3xl font-semibold text-foreground">Alkaen 29 € <span className="text-base font-normal text-muted-foreground">/ kk + alv</span></p><p className="mt-3 text-sm leading-relaxed text-muted-foreground">Kevyt yhteydenottokanava ja perustason ohjaus. Sisältö, laajuus ja mahdollinen kuukausisopimus määritellään yhdessä — ei oletusta rajattomasta tuesta.</p></div></div><p className="mt-5 text-sm text-muted-foreground">Ei tarpeettomia pitkäaikaisia sopimuksia. Ei työtä sovitun laajuuden yli ilman hyväksyntääsi.</p></div><div className="mt-16 rounded-xl border border-border bg-secondary/30 p-7 sm:p-8"><p className="text-xs font-semibold uppercase tracking-[0.14em] text-muted-foreground">Myös verkkosivut</p><h3 className="mt-3 text-xl font-semibold text-foreground">Tarvitsetko myös verkkosivut?</h3><p className="mt-2 max-w-2xl text-sm leading-relaxed text-muted-foreground">Rootit auttaa myös selkeiden verkkosivujen toteutuksessa pienyrityksille. Verkkosivuprojektit sovitaan erikseen asiakkaan tarpeiden mukaan.</p></div></div></section>
 }

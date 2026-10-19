@@ -24,7 +24,7 @@ type Props = {
 }
 
 export function RequestReviewButton({
-  label = "Pyydä ilmainen sivustoarvio",
+  label = "Pyydä IT-apua",
   variant = "primary",
   className,
   withArrow = true,
