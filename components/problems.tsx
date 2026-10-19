@@ -6,10 +6,10 @@ import { SectionHeading } from "@/components/section-heading"
 import { openReviewForm } from "@/components/request-review-button"
 
 const PROBLEMS = [
-  ["Ei ole heti selvää, mitä yritys tekee", "Kävijän pitäisi ymmärtää se sekunnissa.", Smartphone],
+  ["Palvelusi eivät avaudu heti", "Kävijän pitäisi ymmärtää nopeasti, mitä tarjoat.", Smartphone],
   ["Sivusto näyttää vanhentuneelta", "Ensivaikutelma vaikuttaa luottamukseen.", Palette],
   ["Mobiilikäyttö ei toimi kunnolla", "Sivuston pitää toimia hyvin puhelimella.", Gauge],
-  ["Tärkeät tiedot ovat vaikeasti löydettävissä", "Yhteystiedot ja hinnat näkyviin.", Search]
+  ["Yhteydenotto ei ole tarpeeksi helppo", "Tarjouspyynnön tai kysymyksen pitäisi lähteä vaivattomasti.", Search]
 ]
 
 export function Problems() {
@@ -20,7 +20,7 @@ export function Problems() {
   return (
     <section id="problem" className="border-t border-border scroll-mt-20 py-16 md:py-24">
       <div className="mx-auto max-w-6xl px-5 lg:px-8">
-        <SectionHeading title="Onko verkkosivusi näissä kunnossa?" description="Valitse kohdat, jotka kuulostavat tutuilta. Näet yhteenvedon ja voit pyytää arvion niiden perusteella." />
+        <SectionHeading title="Tuntuuko jokin näistä tutulta?" description="Hyvä verkkosivu tekee palvelusi ymmärrettäväksi ja seuraavasta askeleesta helpon." />
         <div className="mt-10 grid gap-3 sm:grid-cols-2">
           {PROBLEMS.map(([title, desc, Icon], index) => {
             const isSelected = selected.includes(index)

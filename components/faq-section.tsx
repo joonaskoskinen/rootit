@@ -12,6 +12,10 @@ const FAQS = [
     a: "Verkkosivut + ylläpito maksaa 29 € + alv / kk. Lisäksi tulee kertaluonteinen aloitusmaksu alkaen 190 € + alv. Hosting sisältyy hintaan, domain on erikseen (noin 10–20 € / vuosi). Yksittäiset korjaukset alkavat 90 € + alv.",
   },
   {
+    q: "Voiko sivuille lisätä tarjouspyyntölomakkeen?",
+    a: "Kyllä, jos se sopii sivuston tarpeeseen. Suunnittelemme lomakkeeseen vain olennaiset kysymykset, jotta asiakkaan on helppo ottaa yhteyttä ja saat riittävät tiedot vastaamista varten.",
+  },
+  {
     q: "Voiko kuukausipalvelun lopettaa?",
     a: "Kyllä. Irtisanomisaika on 1 kuukausi, ei sidottua sopimuskautta. Irtisanominen onnistuu sähköpostilla. Sivusto ja sisältö kuuluvat sinulle, ja luovutan ne pyydettäessä.",
   },

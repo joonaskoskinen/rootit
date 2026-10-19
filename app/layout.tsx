@@ -26,11 +26,11 @@ const caveat = Caveat({
 
 export const metadata: Metadata = {
   title: {
-    default: 'rootIT – selkeät verkkosivut projektillesi',
+    default: 'rootIT – selkeät verkkosivut ja tarjouspyynnöt pienyrityksille',
     template: '%s | rootIT',
   },
   description:
-    'rootIT suunnittelee, toteuttaa ja ylläpitää selkeitä verkkosivuja yrityksille, yhdistyksille, asiantuntijoille ja kaikille, jotka tarvitsevat uudet verkkosivut tai haluavat parantaa nykyisiä.',
+    'rootIT rakentaa pienyrityksille selkeitä verkkosivuja, tarjouspyyntölomakkeita ja käytännöllisiä yhteydenottoratkaisuja. Verkkosivujen uudistus ja ylläpito ilman turhaa säätöä.',
   generator: 'JK',
   applicationName: 'rootIT',
   keywords: [

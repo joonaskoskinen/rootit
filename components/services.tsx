@@ -15,8 +15,8 @@ export function Services() {
       <div className="mx-auto max-w-6xl px-5 py-20 sm:py-24 lg:px-8">
         <SectionHeading
           eyebrow="Palvelut"
-          title="Valitse tarpeeseesi sopiva palvelu"
-          description="Voit tilata verkkosivut ylläpidolla tai yksittäisen korjauksen ilman kuukausimaksua."
+          title="Verkkosivut, yhteydenotot ja ylläpito"
+          description="Rakennamme selkeän kokonaisuuden, joka auttaa asiakkaitasi ymmärtämään palvelusi ja ottamaan yhteyttä."
         />
 
         {/* Featured offer: Verkkosivujen parannus */}
@@ -36,7 +36,7 @@ Verkkosivut + ylläpito
                 <span className="text-sm text-muted-foreground">kuukausihinta</span>
               </p>
               <p className="mt-3 max-w-md text-pretty text-base leading-relaxed text-muted-foreground">
-                Modernit ja selkeät verkkosivut sekä tekninen ylläpito ja pienet muutokset. Sivusto pysyy toimivana ja ajan tasalla, eikä suurta kertamaksua tarvita.
+                Selkeät verkkosivut, tekninen ylläpito ja pienet muutokset samassa palvelussa. Tarvittaessa sivuille voidaan toteuttaa myös yrityksellesi sopiva tarjouspyyntö- tai yhteydenottolomake.
               </p>
               <p className="mt-4 text-sm text-muted-foreground">
                 Aloitusmaksu alkaen 190 € + alv (kertaluonteinen). Ei sidottua sopimuskautta.
@@ -88,8 +88,8 @@ Verkkosivut + ylläpito
             </p>
             <h3 className="mt-3 text-xl font-semibold text-foreground">Lisätyöt</h3>
             <p className="mt-2 text-sm leading-relaxed text-muted-foreground">
-              Ylläpidän sivustoa ja teen pieniä muutoksia tarpeen mukaan: tekstipäivityksiä, kampanjasivuja
-              ja muita sovittuja parannuksia.
+              Ylläpidän sivustoa ja teen pieniä muutoksia tarpeen mukaan. Tarjouspyyntöihin liittyviä ilmoituksia,
+              vahvistusviestejä tai muita työnkulun parannuksia voidaan sopia erillisenä lisätyönä.
             </p>
             <span className="mt-5 inline-flex items-baseline gap-2 text-sm font-medium text-primary">
               60 € / h + alv

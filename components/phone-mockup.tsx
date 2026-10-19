@@ -199,10 +199,10 @@ export const PhoneMockup = forwardRef<PhoneMockupRef>(function PhoneMockup(_, re
                         <CheckCircle2 className="h-7 w-7 text-primary" />
                       </div>
                       <h3 className="mb-2 text-base font-semibold text-foreground">
-                        Kiitos! Arviopyyntö vastaanotettu.
+                        Kiitos! Yhteydenottosi vastaanotettu.
                       </h3>
                       <p className="mb-6 text-[13px] leading-relaxed text-muted-foreground">
-                        Käyn sivusi läpi ja palaan asiaan sähköpostitse muutaman päivän sisällä.
+                        Palaan asiaan sähköpostitse mahdollisimman pian.
                       </p>
                       <button
                         onClick={handleBack}
@@ -222,7 +222,7 @@ export const PhoneMockup = forwardRef<PhoneMockupRef>(function PhoneMockup(_, re
                           <ArrowLeft className="h-4 w-4 text-foreground" />
                         </button>
                         <h3 className="text-sm font-semibold text-foreground">
-                          Pyydä ilmainen sivustoarvio
+                          Kerro projektistasi
                         </h3>
                       </div>
 
@@ -233,7 +233,7 @@ export const PhoneMockup = forwardRef<PhoneMockupRef>(function PhoneMockup(_, re
                         <div className="space-y-2">
                           <div className="space-y-1">
                             <label htmlFor="phone-site" className="text-[11px] font-medium text-muted-foreground">
-                              Sivustosi osoite
+                              Yritys tai verkkosivu
                             </label>
                             <input
                               id="phone-site"
@@ -275,7 +275,7 @@ export const PhoneMockup = forwardRef<PhoneMockupRef>(function PhoneMockup(_, re
                           </div>
                           <div className="space-y-1">
                             <label htmlFor="phone-desc" className="text-[11px] font-medium text-muted-foreground">
-                              Mikä sivustossasi tuntuu tällä hetkellä suurimmalta ongelmalta? (valinnainen)
+                              Mitä tarvitset? (esim. verkkosivut tai tarjouspyyntölomake)
                             </label>
           <textarea
             id="phone-desc"
@@ -283,7 +283,7 @@ export const PhoneMockup = forwardRef<PhoneMockupRef>(function PhoneMockup(_, re
             rows={2}
             value={description}
             onChange={(event) => setDescription(event.target.value)}
-            placeholder="Kerro lyhyesti, mikä sivustossa kaipaa mielestäsi parannusta."
+            placeholder="Kerro lyhyesti palvelustasi tai tarpeestasi."
             className="w-full resize-none rounded-lg border border-border bg-background px-3 py-2.5 text-[15px] text-foreground placeholder:text-muted-foreground/60 focus:border-primary focus:outline-none focus:ring-1 focus:ring-primary"
           />
                           </div>
@@ -305,7 +305,7 @@ export const PhoneMockup = forwardRef<PhoneMockupRef>(function PhoneMockup(_, re
                             </>
                           ) : (
                             <>
-                              Lähetä sivustoarvio
+                              Pyydä tarjous
                               <ArrowRight className="h-4 w-4" />
                             </>
                           )}
