@@ -99,7 +99,7 @@ const structuredData = {
       description:
         'Rootit tarjoaa selkeää ja helposti lähestyttävää IT-apua pienyrityksille ja yrittäjille ilman kallista IT-sopimusta.',
       url: BASE_URL,
-      email: 'mailto:rootit.info@gmail.com',
+      email: 'mailto:joonas@rootit.fi',
       areaServed: { '@type': 'Country', name: 'Finland' },
       priceRange: '€€',
       serviceType: [
