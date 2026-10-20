@@ -38,8 +38,8 @@ export default function TietosuojaPage() {
             Rootit
             <br />
             Sähköposti:{" "}
-            <a href="mailto:rootit.info@gmail.com" className="text-primary hover:underline">
-              rootit.info@gmail.com
+            <a href="mailto:joonas@rootit.fi" className="text-primary hover:underline">
+              joonas@rootit.fi
             </a>
             <br />
             Verkkosivu: rootit.fi
@@ -142,8 +142,8 @@ export default function TietosuojaPage() {
           </ul>
           <p className="mt-3">
             Voit käyttää oikeuksiasi ottamalla yhteyttä osoitteeseen{" "}
-            <a href="mailto:rootit.info@gmail.com" className="text-primary hover:underline">
-              rootit.info@gmail.com
+            <a href="mailto:joonas@rootit.fi" className="text-primary hover:underline">
+              joonas@rootit.fi
             </a>
             . Jos katsot, että tietojasi käsitellään lainvastaisesti, voit tehdä valituksen
             tietosuojavaltuutetun toimistolle (tietosuoja.fi).
